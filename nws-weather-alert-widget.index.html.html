@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Live Weather Alerts | Amateur Weather Watching</title>
+  <meta name="description" content="Live National Weather Service alerts for Central Kentucky and Upstate South Carolina.">
+  <style>
+    :root {
+      --ink: #102239;
+      --muted: #5b6878;
+      --line: #d7e1ea;
+      --panel: #ffffff;
+      --canvas: #eef4f8;
+      --navy: #173d64;
+      --blue: #1772b8;
+      --ok: #187553;
+      --ok-bg: #e9f7f1;
+      --error: #9f2525;
+      --error-bg: #fff0f0;
+      --shadow: 0 12px 32px rgba(16, 34, 57, .10);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; min-height: 100%; }
+
+    body {
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 6% 0%, rgba(81, 170, 225, .18), transparent 28rem),
+        linear-gradient(180deg, #f8fbfd 0%, var(--canvas) 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.45;
+      padding: 12px;
+    }
+
+    button, a { font: inherit; }
+
+    .widget {
+      width: min(100%, 1120px);
+      margin: 0 auto;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid rgba(23, 61, 100, .14);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 68px;
+      padding: 12px 16px;
+      color: white;
+      background: linear-gradient(120deg, #102f4f 0%, #175b8e 70%, #1476a7 100%);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+    }
+
+    .brand-mark svg { width: 23px; height: 23px; }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.15rem, 3vw, 1.4rem);
+      line-height: 1.15;
+      letter-spacing: -.01em;
+    }
+
+    .subhead {
+      margin-top: 3px;
+      color: #dcecf7;
+      font-size: .8rem;
+    }
+
+    .refresh {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      flex: 0 0 auto;
+      min-height: 38px;
+      padding: 7px 11px;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, .32);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .10);
+      cursor: pointer;
+    }
+
+    .refresh:hover { background: rgba(255, 255, 255, .18); }
+    .refresh:focus-visible, a:focus-visible { outline: 3px solid #ffd970; outline-offset: 2px; }
+    .refresh:disabled { cursor: wait; opacity: .72; }
+    .refresh svg { width: 16px; height: 16px; }
+    .refresh.is-loading svg { animation: spin .85s linear infinite; }
+
+    .content { padding: 12px; }
+
+    .regions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .region {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--panel);
+    }
+
+    .region-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      background: #f5f9fc;
+    }
+
+    .region-title {
+      margin: 0;
+      font-size: .98rem;
+      line-height: 1.25;
+    }
+
+    .region-place {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: .75rem;
+    }
+
+    .count {
+      flex: 0 0 auto;
+      padding: 3px 8px;
+      color: #31516f;
+      border: 1px solid #cad9e5;
+      border-radius: 999px;
+      background: #fff;
+      font-size: .72rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .alerts {
+      max-height: 360px;
+      overflow-y: auto;
+      scrollbar-color: #abc1d2 transparent;
+    }
+
+    .loading,
+    .empty,
+    .error-state {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 86px;
+      padding: 14px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .empty { color: var(--ok); background: var(--ok-bg); }
+    .error-state { color: var(--error); background: var(--error-bg); }
+
+    .status-icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .72);
+      font-weight: 800;
+    }
+
+    .alert {
+      --severity: #5f6c78;
+      --severity-bg: #f3f5f7;
+      position: relative;
+      padding: 12px 12px 12px 16px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(90deg, var(--severity-bg), #fff 36%);
+    }
+
+    .alert:last-child { border-bottom: 0; }
+    .alert::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: var(--severity);
+    }
+
+    .severity-extreme { --severity: #9e1515; --severity-bg: #ffebeb; }
+    .severity-severe { --severity: #d3471e; --severity-bg: #fff0e9; }
+    .severity-moderate { --severity: #b86f00; --severity-bg: #fff6dc; }
+    .severity-minor { --severity: #216ca6; --severity-bg: #edf6fc; }
+
+    .alert-line {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .event {
+      margin: 0;
+      font-size: .93rem;
+      line-height: 1.3;
+    }
+
+    .severity-badge {
+      flex: 0 0 auto;
+      padding: 2px 7px;
+      color: var(--severity);
+      border: 1px solid color-mix(in srgb, var(--severity) 38%, white);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .76);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .headline {
+      margin: 5px 0 0;
+      color: #304459;
+      font-size: .8rem;
+      line-height: 1.4;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px 10px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .73rem;
+    }
+
+    .detail-link {
+      color: var(--navy);
+      font-weight: 750;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 5px 12px;
+      padding: 10px 2px 0;
+      color: var(--muted);
+      font-size: .72rem;
+    }
+
+    .source a { color: var(--navy); }
+    .stale { color: #96610d; font-weight: 700; }
+
+    .spinner {
+      width: 22px;
+      height: 22px;
+      border: 3px solid #c5d6e3;
+      border-top-color: var(--blue);
+      border-radius: 50%;
+      animation: spin .85s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 650px) {
+      body { padding: 8px; }
+      .regions { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; }
+      .refresh .refresh-label { display: none; }
+      .refresh { padding-inline: 10px; }
+      .alerts { max-height: 310px; }
+    }
+
+    @media (max-width: 400px) {
+      .topbar { padding: 11px 12px; }
+      .brand-mark { display: none; }
+      .subhead { font-size: .72rem; }
+      .content { padding: 8px; }
+      .alert-line { display: block; }
+      .severity-badge { display: inline-block; margin-top: 6px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="widget" aria-labelledby="widget-title">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6.5 17.5h10.1a3.4 3.4 0 0 0 .4-6.8 5.4 5.4 0 0 0-10.3-1.4A4.1 4.1 0 0 0 6.5 17.5Z"/>
+            <path d="M8 20h7M10.5 22h2"/>
+          </svg>
+        </span>
+        <div>
+          <h1 id="widget-title">Live Weather Alerts</h1>
+          <div class="subhead">Central Kentucky · Upstate South Carolina</div>
+        </div>
+      </div>
+      <button class="refresh" id="refresh-button" type="button" aria-label="Refresh weather alerts">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 6v5h-5"/><path d="M4 18v-5h5"/><path d="M6.1 9A7 7 0 0 1 18 6l2 5M4 13l2 5a7 7 0 0 0 11.9-3"/>
+        </svg>
+        <span class="refresh-label">Refresh</span>
+      </button>
+    </header>
+
+    <div class="content">
+      <div class="regions" id="regions" aria-live="polite" aria-busy="true"></div>
+      <footer class="footer">
+        <span class="source">Official alerts from the <a href="https://www.weather.gov/" target="_blank" rel="noopener noreferrer">National Weather Service</a>. Follow local authorities in an emergency.</span>
+        <span id="update-status">Loading live alerts…</span>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const REFRESH_MS = 5 * 60 * 1000;
+      const MIN_REFRESH_MS = 30 * 1000;
+      const REQUEST_TIMEOUT_MS = 15000;
+      const API_ROOT = "https://api.weather.gov/alerts/active?point=";
+      const regions = [
+        { id: "ky", name: "Central Kentucky", place: "Danville area", point: "37.6456,-84.7722" },
+        { id: "sc", name: "Upstate South Carolina", place: "Clemson / Central area", point: "34.6834,-82.8374" }
+      ];
+
+      const severityRank = { Extreme: 4, Severe: 3, Moderate: 2, Minor: 1, Unknown: 0 };
+      const urgencyRank = { Immediate: 4, Expected: 3, Future: 2, Past: 1, Unknown: 0 };
+      const cache = new Map();
+      let isLoading = false;
+      let lastRequestAt = 0;
+
+      const regionsEl = document.getElementById("regions");
+      const refreshButton = document.getElementById("refresh-button");
+      const updateStatus = document.getElementById("update-status");
+
+      function el(tag, className, text) {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        if (text !== undefined) node.textContent = text;
+        return node;
+      }
+
+      function formatTime(value) {
+        if (!value) return "Time not listed";
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return "Time not listed";
+        return new Intl.DateTimeFormat(undefined, {
+          month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short"
+        }).format(date);
+      }
+
+      function safeSeverity(value) {
+        return Object.prototype.hasOwnProperty.call(severityRank, value) ? value : "Unknown";
+      }
+
+      function alertLink(feature) {
+        const url = feature?.properties?.["@id"] || feature?.id;
+        return typeof url === "string" && url.startsWith("https://api.weather.gov/alerts/") ? url : "";
+      }
+
+      function renderShell() {
+        regionsEl.replaceChildren(...regions.map(region => {
+          const section = el("section", "region");
+          section.setAttribute("aria-labelledby", `${region.id}-title`);
+
+          const head = el("div", "region-head");
+          const headingWrap = el("div");
+          const title = el("h2", "region-title", region.name);
+          title.id = `${region.id}-title`;
+          headingWrap.append(title, el("p", "region-place", region.place));
+          const count = el("span", "count", "Checking…");
+          count.id = `${region.id}-count`;
+          head.append(headingWrap, count);
+
+          const list = el("div", "alerts");
+          list.id = `${region.id}-alerts`;
+          list.append(el("div", "loading"));
+          list.firstChild.append(el("span", "spinner"), el("span", "", "Checking the NWS feed…"));
+          section.append(head, list);
+          return section;
+        }));
+      }
+
+      function renderRegion(region, features, isStale = false) {
+        const list = document.getElementById(`${region.id}-alerts`);
+        const count = document.getElementById(`${region.id}-count`);
+        list.replaceChildren();
+
+        const alerts = features
+          .filter(feature => feature && feature.properties)
+          .sort((a, b) => {
+            const severity = (severityRank[safeSeverity(b.properties.severity)] || 0) - (severityRank[safeSeverity(a.properties.severity)] || 0);
+            if (severity) return severity;
+            const urgency = (urgencyRank[b.properties.urgency] || 0) - (urgencyRank[a.properties.urgency] || 0);
+            if (urgency) return urgency;
+            return new Date(a.properties.ends || Infinity) - new Date(b.properties.ends || Infinity);
+          });
+
+        count.textContent = `${alerts.length} active`;
+
+        if (!alerts.length) {
+          const empty = el("div", "empty");
+          empty.append(el("span", "status-icon", "✓"), el("span", "", "No active alerts"));
+          list.append(empty);
+          return;
+        }
+
+        for (const feature of alerts) {
+          const p = feature.properties;
+          const severity = safeSeverity(p.severity);
+          const article = el("article", `alert severity-${severity.toLowerCase()}`);
+          const line = el("div", "alert-line");
+          line.append(el("h3", "event", p.event || "Weather alert"), el("span", "severity-badge", severity));
+          article.append(line);
+
+          const headline = p.headline || p.parameters?.NWSheadline?.[0];
+          if (headline && headline !== p.event) article.append(el("p", "headline", headline));
+
+          const meta = el("div", "meta");
+          const expires = el("span", "", `${p.ends || p.expires ? "Until" : "Issued"} ${formatTime(p.ends || p.expires || p.sent)}`);
+          meta.append(expires);
+
+          if (isStale) meta.append(el("span", "stale", "Last available update"));
+
+          const link = alertLink(feature);
+          if (link) {
+            const anchor = el("a", "detail-link", "Full NWS details ↗");
+            anchor.href = link;
+            anchor.target = "_blank";
+            anchor.rel = "noopener noreferrer";
+            anchor.setAttribute("aria-label", `Full NWS details for ${p.event || "weather alert"} (opens in a new tab)`);
+            meta.append(anchor);
+          }
+          article.append(meta);
+          list.append(article);
+        }
+      }
+
+      function renderError(region) {
+        const list = document.getElementById(`${region.id}-alerts`);
+        const count = document.getElementById(`${region.id}-count`);
+        const cached = cache.get(region.id);
+        if (cached) {
+          renderRegion(region, cached, true);
+          count.textContent += " · stale";
+          return;
+        }
+        count.textContent = "Unavailable";
+        list.replaceChildren();
+        const error = el("div", "error-state");
+        error.append(el("span", "status-icon", "!"), el("span", "", "The NWS feed is temporarily unavailable. Try refreshing shortly."));
+        list.append(error);
+      }
+
+      async function fetchRegion(region) {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+        try {
+          const response = await fetch(`${API_ROOT}${encodeURIComponent(region.point)}`, {
+            headers: { Accept: "application/geo+json" },
+            cache: "no-store",
+            signal: controller.signal
+          });
+          if (!response.ok) throw new Error(`NWS response ${response.status}`);
+          const data = await response.json();
+          if (!Array.isArray(data.features)) throw new Error("Unexpected NWS response");
+          cache.set(region.id, data.features);
+          renderRegion(region, data.features);
+          return true;
+        } catch (error) {
+          console.warn(`Unable to update ${region.name}:`, error);
+          renderError(region);
+          return false;
+        } finally {
+          clearTimeout(timeout);
+        }
+      }
+
+      async function refresh() {
+        if (isLoading) return;
+        if (lastRequestAt && Date.now() - lastRequestAt < MIN_REFRESH_MS) {
+          updateStatus.textContent = "Already up to date · refreshes every 5 min";
+          return;
+        }
+        isLoading = true;
+        lastRequestAt = Date.now();
+        refreshButton.disabled = true;
+        refreshButton.classList.add("is-loading");
+        regionsEl.setAttribute("aria-busy", "true");
+        updateStatus.textContent = "Updating…";
+
+        const results = await Promise.all(regions.map(fetchRegion));
+        const now = new Intl.DateTimeFormat(undefined, { hour: "numeric", minute: "2-digit", timeZoneName: "short" }).format(new Date());
+        updateStatus.textContent = results.every(Boolean) ? `Updated ${now} · refreshes every 5 min` : `Update incomplete at ${now} · will retry`;
+        regionsEl.setAttribute("aria-busy", "false");
+        refreshButton.disabled = false;
+        refreshButton.classList.remove("is-loading");
+        isLoading = false;
+      }
+
+      renderShell();
+      refreshButton.addEventListener("click", refresh);
+      refresh();
+      setInterval(refresh, REFRESH_MS);
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) refresh();
+      });
+    })();
+  </script>
+</body>
+</html>
