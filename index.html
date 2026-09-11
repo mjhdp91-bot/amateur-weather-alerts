@@ -356,10 +356,10 @@
       const REFRESH_MS = 5 * 60 * 1000;
       const MIN_REFRESH_MS = 30 * 1000;
       const REQUEST_TIMEOUT_MS = 15000;
-      const API_ROOT = "https://api.weather.gov/alerts/active?point=";
+      const API_ROOT = "https://api.weather.gov/alerts/active?zone=";
       const regions = [
-        { id: "ky", name: "Central Kentucky", place: "Danville area", point: "37.6456,-84.7722" },
-        { id: "sc", name: "Upstate South Carolina", place: "Clemson / Central area", point: "34.6834,-82.8374" }
+        { id: "ky", name: "Central Kentucky", place: "17-county Bluegrass region", zones: ["KYC005", "KYC017", "KYC021", "KYC049", "KYC065", "KYC067", "KYC073", "KYC079", "KYC097", "KYC113", "KYC137", "KYC151", "KYC167", "KYC181", "KYC197", "KYC209", "KYC239"] },
+        { id: "sc", name: "Upstate South Carolina", place: "11-county Upstate region", zones: ["SCC001", "SCC007", "SCC021", "SCC045", "SCC047", "SCC059", "SCC065", "SCC073", "SCC077", "SCC083", "SCC087"] }
       ];
 
       const severityRank = { Extreme: 4, Severe: 3, Moderate: 2, Minor: 1, Unknown: 0 };
@@ -495,7 +495,7 @@
         const controller = new AbortController();
         const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
         try {
-          const response = await fetch(`${API_ROOT}${encodeURIComponent(region.point)}`, {
+          const response = await fetch(`${API_ROOT}${encodeURIComponent(region.zones.join(","))}`, {
             headers: { Accept: "application/geo+json" },
             cache: "no-store",
             signal: controller.signal
