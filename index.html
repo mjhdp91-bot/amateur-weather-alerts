@@ -262,6 +262,42 @@
       font-size: .73rem;
     }
 
+    .alert-details {
+      margin-top: 9px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+    }
+
+    .alert-details summary {
+      width: fit-content;
+      color: var(--navy);
+      cursor: pointer;
+      font-weight: 750;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .alert-details[open] summary { margin-bottom: 8px; }
+
+    .detail-body {
+      display: grid;
+      gap: 8px;
+      color: #304459;
+      font-size: .78rem;
+    }
+
+    .detail-body p {
+      margin: 0;
+      white-space: pre-line;
+    }
+
+    .official-alert-link {
+      width: fit-content;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
     .detail-link {
       color: var(--navy);
       font-weight: 750;
@@ -461,16 +497,33 @@
 
           if (isStale) meta.append(el("span", "stale", "Last available update"));
 
+          const details = el("details", "alert-details");
+          const summary = el("summary", "detail-link", "View alert details");
+          const detailBody = el("div", "detail-body");
+          const detailRows = [
+            ["Affected areas", p.areaDesc],
+            ["Description", p.description || headline],
+            ["Safety information", p.instruction]
+          ];
+
+          for (const [label, value] of detailRows) {
+            if (typeof value !== "string" || !value.trim()) continue;
+            const row = el("p");
+            row.append(el("strong", "", `${label}: `), document.createTextNode(value.trim()));
+            detailBody.append(row);
+          }
+
           const link = alertLink(feature);
           if (link) {
-            const anchor = el("a", "detail-link", "Full NWS details ↗");
+            const anchor = el("a", "official-alert-link", "Open official NWS alert record ↗");
             anchor.href = link;
             anchor.target = "_blank";
             anchor.rel = "noopener noreferrer";
-            anchor.setAttribute("aria-label", `Full NWS details for ${p.event || "weather alert"} (opens in a new tab)`);
-            meta.append(anchor);
+            anchor.setAttribute("aria-label", `Open official NWS alert record for ${p.event || "weather alert"} in a new tab`);
+            detailBody.append(anchor);
           }
-          article.append(meta);
+          details.append(summary, detailBody);
+          article.append(meta, details);
           list.append(article);
         }
       }
