@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "policy": {
+    "immutableIssuedForecasts": true,
+    "checkpointsHours": [24, 48, 72],
+    "centralKentuckyStations": ["KDVK", "KLEX"],
+    "upstateStations": ["KCEU", "KLQK"],
+    "upstateTempestExcluded": true,
+    "metrics": ["high temperature", "low temperature", "precipitation", "thunder", "maximum wind", "timing/lead-time"]
+  },
+  "issues": [
+    {
+      "forecastId": "20260924T1205Z",
+      "issuedAt": "2026-09-24T08:05:00-04:00",
+      "validThrough": "2026-09-27T08:05:00-04:00",
+      "sourceFile": "forecast.json",
+      "lockedOriginal": true,
+      "centralKentucky": {
+        "days": [
+          { "date": "2026-09-24", "highF": "71–74", "lowF": "45–48", "precipitation": "5–10% after 9 AM" },
+          { "date": "2026-09-25", "highF": "72–75", "lowF": "46–50", "precipitation": "5% or less" },
+          { "date": "2026-09-26", "highF": "73–76", "lowF": "48–52", "precipitation": "5% or less" }
+        ]
+      },
+      "upstateSouthCarolina": {
+        "days": [
+          { "date": "2026-09-24", "highF": "68–71", "lowF": "52–55", "precipitation": "55–65% through early afternoon; under 10% tonight" },
+          { "date": "2026-09-25", "highF": "75–78", "lowF": "49–53", "precipitation": "5% or less" },
+          { "date": "2026-09-26", "highF": "79–82", "lowF": "52–56", "precipitation": "5% or less" }
+        ]
+      },
+      "verification": {
+        "24h": { "due": "2026-09-25T08:05:00-04:00", "status": "pending" },
+        "48h": { "due": "2026-09-26T08:05:00-04:00", "status": "pending" },
+        "72h": { "due": "2026-09-27T08:05:00-04:00", "status": "pending" }
+      }
+    }
+  ]
+}
