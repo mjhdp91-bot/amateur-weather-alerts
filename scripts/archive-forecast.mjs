@@ -55,6 +55,12 @@ function checkpointMap(forecast) {
   );
 }
 
+function comparableForecast(forecast) {
+  const copy = structuredClone(forecast);
+  delete copy.refresh;
+  return copy;
+}
+
 function archiveRecord(forecast) {
   return {
     forecastId: forecast.forecastId,
@@ -102,7 +108,10 @@ if (existingIndex >= 0) {
 
   if (
     existing.originalForecast &&
-    !isDeepStrictEqual(existing.originalForecast, previous)
+    !isDeepStrictEqual(
+      comparableForecast(existing.originalForecast),
+      comparableForecast(previous),
+    )
   ) {
     throw new Error(
       `Archive ${previous.forecastId} already has a different locked original`,
@@ -113,7 +122,7 @@ if (existingIndex >= 0) {
     ...generatedRecord,
     ...existing,
     lockedOriginal: true,
-    originalForecast: previous,
+    originalForecast: existing.originalForecast ?? previous,
   };
 } else {
   history.issues.push(generatedRecord);
