@@ -9,7 +9,7 @@
   "refresh": {
     "seconds": 300,
     "cachePolicy": "no-store",
-    "workflow": "Update forecast.json once, append the unchanged prior issue to forecast-history.json, commit both files, then verify the GitHub Pages URL. Every Google Sites embed reads the same file and refreshes automatically."
+    "workflow": "Update and commit forecast.json once. GitHub Actions automatically locks the prior issue in forecast-history.json. Then verify the GitHub Pages URL; every Google Sites embed reads the same file and refreshes automatically."
   },
   "regions": {
     "kentucky": {
