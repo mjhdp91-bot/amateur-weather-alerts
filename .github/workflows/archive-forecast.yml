@@ -1,0 +1,54 @@
+name: Archive issued forecast
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - forecast.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: archive-issued-forecast
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the forecast repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Recover the forecast that was replaced
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          before_ref="$BEFORE_SHA"
+          if [[ -z "$before_ref" || "$before_ref" =~ ^0+$ ]]; then
+            before_ref="$(git rev-parse HEAD^)"
+          fi
+          git show "${before_ref}:forecast.json" > "$RUNNER_TEMP/previous-forecast.json"
+
+      - name: Add the prior issue to the permanent archive
+        run: |
+          node scripts/archive-forecast.mjs \
+            "$RUNNER_TEMP/previous-forecast.json" \
+            forecast.json \
+            forecast-history.json
+
+      - name: Commit the updated archive
+        run: |
+          if git diff --quiet -- forecast-history.json; then
+            echo "Archive already current; nothing to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add forecast-history.json
+          git commit -m "Archive previous 72-hour forecast"
+          git push
