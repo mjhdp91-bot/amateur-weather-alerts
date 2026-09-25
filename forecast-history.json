@@ -2,37 +2,422 @@
   "schemaVersion": 1,
   "policy": {
     "immutableIssuedForecasts": true,
-    "checkpointsHours": [24, 48, 72],
-    "centralKentuckyStations": ["KDVK", "KLEX"],
-    "upstateStations": ["KCEU", "KLQK"],
+    "checkpointsHours": [
+      24,
+      48,
+      72
+    ],
+    "centralKentuckyStations": [
+      "KDVK",
+      "KLEX"
+    ],
+    "upstateStations": [
+      "KCEU",
+      "KLQK"
+    ],
     "upstateTempestExcluded": true,
-    "metrics": ["high temperature", "low temperature", "precipitation", "thunder", "maximum wind", "timing/lead-time"]
+    "metrics": [
+      "high temperature",
+      "low temperature",
+      "precipitation",
+      "thunder",
+      "maximum wind",
+      "timing/lead-time"
+    ]
   },
   "issues": [
     {
       "forecastId": "20260924T1205Z",
       "issuedAt": "2026-09-24T08:05:00-04:00",
       "validThrough": "2026-09-27T08:05:00-04:00",
+      "headline": "Cool northeast flow gives way to a dry, brighter Friday and Saturday",
       "sourceFile": "forecast.json",
       "lockedOriginal": true,
+      "originalForecast": {
+        "schemaVersion": 1,
+        "forecastId": "20260924T1205Z",
+        "issuedAt": "2026-09-24T08:05:00-04:00",
+        "validThrough": "2026-09-27T08:05:00-04:00",
+        "timezone": "America/New_York",
+        "headline": "Cool northeast flow gives way to a dry, brighter Friday and Saturday",
+        "disclaimer": "Independent amateur analysis. This is not an official forecast or warning. Follow the National Weather Service and local authorities during hazardous weather.",
+        "refresh": {
+          "seconds": 300,
+          "cachePolicy": "no-store",
+          "workflow": "Update forecast.json once, append the unchanged prior issue to forecast-history.json, commit both files, then verify the GitHub Pages URL. Every Google Sites embed reads the same file and refreshes automatically."
+        },
+        "regions": {
+          "kentucky": {
+            "name": "Central Kentucky",
+            "subtitle": "Danville primary · Lexington comparison",
+            "theme": "blue",
+            "summary": "Low clouds and a little early drizzle lift today. Dry high pressure then controls Friday and Saturday, with cool nights in the 40s and afternoon highs in the lower to middle 70s.",
+            "currentConditions": [
+              {
+                "site": "Danville–Boyle County Airport (KDVK)",
+                "observedAt": "2026-09-24T07:35:00-04:00",
+                "temperatureF": 63,
+                "dewpointF": 61,
+                "wind": "ENE 5 kt",
+                "condition": "Overcast at 700 ft",
+                "precipitation": "No reliable hourly amount reported",
+                "sourceUrl": "https://api.weather.gov/stations/KDVK/observations/latest"
+              },
+              {
+                "site": "Lexington Blue Grass Airport (KLEX)",
+                "observedAt": "2026-09-24T07:40:00-04:00",
+                "temperatureF": 63,
+                "dewpointF": 59,
+                "wind": "ENE 9 kt",
+                "condition": "Cloudy",
+                "precipitation": "No measurable hourly amount reported",
+                "sourceUrl": "https://api.weather.gov/stations/KLEX/observations/latest"
+              },
+              {
+                "site": "Kentucky Mesonet — Boyle County (DANV)",
+                "observedAt": "2026-09-24T08:00:00-04:00",
+                "temperatureF": 63.9,
+                "dewpointF": 62.5,
+                "wind": "NE 7.9 mph; 11.5 mph max",
+                "condition": "95% relative humidity",
+                "precipitation": "0.006 in current reporting period",
+                "sourceUrl": "https://www.kymesonet.org/data/station/DANV"
+              }
+            ],
+            "days": [
+              {
+                "date": "2026-09-24",
+                "label": "Thursday",
+                "highF": "71–74",
+                "lowF": "45–48",
+                "precipitation": "5–10% after 9 AM",
+                "hazard": "Low ceilings and patchy drizzle early; no severe-weather signal",
+                "forecast": "Clouds should lift and thin from late morning into the afternoon. Danville and Lexington remain dry after an isolated early sprinkle or drizzle patch. East to northeast wind 5–10 mph. Clearing tonight allows a sharp drop into the middle to upper 40s."
+              },
+              {
+                "date": "2026-09-25",
+                "label": "Friday",
+                "highF": "72–75",
+                "lowF": "46–50",
+                "precipitation": "5% or less",
+                "hazard": "None expected",
+                "forecast": "Sunny, dry and pleasantly cool. Northeast wind generally 4–8 mph. Rural valleys may briefly run a few degrees colder around sunrise and again Friday night."
+              },
+              {
+                "date": "2026-09-26",
+                "label": "Saturday",
+                "highF": "73–76",
+                "lowF": "48–52",
+                "precipitation": "5% or less",
+                "hazard": "None expected",
+                "forecast": "Mostly sunny with a few passing clouds and continued low humidity. Light northeast wind. No organized precipitation is expected through the end of the 72-hour period."
+              }
+            ],
+            "bottomLine": "A dry, stable pattern is the high-confidence outcome. The main forecast details are how quickly today’s low cloud deck breaks and whether sheltered locations reach the mid-40s tonight.",
+            "confidence": "High",
+            "verificationStations": [
+              "KDVK",
+              "KLEX"
+            ],
+            "radarLinks": [
+              {
+                "label": "NWS KLVX radar",
+                "url": "https://radar.weather.gov/station/KLVX/standard"
+              },
+              {
+                "label": "NWS KJKL radar",
+                "url": "https://radar.weather.gov/station/KJKL/standard"
+              }
+            ]
+          },
+          "upstate": {
+            "name": "Upstate South Carolina",
+            "subtitle": "Clemson / Central primary · Tempest excluded",
+            "theme": "teal",
+            "summary": "Rain, drizzle and a gusty northeast breeze taper from west to east today. Friday and Saturday turn dry and much brighter, with afternoon temperatures recovering from around 70 today to near 80 Saturday.",
+            "currentConditions": [
+              {
+                "site": "Oconee County Regional Airport (KCEU)",
+                "observedAt": "2026-09-24T07:35:00-04:00",
+                "temperatureF": 59,
+                "dewpointF": 57,
+                "wind": "NNE 6 kt",
+                "condition": "Light rain",
+                "precipitation": "Current official observation did not provide a reliable hourly amount",
+                "sourceUrl": "https://api.weather.gov/stations/KCEU/observations/latest"
+              },
+              {
+                "site": "Pickens County Airport (KLQK)",
+                "observedAt": "2026-09-24T07:35:00-04:00",
+                "temperatureF": 58,
+                "dewpointF": 56,
+                "wind": "NE 6 kt",
+                "condition": "Light drizzle",
+                "precipitation": "0.07 in during the previous hour",
+                "sourceUrl": "https://api.weather.gov/stations/KLQK/observations/latest"
+              },
+              {
+                "site": "Clemson Weather Network",
+                "observedAt": "2026-09-24T08:05:00-04:00",
+                "condition": "Direct machine-readable retrieval was unavailable; official KCEU and KLQK observations used instead",
+                "sourceUrl": "https://clemson-weather.app.clemson.edu/index.php"
+              }
+            ],
+            "days": [
+              {
+                "date": "2026-09-24",
+                "label": "Thursday",
+                "highF": "68–71",
+                "lowF": "52–55",
+                "precipitation": "55–65% through early afternoon; under 10% tonight",
+                "hazard": "Patchy fog, wet roads and northeast gusts of 20–25 mph; no severe-weather signal",
+                "forecast": "Periods of rain or drizzle continue through the morning, then diminish from west to east during the afternoon. Clouds break late, but persistent northeast flow holds Clemson and Central near 70°F. An additional 0.20–0.50 inch is plausible where the morning rain persists longest."
+              },
+              {
+                "date": "2026-09-25",
+                "label": "Friday",
+                "highF": "75–78",
+                "lowF": "49–53",
+                "precipitation": "5% or less",
+                "hazard": "None expected",
+                "forecast": "Sunny and much more comfortable. The shallow cool wedge erodes while humidity falls. Wind becomes light east-northeast, and Friday night is clear and cool."
+              },
+              {
+                "date": "2026-09-26",
+                "label": "Saturday",
+                "highF": "79–82",
+                "lowF": "52–56",
+                "precipitation": "5% or less",
+                "hazard": "None expected",
+                "forecast": "Sunny to mostly sunny and warmer. Weak flow and dry air should prevent meaningful convection. Temperatures recover to near 80°F without a notable heat or severe-weather concern."
+              }
+            ],
+            "bottomLine": "The near-term rain and wedge are real, but short-lived. The strongest forecast signal is a decisive dry-out this afternoon followed by two rain-free days and a gradual warming trend.",
+            "confidence": "High after this morning; moderate on the exact clearing time today",
+            "verificationStations": [
+              "KCEU",
+              "KLQK"
+            ],
+            "excludedSources": [
+              "Tempest public stations"
+            ],
+            "radarLinks": [
+              {
+                "label": "NWS KGSP radar",
+                "url": "https://radar.weather.gov/station/KGSP/standard"
+              },
+              {
+                "label": "NWS KCAE radar",
+                "url": "https://radar.weather.gov/station/KCAE/standard"
+              }
+            ]
+          }
+        },
+        "modelStatus": [
+          {
+            "model": "HRRR",
+            "run": "2026-09-24 11Z",
+            "status": "current",
+            "use": "Cloud erosion, near-term temperature and lingering Upstate precipitation",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/hrrr/prod/hrrr.20260924/conus/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-HRRR-SE"
+          },
+          {
+            "model": "RAP",
+            "run": "2026-09-24 11Z",
+            "status": "current",
+            "use": "Mesoscale analysis, shallow cool-air depth and low-level moisture",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/rap/prod/rap.20260924/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-RAP-US"
+          },
+          {
+            "model": "NAM",
+            "run": "2026-09-24 06Z complete; 12Z beginning",
+            "status": "current",
+            "use": "Pressure pattern and wedge persistence",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/nam/prod/nam.20260924/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-NAM-SE"
+          },
+          {
+            "model": "NAM 3-km Nest",
+            "run": "2026-09-24 06Z",
+            "status": "current",
+            "use": "Fine-scale rain ending time and terrain effects",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/nam/prod/nam.20260924/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-NAMNST-SE"
+          },
+          {
+            "model": "GFS",
+            "run": "2026-09-24 06Z",
+            "status": "current",
+            "use": "72-hour synoptic pattern and dry high-pressure persistence",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/gfs.20260924/06/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-GFS-SE"
+          },
+          {
+            "model": "GEFS",
+            "run": "2026-09-24 06Z",
+            "status": "current",
+            "use": "Ensemble support for the dry Friday–Saturday forecast",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/gens/prod/gefs.20260924/06/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-GEFS-SE"
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-09-24 06Z deterministic; 00Z ensemble",
+            "status": "current",
+            "use": "Independent global check on clearing, temperature recovery and dry persistence",
+            "primaryUrl": "https://data.ecmwf.int/forecasts/20260924/06z/ifs/0p25/oper/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-ECMWF-SE"
+          }
+        ],
+        "modelImages": [
+          {
+            "model": "HRRR",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-09-24 11Z",
+            "valid": "2026-09-24 17Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/HRRR/2026092411/SE/HRRRSE_sfc_temp_006.png",
+            "note": "Supports the cool northeast-flow regime and limited afternoon warming."
+          },
+          {
+            "model": "NAM 3-km Nest",
+            "field": "Simulated reflectivity",
+            "run": "2026-09-24 06Z",
+            "valid": "2026-09-24 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/NAMNST/2026092406/SE/NAMNSTSE_prec_radar_012.png",
+            "note": "Used to assess the west-to-east ending of Upstate rain."
+          },
+          {
+            "model": "GFS",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-09-24 06Z",
+            "valid": "2026-09-25 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/GFS/2026092406/SE/GFSSE_sfc_temp_036.png",
+            "note": "Global guidance check for Friday temperature recovery."
+          },
+          {
+            "model": "ECMWF",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-09-24 00Z",
+            "valid": "2026-09-25 12Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/ECMWF/2026092400/SE/ECMWFSE_sfc_temp_036.png",
+            "note": "Independent global-model support for a cool Friday morning followed by drying."
+          }
+        ],
+        "analysisLinks": [
+          {
+            "label": "NEXLAB forecast models",
+            "url": "https://weather.cod.edu/forecast/"
+          },
+          {
+            "label": "NEXLAB satellite and radar",
+            "url": "https://weather.cod.edu/satrad/"
+          },
+          {
+            "label": "NWS Louisville forecast discussion",
+            "url": "https://forecast.weather.gov/product.php?site=LMK&issuedby=LMK&product=AFD"
+          },
+          {
+            "label": "NWS Greenville-Spartanburg forecast discussion",
+            "url": "https://forecast.weather.gov/product.php?site=GSP&issuedby=GSP&product=AFD"
+          },
+          {
+            "label": "Kentucky Mesonet DANV",
+            "url": "https://www.kymesonet.org/data/station/DANV"
+          },
+          {
+            "label": "Clemson Weather Network",
+            "url": "https://clemson-weather.app.clemson.edu/index.php"
+          }
+        ],
+        "sourceNotes": [
+          "NWS point forecasts and official observations were checked at 7:58–8:00 AM EDT. They are inputs, not copied forecast text.",
+          "NOMADS inventories verified current HRRR, RAP, NAM, GFS and GEFS cycles. ECMWF Open Data verified current deterministic and ensemble availability.",
+          "College of DuPage NEXLAB images are direct current-run panels; each panel displays its own run and valid timestamp.",
+          "Direct machine-readable Clemson Weather Network retrieval was unavailable, so KCEU and KLQK official observations were used. Tempest is excluded from Upstate analysis and verification.",
+          "Radar and satellite links remain external and live; the existing Google Sites radar section is not modified by this forecast data source."
+        ],
+        "verification": {
+          "historyUrl": "forecast-history.json",
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "checkpoints": [
+            {
+              "hours": 24,
+              "due": "2026-09-25T08:05:00-04:00",
+              "status": "pending"
+            },
+            {
+              "hours": 48,
+              "due": "2026-09-26T08:05:00-04:00",
+              "status": "pending"
+            },
+            {
+              "hours": 72,
+              "due": "2026-09-27T08:05:00-04:00",
+              "status": "pending"
+            }
+          ]
+        }
+      },
       "centralKentucky": {
         "days": [
-          { "date": "2026-09-24", "highF": "71–74", "lowF": "45–48", "precipitation": "5–10% after 9 AM" },
-          { "date": "2026-09-25", "highF": "72–75", "lowF": "46–50", "precipitation": "5% or less" },
-          { "date": "2026-09-26", "highF": "73–76", "lowF": "48–52", "precipitation": "5% or less" }
+          {
+            "date": "2026-09-24",
+            "highF": "71–74",
+            "lowF": "45–48",
+            "precipitation": "5–10% after 9 AM"
+          },
+          {
+            "date": "2026-09-25",
+            "highF": "72–75",
+            "lowF": "46–50",
+            "precipitation": "5% or less"
+          },
+          {
+            "date": "2026-09-26",
+            "highF": "73–76",
+            "lowF": "48–52",
+            "precipitation": "5% or less"
+          }
         ]
       },
       "upstateSouthCarolina": {
         "days": [
-          { "date": "2026-09-24", "highF": "68–71", "lowF": "52–55", "precipitation": "55–65% through early afternoon; under 10% tonight" },
-          { "date": "2026-09-25", "highF": "75–78", "lowF": "49–53", "precipitation": "5% or less" },
-          { "date": "2026-09-26", "highF": "79–82", "lowF": "52–56", "precipitation": "5% or less" }
+          {
+            "date": "2026-09-24",
+            "highF": "68–71",
+            "lowF": "52–55",
+            "precipitation": "55–65% through early afternoon; under 10% tonight"
+          },
+          {
+            "date": "2026-09-25",
+            "highF": "75–78",
+            "lowF": "49–53",
+            "precipitation": "5% or less"
+          },
+          {
+            "date": "2026-09-26",
+            "highF": "79–82",
+            "lowF": "52–56",
+            "precipitation": "5% or less"
+          }
         ]
       },
       "verification": {
-        "24h": { "due": "2026-09-25T08:05:00-04:00", "status": "pending" },
-        "48h": { "due": "2026-09-26T08:05:00-04:00", "status": "pending" },
-        "72h": { "due": "2026-09-27T08:05:00-04:00", "status": "pending" }
+        "24h": {
+          "due": "2026-09-25T08:05:00-04:00",
+          "status": "pending"
+        },
+        "48h": {
+          "due": "2026-09-26T08:05:00-04:00",
+          "status": "pending"
+        },
+        "72h": {
+          "due": "2026-09-27T08:05:00-04:00",
+          "status": "pending"
+        }
       }
     }
   ]
