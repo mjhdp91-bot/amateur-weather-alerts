@@ -417,8 +417,135 @@
       },
       "verification": {
         "24h": {
+          "forecastId": "20260925T1320Z",
+          "checkpointHours": 24,
           "due": "2026-09-26T09:20:00-04:00",
-          "status": "pending"
+          "status": "verified",
+          "verifiedAt": "2026-09-26T11:43:00-04:00",
+          "window": {
+            "start": "2026-09-25T09:20:00-04:00",
+            "end": "2026-09-26T09:20:00-04:00"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "Mostly accurate. Daytime temperatures, dry weather, thunder absence and cloud-clearing timing verified well. The main miss was the 45.1°F low at KLQK, about 5°F below the Upstate forecast range, along with unforecast 0.5-mile fog at KCEU near sunrise. Wind speeds were also slightly stronger than forecast.",
+          "centralKentucky": {
+            "stations": {
+              "KDVK": {
+                "highF": 73.4,
+                "lowF": 50,
+                "maximumSustainedWindMph": 10.3,
+                "maximumGustMph": null,
+                "rainReports": 0,
+                "thunderReports": 0
+              },
+              "KLEX": {
+                "highF": 75.2,
+                "lowF": 48.2,
+                "maximumSustainedWindMph": 13.9,
+                "maximumGustMph": 18.4,
+                "rainReports": 0,
+                "thunderReports": 0
+              }
+            },
+            "metrics": {
+              "highTemperature": {
+                "forecastF": "72–75",
+                "assessment": "hit",
+                "note": "Both stations verified inside the range after normal whole-degree observation rounding."
+              },
+              "lowTemperature": {
+                "forecastF": "45–49",
+                "assessment": "near hit",
+                "note": "KLEX verified inside the range; KDVK was about 1°F warmer than the upper bound."
+              },
+              "precipitation": {
+                "forecast": "5% or less",
+                "assessment": "hit",
+                "note": "No rain was reported in the official station observations."
+              },
+              "thunder": {
+                "forecast": "none",
+                "assessment": "hit",
+                "note": "No thunder was reported."
+              },
+              "maximumWind": {
+                "forecast": "Northeast 4–8 mph with a few Lexington gusts possible",
+                "assessment": "slightly underforecast",
+                "note": "Maximum sustained wind was 10.3 mph at KDVK and 13.9 mph at KLEX; KLEX gusted to 18.4 mph."
+              },
+              "timingLeadTime": {
+                "assessment": "hit",
+                "note": "Clear, dry conditions were established at the start of the verification window and persisted."
+              }
+            }
+          },
+          "upstateSouthCarolina": {
+            "stations": {
+              "KCEU": {
+                "highF": 75.2,
+                "lowF": 53.1,
+                "maximumSustainedWindMph": 9.2,
+                "maximumGustMph": null,
+                "minimumVisibilityMi": 0.5,
+                "rainReports": 0,
+                "thunderReports": 0
+              },
+              "KLQK": {
+                "highF": 77.2,
+                "lowF": 45.1,
+                "maximumSustainedWindMph": 9.2,
+                "maximumGustMph": null,
+                "minimumVisibilityMi": 10,
+                "rainReports": 0,
+                "thunderReports": 0
+              }
+            },
+            "metrics": {
+              "highTemperature": {
+                "forecastF": "75–79",
+                "assessment": "hit",
+                "note": "Both official stations verified inside the forecast range."
+              },
+              "lowTemperature": {
+                "forecastF": "50–54",
+                "assessment": "partial miss",
+                "note": "KCEU verified inside the range, but KLQK fell to 45.1°F, about 5°F below the lower bound."
+              },
+              "precipitation": {
+                "forecast": "5% or less",
+                "assessment": "hit",
+                "note": "No rain was reported in the official station observations."
+              },
+              "thunder": {
+                "forecast": "none",
+                "assessment": "hit",
+                "note": "No thunder was reported."
+              },
+              "maximumWind": {
+                "forecast": "Northeast 3–7 mph",
+                "assessment": "slightly underforecast",
+                "note": "Both stations reached about 9.2 mph."
+              },
+              "timingLeadTime": {
+                "assessment": "mostly hit with a fog miss",
+                "note": "KCEU became partly cloudy at 11:10 AM EDT and clear at 11:40 AM; KLQK became partly cloudy at 11:35 AM and clear at 12:15 PM, close to the late-morning clearing forecast. KCEU later reported 0.5-mile fog near 8:00 AM EDT on September 26, which was not forecast."
+              }
+            }
+          },
+          "officialAlerts": {
+            "centralKentuckyCount": 0,
+            "upstateSouthCarolinaCount": 0,
+            "note": "The NWS historical alert API returned no actual alerts for either forecast point during the verification window."
+          },
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-09-25T13:20:00Z&end=2026-09-26T13:20:00Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-09-25T13:20:00Z&end=2026-09-26T13:20:00Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-09-25T13:20:00Z&end=2026-09-26T13:20:00Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-09-25T13:20:00Z&end=2026-09-26T13:20:00Z&limit=500",
+            "https://api.weather.gov/alerts?start=2026-09-25T13:20:00Z&end=2026-09-26T13:20:00Z&point=37.6456,-84.7722&status=actual",
+            "https://api.weather.gov/alerts?start=2026-09-25T13:20:00Z&end=2026-09-26T13:20:00Z&point=34.6834,-82.8374&status=actual"
+          ]
         },
         "48h": {
           "due": "2026-09-27T09:20:00-04:00",
