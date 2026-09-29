@@ -1,11 +1,11 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { isDeepStrictEqual } from "node:util";
 
-const [previousPath, currentPath, historyPath] = process.argv.slice(2);
+const [previousPath, currentPath, historyPath, verificationLedgerPath] = process.argv.slice(2);
 
 if (!previousPath || !currentPath || !historyPath) {
   throw new Error(
-    "Usage: node scripts/archive-forecast.mjs <previous-forecast.json> <current-forecast.json> <forecast-history.json>",
+    "Usage: node scripts/archive-forecast.mjs <previous-forecast.json> <current-forecast.json> <forecast-history.json> [forecast-verifications.json]",
   );
 }
 
@@ -61,7 +61,20 @@ function comparableForecast(forecast) {
   return copy;
 }
 
-function archiveRecord(forecast) {
+function mergeCheckpoints(primary = {}, secondary = {}) {
+  const keys = new Set([...Object.keys(primary), ...Object.keys(secondary)]);
+  return Object.fromEntries(
+    [...keys].map((key) => {
+      const first = primary[key];
+      const second = secondary[key];
+      if (first?.status === "verified") return [key, first];
+      if (second?.status === "verified") return [key, second];
+      return [key, first ?? second];
+    }),
+  );
+}
+
+function archiveRecord(forecast, ledgerVerification) {
   return {
     forecastId: forecast.forecastId,
     issuedAt: forecast.issuedAt,
@@ -76,13 +89,16 @@ function archiveRecord(forecast) {
     upstateSouthCarolina: {
       days: compactDays(forecast.regions.upstate),
     },
-    verification: checkpointMap(forecast),
+    verification: mergeCheckpoints(ledgerVerification, checkpointMap(forecast)),
   };
 }
 
 const previous = readJson(previousPath);
 const current = readJson(currentPath);
 const history = readJson(historyPath);
+const verificationLedger = verificationLedgerPath
+  ? readJson(verificationLedgerPath)
+  : { forecasts: {} };
 
 requireForecast(previous, "Previous forecast");
 requireForecast(current, "Current forecast");
@@ -98,7 +114,8 @@ if (
   throw new Error("The replacement forecast must have a later issuedAt timestamp");
 }
 
-const generatedRecord = archiveRecord(previous);
+const ledgerVerification = verificationLedger.forecasts?.[previous.forecastId]?.checkpoints;
+const generatedRecord = archiveRecord(previous, ledgerVerification);
 const existingIndex = history.issues.findIndex(
   (issue) => issue.forecastId === previous.forecastId,
 );
@@ -121,6 +138,7 @@ if (existingIndex >= 0) {
   history.issues[existingIndex] = {
     ...generatedRecord,
     ...existing,
+    verification: mergeCheckpoints(generatedRecord.verification, existing.verification),
     lockedOriginal: true,
     originalForecast: existing.originalForecast ?? previous,
   };
