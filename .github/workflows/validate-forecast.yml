@@ -1,0 +1,24 @@
+name: Validate forecast feedback
+
+on:
+  pull_request:
+    paths:
+      - forecast.json
+      - forecast-accuracy.json
+      - scripts/validate-forecast.mjs
+      - scripts/lib/forecast-accuracy.mjs
+  push:
+    branches: [main]
+    paths:
+      - forecast.json
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Require accuracy feedback and scoreable model benchmarks
+        run: node scripts/validate-forecast.mjs forecast.json forecast-accuracy.json
