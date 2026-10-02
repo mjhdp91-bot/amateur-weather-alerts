@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: archive-issued-forecast
+  group: forecast-data-maintenance
   cancel-in-progress: false
 
 jobs:
@@ -38,7 +38,8 @@ jobs:
           node scripts/archive-forecast.mjs \
             "$RUNNER_TEMP/previous-forecast.json" \
             forecast.json \
-            forecast-history.json
+            forecast-history.json \
+            forecast-verifications.json
 
       - name: Commit the updated archive
         run: |

@@ -1,0 +1,37 @@
+name: Validate forecast feedback
+
+on:
+  pull_request:
+    paths:
+      - forecast.json
+      - forecast-accuracy.json
+      - scripts/validate-forecast.mjs
+      - scripts/lib/forecast-accuracy.mjs
+  push:
+    branches: [main]
+    paths:
+      - forecast.json
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Require accuracy feedback and scoreable model benchmarks
+        run: |
+          validation_mode="strict"
+          if [[ "${{ github.event_name }}" == "pull_request" ]] && \
+             ! git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -qx "forecast.json"; then
+            validation_mode="legacy-compatible"
+          fi
+
+          if [[ "$validation_mode" == "strict" ]]; then
+            node scripts/validate-forecast.mjs forecast.json forecast-accuracy.json
+          else
+            node scripts/validate-forecast.mjs forecast.json forecast-accuracy.json --allow-legacy
+          fi

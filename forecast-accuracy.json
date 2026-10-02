@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-29T17:45:12.574Z",
+  "source": "forecast-verifications.json",
+  "methodology": {
+    "temperatureError": "Observed official-station temperature minus the midpoint of the issued range.",
+    "precipitation": "Brier score for occurrence at either official station in the region; lower is better.",
+    "rangeCalibration": "Coverage is the percentage of official-station observations inside the issued range.",
+    "models": "Per-model scores require modelBenchmarks captured at issuance; models are never reconstructed after the fact.",
+    "weatherRegime": "Explicit day-level weatherRegime is required for new issues; legacy issues use documented text inference.",
+    "upstateTempestExcluded": true
+  },
+  "coverage": {
+    "forecastCount": 5,
+    "checkpointCount": 15,
+    "verifiedCheckpoints": 10,
+    "pendingCheckpoints": 5,
+    "deferredCheckpoints": 0,
+    "verifiedForecastIds": [
+      "20260924T1205Z",
+      "20260925T1320Z",
+      "20260926T1101Z",
+      "20260928T1153Z"
+    ]
+  },
+  "temperature": {
+    "overall": {
+      "sampleCount": 80,
+      "meanErrorF": -1.8,
+      "meanAbsoluteErrorF": 2.8,
+      "rmseF": 4,
+      "rangeCoveragePercent": 48.8,
+      "averageRangeWidthF": 3.7
+    },
+    "byRegion": {
+      "kentucky": {
+        "sampleCount": 40,
+        "meanErrorF": -1,
+        "meanAbsoluteErrorF": 2.3,
+        "rmseF": 3.1,
+        "rangeCoveragePercent": 50,
+        "averageRangeWidthF": 3.7
+      },
+      "upstate": {
+        "sampleCount": 40,
+        "meanErrorF": -2.7,
+        "meanAbsoluteErrorF": 3.3,
+        "rmseF": 4.8,
+        "rangeCoveragePercent": 47.5,
+        "averageRangeWidthF": 3.7
+      }
+    },
+    "byStation": {
+      "KCEU": {
+        "sampleCount": 20,
+        "meanErrorF": -0.9,
+        "meanAbsoluteErrorF": 1.7,
+        "rmseF": 2,
+        "rangeCoveragePercent": 60,
+        "averageRangeWidthF": 3.7
+      },
+      "KDVK": {
+        "sampleCount": 20,
+        "meanErrorF": -1.6,
+        "meanAbsoluteErrorF": 2.7,
+        "rmseF": 3.4,
+        "rangeCoveragePercent": 45,
+        "averageRangeWidthF": 3.7
+      },
+      "KLEX": {
+        "sampleCount": 20,
+        "meanErrorF": -0.4,
+        "meanAbsoluteErrorF": 2,
+        "rmseF": 2.7,
+        "rangeCoveragePercent": 55,
+        "averageRangeWidthF": 3.7
+      },
+      "KLQK": {
+        "sampleCount": 20,
+        "meanErrorF": -4.4,
+        "meanAbsoluteErrorF": 5,
+        "rmseF": 6.5,
+        "rangeCoveragePercent": 35,
+        "averageRangeWidthF": 3.7
+      }
+    },
+    "byLeadTimeHours": {
+      "24": {
+        "sampleCount": 32,
+        "meanErrorF": -1.1,
+        "meanAbsoluteErrorF": 2.9,
+        "rmseF": 4,
+        "rangeCoveragePercent": 43.8,
+        "averageRangeWidthF": 3.5
+      },
+      "48": {
+        "sampleCount": 24,
+        "meanErrorF": -1.3,
+        "meanAbsoluteErrorF": 2,
+        "rmseF": 3.3,
+        "rangeCoveragePercent": 70.8,
+        "averageRangeWidthF": 3.8
+      },
+      "72": {
+        "sampleCount": 24,
+        "meanErrorF": -3.2,
+        "meanAbsoluteErrorF": 3.6,
+        "rmseF": 4.7,
+        "rangeCoveragePercent": 33.3,
+        "averageRangeWidthF": 3.8
+      }
+    },
+    "byWeatherRegime": {
+      "cold-air-damming": {
+        "sampleCount": 12,
+        "meanErrorF": -0.9,
+        "meanAbsoluteErrorF": 2.6,
+        "rmseF": 3.8,
+        "rangeCoveragePercent": 58.3,
+        "averageRangeWidthF": 3.5
+      },
+      "convective": {
+        "sampleCount": 12,
+        "meanErrorF": -4,
+        "meanAbsoluteErrorF": 4.1,
+        "rmseF": 5.6,
+        "rangeCoveragePercent": 33.3,
+        "averageRangeWidthF": 3.8
+      },
+      "dry-high-pressure": {
+        "sampleCount": 32,
+        "meanErrorF": -2.3,
+        "meanAbsoluteErrorF": 2.7,
+        "rmseF": 4,
+        "rangeCoveragePercent": 50,
+        "averageRangeWidthF": 3.6
+      },
+      "fog-low-cloud": {
+        "sampleCount": 20,
+        "meanErrorF": -0.8,
+        "meanAbsoluteErrorF": 2.1,
+        "rmseF": 2.8,
+        "rangeCoveragePercent": 60,
+        "averageRangeWidthF": 3.9
+      },
+      "stratiform-precipitation": {
+        "sampleCount": 4,
+        "meanErrorF": 0.8,
+        "meanAbsoluteErrorF": 4.5,
+        "rmseF": 4.6,
+        "rangeCoveragePercent": 0,
+        "averageRangeWidthF": 3
+      }
+    }
+  },
+  "precipitation": {
+    "sampleCount": 20,
+    "brierScore": 0.1455,
+    "reliability": [
+      {
+        "bin": "0–20%",
+        "sampleCount": 19,
+        "meanForecastProbability": 0.051,
+        "observedFrequency": 0.158
+      },
+      {
+        "bin": "21–40%",
+        "sampleCount": 0,
+        "meanForecastProbability": null,
+        "observedFrequency": null
+      },
+      {
+        "bin": "41–60%",
+        "sampleCount": 1,
+        "meanForecastProbability": 0.6,
+        "observedFrequency": 1
+      },
+      {
+        "bin": "61–80%",
+        "sampleCount": 0,
+        "meanForecastProbability": null,
+        "observedFrequency": null
+      },
+      {
+        "bin": "81–100%",
+        "sampleCount": 0,
+        "meanForecastProbability": null,
+        "observedFrequency": null
+      }
+    ]
+  },
+  "models": {
+    "sampleCount": 0,
+    "availability": "No issued forecast yet contains modelBenchmarks; model scoring begins with the first forecast that passes the new validator.",
+    "byModel": {}
+  },
+  "biasCorrection": {
+    "rules": {
+      "minimumSamples": 4,
+      "minimumAbsoluteMeanBiasF": 1.5,
+      "shrinkageFactor": 0.75,
+      "maximumAbsoluteAdjustmentF": 4
+    },
+    "signConvention": "Positive means observations were warmer than the issued midpoint and future guidance may be adjusted upward.",
+    "candidates": [
+      {
+        "region": "kentucky",
+        "station": "KDVK",
+        "metric": "high",
+        "sampleCount": 10,
+        "meanErrorF": -1.3,
+        "meanAbsoluteErrorF": 1.5,
+        "status": "monitoring",
+        "suggestedAdjustmentF": 0
+      },
+      {
+        "region": "kentucky",
+        "station": "KDVK",
+        "metric": "low",
+        "sampleCount": 10,
+        "meanErrorF": -1.8,
+        "meanAbsoluteErrorF": 3.9,
+        "status": "recommended",
+        "suggestedAdjustmentF": -1.5
+      },
+      {
+        "region": "kentucky",
+        "station": "KLEX",
+        "metric": "high",
+        "sampleCount": 10,
+        "meanErrorF": 0.7,
+        "meanAbsoluteErrorF": 1.3,
+        "status": "monitoring",
+        "suggestedAdjustmentF": 0
+      },
+      {
+        "region": "kentucky",
+        "station": "KLEX",
+        "metric": "low",
+        "sampleCount": 10,
+        "meanErrorF": -1.4,
+        "meanAbsoluteErrorF": 2.7,
+        "status": "monitoring",
+        "suggestedAdjustmentF": 0
+      },
+      {
+        "region": "upstate",
+        "station": "KCEU",
+        "metric": "high",
+        "sampleCount": 10,
+        "meanErrorF": -1.5,
+        "meanAbsoluteErrorF": 1.6,
+        "status": "recommended",
+        "suggestedAdjustmentF": -1
+      },
+      {
+        "region": "upstate",
+        "station": "KCEU",
+        "metric": "low",
+        "sampleCount": 10,
+        "meanErrorF": -0.3,
+        "meanAbsoluteErrorF": 1.8,
+        "status": "monitoring",
+        "suggestedAdjustmentF": 0
+      },
+      {
+        "region": "upstate",
+        "station": "KLQK",
+        "metric": "high",
+        "sampleCount": 10,
+        "meanErrorF": -0.9,
+        "meanAbsoluteErrorF": 1.3,
+        "status": "monitoring",
+        "suggestedAdjustmentF": 0
+      },
+      {
+        "region": "upstate",
+        "station": "KLQK",
+        "metric": "low",
+        "sampleCount": 10,
+        "meanErrorF": -7.9,
+        "meanAbsoluteErrorF": 8.7,
+        "status": "recommended",
+        "suggestedAdjustmentF": -4
+      }
+    ]
+  },
+  "futureForecastRequirement": {
+    "summaryMustBeConsulted": true,
+    "requiredFields": [
+      "weatherRegime on every day",
+      "modelBenchmarks",
+      "accuracyFeedback"
+    ],
+    "noAdjustmentDecisionMustBeDocumented": true
+  }
+}
