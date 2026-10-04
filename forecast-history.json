@@ -557,12 +557,480 @@
       },
       "verification": {
         "24h": {
+          "forecastId": "20261002T1025Z",
+          "checkpointHours": 24,
           "due": "2026-10-03T06:25:00-04:00",
-          "status": "pending"
+          "status": "verified",
+          "verifiedAt": "2026-10-04T13:58:20.903Z",
+          "window": {
+            "start": "2026-10-02T10:25:00.000Z",
+            "end": "2026-10-03T10:25:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "2/4 station highs and 1/4 station lows fell inside the issued ranges; precipitation occurred in 1/2 regions.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-10-02",
+                "highF": "77–81",
+                "lowF": "53–57",
+                "precipitation": "90–95%"
+              },
+              "weatherRegime": "frontal-convective",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-02T10:35:00+00:00",
+                    "lastObservedAt": "2026-10-03T10:15:00+00:00",
+                    "highF": 73.4,
+                    "lowF": 57.2,
+                    "maximumSustainedWindMph": 41.1,
+                    "maximumGustMph": 62,
+                    "minimumVisibilityMi": 5,
+                    "rainReports": 13,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      77,
+                      81
+                    ],
+                    "forecastMidpointF": 79,
+                    "observedF": 73.4,
+                    "errorF": -5.6,
+                    "absoluteErrorF": 5.6,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      53,
+                      57
+                    ],
+                    "forecastMidpointF": 55,
+                    "observedF": 57.2,
+                    "errorF": 2.2,
+                    "absoluteErrorF": 2.2,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 327,
+                    "temperatureObservationCount": 327,
+                    "firstObservedAt": "2026-10-02T10:25:00+00:00",
+                    "lastObservedAt": "2026-10-03T10:20:00+00:00",
+                    "highF": 73.4,
+                    "lowF": 57.2,
+                    "maximumSustainedWindMph": 58,
+                    "maximumGustMph": 87,
+                    "minimumVisibilityMi": 2.5,
+                    "rainReports": 145,
+                    "thunderReports": 0,
+                    "fogReports": 29
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      77,
+                      81
+                    ],
+                    "forecastMidpointF": 79,
+                    "observedF": 73.4,
+                    "errorF": -5.6,
+                    "absoluteErrorF": 5.6,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      53,
+                      57
+                    ],
+                    "forecastMidpointF": 55,
+                    "observedF": 57.2,
+                    "errorF": 2.2,
+                    "absoluteErrorF": 2.2,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.925,
+                "observed": true,
+                "brierScore": 0.0056
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-10-02",
+                "highF": "86–89",
+                "lowF": "63–68",
+                "precipitation": "10–15%"
+              },
+              "weatherRegime": "pre-frontal-warm-sector",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 312,
+                    "temperatureObservationCount": 312,
+                    "firstObservedAt": "2026-10-02T10:25:00+00:00",
+                    "lastObservedAt": "2026-10-03T10:20:00+00:00",
+                    "highF": 87.8,
+                    "lowF": 66.2,
+                    "maximumSustainedWindMph": 33.2,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 6,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      86,
+                      89
+                    ],
+                    "forecastMidpointF": 87.5,
+                    "observedF": 87.8,
+                    "errorF": 0.3,
+                    "absoluteErrorF": 0.3,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      63,
+                      68
+                    ],
+                    "forecastMidpointF": 65.5,
+                    "observedF": 66.2,
+                    "errorF": 0.7,
+                    "absoluteErrorF": 0.7,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-02T10:35:00+00:00",
+                    "lastObservedAt": "2026-10-03T10:15:00+00:00",
+                    "highF": 86.5,
+                    "lowF": 61,
+                    "maximumSustainedWindMph": 33,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 7,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      86,
+                      89
+                    ],
+                    "forecastMidpointF": 87.5,
+                    "observedF": 86.5,
+                    "errorF": -1,
+                    "absoluteErrorF": 1,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      63,
+                      68
+                    ],
+                    "forecastMidpointF": 65.5,
+                    "observedF": 61,
+                    "errorF": -4.5,
+                    "absoluteErrorF": 4.5,
+                    "withinRange": false,
+                    "rangeWidthF": 5
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.125,
+                "observed": false,
+                "brierScore": 0.0156
+              }
+            }
+          },
+          "modelScores": [
+            {
+              "model": "HRRR",
+              "run": "2026-10-02 09Z",
+              "region": "kentucky",
+              "targetDate": "2026-10-02",
+              "leadTimeHours": 9,
+              "weatherRegime": "frontal-convective",
+              "highErrorF": -6.6,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "HRRR",
+              "run": "2026-10-02 09Z",
+              "region": "upstate",
+              "targetDate": "2026-10-02",
+              "leadTimeHours": 9,
+              "weatherRegime": "pre-frontal-warm-sector",
+              "highErrorF": -0.8,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            }
+          ],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-10-02T10%3A25%3A00.000Z&end=2026-10-03T10%3A25%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-10-02T10%3A25%3A00.000Z&end=2026-10-03T10%3A25%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-10-02T10%3A25%3A00.000Z&end=2026-10-03T10%3A25%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-10-02T10%3A25%3A00.000Z&end=2026-10-03T10%3A25%3A00.000Z&limit=500"
+          ]
         },
         "48h": {
+          "forecastId": "20261002T1025Z",
+          "checkpointHours": 48,
           "due": "2026-10-04T06:25:00-04:00",
-          "status": "pending"
+          "status": "verified",
+          "verifiedAt": "2026-10-04T13:58:20.903Z",
+          "window": {
+            "start": "2026-10-03T10:25:00.000Z",
+            "end": "2026-10-04T10:25:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "1/4 station highs and 3/4 station lows fell inside the issued ranges; precipitation occurred in 1/2 regions.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-10-03",
+                "highF": "67–71",
+                "lowF": "52–56",
+                "precipitation": "40–50% early; 20–25% Saturday night"
+              },
+              "weatherRegime": "post-frontal-showers",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-03T10:35:00+00:00",
+                    "lastObservedAt": "2026-10-04T10:15:00+00:00",
+                    "highF": 71.6,
+                    "lowF": 55.4,
+                    "maximumSustainedWindMph": 37,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 3,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 3
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      67,
+                      71
+                    ],
+                    "forecastMidpointF": 69,
+                    "observedF": 71.6,
+                    "errorF": 2.6,
+                    "absoluteErrorF": 2.6,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      52,
+                      56
+                    ],
+                    "forecastMidpointF": 54,
+                    "observedF": 55.4,
+                    "errorF": 1.4,
+                    "absoluteErrorF": 1.4,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 315,
+                    "temperatureObservationCount": 315,
+                    "firstObservedAt": "2026-10-03T10:25:00+00:00",
+                    "lastObservedAt": "2026-10-04T10:20:00+00:00",
+                    "highF": 75.2,
+                    "lowF": 51.1,
+                    "maximumSustainedWindMph": 54,
+                    "maximumGustMph": 74.6,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      67,
+                      71
+                    ],
+                    "forecastMidpointF": 69,
+                    "observedF": 75.2,
+                    "errorF": 6.2,
+                    "absoluteErrorF": 6.2,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      52,
+                      56
+                    ],
+                    "forecastMidpointF": 54,
+                    "observedF": 51.1,
+                    "errorF": -2.9,
+                    "absoluteErrorF": 2.9,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.45,
+                "observed": false,
+                "brierScore": 0.2025
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-10-03",
+                "highF": "82–86",
+                "lowF": "59–64",
+                "precipitation": "50–70% afternoon; 80–90% Saturday night"
+              },
+              "weatherRegime": "frontal-convective",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 335,
+                    "temperatureObservationCount": 335,
+                    "firstObservedAt": "2026-10-03T10:25:00+00:00",
+                    "lastObservedAt": "2026-10-04T10:20:00+00:00",
+                    "highF": 80.6,
+                    "lowF": 64,
+                    "maximumSustainedWindMph": 45.6,
+                    "maximumGustMph": 91,
+                    "minimumVisibilityMi": 0.5,
+                    "rainReports": 50,
+                    "thunderReports": 0,
+                    "fogReports": 33
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      82,
+                      86
+                    ],
+                    "forecastMidpointF": 84,
+                    "observedF": 80.6,
+                    "errorF": -3.4,
+                    "absoluteErrorF": 3.4,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      59,
+                      64
+                    ],
+                    "forecastMidpointF": 61.5,
+                    "observedF": 64,
+                    "errorF": 2.5,
+                    "absoluteErrorF": 2.5,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-03T10:35:00+00:00",
+                    "lastObservedAt": "2026-10-04T10:15:00+00:00",
+                    "highF": 82.6,
+                    "lowF": 63.5,
+                    "maximumSustainedWindMph": 37,
+                    "maximumGustMph": 58,
+                    "minimumVisibilityMi": 1.5,
+                    "rainReports": 13,
+                    "thunderReports": 0,
+                    "fogReports": 1
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      82,
+                      86
+                    ],
+                    "forecastMidpointF": 84,
+                    "observedF": 82.6,
+                    "errorF": -1.4,
+                    "absoluteErrorF": 1.4,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      59,
+                      64
+                    ],
+                    "forecastMidpointF": 61.5,
+                    "observedF": 63.5,
+                    "errorF": 2,
+                    "absoluteErrorF": 2,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.85,
+                "observed": true,
+                "brierScore": 0.0225
+              }
+            }
+          },
+          "modelScores": [
+            {
+              "model": "NAM",
+              "run": "2026-10-02 06Z",
+              "region": "kentucky",
+              "targetDate": "2026-10-03",
+              "leadTimeHours": 36,
+              "weatherRegime": "post-frontal-showers",
+              "highErrorF": 4.4,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "NAM",
+              "run": "2026-10-02 06Z",
+              "region": "upstate",
+              "targetDate": "2026-10-03",
+              "leadTimeHours": 36,
+              "weatherRegime": "frontal-convective",
+              "highErrorF": -3.4,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            }
+          ],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-10-03T10%3A25%3A00.000Z&end=2026-10-04T10%3A25%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-10-03T10%3A25%3A00.000Z&end=2026-10-04T10%3A25%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-10-03T10%3A25%3A00.000Z&end=2026-10-04T10%3A25%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-10-03T10%3A25%3A00.000Z&end=2026-10-04T10%3A25%3A00.000Z&limit=500"
+          ]
         },
         "72h": {
           "due": "2026-10-05T06:25:00-04:00",
@@ -1101,16 +1569,740 @@
       },
       "verification": {
         "24h": {
+          "forecastId": "20260930T1140Z",
+          "checkpointHours": 24,
           "due": "2026-10-01T07:40:00-04:00",
-          "status": "pending"
+          "status": "verified",
+          "verifiedAt": "2026-10-04T13:58:20.903Z",
+          "window": {
+            "start": "2026-09-30T11:40:00.000Z",
+            "end": "2026-10-01T11:40:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "4/4 station highs and 0/4 station lows fell inside the issued ranges; precipitation occurred in 0/2 regions.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-09-30",
+                "highF": "83–86",
+                "lowF": "61–65",
+                "precipitation": "10% or less"
+              },
+              "weatherRegime": "dry-high-pressure",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 64,
+                    "temperatureObservationCount": 64,
+                    "firstObservedAt": "2026-09-30T11:55:00+00:00",
+                    "lastObservedAt": "2026-10-01T11:35:00+00:00",
+                    "highF": 86,
+                    "lowF": 55.4,
+                    "maximumSustainedWindMph": 41.1,
+                    "maximumGustMph": 58,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      83,
+                      86
+                    ],
+                    "forecastMidpointF": 84.5,
+                    "observedF": 86,
+                    "errorF": 1.5,
+                    "absoluteErrorF": 1.5,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      61,
+                      65
+                    ],
+                    "forecastMidpointF": 63,
+                    "observedF": 55.4,
+                    "errorF": -7.6,
+                    "absoluteErrorF": 7.6,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 312,
+                    "temperatureObservationCount": 312,
+                    "firstObservedAt": "2026-09-30T11:40:00+00:00",
+                    "lastObservedAt": "2026-10-01T11:35:00+00:00",
+                    "highF": 86,
+                    "lowF": 57,
+                    "maximumSustainedWindMph": 58,
+                    "maximumGustMph": 82.9,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      83,
+                      86
+                    ],
+                    "forecastMidpointF": 84.5,
+                    "observedF": 86,
+                    "errorF": 1.5,
+                    "absoluteErrorF": 1.5,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      61,
+                      65
+                    ],
+                    "forecastMidpointF": 63,
+                    "observedF": 57,
+                    "errorF": -6,
+                    "absoluteErrorF": 6,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.1,
+                "observed": false,
+                "brierScore": 0.01
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-09-30",
+                "highF": "84–87",
+                "lowF": "54–60",
+                "precipitation": "10% or less"
+              },
+              "weatherRegime": "dry-high-pressure",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 313,
+                    "temperatureObservationCount": 313,
+                    "firstObservedAt": "2026-09-30T11:40:00+00:00",
+                    "lastObservedAt": "2026-10-01T11:35:00+00:00",
+                    "highF": 84.2,
+                    "lowF": 60.8,
+                    "maximumSustainedWindMph": 29,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      84,
+                      87
+                    ],
+                    "forecastMidpointF": 85.5,
+                    "observedF": 84.2,
+                    "errorF": -1.3,
+                    "absoluteErrorF": 1.3,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      54,
+                      60
+                    ],
+                    "forecastMidpointF": 57,
+                    "observedF": 60.8,
+                    "errorF": 3.8,
+                    "absoluteErrorF": 3.8,
+                    "withinRange": false,
+                    "rangeWidthF": 6
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 65,
+                    "temperatureObservationCount": 65,
+                    "firstObservedAt": "2026-09-30T11:55:00+00:00",
+                    "lastObservedAt": "2026-10-01T11:35:00+00:00",
+                    "highF": 85.1,
+                    "lowF": 52.3,
+                    "maximumSustainedWindMph": 25,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 5,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      84,
+                      87
+                    ],
+                    "forecastMidpointF": 85.5,
+                    "observedF": 85.1,
+                    "errorF": -0.4,
+                    "absoluteErrorF": 0.4,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      54,
+                      60
+                    ],
+                    "forecastMidpointF": 57,
+                    "observedF": 52.3,
+                    "errorF": -4.7,
+                    "absoluteErrorF": 4.7,
+                    "withinRange": false,
+                    "rangeWidthF": 6
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.1,
+                "observed": false,
+                "brierScore": 0.01
+              }
+            }
+          },
+          "modelScores": [
+            {
+              "model": "HRRR",
+              "run": "2026-09-30 10Z",
+              "region": "kentucky",
+              "targetDate": "2026-09-30",
+              "leadTimeHours": 8,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 1,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "HRRR",
+              "run": "2026-09-30 10Z",
+              "region": "upstate",
+              "targetDate": "2026-09-30",
+              "leadTimeHours": 8,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": -1.3,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            }
+          ],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-09-30T11%3A40%3A00.000Z&end=2026-10-01T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-09-30T11%3A40%3A00.000Z&end=2026-10-01T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-09-30T11%3A40%3A00.000Z&end=2026-10-01T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-09-30T11%3A40%3A00.000Z&end=2026-10-01T11%3A40%3A00.000Z&limit=500"
+          ]
         },
         "48h": {
+          "forecastId": "20260930T1140Z",
+          "checkpointHours": 48,
           "due": "2026-10-02T07:40:00-04:00",
-          "status": "pending"
+          "status": "verified",
+          "verifiedAt": "2026-10-04T13:58:20.903Z",
+          "window": {
+            "start": "2026-10-01T11:40:00.000Z",
+            "end": "2026-10-02T11:40:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "3/4 station highs and 1/4 station lows fell inside the issued ranges; precipitation occurred in 0/2 regions.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-10-01",
+                "highF": "88–91",
+                "lowF": "65–69",
+                "precipitation": "10% daytime; 30–40% late Thursday night"
+              },
+              "weatherRegime": "frontal",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-01T11:55:00+00:00",
+                    "lastObservedAt": "2026-10-02T11:35:00+00:00",
+                    "highF": 87.8,
+                    "lowF": 60.8,
+                    "maximumSustainedWindMph": 54,
+                    "maximumGustMph": 78.9,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      88,
+                      91
+                    ],
+                    "forecastMidpointF": 89.5,
+                    "observedF": 87.8,
+                    "errorF": -1.7,
+                    "absoluteErrorF": 1.7,
+                    "withinRange": false,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      65,
+                      69
+                    ],
+                    "forecastMidpointF": 67,
+                    "observedF": 60.8,
+                    "errorF": -6.2,
+                    "absoluteErrorF": 6.2,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 312,
+                    "temperatureObservationCount": 312,
+                    "firstObservedAt": "2026-10-01T11:40:00+00:00",
+                    "lastObservedAt": "2026-10-02T11:35:00+00:00",
+                    "highF": 89.6,
+                    "lowF": 62.6,
+                    "maximumSustainedWindMph": 66.3,
+                    "maximumGustMph": 95.3,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      88,
+                      91
+                    ],
+                    "forecastMidpointF": 89.5,
+                    "observedF": 89.6,
+                    "errorF": 0.1,
+                    "absoluteErrorF": 0.1,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      65,
+                      69
+                    ],
+                    "forecastMidpointF": 67,
+                    "observedF": 62.6,
+                    "errorF": -4.4,
+                    "absoluteErrorF": 4.4,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.35,
+                "observed": false,
+                "brierScore": 0.1225
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-10-01",
+                "highF": "84–88",
+                "lowF": "57–63",
+                "precipitation": "10% or less"
+              },
+              "weatherRegime": "dry-high-pressure",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 312,
+                    "temperatureObservationCount": 312,
+                    "firstObservedAt": "2026-10-01T11:40:00+00:00",
+                    "lastObservedAt": "2026-10-02T11:35:00+00:00",
+                    "highF": 84.2,
+                    "lowF": 62.6,
+                    "maximumSustainedWindMph": 24.9,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 8,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      84,
+                      88
+                    ],
+                    "forecastMidpointF": 86,
+                    "observedF": 84.2,
+                    "errorF": -1.8,
+                    "absoluteErrorF": 1.8,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      57,
+                      63
+                    ],
+                    "forecastMidpointF": 60,
+                    "observedF": 62.6,
+                    "errorF": 2.6,
+                    "absoluteErrorF": 2.6,
+                    "withinRange": true,
+                    "rangeWidthF": 6
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-01T11:55:00+00:00",
+                    "lastObservedAt": "2026-10-02T11:35:00+00:00",
+                    "highF": 85.3,
+                    "lowF": 56.3,
+                    "maximumSustainedWindMph": 29,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 7,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      84,
+                      88
+                    ],
+                    "forecastMidpointF": 86,
+                    "observedF": 85.3,
+                    "errorF": -0.7,
+                    "absoluteErrorF": 0.7,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      57,
+                      63
+                    ],
+                    "forecastMidpointF": 60,
+                    "observedF": 56.3,
+                    "errorF": -3.7,
+                    "absoluteErrorF": 3.7,
+                    "withinRange": false,
+                    "rangeWidthF": 6
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.1,
+                "observed": false,
+                "brierScore": 0.01
+              }
+            }
+          },
+          "modelScores": [
+            {
+              "model": "NAM",
+              "run": "2026-09-30 06Z",
+              "region": "kentucky",
+              "targetDate": "2026-10-01",
+              "leadTimeHours": 36,
+              "weatherRegime": "frontal",
+              "highErrorF": -0.3,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "NAM",
+              "run": "2026-09-30 06Z",
+              "region": "upstate",
+              "targetDate": "2026-10-01",
+              "leadTimeHours": 36,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": -1.2,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            }
+          ],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-10-01T11%3A40%3A00.000Z&end=2026-10-02T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-10-01T11%3A40%3A00.000Z&end=2026-10-02T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-10-01T11%3A40%3A00.000Z&end=2026-10-02T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-10-01T11%3A40%3A00.000Z&end=2026-10-02T11%3A40%3A00.000Z&limit=500"
+          ]
         },
         "72h": {
+          "forecastId": "20260930T1140Z",
+          "checkpointHours": 72,
           "due": "2026-10-03T07:40:00-04:00",
-          "status": "pending"
+          "status": "verified",
+          "verifiedAt": "2026-10-04T13:58:20.903Z",
+          "window": {
+            "start": "2026-10-02T11:40:00.000Z",
+            "end": "2026-10-03T11:40:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "2/4 station highs and 3/4 station lows fell inside the issued ranges; precipitation occurred in 1/2 regions.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-10-02",
+                "highF": "76–82",
+                "lowF": "55–60",
+                "precipitation": "80–90%"
+              },
+              "weatherRegime": "frontal-convective",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-02T11:55:00+00:00",
+                    "lastObservedAt": "2026-10-03T11:35:00+00:00",
+                    "highF": 73.4,
+                    "lowF": 55.4,
+                    "maximumSustainedWindMph": 41.1,
+                    "maximumGustMph": 62,
+                    "minimumVisibilityMi": 5,
+                    "rainReports": 13,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      76,
+                      82
+                    ],
+                    "forecastMidpointF": 79,
+                    "observedF": 73.4,
+                    "errorF": -5.6,
+                    "absoluteErrorF": 5.6,
+                    "withinRange": false,
+                    "rangeWidthF": 6
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      55,
+                      60
+                    ],
+                    "forecastMidpointF": 57.5,
+                    "observedF": 55.4,
+                    "errorF": -2.1,
+                    "absoluteErrorF": 2.1,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 327,
+                    "temperatureObservationCount": 327,
+                    "firstObservedAt": "2026-10-02T11:40:00+00:00",
+                    "lastObservedAt": "2026-10-03T11:35:00+00:00",
+                    "highF": 73.4,
+                    "lowF": 57,
+                    "maximumSustainedWindMph": 58,
+                    "maximumGustMph": 87,
+                    "minimumVisibilityMi": 2.5,
+                    "rainReports": 145,
+                    "thunderReports": 0,
+                    "fogReports": 29
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      76,
+                      82
+                    ],
+                    "forecastMidpointF": 79,
+                    "observedF": 73.4,
+                    "errorF": -5.6,
+                    "absoluteErrorF": 5.6,
+                    "withinRange": false,
+                    "rangeWidthF": 6
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      55,
+                      60
+                    ],
+                    "forecastMidpointF": 57.5,
+                    "observedF": 57,
+                    "errorF": -0.5,
+                    "absoluteErrorF": 0.5,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.85,
+                "observed": true,
+                "brierScore": 0.0225
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-10-02",
+                "highF": "86–90",
+                "lowF": "62–68",
+                "precipitation": "10–20% Friday; rising to 30–40% near Saturday dawn"
+              },
+              "weatherRegime": "pre-frontal-warm-sector",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 312,
+                    "temperatureObservationCount": 312,
+                    "firstObservedAt": "2026-10-02T11:40:00+00:00",
+                    "lastObservedAt": "2026-10-03T11:35:00+00:00",
+                    "highF": 87.8,
+                    "lowF": 66.2,
+                    "maximumSustainedWindMph": 33.2,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 6,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      86,
+                      90
+                    ],
+                    "forecastMidpointF": 88,
+                    "observedF": 87.8,
+                    "errorF": -0.2,
+                    "absoluteErrorF": 0.2,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      62,
+                      68
+                    ],
+                    "forecastMidpointF": 65,
+                    "observedF": 66.2,
+                    "errorF": 1.2,
+                    "absoluteErrorF": 1.2,
+                    "withinRange": true,
+                    "rangeWidthF": 6
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-02T11:55:00+00:00",
+                    "lastObservedAt": "2026-10-03T11:35:00+00:00",
+                    "highF": 86.5,
+                    "lowF": 61.5,
+                    "maximumSustainedWindMph": 33,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 7,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      86,
+                      90
+                    ],
+                    "forecastMidpointF": 88,
+                    "observedF": 86.5,
+                    "errorF": -1.5,
+                    "absoluteErrorF": 1.5,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      62,
+                      68
+                    ],
+                    "forecastMidpointF": 65,
+                    "observedF": 61.5,
+                    "errorF": -3.5,
+                    "absoluteErrorF": 3.5,
+                    "withinRange": false,
+                    "rangeWidthF": 6
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.35,
+                "observed": false,
+                "brierScore": 0.1225
+              }
+            }
+          },
+          "modelScores": [
+            {
+              "model": "GFS",
+              "run": "2026-09-30 06Z",
+              "region": "kentucky",
+              "targetDate": "2026-10-02",
+              "leadTimeHours": 60,
+              "weatherRegime": "frontal-convective",
+              "highErrorF": -3.6,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "ECMWF IFS",
+              "run": "2026-09-30 00Z",
+              "region": "kentucky",
+              "targetDate": "2026-10-02",
+              "leadTimeHours": 66,
+              "weatherRegime": "frontal-convective",
+              "highErrorF": -9.6,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "GFS",
+              "run": "2026-09-30 06Z",
+              "region": "upstate",
+              "targetDate": "2026-10-02",
+              "leadTimeHours": 60,
+              "weatherRegime": "pre-frontal-warm-sector",
+              "highErrorF": -0.8,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "ECMWF IFS",
+              "run": "2026-09-30 00Z",
+              "region": "upstate",
+              "targetDate": "2026-10-02",
+              "leadTimeHours": 66,
+              "weatherRegime": "pre-frontal-warm-sector",
+              "highErrorF": -0.8,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            }
+          ],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-10-02T11%3A40%3A00.000Z&end=2026-10-03T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-10-02T11%3A40%3A00.000Z&end=2026-10-03T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-10-02T11%3A40%3A00.000Z&end=2026-10-03T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-10-02T11%3A40%3A00.000Z&end=2026-10-03T11%3A40%3A00.000Z&limit=500"
+          ]
         }
       }
     },
@@ -1495,16 +2687,649 @@
       },
       "verification": {
         "24h": {
+          "forecastId": "20260929T1140Z",
+          "checkpointHours": 24,
           "due": "2026-09-30T07:40:00-04:00",
-          "status": "pending"
+          "status": "verified",
+          "verifiedAt": "2026-10-04T13:58:20.903Z",
+          "window": {
+            "start": "2026-09-29T11:40:00.000Z",
+            "end": "2026-09-30T11:40:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "3/4 station highs and 0/4 station lows fell inside the issued ranges; precipitation occurred in 0/2 regions.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-09-29",
+                "highF": "79–82",
+                "lowF": "54–58",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "dry-high-pressure",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-09-29T11:55:00+00:00",
+                    "lastObservedAt": "2026-09-30T11:35:00+00:00",
+                    "highF": 78.8,
+                    "lowF": 46.4,
+                    "maximumSustainedWindMph": 25,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      79,
+                      82
+                    ],
+                    "forecastMidpointF": 80.5,
+                    "observedF": 78.8,
+                    "errorF": -1.7,
+                    "absoluteErrorF": 1.7,
+                    "withinRange": false,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      54,
+                      58
+                    ],
+                    "forecastMidpointF": 56,
+                    "observedF": 46.4,
+                    "errorF": -9.6,
+                    "absoluteErrorF": 9.6,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 312,
+                    "temperatureObservationCount": 312,
+                    "firstObservedAt": "2026-09-29T11:40:00+00:00",
+                    "lastObservedAt": "2026-09-30T11:35:00+00:00",
+                    "highF": 80.6,
+                    "lowF": 50,
+                    "maximumSustainedWindMph": 33.2,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 9,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      79,
+                      82
+                    ],
+                    "forecastMidpointF": 80.5,
+                    "observedF": 80.6,
+                    "errorF": 0.1,
+                    "absoluteErrorF": 0.1,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      54,
+                      58
+                    ],
+                    "forecastMidpointF": 56,
+                    "observedF": 50,
+                    "errorF": -6,
+                    "absoluteErrorF": 6,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-09-29",
+                "highF": "81–84",
+                "lowF": "54–58",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "dry-high-pressure",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 312,
+                    "temperatureObservationCount": 312,
+                    "firstObservedAt": "2026-09-29T11:40:00+00:00",
+                    "lastObservedAt": "2026-09-30T11:35:00+00:00",
+                    "highF": 82.4,
+                    "lowF": 59,
+                    "maximumSustainedWindMph": 25,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      81,
+                      84
+                    ],
+                    "forecastMidpointF": 82.5,
+                    "observedF": 82.4,
+                    "errorF": -0.1,
+                    "absoluteErrorF": 0.1,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      54,
+                      58
+                    ],
+                    "forecastMidpointF": 56,
+                    "observedF": 59,
+                    "errorF": 3,
+                    "absoluteErrorF": 3,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-09-29T11:55:00+00:00",
+                    "lastObservedAt": "2026-09-30T11:35:00+00:00",
+                    "highF": 82.6,
+                    "lowF": 50.4,
+                    "maximumSustainedWindMph": 20.9,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      81,
+                      84
+                    ],
+                    "forecastMidpointF": 82.5,
+                    "observedF": 82.6,
+                    "errorF": 0.1,
+                    "absoluteErrorF": 0.1,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      54,
+                      58
+                    ],
+                    "forecastMidpointF": 56,
+                    "observedF": 50.4,
+                    "errorF": -5.6,
+                    "absoluteErrorF": 5.6,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              }
+            }
+          },
+          "modelScores": [],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-09-29T11%3A40%3A00.000Z&end=2026-09-30T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-09-29T11%3A40%3A00.000Z&end=2026-09-30T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-09-29T11%3A40%3A00.000Z&end=2026-09-30T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-09-29T11%3A40%3A00.000Z&end=2026-09-30T11%3A40%3A00.000Z&limit=500"
+          ]
         },
         "48h": {
+          "forecastId": "20260929T1140Z",
+          "checkpointHours": 48,
           "due": "2026-10-01T07:40:00-04:00",
-          "status": "pending"
+          "status": "verified",
+          "verifiedAt": "2026-10-04T13:58:20.903Z",
+          "window": {
+            "start": "2026-09-30T11:40:00.000Z",
+            "end": "2026-10-01T11:40:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "4/4 station highs and 0/4 station lows fell inside the issued ranges; precipitation occurred in 0/2 regions.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-09-30",
+                "highF": "84–88",
+                "lowF": "60–64",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "dry-high-pressure",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 64,
+                    "temperatureObservationCount": 64,
+                    "firstObservedAt": "2026-09-30T11:55:00+00:00",
+                    "lastObservedAt": "2026-10-01T11:35:00+00:00",
+                    "highF": 86,
+                    "lowF": 55.4,
+                    "maximumSustainedWindMph": 41.1,
+                    "maximumGustMph": 58,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      84,
+                      88
+                    ],
+                    "forecastMidpointF": 86,
+                    "observedF": 86,
+                    "errorF": 0,
+                    "absoluteErrorF": 0,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      60,
+                      64
+                    ],
+                    "forecastMidpointF": 62,
+                    "observedF": 55.4,
+                    "errorF": -6.6,
+                    "absoluteErrorF": 6.6,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 312,
+                    "temperatureObservationCount": 312,
+                    "firstObservedAt": "2026-09-30T11:40:00+00:00",
+                    "lastObservedAt": "2026-10-01T11:35:00+00:00",
+                    "highF": 86,
+                    "lowF": 57,
+                    "maximumSustainedWindMph": 58,
+                    "maximumGustMph": 82.9,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      84,
+                      88
+                    ],
+                    "forecastMidpointF": 86,
+                    "observedF": 86,
+                    "errorF": 0,
+                    "absoluteErrorF": 0,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      60,
+                      64
+                    ],
+                    "forecastMidpointF": 62,
+                    "observedF": 57,
+                    "errorF": -5,
+                    "absoluteErrorF": 5,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-09-30",
+                "highF": "84–87",
+                "lowF": "56–60",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "convective",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 313,
+                    "temperatureObservationCount": 313,
+                    "firstObservedAt": "2026-09-30T11:40:00+00:00",
+                    "lastObservedAt": "2026-10-01T11:35:00+00:00",
+                    "highF": 84.2,
+                    "lowF": 60.8,
+                    "maximumSustainedWindMph": 29,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      84,
+                      87
+                    ],
+                    "forecastMidpointF": 85.5,
+                    "observedF": 84.2,
+                    "errorF": -1.3,
+                    "absoluteErrorF": 1.3,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      56,
+                      60
+                    ],
+                    "forecastMidpointF": 58,
+                    "observedF": 60.8,
+                    "errorF": 2.8,
+                    "absoluteErrorF": 2.8,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 65,
+                    "temperatureObservationCount": 65,
+                    "firstObservedAt": "2026-09-30T11:55:00+00:00",
+                    "lastObservedAt": "2026-10-01T11:35:00+00:00",
+                    "highF": 85.1,
+                    "lowF": 52.3,
+                    "maximumSustainedWindMph": 25,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 5,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      84,
+                      87
+                    ],
+                    "forecastMidpointF": 85.5,
+                    "observedF": 85.1,
+                    "errorF": -0.4,
+                    "absoluteErrorF": 0.4,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      56,
+                      60
+                    ],
+                    "forecastMidpointF": 58,
+                    "observedF": 52.3,
+                    "errorF": -5.7,
+                    "absoluteErrorF": 5.7,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              }
+            }
+          },
+          "modelScores": [],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-09-30T11%3A40%3A00.000Z&end=2026-10-01T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-09-30T11%3A40%3A00.000Z&end=2026-10-01T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-09-30T11%3A40%3A00.000Z&end=2026-10-01T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-09-30T11%3A40%3A00.000Z&end=2026-10-01T11%3A40%3A00.000Z&limit=500"
+          ]
         },
         "72h": {
+          "forecastId": "20260929T1140Z",
+          "checkpointHours": 72,
           "due": "2026-10-02T07:40:00-04:00",
-          "status": "pending"
+          "status": "verified",
+          "verifiedAt": "2026-10-04T13:58:20.903Z",
+          "window": {
+            "start": "2026-10-01T11:40:00.000Z",
+            "end": "2026-10-02T11:40:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "2/4 station highs and 1/4 station lows fell inside the issued ranges; precipitation occurred in 0/2 regions.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-10-01",
+                "highF": "88–92",
+                "lowF": "66–70",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "dry-high-pressure",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-01T11:55:00+00:00",
+                    "lastObservedAt": "2026-10-02T11:35:00+00:00",
+                    "highF": 87.8,
+                    "lowF": 60.8,
+                    "maximumSustainedWindMph": 54,
+                    "maximumGustMph": 78.9,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      88,
+                      92
+                    ],
+                    "forecastMidpointF": 90,
+                    "observedF": 87.8,
+                    "errorF": -2.2,
+                    "absoluteErrorF": 2.2,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      66,
+                      70
+                    ],
+                    "forecastMidpointF": 68,
+                    "observedF": 60.8,
+                    "errorF": -7.2,
+                    "absoluteErrorF": 7.2,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 312,
+                    "temperatureObservationCount": 312,
+                    "firstObservedAt": "2026-10-01T11:40:00+00:00",
+                    "lastObservedAt": "2026-10-02T11:35:00+00:00",
+                    "highF": 89.6,
+                    "lowF": 62.6,
+                    "maximumSustainedWindMph": 66.3,
+                    "maximumGustMph": 95.3,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      88,
+                      92
+                    ],
+                    "forecastMidpointF": 90,
+                    "observedF": 89.6,
+                    "errorF": -0.4,
+                    "absoluteErrorF": 0.4,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      66,
+                      70
+                    ],
+                    "forecastMidpointF": 68,
+                    "observedF": 62.6,
+                    "errorF": -5.4,
+                    "absoluteErrorF": 5.4,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-10-01",
+                "highF": "85–89",
+                "lowF": "62–66",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "dry-high-pressure",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 312,
+                    "temperatureObservationCount": 312,
+                    "firstObservedAt": "2026-10-01T11:40:00+00:00",
+                    "lastObservedAt": "2026-10-02T11:35:00+00:00",
+                    "highF": 84.2,
+                    "lowF": 62.6,
+                    "maximumSustainedWindMph": 24.9,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 8,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      85,
+                      89
+                    ],
+                    "forecastMidpointF": 87,
+                    "observedF": 84.2,
+                    "errorF": -2.8,
+                    "absoluteErrorF": 2.8,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      62,
+                      66
+                    ],
+                    "forecastMidpointF": 64,
+                    "observedF": 62.6,
+                    "errorF": -1.4,
+                    "absoluteErrorF": 1.4,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-01T11:55:00+00:00",
+                    "lastObservedAt": "2026-10-02T11:35:00+00:00",
+                    "highF": 85.3,
+                    "lowF": 56.3,
+                    "maximumSustainedWindMph": 29,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 7,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      85,
+                      89
+                    ],
+                    "forecastMidpointF": 87,
+                    "observedF": 85.3,
+                    "errorF": -1.7,
+                    "absoluteErrorF": 1.7,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      62,
+                      66
+                    ],
+                    "forecastMidpointF": 64,
+                    "observedF": 56.3,
+                    "errorF": -7.7,
+                    "absoluteErrorF": 7.7,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              }
+            }
+          },
+          "modelScores": [],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-10-01T11%3A40%3A00.000Z&end=2026-10-02T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-10-01T11%3A40%3A00.000Z&end=2026-10-02T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-10-01T11%3A40%3A00.000Z&end=2026-10-02T11%3A40%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-10-01T11%3A40%3A00.000Z&end=2026-10-02T11%3A40%3A00.000Z&limit=500"
+          ]
         }
       }
     },
@@ -2104,12 +3929,434 @@
           ]
         },
         "48h": {
+          "forecastId": "20260928T1153Z",
+          "checkpointHours": 48,
           "due": "2026-09-30T07:53:00-04:00",
-          "status": "pending"
+          "status": "verified",
+          "verifiedAt": "2026-10-04T13:58:20.903Z",
+          "window": {
+            "start": "2026-09-29T11:53:00.000Z",
+            "end": "2026-09-30T11:53:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "4/4 station highs and 1/4 station lows fell inside the issued ranges; precipitation occurred in 0/2 regions.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-09-29",
+                "highF": "78–82",
+                "lowF": "52–57",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "fog-low-cloud",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-09-29T11:55:00+00:00",
+                    "lastObservedAt": "2026-09-30T11:35:00+00:00",
+                    "highF": 78.8,
+                    "lowF": 46.4,
+                    "maximumSustainedWindMph": 25,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      78,
+                      82
+                    ],
+                    "forecastMidpointF": 80,
+                    "observedF": 78.8,
+                    "errorF": -1.2,
+                    "absoluteErrorF": 1.2,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      52,
+                      57
+                    ],
+                    "forecastMidpointF": 54.5,
+                    "observedF": 46.4,
+                    "errorF": -8.1,
+                    "absoluteErrorF": 8.1,
+                    "withinRange": false,
+                    "rangeWidthF": 5
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 312,
+                    "temperatureObservationCount": 312,
+                    "firstObservedAt": "2026-09-29T11:54:00+00:00",
+                    "lastObservedAt": "2026-09-30T11:50:00+00:00",
+                    "highF": 80.6,
+                    "lowF": 50,
+                    "maximumSustainedWindMph": 33.2,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 9,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      78,
+                      82
+                    ],
+                    "forecastMidpointF": 80,
+                    "observedF": 80.6,
+                    "errorF": 0.6,
+                    "absoluteErrorF": 0.6,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      52,
+                      57
+                    ],
+                    "forecastMidpointF": 54.5,
+                    "observedF": 50,
+                    "errorF": -4.5,
+                    "absoluteErrorF": 4.5,
+                    "withinRange": false,
+                    "rangeWidthF": 5
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-09-29",
+                "highF": "81–84",
+                "lowF": "57–61",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "convective",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 312,
+                    "temperatureObservationCount": 312,
+                    "firstObservedAt": "2026-09-29T11:54:00+00:00",
+                    "lastObservedAt": "2026-09-30T11:50:00+00:00",
+                    "highF": 82.4,
+                    "lowF": 59,
+                    "maximumSustainedWindMph": 25,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      81,
+                      84
+                    ],
+                    "forecastMidpointF": 82.5,
+                    "observedF": 82.4,
+                    "errorF": -0.1,
+                    "absoluteErrorF": 0.1,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      57,
+                      61
+                    ],
+                    "forecastMidpointF": 59,
+                    "observedF": 59,
+                    "errorF": 0,
+                    "absoluteErrorF": 0,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-09-29T11:55:00+00:00",
+                    "lastObservedAt": "2026-09-30T11:35:00+00:00",
+                    "highF": 82.6,
+                    "lowF": 50.4,
+                    "maximumSustainedWindMph": 20.9,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      81,
+                      84
+                    ],
+                    "forecastMidpointF": 82.5,
+                    "observedF": 82.6,
+                    "errorF": 0.1,
+                    "absoluteErrorF": 0.1,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      57,
+                      61
+                    ],
+                    "forecastMidpointF": 59,
+                    "observedF": 50.4,
+                    "errorF": -8.6,
+                    "absoluteErrorF": 8.6,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              }
+            }
+          },
+          "modelScores": [],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-09-29T11%3A53%3A00.000Z&end=2026-09-30T11%3A53%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-09-29T11%3A53%3A00.000Z&end=2026-09-30T11%3A53%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-09-29T11%3A53%3A00.000Z&end=2026-09-30T11%3A53%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-09-29T11%3A53%3A00.000Z&end=2026-09-30T11%3A53%3A00.000Z&limit=500"
+          ]
         },
         "72h": {
+          "forecastId": "20260928T1153Z",
+          "checkpointHours": 72,
           "due": "2026-10-01T07:53:00-04:00",
-          "status": "pending"
+          "status": "verified",
+          "verifiedAt": "2026-10-04T13:58:20.903Z",
+          "window": {
+            "start": "2026-09-30T11:53:00.000Z",
+            "end": "2026-10-01T11:53:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "4/4 station highs and 1/4 station lows fell inside the issued ranges; precipitation occurred in 0/2 regions.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-09-30",
+                "highF": "85–89",
+                "lowF": "62–67",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "dry-high-pressure",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 64,
+                    "temperatureObservationCount": 64,
+                    "firstObservedAt": "2026-09-30T11:55:00+00:00",
+                    "lastObservedAt": "2026-10-01T11:35:00+00:00",
+                    "highF": 86,
+                    "lowF": 55.4,
+                    "maximumSustainedWindMph": 41.1,
+                    "maximumGustMph": 58,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      85,
+                      89
+                    ],
+                    "forecastMidpointF": 87,
+                    "observedF": 86,
+                    "errorF": -1,
+                    "absoluteErrorF": 1,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      62,
+                      67
+                    ],
+                    "forecastMidpointF": 64.5,
+                    "observedF": 55.4,
+                    "errorF": -9.1,
+                    "absoluteErrorF": 9.1,
+                    "withinRange": false,
+                    "rangeWidthF": 5
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 312,
+                    "temperatureObservationCount": 312,
+                    "firstObservedAt": "2026-09-30T11:54:00+00:00",
+                    "lastObservedAt": "2026-10-01T11:50:00+00:00",
+                    "highF": 86,
+                    "lowF": 57,
+                    "maximumSustainedWindMph": 58,
+                    "maximumGustMph": 82.9,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      85,
+                      89
+                    ],
+                    "forecastMidpointF": 87,
+                    "observedF": 86,
+                    "errorF": -1,
+                    "absoluteErrorF": 1,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      62,
+                      67
+                    ],
+                    "forecastMidpointF": 64.5,
+                    "observedF": 57,
+                    "errorF": -7.5,
+                    "absoluteErrorF": 7.5,
+                    "withinRange": false,
+                    "rangeWidthF": 5
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-09-30",
+                "highF": "84–87",
+                "lowF": "60–64",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "stratiform-precipitation",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 313,
+                    "temperatureObservationCount": 313,
+                    "firstObservedAt": "2026-09-30T11:54:00+00:00",
+                    "lastObservedAt": "2026-10-01T11:50:00+00:00",
+                    "highF": 84.2,
+                    "lowF": 60.8,
+                    "maximumSustainedWindMph": 29,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      84,
+                      87
+                    ],
+                    "forecastMidpointF": 85.5,
+                    "observedF": 84.2,
+                    "errorF": -1.3,
+                    "absoluteErrorF": 1.3,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      60,
+                      64
+                    ],
+                    "forecastMidpointF": 62,
+                    "observedF": 60.8,
+                    "errorF": -1.2,
+                    "absoluteErrorF": 1.2,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 65,
+                    "temperatureObservationCount": 65,
+                    "firstObservedAt": "2026-09-30T11:55:00+00:00",
+                    "lastObservedAt": "2026-10-01T11:35:00+00:00",
+                    "highF": 85.1,
+                    "lowF": 52.3,
+                    "maximumSustainedWindMph": 25,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 5,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      84,
+                      87
+                    ],
+                    "forecastMidpointF": 85.5,
+                    "observedF": 85.1,
+                    "errorF": -0.4,
+                    "absoluteErrorF": 0.4,
+                    "withinRange": true,
+                    "rangeWidthF": 3
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      60,
+                      64
+                    ],
+                    "forecastMidpointF": 62,
+                    "observedF": 52.3,
+                    "errorF": -9.7,
+                    "absoluteErrorF": 9.7,
+                    "withinRange": false,
+                    "rangeWidthF": 4
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              }
+            }
+          },
+          "modelScores": [],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-09-30T11%3A53%3A00.000Z&end=2026-10-01T11%3A53%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-09-30T11%3A53%3A00.000Z&end=2026-10-01T11%3A53%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-09-30T11%3A53%3A00.000Z&end=2026-10-01T11%3A53%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-09-30T11%3A53%3A00.000Z&end=2026-10-01T11%3A53%3A00.000Z&limit=500"
+          ]
         }
       }
     },
