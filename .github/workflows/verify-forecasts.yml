@@ -1,0 +1,51 @@
+name: Verify forecast accuracy
+
+on:
+  schedule:
+    - cron: "15 14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: forecast-data-maintenance
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the forecast repository
+        uses: actions/checkout@v7
+
+      - name: Complete due verification checkpoints
+        run: |
+          node scripts/verify-forecasts.mjs \
+            forecast-history.json \
+            forecast.json \
+            forecast-verifications.json
+
+      - name: Rebuild the cumulative accuracy summary
+        run: |
+          node scripts/build-accuracy-summary.mjs \
+            forecast-history.json \
+            forecast.json \
+            forecast-verifications.json \
+            forecast-accuracy.json
+
+      - name: Check the current legacy forecast
+        run: node scripts/validate-forecast.mjs forecast.json forecast-accuracy.json --allow-legacy
+
+      - name: Commit verification and accuracy updates
+        run: |
+          if git diff --quiet -- forecast-history.json forecast-verifications.json forecast-accuracy.json; then
+            echo "Verification data already current; nothing to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add forecast-history.json forecast-verifications.json forecast-accuracy.json
+          git commit -m "Update forecast accuracy verification"
+          git push

@@ -250,6 +250,18 @@
       verification.replaceChildren(text("strong", "Original issue locked. "), document.createTextNode("Verification uses official observations only: KDVK/KLEX for Central Kentucky and KCEU/KLQK for the Upstate; Tempest is excluded. "));
       for (const item of data.verification.checkpoints) verification.append(text("span", `${item.hours}h due ${formatDateTime(item.due)} — ${item.status}. `));
       verification.append(link("Open machine-readable history", data.verification.historyUrl));
+      verification.append(document.createTextNode(" · "), link("Open cumulative accuracy summary", "forecast-accuracy.json"));
+      if (data.accuracyFeedback) {
+        const decisions = (data.accuracyFeedback.appliedAdjustments || [])
+          .map((item) => `${item.region}: ${item.decision}${item.reason ? ` — ${item.reason}` : ""}`)
+          .join("; ");
+        verification.append(
+          text(
+            "div",
+            `Accuracy feedback consulted ${data.accuracyFeedback.consultedForecastIds?.length || 0} verified issue(s). ${decisions}`,
+          ),
+        );
+      }
       const seconds = Number(data.refresh?.seconds) || 300;
       clearInterval(refreshTimer); refreshTimer = setInterval(load, seconds * 1000);
     }
