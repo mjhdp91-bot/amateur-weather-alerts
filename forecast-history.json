@@ -27,6 +27,634 @@
   },
   "issues": [
     {
+      "forecastId": "20261007T1325Z",
+      "issuedAt": "2026-10-07T09:25:00-04:00",
+      "validThrough": "2026-10-10T09:25:00-04:00",
+      "headline": "Sunny and warm through Friday, with a breezy Kentucky afternoon and increased Friday temperature uncertainty in the Upstate",
+      "sourceFile": "forecast.json",
+      "lockedOriginal": true,
+      "originalForecast": {
+        "schemaVersion": 1,
+        "forecastId": "20261007T1325Z",
+        "issuedAt": "2026-10-07T09:25:00-04:00",
+        "validThrough": "2026-10-10T09:25:00-04:00",
+        "timezone": "America/New_York",
+        "headline": "Sunny and warm through Friday, with a breezy Kentucky afternoon and increased Friday temperature uncertainty in the Upstate",
+        "disclaimer": "Independent amateur analysis. This is not an official forecast or warning. Follow the National Weather Service and local authorities during hazardous weather.",
+        "refresh": {
+          "seconds": 300,
+          "cachePolicy": "no-store",
+          "workflow": "Update and commit forecast.json once. GitHub Actions automatically locks the prior issue in forecast-history.json. Then verify the GitHub Pages URL; every Google Sites embed reads the same file and refreshes automatically."
+        },
+        "regions": {
+          "kentucky": {
+            "name": "Central Kentucky",
+            "subtitle": "Danville primary · Lexington comparison",
+            "theme": "blue",
+            "summary": "Central Kentucky remains sunny and dry through Friday. Deep afternoon mixing and southwest flow support lower- to middle-80s warmth today, while a moisture-starved front turns winds northerly Thursday without producing rain. Clear nights remain locally cool, so verified KDVK and KLEX low-temperature biases are applied to the overnight ranges.",
+            "currentConditions": [
+              {
+                "site": "Danville–Boyle County Airport (KDVK)",
+                "observedAt": "2026-10-07T08:15:00-04:00",
+                "temperatureF": 50,
+                "dewpointF": 46,
+                "wind": "SSW 5 mph",
+                "condition": "Clear sky inferred from the surrounding complete reports; the latest complete temperature report omitted a text description",
+                "visibility": "10 miles",
+                "precipitation": "No reliable hourly amount reported",
+                "sourceUrl": "https://api.weather.gov/stations/KDVK/observations?limit=6"
+              },
+              {
+                "site": "Lexington Blue Grass Airport (KLEX)",
+                "observedAt": "2026-10-07T08:55:00-04:00",
+                "temperatureF": 54,
+                "dewpointF": 46,
+                "wind": "SSE 6 mph",
+                "condition": "Mostly clear",
+                "visibility": "10 miles",
+                "precipitation": "No reliable hourly amount reported",
+                "sourceUrl": "https://api.weather.gov/stations/KLEX/observations/latest"
+              }
+            ],
+            "days": [
+              {
+                "date": "2026-10-07",
+                "label": "Wednesday",
+                "highF": "80–85",
+                "lowF": "50–56",
+                "precipitation": "5% or less",
+                "hazard": "No official NWS alerts; southwest gusts near 20 mph and afternoon relative humidity around 20–25% may briefly elevate fire spread",
+                "weatherRegime": "pre-frontal-warm-sector",
+                "forecast": "Sunny, dry and unseasonably warm. Deep mixing and southwest winds around 5–10 mph, with gusts near 20 mph, should lift most locations into the lower 80s and could allow a few warmer spots to reach the middle 80s. Mostly clear tonight as a dry front approaches; rural locations should cool more efficiently than Lexington."
+              },
+              {
+                "date": "2026-10-08",
+                "label": "Thursday",
+                "highF": "78–83",
+                "lowF": "45–51",
+                "precipitation": "5% or less",
+                "hazard": "No significant weather hazard expected; very low afternoon humidity continues",
+                "weatherRegime": "post-frontal-high-pressure",
+                "forecast": "Sunny and warm behind the weak, moisture-starved front. A light north wind should trim temperatures only slightly, with highs near 80 to the lower 80s. Clear skies and light northeast flow Thursday night favor efficient cooling, especially around Danville and other sheltered rural locations."
+              },
+              {
+                "date": "2026-10-09",
+                "label": "Friday",
+                "highF": "79–85",
+                "lowF": "51–58",
+                "precipitation": "5% or less",
+                "hazard": "No significant weather hazard expected; weekend tropical-remnant rainfall remains beyond this forecast day",
+                "weatherRegime": "dry-high-pressure",
+                "forecast": "Sunny and warm as surface high pressure shifts east. Most locations reach the lower 80s, with the warmest guidance allowing middle 80s. Clouds may begin increasing Friday night, but meaningful rain associated with the Gulf tropical system is expected to hold off until later Saturday or Saturday night."
+              }
+            ],
+            "bottomLine": "Central Kentucky stays sunny and rain-free through Friday, with lower- to middle-80s afternoons and cool rural nights. Today is the breeziest day. The next meaningful rain opportunity arrives after this 72-hour forecast window during the weekend.",
+            "confidence": "High on dry weather and the overall temperature pattern; moderate-high on exact afternoon highs; moderate on overnight lows because Danville and sheltered valleys routinely cool below broader guidance",
+            "verificationStations": [
+              "KDVK",
+              "KLEX"
+            ],
+            "radarLinks": [
+              {
+                "label": "NWS KLVX radar",
+                "url": "https://radar.weather.gov/station/KLVX/standard"
+              },
+              {
+                "label": "NWS KJKL radar",
+                "url": "https://radar.weather.gov/station/KJKL/standard"
+              }
+            ]
+          },
+          "upstate": {
+            "name": "Upstate South Carolina",
+            "subtitle": "Clemson / Central primary · Tempest excluded",
+            "theme": "teal",
+            "summary": "The Upstate remains dry through Friday. Sunshine supports upper-70s warmth today and a hotter Thursday near the lower or middle 80s. A weak front reinforces northeast flow Friday; current reliable guidance supports a cooler but still mild day, although the size of that cooldown remains the principal forecast uncertainty.",
+            "currentConditions": [
+              {
+                "site": "Oconee County Regional Airport (KCEU)",
+                "observedAt": "2026-10-07T08:54:00-04:00",
+                "temperatureF": 60,
+                "dewpointF": 55,
+                "wind": "N 3 mph",
+                "condition": "Clear",
+                "visibility": "10 miles",
+                "precipitation": "No reliable hourly amount reported",
+                "sourceUrl": "https://api.weather.gov/stations/KCEU/observations/latest"
+              },
+              {
+                "site": "Pickens County Airport (KLQK)",
+                "observedAt": "2026-10-07T08:55:00-04:00",
+                "temperatureF": 56,
+                "dewpointF": 54,
+                "wind": "Calm",
+                "condition": "Clear",
+                "visibility": "10 miles",
+                "precipitation": "No reliable hourly amount reported",
+                "sourceUrl": "https://api.weather.gov/stations/KLQK/observations/latest"
+              },
+              {
+                "site": "Clemson Weather Network",
+                "observedAt": "2026-10-07T09:25:00-04:00",
+                "condition": "Network observations are WeatherFlow–Tempest-fed and excluded; official KCEU and KLQK observations used instead",
+                "sourceUrl": "https://clemson-weather.app.clemson.edu/index.php"
+              }
+            ],
+            "days": [
+              {
+                "date": "2026-10-07",
+                "label": "Wednesday",
+                "highF": "76–81",
+                "lowF": "48–55",
+                "precipitation": "5% or less",
+                "hazard": "No official NWS alerts; localized late-night fog is possible near lakes and sheltered valleys",
+                "weatherRegime": "dry-high-pressure",
+                "forecast": "Sunny and dry with light east to variable winds. Highs reach the upper 70s, with warmer locations near 80. Mostly clear tonight; patchy fog may form near lakes and in sheltered valleys, and KLQK-area cold pockets may fall below the Clemson point forecast."
+              },
+              {
+                "date": "2026-10-08",
+                "label": "Thursday",
+                "highF": "81–88",
+                "lowF": "52–60",
+                "precipitation": "5% or less",
+                "hazard": "No significant weather hazard expected; localized early-morning fog remains possible",
+                "weatherRegime": "dry-high-pressure",
+                "forecast": "Sunny and notably warmer beneath the upper ridge. Most locations reach the lower or middle 80s, while the warmest guidance supports upper 80s in favored locations. Winds remain light. Thursday night becomes partly cloudy as a weak front approaches from the north."
+              },
+              {
+                "date": "2026-10-09",
+                "label": "Friday",
+                "highF": "75–82",
+                "lowF": "53–61",
+                "precipitation": "5–10%",
+                "hazard": "No official NWS alerts; confidence in the daytime high is lower because guidance differs on the strength of cooler northeast flow",
+                "weatherRegime": "post-frontal-high-pressure",
+                "forecast": "Partly sunny and cooler behind a weak front, with northeast winds increasing modestly. The NWS point forecast remains near 81, while the newer ECMWF is near 79 and the GFS is near 76, so the range is intentionally wide. Clouds increase Friday night, but widespread rain should remain west and south of the Clemson area until the weekend."
+              }
+            ],
+            "bottomLine": "The Upstate remains dry through Friday. Thursday is the warmest day, likely in the lower or middle 80s. Friday turns somewhat cooler under northeast flow, but the exact high remains less certain. More widespread rain is expected after this forecast window over the weekend.",
+            "confidence": "High on dry weather through Thursday and moderate-high on Thursday warmth; moderate on Friday's high because deterministic guidance spans roughly the middle 70s to lower 80s; moderate on overnight lows because KLQK runs colder than broader guidance",
+            "verificationStations": [
+              "KCEU",
+              "KLQK"
+            ],
+            "excludedSources": [
+              "Tempest public stations",
+              "Clemson Weather Network WeatherFlow–Tempest observations"
+            ],
+            "radarLinks": [
+              {
+                "label": "NWS KGSP radar",
+                "url": "https://radar.weather.gov/station/KGSP/standard"
+              },
+              {
+                "label": "NWS KCAE radar",
+                "url": "https://radar.weather.gov/station/KCAE/standard"
+              }
+            ]
+          }
+        },
+        "modelStatus": [
+          {
+            "model": "HRRR",
+            "run": "2026-10-07 06Z",
+            "status": "complete through forecast hour 48; the newer 12Z cycle was available through hour 26 at the source check",
+            "use": "Near-term temperature gradients, Kentucky mixing and Thursday Upstate warmth",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/hrrr/prod/hrrr.20261007/conus/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-HRRR-SE"
+          },
+          {
+            "model": "RAP",
+            "run": "2026-10-07 09Z",
+            "status": "complete through forecast hour 51; the 10Z and 11Z cycles were available through hour 21 at the source check",
+            "use": "Near-term regional temperature and wind comparison",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/rap/prod/rap.20261007/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-RAP-US"
+          },
+          {
+            "model": "NAM",
+            "run": "2026-10-07 06Z",
+            "status": "complete through forecast hour 84; the 12Z cycle was not yet available at the source check",
+            "use": "Full 72-hour temperature evolution and Friday frontal cooling",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/nam/prod/nam.20261007/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-NAM-SE"
+          },
+          {
+            "model": "NAM 3-km Nest",
+            "run": "2026-10-07 06Z",
+            "status": "complete through forecast hour 60; the 12Z cycle was not yet available at the source check",
+            "use": "Fine-scale precipitation exclusion and Friday cloud/reflectivity structure",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/nam/prod/nam.20261007/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-NAMNST-SE"
+          },
+          {
+            "model": "GFS",
+            "run": "2026-10-07 06Z",
+            "status": "complete through forecast hour 384; the 12Z directory was not yet available at the source check",
+            "use": "Global temperature trend, Friday Upstate cooldown and weekend rain timing",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/gfs.20261007/06/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-GFS-SE"
+          },
+          {
+            "model": "GEFS",
+            "run": "2026-10-07 06Z",
+            "status": "ensemble mean complete through forecast hour 384; the 12Z directory was not yet available at the source check",
+            "use": "Ensemble context for the dry workweek and weekend tropical-remnant uncertainty",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/gens/prod/gefs.20261007/06/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-GEFS-SE"
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-10-07 06Z",
+            "status": "latest complete deterministic cycle at the source check, available through forecast hour 144; archived NEXLAB benchmark panels were retained from 00Z",
+            "use": "Independent global comparison for Thursday warmth and Friday Upstate cooling",
+            "primaryUrl": "https://data.ecmwf.int/forecasts/20261007/06z/ifs/0p25/oper/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-ECMWF-SE"
+          }
+        ],
+        "modelBenchmarks": [
+          {
+            "model": "HRRR",
+            "run": "2026-10-07 06Z",
+            "region": "kentucky",
+            "targetDate": "2026-10-07",
+            "leadTimeHours": 12,
+            "highF": 81,
+            "weatherRegime": "pre-frontal-warm-sector",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/HRRR/2026100706/SE/HRRRSE_sfc_temp_012.png",
+            "note": "Representative 18Z Danville-area 2-m temperature read from the archived NEXLAB panel."
+          },
+          {
+            "model": "HRRR",
+            "run": "2026-10-07 06Z",
+            "region": "upstate",
+            "targetDate": "2026-10-07",
+            "leadTimeHours": 12,
+            "highF": 78,
+            "weatherRegime": "dry-high-pressure",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/HRRR/2026100706/SE/HRRRSE_sfc_temp_012.png",
+            "note": "Representative 18Z Clemson-area 2-m temperature read from the archived NEXLAB panel."
+          },
+          {
+            "model": "RAP",
+            "run": "2026-10-07 09Z",
+            "region": "kentucky",
+            "targetDate": "2026-10-07",
+            "leadTimeHours": 9,
+            "highF": 81,
+            "weatherRegime": "pre-frontal-warm-sector",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/RAP/2026100709/SE/RAPSE_sfc_temp_009.png",
+            "note": "Representative 18Z Danville-area 2-m temperature read from the archived NEXLAB panel."
+          },
+          {
+            "model": "RAP",
+            "run": "2026-10-07 09Z",
+            "region": "upstate",
+            "targetDate": "2026-10-07",
+            "leadTimeHours": 9,
+            "highF": 76,
+            "weatherRegime": "dry-high-pressure",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/RAP/2026100709/SE/RAPSE_sfc_temp_009.png",
+            "note": "Representative 18Z Clemson-area 2-m temperature read from the archived NEXLAB panel."
+          },
+          {
+            "model": "NAM",
+            "run": "2026-10-07 06Z",
+            "region": "kentucky",
+            "targetDate": "2026-10-08",
+            "leadTimeHours": 36,
+            "highF": 80,
+            "weatherRegime": "post-frontal-high-pressure",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/NAM/2026100706/SE/NAMSE_sfc_temp_036.png",
+            "note": "Representative 18Z Danville-area 2-m temperature read from the archived NEXLAB panel."
+          },
+          {
+            "model": "NAM",
+            "run": "2026-10-07 06Z",
+            "region": "upstate",
+            "targetDate": "2026-10-08",
+            "leadTimeHours": 36,
+            "highF": 81,
+            "weatherRegime": "dry-high-pressure",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/NAM/2026100706/SE/NAMSE_sfc_temp_036.png",
+            "note": "Representative 18Z Clemson-area 2-m temperature read from the archived NEXLAB panel."
+          },
+          {
+            "model": "GFS",
+            "run": "2026-10-07 06Z",
+            "region": "kentucky",
+            "targetDate": "2026-10-08",
+            "leadTimeHours": 36,
+            "highF": 84,
+            "weatherRegime": "post-frontal-high-pressure",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/GFS/2026100706/SE/GFSSE_sfc_temp_036.png",
+            "note": "Representative 18Z Danville-area 2-m temperature read from the archived NEXLAB panel."
+          },
+          {
+            "model": "GFS",
+            "run": "2026-10-07 06Z",
+            "region": "upstate",
+            "targetDate": "2026-10-08",
+            "leadTimeHours": 36,
+            "highF": 85,
+            "weatherRegime": "dry-high-pressure",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/GFS/2026100706/SE/GFSSE_sfc_temp_036.png",
+            "note": "Representative 18Z Clemson-area 2-m temperature read from the archived NEXLAB panel."
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-10-07 00Z",
+            "region": "kentucky",
+            "targetDate": "2026-10-08",
+            "leadTimeHours": 42,
+            "highF": 83,
+            "weatherRegime": "post-frontal-high-pressure",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/ECMWF/2026100700/SE/ECMWFSE_sfc_temp_042.png",
+            "note": "Representative 18Z Danville-area 2-m temperature read from the archived NEXLAB panel; the newer 06Z cycle was also consulted."
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-10-07 00Z",
+            "region": "upstate",
+            "targetDate": "2026-10-08",
+            "leadTimeHours": 42,
+            "highF": 84,
+            "weatherRegime": "dry-high-pressure",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/ECMWF/2026100700/SE/ECMWFSE_sfc_temp_042.png",
+            "note": "Representative 18Z Clemson-area 2-m temperature read from the archived NEXLAB panel; the newer 06Z cycle was also consulted."
+          }
+        ],
+        "modelBenchmarkExclusions": [
+          {
+            "model": "NAM 3-km Nest",
+            "run": "2026-10-07 06Z",
+            "reason": "The archived panels are deterministic simulated reflectivity, not probability guidance; they are retained for qualitative dry-pattern checking rather than converted into a false probability benchmark."
+          },
+          {
+            "model": "GEFS",
+            "run": "2026-10-07 06Z",
+            "reason": "The ensemble mean was used for uncertainty context, but no scoreable point ensemble statistic was preserved at issuance."
+          }
+        ],
+        "modelImages": [
+          {
+            "model": "HRRR",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-10-07 06Z",
+            "valid": "2026-10-07 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/HRRR/2026100706/SE/HRRRSE_sfc_temp_012.png",
+            "note": "Supports lower-80s Kentucky warmth and upper-70s Upstate temperatures today."
+          },
+          {
+            "model": "RAP",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-10-07 09Z",
+            "valid": "2026-10-07 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/RAP/2026100709/SE/RAPSE_sfc_temp_009.png",
+            "note": "Provides a cooler near-term Upstate comparison while supporting Kentucky warmth."
+          },
+          {
+            "model": "NAM",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-10-07 06Z",
+            "valid": "2026-10-08 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/NAM/2026100706/SE/NAMSE_sfc_temp_036.png",
+            "note": "Supports near-80 Kentucky highs and lower-80s Upstate temperatures Thursday."
+          },
+          {
+            "model": "NAM 3-km Nest",
+            "field": "Simulated reflectivity",
+            "run": "2026-10-07 06Z",
+            "valid": "2026-10-09 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/NAMNST/2026100706/SE/NAMNSTSE_prec_radar_060.png",
+            "note": "Keeps meaningful precipitation outside both forecast regions through Friday afternoon."
+          },
+          {
+            "model": "GFS",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-10-07 06Z",
+            "valid": "2026-10-09 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/GFS/2026100706/SE/GFSSE_sfc_temp_060.png",
+            "note": "Shows the cooler Friday Upstate alternative while keeping Central Kentucky warm."
+          },
+          {
+            "model": "ECMWF IFS",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-10-07 00Z",
+            "valid": "2026-10-09 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/ECMWF/2026100700/SE/ECMWFSE_sfc_temp_066.png",
+            "note": "Provides an archived independent comparison for Friday; the complete 06Z cycle was also consulted and moderated the earlier cool signal."
+          }
+        ],
+        "sources": [
+          {
+            "label": "NWS KDVK recent observations",
+            "timestamp": "2026-10-07T08:35:00-04:00",
+            "url": "https://api.weather.gov/stations/KDVK/observations?limit=6"
+          },
+          {
+            "label": "NWS KLEX latest observation",
+            "timestamp": "2026-10-07T08:55:00-04:00",
+            "url": "https://api.weather.gov/stations/KLEX/observations/latest"
+          },
+          {
+            "label": "NWS KCEU latest observation",
+            "timestamp": "2026-10-07T08:54:00-04:00",
+            "url": "https://api.weather.gov/stations/KCEU/observations/latest"
+          },
+          {
+            "label": "NWS KLQK latest observation",
+            "timestamp": "2026-10-07T08:55:00-04:00",
+            "url": "https://api.weather.gov/stations/KLQK/observations/latest"
+          },
+          {
+            "label": "NWS Danville point forecast",
+            "timestamp": "2026-10-07T06:46:15-04:00",
+            "url": "https://api.weather.gov/gridpoints/LMK/86,53/forecast"
+          },
+          {
+            "label": "NWS Clemson point forecast",
+            "timestamp": "2026-10-07T06:50:05-04:00",
+            "url": "https://api.weather.gov/gridpoints/GSP/49,34/forecast"
+          },
+          {
+            "label": "NWS Louisville Area Forecast Discussion",
+            "timestamp": "2026-10-07T06:45:00-04:00",
+            "url": "https://api.weather.gov/products/1a84e9e2-8e5a-4480-a716-5f6abc1fe840"
+          },
+          {
+            "label": "NWS Greenville-Spartanburg Area Forecast Discussion",
+            "timestamp": "2026-10-07T06:34:00-04:00",
+            "url": "https://api.weather.gov/products/fafe8726-1693-40e2-b584-5ddba623e527"
+          },
+          {
+            "label": "College of DuPage Southeast radar mosaic",
+            "timestamp": "2026-10-07T09:15:00-04:00",
+            "url": "https://weather.cod.edu/wxdata/satellite_r/regional/southeast/radar/southeast.radar.20261007.131500.gif"
+          },
+          {
+            "label": "College of DuPage GOES-East clean infrared",
+            "timestamp": "2026-10-07T09:11:17-04:00",
+            "url": "https://weather.cod.edu/wxdata/satellite/regional/southeast/13/southeast.13.20261007.131117.jpg"
+          },
+          {
+            "label": "Cumulative forecast accuracy summary",
+            "timestamp": "2026-10-06T10:31:29.235-04:00",
+            "url": "https://raw.githubusercontent.com/mjhdp91-bot/amateur-weather-alerts/main/forecast-accuracy.json"
+          }
+        ],
+        "analysisLinks": [
+          {
+            "label": "NEXLAB forecast models",
+            "url": "https://weather.cod.edu/forecast/"
+          },
+          {
+            "label": "NEXLAB Southeast radar mosaic",
+            "url": "https://weather.cod.edu/satrad/?parms=regional-southeast-comp_radar-24-0-100-1&checked=map&colorbar=undefined"
+          },
+          {
+            "label": "NEXLAB Southeast infrared satellite",
+            "url": "https://weather.cod.edu/satrad/?parms=regional-southeast-13-24-1-100-1&checked=map&colorbar=undefined"
+          },
+          {
+            "label": "NWS Louisville forecast discussion",
+            "url": "https://forecast.weather.gov/product.php?site=LMK&issuedby=LMK&product=AFD"
+          },
+          {
+            "label": "NWS Greenville-Spartanburg forecast discussion",
+            "url": "https://forecast.weather.gov/product.php?site=GSP&issuedby=GSP&product=AFD"
+          },
+          {
+            "label": "Kentucky Mesonet DANV",
+            "url": "https://www.kymesonet.org/data/station/DANV"
+          },
+          {
+            "label": "Clemson Weather Network",
+            "url": "https://clemson-weather.app.clemson.edu/index.php"
+          }
+        ],
+        "sourceNotes": [
+          "Official airport observations span 8:15–8:55 AM EDT. KDVK's 8:35 AM report omitted temperature, so its most recent complete temperature observation at 8:15 AM was used. The NWS point forecasts were generated at 6:46–6:50 AM EDT; the Kentucky grid was updated at 6:46 AM and the Upstate grid at 6:25 AM.",
+          "The Louisville and Greenville-Spartanburg Area Forecast Discussions were issued at 6:45 AM and 6:34 AM EDT. Louisville supports dry weather through Friday, lower- to middle-80s highs and gusts near 20 mph today. Greenville-Spartanburg supports fair weather through Friday, Thursday warmth and a modest Friday cooldown behind a weak front.",
+          "The NWS active-alert API returned no active alerts for either forecast point at the approximately 9:23 AM EDT check. This official alert status is separate from the independent discussion of low humidity, gusty Kentucky winds, localized fog and Friday temperature uncertainty.",
+          "Model inventories checked at 9:21 AM EDT showed the complete 06Z HRRR through hour 48, complete 09Z RAP through hour 51, 06Z NAM through hour 84, 06Z NAM 3-km Nest through hour 60, 06Z GFS and GEFS mean through hour 384, and 06Z ECMWF through hour 144. The partial 12Z HRRR was available through hour 26; incomplete newer cycles were not substituted for complete cycles outside their available ranges.",
+          "College of DuPage radar at 9:15 AM EDT showed both forecast regions precipitation-free. Clean-infrared imagery at 9:11 AM EDT showed mostly clear skies across Kentucky and the Carolinas, with the developing tropical system and its deeper clouds confined to the Gulf region.",
+          "The earlier apparent Friday Upstate conflict narrowed after the complete 06Z ECMWF became available. The newer ECMWF supports a Clemson-area high near 79°F, GFS guidance is near 76°F, and the NWS point forecast is 81°F. The intentionally wide 75–82°F range represents this remaining but non-material spread, and confidence is reduced accordingly.",
+          "Clemson Weather Network identifies its observations as WeatherFlow–Tempest data. Those observations were excluded, and official KCEU and KLQK observations were used for Upstate analysis and verification.",
+          "The forecast-accuracy summary generated at 10:31 AM EDT October 6 was consulted. Kentucky overnight ranges were shifted lower using the recommended KDVK and KLEX low-temperature corrections. Upstate lows were widened downward for KLQK without applying its full correction to Clemson and KCEU. HRRR received the most weight among scored models, while RAP received less weight because of its smaller sample and larger error. Friday ranges were widened because 72-hour range coverage remains 46.4%.",
+          "The low-probability precipitation bin has observed precipitation slightly more often than forecast, so small residual probabilities were retained even where official deterministic guidance is dry. Weekend tropical-remnant rain begins beyond these three forecast days and is described as context, not as a Friday hazard. This candidate does not modify the repository, forecast archive, website or widget."
+        ],
+        "accuracyFeedback": {
+          "source": "forecast-accuracy.json",
+          "summaryGeneratedAt": "2026-10-06T14:31:29.235Z",
+          "consultedForecastIds": [
+            "20260924T1205Z",
+            "20260925T1320Z",
+            "20260926T1101Z",
+            "20260928T1153Z",
+            "20260929T1140Z",
+            "20260930T1140Z",
+            "20261002T1025Z",
+            "20261003T1707Z",
+            "20261004T1409Z",
+            "20261005T1300Z"
+          ],
+          "appliedAdjustments": [
+            {
+              "region": "kentucky",
+              "decision": "Applied",
+              "details": "Lowered the overnight ranges using the recommended KDVK -2.5°F and KLEX -1.5°F low-temperature corrections while retaining enough width for the rural-to-urban spread. Daytime guidance was not bias-shifted because the current high-temperature station biases remain below the correction threshold. Friday's range was widened because 72-hour coverage remains 46.4%."
+            },
+            {
+              "region": "upstate",
+              "decision": "Applied",
+              "details": "Widened nighttime ranges downward to represent KLQK's recommended -3.5°F low-temperature correction without applying the full adjustment to Clemson or KCEU. No daytime station correction was applied because all Upstate high-temperature candidates are currently monitoring. HRRR received the greatest model weight; Friday's range was widened to cover the remaining GFS–ECMWF–NWS spread and weak 72-hour calibration."
+            }
+          ]
+        },
+        "verification": {
+          "historyUrl": "forecast-history.json",
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "checkpoints": [
+            {
+              "hours": 24,
+              "due": "2026-10-08T09:25:00-04:00",
+              "status": "pending"
+            },
+            {
+              "hours": 48,
+              "due": "2026-10-09T09:25:00-04:00",
+              "status": "pending"
+            },
+            {
+              "hours": 72,
+              "due": "2026-10-10T09:25:00-04:00",
+              "status": "pending"
+            }
+          ]
+        }
+      },
+      "centralKentucky": {
+        "days": [
+          {
+            "date": "2026-10-07",
+            "highF": "80–85",
+            "lowF": "50–56",
+            "precipitation": "5% or less"
+          },
+          {
+            "date": "2026-10-08",
+            "highF": "78–83",
+            "lowF": "45–51",
+            "precipitation": "5% or less"
+          },
+          {
+            "date": "2026-10-09",
+            "highF": "79–85",
+            "lowF": "51–58",
+            "precipitation": "5% or less"
+          }
+        ]
+      },
+      "upstateSouthCarolina": {
+        "days": [
+          {
+            "date": "2026-10-07",
+            "highF": "76–81",
+            "lowF": "48–55",
+            "precipitation": "5% or less"
+          },
+          {
+            "date": "2026-10-08",
+            "highF": "81–88",
+            "lowF": "52–60",
+            "precipitation": "5% or less"
+          },
+          {
+            "date": "2026-10-09",
+            "highF": "75–82",
+            "lowF": "53–61",
+            "precipitation": "5–10%"
+          }
+        ]
+      },
+      "verification": {
+        "24h": {
+          "due": "2026-10-08T09:25:00-04:00",
+          "status": "pending"
+        },
+        "48h": {
+          "due": "2026-10-09T09:25:00-04:00",
+          "status": "pending"
+        },
+        "72h": {
+          "due": "2026-10-10T09:25:00-04:00",
+          "status": "pending"
+        }
+      }
+    },
+    {
       "forecastId": "20261006T1255Z",
       "issuedAt": "2026-10-06T08:55:00-04:00",
       "validThrough": "2026-10-09T08:55:00-04:00",
