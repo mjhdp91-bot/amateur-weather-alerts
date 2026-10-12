@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-11T18:53:55.777Z",
+  "generatedAt": "2026-10-12T22:08:21.060Z",
   "source": "forecast-verifications.json",
   "methodology": {
     "temperatureError": "Observed official-station temperature minus the midpoint of the issued range.",
@@ -11,9 +11,9 @@
     "upstateTempestExcluded": true
   },
   "coverage": {
-    "forecastCount": 16,
-    "checkpointCount": 48,
-    "verifiedCheckpoints": 42,
+    "forecastCount": 17,
+    "checkpointCount": 51,
+    "verifiedCheckpoints": 45,
     "pendingCheckpoints": 6,
     "deferredCheckpoints": 0,
     "verifiedForecastIds": [
@@ -31,94 +31,95 @@
       "20261007T1325Z",
       "20261008T1248Z",
       "20261009T1147Z",
-      "20261010T1200Z"
+      "20261010T1200Z",
+      "20261011T1250Z"
     ]
   },
   "temperature": {
     "overall": {
-      "sampleCount": 336,
+      "sampleCount": 360,
       "meanErrorF": -0.9,
       "meanAbsoluteErrorF": 2.8,
       "rmseF": 3.8,
-      "rangeCoveragePercent": 58.3,
-      "averageRangeWidthF": 5
+      "rangeCoveragePercent": 59.2,
+      "averageRangeWidthF": 5.2
     },
     "byRegion": {
       "kentucky": {
-        "sampleCount": 168,
-        "meanErrorF": -1.4,
+        "sampleCount": 180,
+        "meanErrorF": -1.6,
         "meanAbsoluteErrorF": 2.7,
-        "rmseF": 3.7,
+        "rmseF": 3.8,
         "rangeCoveragePercent": 58.9,
-        "averageRangeWidthF": 4.9
+        "averageRangeWidthF": 5
       },
       "upstate": {
-        "sampleCount": 168,
+        "sampleCount": 180,
         "meanErrorF": -0.3,
         "meanAbsoluteErrorF": 2.8,
-        "rmseF": 3.9,
-        "rangeCoveragePercent": 57.7,
-        "averageRangeWidthF": 5.2
+        "rmseF": 3.8,
+        "rangeCoveragePercent": 59.4,
+        "averageRangeWidthF": 5.3
       }
     },
     "byStation": {
       "KCEU": {
-        "sampleCount": 84,
+        "sampleCount": 90,
         "meanErrorF": 0.7,
         "meanAbsoluteErrorF": 2.5,
-        "rmseF": 3.2,
-        "rangeCoveragePercent": 58.3,
-        "averageRangeWidthF": 5.2
+        "rmseF": 3.1,
+        "rangeCoveragePercent": 61.1,
+        "averageRangeWidthF": 5.3
       },
       "KDVK": {
-        "sampleCount": 84,
-        "meanErrorF": -2.1,
+        "sampleCount": 90,
+        "meanErrorF": -2.2,
         "meanAbsoluteErrorF": 3,
-        "rmseF": 4,
-        "rangeCoveragePercent": 54.8,
-        "averageRangeWidthF": 4.9
+        "rmseF": 4.1,
+        "rangeCoveragePercent": 54.4,
+        "averageRangeWidthF": 5
       },
       "KLEX": {
-        "sampleCount": 84,
-        "meanErrorF": -0.7,
-        "meanAbsoluteErrorF": 2.4,
-        "rmseF": 3.3,
-        "rangeCoveragePercent": 63.1,
-        "averageRangeWidthF": 4.9
+        "sampleCount": 90,
+        "meanErrorF": -0.9,
+        "meanAbsoluteErrorF": 2.5,
+        "rmseF": 3.5,
+        "rangeCoveragePercent": 63.3,
+        "averageRangeWidthF": 5
       },
       "KLQK": {
-        "sampleCount": 84,
-        "meanErrorF": -1.3,
+        "sampleCount": 90,
+        "meanErrorF": -1.2,
         "meanAbsoluteErrorF": 3.2,
-        "rmseF": 4.5,
-        "rangeCoveragePercent": 57.1,
-        "averageRangeWidthF": 5.2
+        "rmseF": 4.4,
+        "rangeCoveragePercent": 57.8,
+        "averageRangeWidthF": 5.3
       }
     },
     "byLeadTimeHours": {
       "24": {
-        "sampleCount": 120,
-        "meanErrorF": -0.9,
+        "sampleCount": 128,
+        "meanErrorF": -0.8,
         "meanAbsoluteErrorF": 2.7,
-        "rmseF": 3.7,
-        "rangeCoveragePercent": 58.3,
+        "rmseF": 3.6,
+        "rangeCoveragePercent": 58.6,
         "averageRangeWidthF": 4.7
       },
       "48": {
-        "sampleCount": 112,
-        "meanErrorF": -0.4,
-        "meanAbsoluteErrorF": 2.5,
-        "rmseF": 3.4,
-        "rangeCoveragePercent": 62.5,
-        "averageRangeWidthF": 5.2
+        "sampleCount": 120,
+        "meanErrorF": -0.5,
+        "meanAbsoluteErrorF": 2.6,
+        "rmseF": 3.5,
+        "rangeCoveragePercent": 63.3,
+        "averageRangeWidthF": 5.3
       },
       "72": {
-        "sampleCount": 104,
-        "meanErrorF": -1.3,
+        "sampleCount": 112,
+        "meanErrorF": -1.5,
         "meanAbsoluteErrorF": 3.1,
         "rmseF": 4.2,
-        "rangeCoveragePercent": 53.8,
-        "averageRangeWidthF": 5.3
+        "rangeCoveragePercent": 55.4,
+        "averageRangeWidthF": 5.6
       }
     },
     "byWeatherRegime": {
@@ -186,6 +187,22 @@
         "rangeCoveragePercent": 25,
         "averageRangeWidthF": 4
       },
+      "post-tropical-frontal-passage": {
+        "sampleCount": 4,
+        "meanErrorF": 1.3,
+        "meanAbsoluteErrorF": 3,
+        "rmseF": 3.1,
+        "rangeCoveragePercent": 50,
+        "averageRangeWidthF": 6
+      },
+      "post-tropical-showers": {
+        "sampleCount": 8,
+        "meanErrorF": -2.1,
+        "meanAbsoluteErrorF": 2.8,
+        "rmseF": 3.9,
+        "rangeCoveragePercent": 62.5,
+        "averageRangeWidthF": 5.8
+      },
       "pre-frontal-warm-sector": {
         "sampleCount": 12,
         "meanErrorF": -0.9,
@@ -203,12 +220,12 @@
         "averageRangeWidthF": 3.3
       },
       "tropical-remnant-precipitation": {
-        "sampleCount": 12,
-        "meanErrorF": -3.5,
-        "meanAbsoluteErrorF": 3.6,
-        "rmseF": 5.3,
-        "rangeCoveragePercent": 75,
-        "averageRangeWidthF": 7.2
+        "sampleCount": 16,
+        "meanErrorF": -4.1,
+        "meanAbsoluteErrorF": 4.2,
+        "rmseF": 5.7,
+        "rangeCoveragePercent": 68.8,
+        "averageRangeWidthF": 7.5
       },
       "tropical-remnant-stratiform": {
         "sampleCount": 12,
@@ -219,18 +236,18 @@
         "averageRangeWidthF": 7.2
       },
       "wedge-erosion": {
-        "sampleCount": 4,
-        "meanErrorF": 2.8,
-        "meanAbsoluteErrorF": 2.8,
-        "rmseF": 3.2,
-        "rangeCoveragePercent": 50,
-        "averageRangeWidthF": 5.5
+        "sampleCount": 12,
+        "meanErrorF": 0.9,
+        "meanAbsoluteErrorF": 2.4,
+        "rmseF": 2.6,
+        "rangeCoveragePercent": 83.3,
+        "averageRangeWidthF": 7.3
       }
     }
   },
   "precipitation": {
-    "sampleCount": 84,
-    "brierScore": 0.0998,
+    "sampleCount": 90,
+    "brierScore": 0.1076,
     "reliability": [
       {
         "bin": "0–20%",
@@ -240,36 +257,36 @@
       },
       {
         "bin": "21–40%",
-        "sampleCount": 3,
-        "meanForecastProbability": 0.308,
+        "sampleCount": 5,
+        "meanForecastProbability": 0.32,
         "observedFrequency": 0
       },
       {
         "bin": "41–60%",
-        "sampleCount": 2,
+        "sampleCount": 3,
         "meanForecastProbability": 0.525,
-        "observedFrequency": 0.5
+        "observedFrequency": 0.667
       },
       {
         "bin": "61–80%",
-        "sampleCount": 3,
-        "meanForecastProbability": 0.675,
+        "sampleCount": 4,
+        "meanForecastProbability": 0.663,
         "observedFrequency": 1
       },
       {
         "bin": "81–100%",
-        "sampleCount": 11,
-        "meanForecastProbability": 0.907,
-        "observedFrequency": 1
+        "sampleCount": 13,
+        "meanForecastProbability": 0.898,
+        "observedFrequency": 0.923
       }
     ]
   },
   "models": {
-    "sampleCount": 94,
+    "sampleCount": 108,
     "availability": "Model benchmarks are being scored against regional official-observation means.",
     "byModel": {
       "HRRR": {
-        "sampleCount": 20,
+        "sampleCount": 22,
         "highTemperatureMeanAbsoluteErrorF": 1.6,
         "lowTemperatureMeanAbsoluteErrorF": null,
         "precipitationBrierScore": null,
@@ -313,11 +330,21 @@
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 1.8,
             "lowTemperatureMeanAbsoluteErrorF": null
+          },
+          "post-tropical-showers": {
+            "sampleCount": 1,
+            "highTemperatureMeanAbsoluteErrorF": 2.2,
+            "lowTemperatureMeanAbsoluteErrorF": null
+          },
+          "post-tropical-frontal-passage": {
+            "sampleCount": 1,
+            "highTemperatureMeanAbsoluteErrorF": 1.5,
+            "lowTemperatureMeanAbsoluteErrorF": null
           }
         }
       },
       "NAM": {
-        "sampleCount": 24,
+        "sampleCount": 26,
         "highTemperatureMeanAbsoluteErrorF": 3,
         "lowTemperatureMeanAbsoluteErrorF": null,
         "precipitationBrierScore": null,
@@ -371,12 +398,22 @@
             "sampleCount": 2,
             "highTemperatureMeanAbsoluteErrorF": 1.5,
             "lowTemperatureMeanAbsoluteErrorF": null
+          },
+          "post-tropical-showers": {
+            "sampleCount": 1,
+            "highTemperatureMeanAbsoluteErrorF": 4.2,
+            "lowTemperatureMeanAbsoluteErrorF": null
+          },
+          "post-tropical-frontal-passage": {
+            "sampleCount": 1,
+            "highTemperatureMeanAbsoluteErrorF": 2.5,
+            "lowTemperatureMeanAbsoluteErrorF": null
           }
         }
       },
       "GFS": {
-        "sampleCount": 17,
-        "highTemperatureMeanAbsoluteErrorF": 3.6,
+        "sampleCount": 21,
+        "highTemperatureMeanAbsoluteErrorF": 3.7,
         "lowTemperatureMeanAbsoluteErrorF": null,
         "precipitationBrierScore": null,
         "byWeatherRegime": {
@@ -404,12 +441,27 @@
             "sampleCount": 7,
             "highTemperatureMeanAbsoluteErrorF": 3.3,
             "lowTemperatureMeanAbsoluteErrorF": null
+          },
+          "tropical-remnant-precipitation": {
+            "sampleCount": 1,
+            "highTemperatureMeanAbsoluteErrorF": 7.2,
+            "lowTemperatureMeanAbsoluteErrorF": null
+          },
+          "wedge-erosion": {
+            "sampleCount": 2,
+            "highTemperatureMeanAbsoluteErrorF": 1.5,
+            "lowTemperatureMeanAbsoluteErrorF": null
+          },
+          "post-tropical-showers": {
+            "sampleCount": 1,
+            "highTemperatureMeanAbsoluteErrorF": 6.2,
+            "lowTemperatureMeanAbsoluteErrorF": null
           }
         }
       },
       "ECMWF IFS": {
-        "sampleCount": 17,
-        "highTemperatureMeanAbsoluteErrorF": 3.1,
+        "sampleCount": 21,
+        "highTemperatureMeanAbsoluteErrorF": 3.8,
         "lowTemperatureMeanAbsoluteErrorF": null,
         "precipitationBrierScore": null,
         "byWeatherRegime": {
@@ -437,11 +489,26 @@
             "sampleCount": 7,
             "highTemperatureMeanAbsoluteErrorF": 3,
             "lowTemperatureMeanAbsoluteErrorF": null
+          },
+          "tropical-remnant-precipitation": {
+            "sampleCount": 1,
+            "highTemperatureMeanAbsoluteErrorF": 13.2,
+            "lowTemperatureMeanAbsoluteErrorF": null
+          },
+          "wedge-erosion": {
+            "sampleCount": 2,
+            "highTemperatureMeanAbsoluteErrorF": 4.5,
+            "lowTemperatureMeanAbsoluteErrorF": null
+          },
+          "post-tropical-showers": {
+            "sampleCount": 1,
+            "highTemperatureMeanAbsoluteErrorF": 6.2,
+            "lowTemperatureMeanAbsoluteErrorF": null
           }
         }
       },
       "RAP": {
-        "sampleCount": 16,
+        "sampleCount": 18,
         "highTemperatureMeanAbsoluteErrorF": 2.4,
         "lowTemperatureMeanAbsoluteErrorF": null,
         "precipitationBrierScore": null,
@@ -480,6 +547,16 @@
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 1.8,
             "lowTemperatureMeanAbsoluteErrorF": null
+          },
+          "post-tropical-showers": {
+            "sampleCount": 1,
+            "highTemperatureMeanAbsoluteErrorF": 1.2,
+            "lowTemperatureMeanAbsoluteErrorF": null
+          },
+          "post-tropical-frontal-passage": {
+            "sampleCount": 1,
+            "highTemperatureMeanAbsoluteErrorF": 4.5,
+            "lowTemperatureMeanAbsoluteErrorF": null
           }
         }
       }
@@ -498,9 +575,9 @@
         "region": "kentucky",
         "station": "KDVK",
         "metric": "high",
-        "sampleCount": 42,
-        "meanErrorF": -1.7,
-        "meanAbsoluteErrorF": 2.1,
+        "sampleCount": 45,
+        "meanErrorF": -2,
+        "meanAbsoluteErrorF": 2.4,
         "status": "recommended",
         "suggestedAdjustmentF": -1.5
       },
@@ -508,9 +585,9 @@
         "region": "kentucky",
         "station": "KDVK",
         "metric": "low",
-        "sampleCount": 42,
-        "meanErrorF": -2.5,
-        "meanAbsoluteErrorF": 3.9,
+        "sampleCount": 45,
+        "meanErrorF": -2.4,
+        "meanAbsoluteErrorF": 3.7,
         "status": "recommended",
         "suggestedAdjustmentF": -2
       },
@@ -518,9 +595,9 @@
         "region": "kentucky",
         "station": "KLEX",
         "metric": "high",
-        "sampleCount": 42,
-        "meanErrorF": -0.2,
-        "meanAbsoluteErrorF": 1.8,
+        "sampleCount": 45,
+        "meanErrorF": -0.6,
+        "meanAbsoluteErrorF": 2.1,
         "status": "monitoring",
         "suggestedAdjustmentF": 0
       },
@@ -528,9 +605,9 @@
         "region": "kentucky",
         "station": "KLEX",
         "metric": "low",
-        "sampleCount": 42,
-        "meanErrorF": -1.3,
-        "meanAbsoluteErrorF": 2.9,
+        "sampleCount": 45,
+        "meanErrorF": -1.2,
+        "meanAbsoluteErrorF": 2.8,
         "status": "monitoring",
         "suggestedAdjustmentF": 0
       },
@@ -538,7 +615,7 @@
         "region": "upstate",
         "station": "KCEU",
         "metric": "high",
-        "sampleCount": 42,
+        "sampleCount": 45,
         "meanErrorF": -0.3,
         "meanAbsoluteErrorF": 2.1,
         "status": "monitoring",
@@ -548,9 +625,9 @@
         "region": "upstate",
         "station": "KCEU",
         "metric": "low",
-        "sampleCount": 42,
+        "sampleCount": 45,
         "meanErrorF": 1.7,
-        "meanAbsoluteErrorF": 2.9,
+        "meanAbsoluteErrorF": 2.8,
         "status": "recommended",
         "suggestedAdjustmentF": 1.5
       },
@@ -558,7 +635,7 @@
         "region": "upstate",
         "station": "KLQK",
         "metric": "high",
-        "sampleCount": 42,
+        "sampleCount": 45,
         "meanErrorF": 0.7,
         "meanAbsoluteErrorF": 2,
         "status": "monitoring",
@@ -568,9 +645,9 @@
         "region": "upstate",
         "station": "KLQK",
         "metric": "low",
-        "sampleCount": 42,
+        "sampleCount": 45,
         "meanErrorF": -3.2,
-        "meanAbsoluteErrorF": 4.4,
+        "meanAbsoluteErrorF": 4.3,
         "status": "recommended",
         "suggestedAdjustmentF": -2.5
       }
