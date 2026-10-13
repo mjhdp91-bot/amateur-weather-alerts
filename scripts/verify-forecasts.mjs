@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import {
   REGION_CONFIG,
+  SCORING_VERSION,
   evaluateRegionCheckpoint,
   scoreModelBenchmarks,
   summarizeNwsObservations,
@@ -87,7 +88,13 @@ function summarySentence(regions) {
   const highHits = stationScores.filter((score) => score.highTemperature?.withinRange).length;
   const lowHits = stationScores.filter((score) => score.lowTemperature?.withinRange).length;
   const rainEvents = Object.values(regions).filter((region) => region.precipitation.observed).length;
-  return `${highHits}/${stationScores.length} station highs and ${lowHits}/${stationScores.length} station lows fell inside the issued ranges; precipitation occurred in ${rainEvents}/${Object.keys(regions).length} regions.`;
+  const expandedScores = Object.values(regions).flatMap((region) => Object.values(region.expanded?.scores ?? {}))
+    .map((item) => item?.score)
+    .filter(Number.isFinite);
+  const expandedAccuracy = expandedScores.length
+    ? Math.round((expandedScores.reduce((sum, value) => sum + value, 0) / expandedScores.length) * 1000) / 10
+    : null;
+  return `${highHits}/${stationScores.length} station highs and ${lowHits}/${stationScores.length} station lows fell inside the issued ranges; precipitation occurred in ${rainEvents}/${Object.keys(regions).length} regions; expanded categorical accuracy was ${expandedAccuracy ?? "not scoreable"}${expandedAccuracy == null ? "" : "%"}.`;
 }
 
 async function verifyCheckpoint(forecast, checkpointHours, due) {
@@ -97,9 +104,8 @@ async function verifyCheckpoint(forecast, checkpointHours, due) {
   const sources = [];
   const modelScores = [];
 
-  for (const [regionKey, config] of Object.entries(REGION_CONFIG)) {
-    const stationObservations = {};
-    for (const station of config.stations) {
+  const stationRequests = Object.entries(REGION_CONFIG).flatMap(([regionKey, config]) =>
+    config.stations.map(async (station) => {
       const url = new URL(`https://api.weather.gov/stations/${station}/observations`);
       url.searchParams.set("start", start.toISOString());
       url.searchParams.set("end", end.toISOString());
@@ -111,9 +117,16 @@ async function verifyCheckpoint(forecast, checkpointHours, due) {
           `${station} supplied ${summary.temperatureObservationCount} temperature observations; ${minimumTemperatureObservations} required`,
         );
       }
-      stationObservations[station] = summary;
-      sources.push(url.toString());
-    }
+      return { regionKey, station, summary, source: url.toString() };
+    }),
+  );
+  const fetchedStations = await Promise.all(stationRequests);
+
+  for (const [regionKey, config] of Object.entries(REGION_CONFIG)) {
+    const stationObservations = Object.fromEntries(
+      fetchedStations.filter((item) => item.regionKey === regionKey).map((item) => [item.station, item.summary]),
+    );
+    sources.push(...fetchedStations.filter((item) => item.regionKey === regionKey).map((item) => item.source));
     const regionResult = evaluateRegionCheckpoint({
       forecast,
       regionKey,
@@ -129,6 +142,7 @@ async function verifyCheckpoint(forecast, checkpointHours, due) {
     checkpointHours,
     due,
     status: "verified",
+    scoringVersion: SCORING_VERSION,
     verifiedAt: now.toISOString(),
     window: { start: start.toISOString(), end: end.toISOString() },
     officialOnly: true,
@@ -148,6 +162,8 @@ const ledger = readJson(ledgerPath, {
     checkpointWindows: "Each checkpoint scores the preceding 24-hour window ending at its due time.",
     observations: "Official NWS station observations only.",
     precipitation: "A measurable precipitation or rain/drizzle/shower report at either regional station counts as occurrence.",
+    expandedScoring: "Versioned deterministic rules compare issued verification targets with official observations for wind, fog/visibility, cloud cover, thunder, hazards, event timing, weather-regime narrative, alert documentation and confidence calibration.",
+    scoringVersion: SCORING_VERSION,
     upstateTempestExcluded: true,
   },
   forecasts: {},
@@ -172,7 +188,7 @@ let deferredCount = 0;
 for (const [forecastId, forecast] of forecasts) {
   const record = ledger.forecasts[forecastId];
   for (const [checkpointKey, checkpoint] of Object.entries(record.checkpoints)) {
-    if (checkpoint.status === "verified") continue;
+    if (checkpoint.status === "verified" && checkpoint.scoringVersion === SCORING_VERSION) continue;
     const hours = Number(checkpointKey.replace("h", ""));
     const dueTime = Date.parse(checkpoint.due);
     if (!Number.isFinite(dueTime)) throw new Error(`${forecastId} ${checkpointKey} has an invalid due time`);
@@ -182,12 +198,22 @@ for (const [forecastId, forecast] of forecasts) {
       verifiedCount += 1;
       console.log(`Verified ${forecastId} ${checkpointKey}.`);
     } catch (error) {
-      record.checkpoints[checkpointKey] = {
-        ...checkpoint,
-        status: "deferred",
-        lastAttemptAt: now.toISOString(),
-        reason: error.message,
-      };
+      record.checkpoints[checkpointKey] = checkpoint.status === "verified"
+        ? {
+          ...checkpoint,
+          expandedRescore: {
+            status: "deferred",
+            lastAttemptAt: now.toISOString(),
+            reason: error.message,
+            targetScoringVersion: SCORING_VERSION,
+          },
+        }
+        : {
+          ...checkpoint,
+          status: "deferred",
+          lastAttemptAt: now.toISOString(),
+          reason: error.message,
+        };
       deferredCount += 1;
       console.warn(`Deferred ${forecastId} ${checkpointKey}: ${error.message}`);
     }

@@ -31,7 +31,9 @@ manually. It:
    and archived forecasts;
 2. retrieves official NWS observations for KDVK, KLEX, KCEU and KLQK;
 3. scores high and low temperature ranges, precipitation probability, wind,
-   visibility, fog and thunder while continuing to exclude Upstate Tempest data;
+   fog/visibility, cloud cover, thunder, observable hazards, event timing,
+   weather-regime narrative, issuance-time alert documentation and confidence
+   calibration while continuing to exclude Upstate Tempest data;
 4. stores the full checkpoint result in `forecast-verifications.json` and mirrors
    archived results into `forecast-history.json`; and
 5. rebuilds `forecast-accuracy.json`, the cumulative machine-readable accuracy
@@ -42,6 +44,18 @@ and average range width by region, station, lead time and weather regime. It als
 reports precipitation Brier score and reliability bins. Model guidance is scored
 only from benchmarks captured at issue time; model values are never reconstructed
 after the event.
+
+`allCategoryAccuracy.overallAccuracyPercent` is the comprehensive headline score.
+Each available category receives equal weight so numerous temperature observations
+cannot drown out hazards or timing. `categoryCoverage` always accompanies the
+percentage; categories without objective evidence are omitted rather than counted
+as successes or failures. The summary also reports the category-balanced score by
+region and by 24-, 48- and 72-hour lead time.
+
+Scoring rules are versioned. When the scoring version changes, the daily workflow
+re-fetches official observations for previously verified checkpoints once, which
+prevents historical results from mixing incompatible definitions. NWS wind units
+are read from each observation's unit code before conversion.
 
 Bias corrections require at least four matching samples and an absolute mean bias
 of at least 1.5°F. Qualified corrections are shrunk by 25% and limited to ±4°F.
@@ -57,6 +71,8 @@ The **Validate forecast feedback** workflow rejects new forecast issues unless
 they include:
 
 - `weatherRegime` on each of the three days in both regions;
+- `verificationTargets` on each day, containing structured wind, fog, cloud,
+  thunder, hazard, timing, confidence and official-alert targets;
 - `modelBenchmarks` containing the point values actually consulted at issuance,
   or a documented `modelBenchmarkExclusions` entry when a listed model cannot be
   scored; and
@@ -87,6 +103,45 @@ Minimal feedback structure:
   }
 }
 ```
+
+Minimal per-day verification target structure:
+
+```json
+{
+  "verificationTargets": {
+    "wind": {
+      "sustainedRangeMph": [5, 10],
+      "gustRangeMph": [15, 20]
+    },
+    "visibility": {
+      "fogProbability": 0.1,
+      "minimumVisibilityRangeMiles": null
+    },
+    "sky": {
+      "categories": ["clear", "mostly-clear"]
+    },
+    "thunderProbability": 0.05,
+    "hazards": [],
+    "eventTiming": {
+      "rain": [],
+      "thunder": [],
+      "fog": [],
+      "wind": ["afternoon"]
+    },
+    "confidence": 0.8,
+    "officialAlerts": {
+      "status": "none",
+      "checkedAt": "2026-10-13T12:40:00Z",
+      "sourceUrl": "https://api.weather.gov/alerts/active?point=37.6456,-84.7722"
+    }
+  }
+}
+```
+
+Allowed sky categories are `clear`, `mostly-clear`, `partly-cloudy`,
+`mostly-cloudy` and `overcast`. Observable hazard labels are `fog`, `wind`,
+`thunder`, `heavy-rain`, `heat` and `freeze`. Event periods are `morning`,
+`afternoon`, `evening` and `night` in `America/New_York`.
 
 This makes the feedback step auditable. A forecast cannot merely claim that prior
 performance was reviewed; it must record which evidence was consulted and what

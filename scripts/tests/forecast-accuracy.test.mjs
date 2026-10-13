@@ -45,6 +45,28 @@ test("summarizes official NWS observation units", () => {
   assert.equal(summary.rainReports, 1);
   assert.equal(summary.fogReports, 1);
   assert.equal(summary.minimumVisibilityMi, 0.5);
+  assert.equal(summary.predominantSkyCondition, "clear");
+  assert.deepEqual(summary.eventPeriods.fog, ["morning"]);
+});
+
+test("converts NWS kilometer-per-hour winds without inflating them", () => {
+  const summary = summarizeNwsObservations([
+    {
+      properties: {
+        timestamp: "2026-10-13T18:00:00Z",
+        temperature: { value: 20 },
+        windSpeed: { value: 16, unitCode: "wmoUnit:km_h-1" },
+        windGust: { value: 32, unitCode: "wmoUnit:km_h-1" },
+        precipitationLastHour: { value: 12.7, unitCode: "wmoUnit:mm" },
+        visibility: { value: 16000 },
+        textDescription: "Partly Cloudy",
+      },
+    },
+  ]);
+  assert.equal(summary.maximumSustainedWindMph, 9.9);
+  assert.equal(summary.maximumGustMph, 19.9);
+  assert.equal(summary.maximumHourlyPrecipitationIn, 0.5);
+  assert.equal(summary.predominantSkyCondition, "partly-cloudy");
 });
 
 test("scores ranges and Brier probability at a checkpoint", () => {
@@ -68,6 +90,63 @@ test("scores ranges and Brier probability at a checkpoint", () => {
   assert.equal(result.stationScores.KDVK.highTemperature.withinRange, true);
   assert.equal(result.stationScores.KDVK.lowTemperature.withinRange, false);
   assert.equal(result.precipitation.brierScore, 0.04);
+  assert.ok(Number.isFinite(result.expanded.scores.visibilityFog.score));
+});
+
+test("scores structured wind, visibility, cloud, thunder, hazards, timing, alerts and confidence", () => {
+  const forecast = {
+    forecastId: "expanded",
+    sourceNotes: ["No official alerts were active across Central Kentucky at issuance."],
+    regions: {
+      kentucky: {
+        confidence: "High",
+        days: [{
+          date: "2026-10-13",
+          highF: "70–74",
+          lowF: "48–52",
+          precipitation: "70%",
+          weatherRegime: "frontal-convective",
+          verificationTargets: {
+            wind: { sustainedRangeMph: [8, 16], gustRangeMph: [18, 28] },
+            visibility: { fogProbability: 0.1, minimumVisibilityRangeMiles: null },
+            sky: { categories: ["mostly-cloudy"] },
+            thunderProbability: 0.7,
+            hazards: ["thunder"],
+            eventTiming: { rain: ["afternoon"], thunder: ["afternoon"], fog: [], wind: [] },
+            confidence: 0.8,
+            officialAlerts: { status: "none", checkedAt: "2026-10-13T12:00:00Z", sourceUrl: "https://api.weather.gov/alerts/active" },
+          },
+        }],
+      },
+    },
+  };
+  const result = evaluateRegionCheckpoint({
+    forecast,
+    regionKey: "kentucky",
+    checkpointHours: 24,
+    stationObservations: {
+      KDVK: {
+        highF: 72,
+        lowF: 50,
+        maximumSustainedWindMph: 14,
+        maximumGustMph: 25,
+        minimumVisibilityMi: 8,
+        maximumHourlyPrecipitationIn: 0.1,
+        rainReports: 2,
+        thunderReports: 1,
+        fogReports: 0,
+        predominantSkyCondition: "mostly-cloudy",
+        skyConditionCounts: { clear: 0, "mostly-clear": 0, "partly-cloudy": 0, "mostly-cloudy": 4, overcast: 0 },
+        eventPeriods: { rain: ["afternoon"], thunder: ["afternoon"], fog: [], wind: [] },
+      },
+    },
+  });
+  assert.equal(result.expanded.scores.wind.score, 1);
+  assert.equal(result.expanded.scores.cloudCover.score, 1);
+  assert.equal(result.expanded.scores.hazards.score, 1);
+  assert.equal(result.expanded.scores.eventTiming.score, 1);
+  assert.equal(result.expanded.scores.officialAlertHandling.score, 1);
+  assert.ok(result.expanded.scores.confidenceCalibration.score > 0.9);
 });
 
 test("bias corrections require repeated evidence and remain bounded", () => {
@@ -83,8 +162,8 @@ test("strict validation requires model, regime and feedback evidence", () => {
     issuedAt,
     validThrough: "2026-10-02T07:40:00-04:00",
     regions: {
-      kentucky: { days: Array.from({ length: 3 }, (_, index) => ({ weatherRegime: "dry-high-pressure", date: `2026-10-0${index + 1}` })) },
-      upstate: { days: Array.from({ length: 3 }, (_, index) => ({ weatherRegime: "dry-high-pressure", date: `2026-10-0${index + 1}` })) },
+      kentucky: { days: Array.from({ length: 3 }, (_, index) => ({ weatherRegime: "dry-high-pressure", date: `2026-10-0${index + 1}`, verificationTargets: verificationTargets() })) },
+      upstate: { days: Array.from({ length: 3 }, (_, index) => ({ weatherRegime: "dry-high-pressure", date: `2026-10-0${index + 1}`, verificationTargets: verificationTargets() })) },
     },
     verification: { checkpoints: [{ hours: 24 }, { hours: 48 }, { hours: 72 }] },
     modelStatus: [{ model: "HRRR" }],
@@ -103,3 +182,20 @@ test("strict validation requires model, regime and feedback evidence", () => {
   delete forecast.accuracyFeedback;
   assert.ok(validateForecastFeedback(forecast, {}).some((error) => error.includes("accuracyFeedback")));
 });
+
+function verificationTargets() {
+  return {
+    wind: null,
+    visibility: { fogProbability: 0.05, minimumVisibilityRangeMiles: null },
+    sky: { categories: ["clear"] },
+    thunderProbability: 0.02,
+    hazards: [],
+    eventTiming: { rain: [], thunder: [], fog: [], wind: [] },
+    confidence: 0.8,
+    officialAlerts: {
+      status: "none",
+      checkedAt: "2026-09-29T11:40:00Z",
+      sourceUrl: "https://api.weather.gov/alerts/active?point=37.6456,-84.7722",
+    },
+  };
+}

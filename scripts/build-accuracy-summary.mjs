@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import {
   BIAS_RULES,
+  COMPOSITE_CATEGORIES,
   REGION_CONFIG,
   evaluateRegionCheckpoint,
   round,
@@ -125,6 +126,33 @@ function modelSummary(samples) {
   };
 }
 
+function scoreAggregate(samples) {
+  const usable = samples.filter((item) => Number.isFinite(item.score));
+  return {
+    sampleCount: usable.length,
+    meanScore: usable.length ? round(usable.reduce((sum, item) => sum + item.score, 0) / usable.length, 4) : null,
+    accuracyPercent: usable.length ? round((usable.reduce((sum, item) => sum + item.score, 0) / usable.length) * 100) : null,
+  };
+}
+
+function balancedComposite(samples) {
+  const byCategory = Object.fromEntries(
+    COMPOSITE_CATEGORIES.map((category) => [category, scoreAggregate(samples.filter((item) => item.category === category))]),
+  );
+  const available = Object.entries(byCategory).filter(([, aggregate]) => aggregate.sampleCount > 0);
+  const overall = available.length
+    ? available.reduce((sum, [, aggregate]) => sum + aggregate.accuracyPercent, 0) / available.length
+    : null;
+  return {
+    overallAccuracyPercent: round(overall),
+    categoryCoverage: `${available.length}/${COMPOSITE_CATEGORIES.length}`,
+    availableCategoryCount: available.length,
+    totalCategoryCount: COMPOSITE_CATEGORIES.length,
+    weighting: "Each scored category receives equal weight; missing categories are excluded and disclosed through categoryCoverage.",
+    byCategory,
+  };
+}
+
 const history = readJson(historyPath);
 const current = readJson(currentPath);
 const ledger = readJson(ledgerPath);
@@ -134,6 +162,7 @@ forecasts.set(current.forecastId, current);
 const temperatureSamples = [];
 const precipitationSamples = [];
 const modelSamples = [];
+const allCategorySamples = [];
 const verifiedForecastIds = new Set();
 const checkpointStatuses = [];
 
@@ -162,6 +191,13 @@ for (const [forecastId, record] of Object.entries(ledger.forecasts ?? {})) {
             withinRange: score.withinRange,
             rangeWidthF: score.rangeWidthF,
           });
+          allCategorySamples.push({
+            category: "temperature",
+            forecastId,
+            region: regionKey,
+            leadTimeHours,
+            score: Number(score.withinRange),
+          });
         }
       }
       precipitationSamples.push({
@@ -171,6 +207,19 @@ for (const [forecastId, record] of Object.entries(ledger.forecasts ?? {})) {
         weatherRegime: region.weatherRegime,
         ...region.precipitation,
       });
+      if (Number.isFinite(region.precipitation?.brierScore)) {
+        allCategorySamples.push({
+          category: "precipitation",
+          forecastId,
+          region: regionKey,
+          leadTimeHours,
+          score: 1 - region.precipitation.brierScore,
+        });
+      }
+      for (const [category, result] of Object.entries(region.expanded?.scores ?? {})) {
+        if (!Number.isFinite(result?.score)) continue;
+        allCategorySamples.push({ category, forecastId, region: regionKey, leadTimeHours, score: result.score });
+      }
     }
     modelSamples.push(...(checkpoint.modelScores ?? []));
   }
@@ -203,6 +252,20 @@ const summary = {
     rangeCalibration: "Coverage is the percentage of official-station observations inside the issued range.",
     models: "Per-model scores require modelBenchmarks captured at issuance; models are never reconstructed after the fact.",
     weatherRegime: "Explicit day-level weatherRegime is required for new issues; legacy issues use documented text inference.",
+    compositeAccuracy: "A category-balanced percentage covering temperature, precipitation, wind, fog/visibility, cloud cover, thunder, hazards, event timing, weather-regime narrative, official-alert documentation and confidence calibration. Each available category receives equal weight; missing categories are disclosed rather than counted as failures.",
+    componentRules: {
+      temperature: "Binary credit for each official-station high and low inside the issued range.",
+      precipitation: "Probability accuracy is 1 minus the Brier score for regional occurrence.",
+      wind: "Full credit inside the issued sustained/gust range, tapering to zero over 10 mph for sustained wind and 15 mph for gusts.",
+      visibilityFog: "Brier-style probability accuracy for fog or sub-mile visibility.",
+      cloudCover: "Ordinal agreement across clear, mostly clear, partly cloudy, mostly cloudy and overcast categories.",
+      thunder: "Brier-style probability accuracy for an official-station thunder report.",
+      hazards: "Jaccard agreement for observable fog, wind, thunder, heavy-rain, heat and freeze hazards.",
+      eventTiming: "Credit when observed rain, thunder, fog or strong-wind periods overlap the issued morning/afternoon/evening/night target.",
+      weatherRegimeNarrative: "Deterministic outcome rule appropriate to the issued weatherRegime.",
+      officialAlertHandling: "Checks that the issuance-time alert status is explicit and backed by a timestamped official source.",
+      confidenceCalibration: "One minus squared error between issued confidence and realized component accuracy.",
+    },
     upstateTempestExcluded: true,
   },
   coverage: {
@@ -221,6 +284,15 @@ const summary = {
     byWeatherRegime: keyedAggregates(temperatureSamples, (item) => item.weatherRegime),
   },
   precipitation: precipitationSummary(precipitationSamples),
+  allCategoryAccuracy: {
+    ...balancedComposite(allCategorySamples),
+    byRegion: Object.fromEntries(
+      Object.keys(REGION_CONFIG).map((region) => [region, balancedComposite(allCategorySamples.filter((item) => item.region === region))]),
+    ),
+    byLeadTimeHours: Object.fromEntries(
+      [24, 48, 72].map((hours) => [String(hours), balancedComposite(allCategorySamples.filter((item) => item.leadTimeHours === hours))]),
+    ),
+  },
   models: modelSummary(modelSamples),
   biasCorrection: {
     rules: BIAS_RULES,
@@ -229,7 +301,7 @@ const summary = {
   },
   futureForecastRequirement: {
     summaryMustBeConsulted: true,
-    requiredFields: ["weatherRegime on every day", "modelBenchmarks", "accuracyFeedback"],
+    requiredFields: ["weatherRegime on every day", "verificationTargets on every day", "modelBenchmarks", "accuracyFeedback"],
     noAdjustmentDecisionMustBeDocumented: true,
   },
 };
