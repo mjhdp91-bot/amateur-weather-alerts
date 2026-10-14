@@ -31,7 +31,9 @@ manually. It:
    and archived forecasts;
 2. retrieves official NWS observations for KDVK, KLEX, KCEU and KLQK;
 3. scores high and low temperature ranges, precipitation probability, wind,
-   visibility, fog and thunder while continuing to exclude Upstate Tempest data;
+   fog/visibility, cloud cover, thunder, observable hazards, event timing,
+   weather-regime narrative, issuance-time alert documentation and confidence
+   calibration while continuing to exclude Upstate Tempest data;
 4. stores the full checkpoint result in `forecast-verifications.json` and mirrors
    archived results into `forecast-history.json`; and
 5. rebuilds `forecast-accuracy.json`, the cumulative machine-readable accuracy
@@ -43,9 +45,41 @@ reports precipitation Brier score and reliability bins. Model guidance is scored
 only from benchmarks captured at issue time; model values are never reconstructed
 after the event.
 
+`allCategoryAccuracy.overallAccuracyPercent` is the comprehensive headline score.
+Each available category receives equal weight so numerous temperature observations
+cannot drown out hazards or timing. `categoryCoverage` always accompanies the
+percentage; categories without objective evidence are omitted rather than counted
+as successes or failures. The summary also reports the category-balanced score by
+region and by 24-, 48- and 72-hour lead time.
+
+Scoring rules are versioned. When the scoring version changes, the daily workflow
+re-fetches official observations for previously verified checkpoints once, which
+prevents historical results from mixing incompatible definitions. NWS wind units
+are read from each observation's unit code before conversion.
+
 Bias corrections require at least four matching samples and an absolute mean bias
 of at least 1.5°F. Qualified corrections are shrunk by 25% and limited to ±4°F.
 This prevents a single unusual observation from becoming an automatic correction.
+
+The generated `forecastDecisionSupport` section turns verification into concrete
+preparation rules. It recommends high/low range widths at each lead time from the
+historical 70th-percentile absolute error (bounded to 4–10°F), and model weights
+by weather regime when a model has at least three matching samples. The validator
+requires each qualified station correction to be applied exactly or explicitly
+overridden with a reason. It also requires issued range widths and model blends to
+be recorded for every region and lead time.
+
+Fog always receives its own probability. Every observable hazard receives a
+probability and measurable threshold, while meaningful events receive absolute
+start/end windows with a 0–6 hour tolerance. Alert checks must use the configured
+regional NWS point and occur within three hours before issuance; active alerts
+must preserve their NWS alert IDs.
+
+Every issue also stores an `intermediateUpdatePolicy`. Its default triggers are a
+4°F temperature departure, a 25-point precipitation or hazard-probability change,
+a three-hour timing shift, or any new official NWS alert. This is a review gate,
+not a publishing bypass: a resulting candidate still uses approval-gated
+publication.
 
 If official observations are incomplete, the checkpoint is marked `deferred`
 with a reason and is retried on the next workflow run rather than being treated as
@@ -57,12 +91,17 @@ The **Validate forecast feedback** workflow rejects new forecast issues unless
 they include:
 
 - `weatherRegime` on each of the three days in both regions;
+- `verificationTargets` on each day, containing structured wind, fog, cloud,
+  thunder, probabilistic hazard, timestamped timing, confidence and fresh
+  official-alert targets;
 - `modelBenchmarks` containing the point values actually consulted at issuance,
   or a documented `modelBenchmarkExclusions` entry when a listed model cannot be
   scored; and
 - `accuracyFeedback`, identifying the exact `forecast-accuracy.json` generation,
   all verified forecasts consulted, and the adjustment or explicit no-adjustment
-  decision for each region.
+  decision for each region; and
+- `intermediateUpdatePolicy`, defining the observation and guidance changes that
+  justify an interim candidate.
 
 Minimal feedback structure:
 
@@ -84,6 +123,90 @@ Minimal feedback structure:
         "reason": "KLQK low bias is notable but has only one verified sample."
       }
     ]
+  }
+}
+```
+
+Minimal per-day verification target structure:
+
+```json
+{
+  "verificationTargets": {
+    "wind": {
+      "sustainedRangeMph": [5, 10],
+      "gustRangeMph": [15, 20]
+    },
+    "visibility": {
+      "fogProbability": 0.1,
+      "minimumVisibilityRangeMiles": null
+    },
+    "sky": {
+      "categories": ["clear", "mostly-clear"]
+    },
+    "thunderProbability": 0.05,
+    "hazards": [],
+    "hazardProbabilities": {
+      "fog": 0.1,
+      "wind": 0.1,
+      "thunder": 0.05,
+      "heavy-rain": 0.05,
+      "heat": 0.05,
+      "freeze": 0.05
+    },
+    "hazardThresholds": {
+      "fogVisibilityMiles": 1,
+      "windSustainedMph": 25,
+      "windGustMph": 35,
+      "heavyRainHourlyInches": 0.3,
+      "heatHighF": 95,
+      "freezeLowF": 32
+    },
+    "eventTiming": {
+      "rain": [],
+      "thunder": [],
+      "fog": [],
+      "wind": ["afternoon"]
+    },
+    "eventWindows": [
+      {
+        "event": "wind",
+        "start": "2026-10-13T12:00:00-04:00",
+        "end": "2026-10-13T18:00:00-04:00",
+        "probability": 0.6,
+        "toleranceHours": 3
+      }
+    ],
+    "confidence": 0.8,
+    "officialAlerts": {
+      "status": "none",
+      "checkedAt": "2026-10-13T12:40:00Z",
+      "sourceUrl": "https://api.weather.gov/alerts/active?point=37.6456,-84.7722"
+    }
+  }
+}
+```
+
+Allowed sky categories are `clear`, `mostly-clear`, `partly-cloudy`,
+`mostly-cloudy` and `overcast`. Observable hazard labels are `fog`, `wind`,
+`thunder`, `heavy-rain`, `heat` and `freeze`. Event periods are `morning`,
+`afternoon`, `evening` and `night` in `America/New_York`.
+
+`accuracyFeedback` additionally records `stationBiasCorrections`, six
+`temperatureRangeDecisions`, six regime-matched `modelWeighting` entries, and
+regional `learningDecisions` for fog, wind, hazards and timing. A future issue cannot
+silently ignore a qualified correction or a known miss.
+
+Minimal intermediate-update policy:
+
+```json
+{
+  "intermediateUpdatePolicy": {
+    "evaluationCadenceHours": 6,
+    "temperatureDeviationF": 4,
+    "precipitationProbabilityChange": 0.25,
+    "timingShiftHours": 3,
+    "hazardProbabilityChange": 0.25,
+    "newOfficialAlert": true
   }
 }
 ```

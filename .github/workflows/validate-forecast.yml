@@ -5,8 +5,7 @@ on:
     paths:
       - forecast.json
       - forecast-accuracy.json
-      - scripts/validate-forecast.mjs
-      - scripts/lib/forecast-accuracy.mjs
+      - "scripts/**"
   push:
     branches: [main]
     paths:
@@ -35,3 +34,6 @@ jobs:
           else
             node scripts/validate-forecast.mjs forecast.json forecast-accuracy.json --allow-legacy
           fi
+
+      - name: Run forecast accuracy tests
+        run: node --test scripts/tests/*.test.mjs
