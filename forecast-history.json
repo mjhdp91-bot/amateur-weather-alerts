@@ -27,6 +27,641 @@
   },
   "issues": [
     {
+      "forecastId": "20261013T1250Z",
+      "issuedAt": "2026-10-13T08:50:00-04:00",
+      "validThrough": "2026-10-16T08:50:00-04:00",
+      "headline": "Near-record warmth today; heavy downpours and isolated gusty storms reach Central Kentucky Wednesday while the Upstate stays dry",
+      "sourceFile": "forecast.json",
+      "lockedOriginal": true,
+      "originalForecast": {
+        "schemaVersion": 1,
+        "forecastId": "20261013T1250Z",
+        "issuedAt": "2026-10-13T08:50:00-04:00",
+        "validThrough": "2026-10-16T08:50:00-04:00",
+        "timezone": "America/New_York",
+        "headline": "Near-record warmth today; heavy downpours and isolated gusty storms reach Central Kentucky Wednesday while the Upstate stays dry",
+        "disclaimer": "Independent amateur analysis. This is not an official forecast or warning. Follow the National Weather Service and local authorities during hazardous weather.",
+        "refresh": {
+          "seconds": 300,
+          "cachePolicy": "no-store",
+          "workflow": "Update and commit forecast.json once. GitHub Actions automatically locks the prior issue in forecast-history.json. Then verify the GitHub Pages URL; every Google Sites embed reads the same file and refreshes automatically."
+        },
+        "regions": {
+          "kentucky": {
+            "name": "Central Kentucky",
+            "subtitle": "Danville primary · Lexington comparison",
+            "theme": "blue",
+            "summary": "Sunny skies and strengthening southwest flow bring near-record warmth today. A moisture-rich boundary moves into the region Wednesday, producing an increasing chance of showers and thunderstorms from northwest to southeast. Locally heavy downpours and isolated strong wind gusts are possible Wednesday afternoon and night. Scattered showers or storms may linger Thursday before the main cold front arrives beyond this 72-hour period.",
+            "currentConditions": [
+              {
+                "site": "Danville–Boyle County Airport (KDVK)",
+                "observedAt": "2026-10-13T07:55:00-04:00",
+                "temperatureF": 61,
+                "dewpointF": 59,
+                "wind": "S 5 mph",
+                "condition": "Mostly cloudy with a 7,000-foot ceiling",
+                "visibility": "10 miles",
+                "precipitation": "No reliable hourly amount reported",
+                "sourceUrl": "https://api.weather.gov/stations/KDVK/observations/latest"
+              },
+              {
+                "site": "Lexington Blue Grass Airport (KLEX)",
+                "observedAt": "2026-10-13T08:20:00-04:00",
+                "temperatureF": 64,
+                "dewpointF": 57,
+                "wind": "S 9 mph",
+                "condition": "Clear",
+                "visibility": "10 miles",
+                "precipitation": "No reliable hourly amount reported",
+                "sourceUrl": "https://api.weather.gov/stations/KLEX/observations/latest"
+              }
+            ],
+            "days": [
+              {
+                "date": "2026-10-13",
+                "label": "Tuesday",
+                "highF": "85–89",
+                "lowF": "63–68",
+                "precipitation": "5% or less",
+                "hazard": "No official NWS alert; unseasonable heat and isolated southwest gusts of 20–25 mph are possible",
+                "weatherRegime": "warm-ridge",
+                "forecast": "Mostly sunny, dry and unusually warm. Southwest winds around 8–14 mph may occasionally gust near 20–25 mph during peak mixing. Afternoon temperatures reach the middle to upper 80s, followed by a mostly clear and very mild night."
+              },
+              {
+                "date": "2026-10-14",
+                "label": "Wednesday",
+                "highF": "82–87",
+                "lowF": "64–69",
+                "precipitation": "30–45% from late morning through afternoon; increasing to 65–75% Wednesday evening and night",
+                "hazard": "No official NWS watch or warning at issuance; the NWS discussion identifies a low-end severe-wind risk, and localized heavy downpours may cause brief ponding",
+                "weatherRegime": "frontal-convective",
+                "forecast": "Partly sunny, warm and humid early. Showers and thunderstorms approach southern Indiana late in the morning and spread southeast toward Danville and the Bluegrass during the afternoon and evening. Rain timing creates a sharp temperature gradient, while moisture near record levels supports locally heavy downpours. A few storms may produce strong gusty winds, but widespread severe weather is not expected."
+              },
+              {
+                "date": "2026-10-15",
+                "label": "Thursday",
+                "highF": "81–86",
+                "lowF": "58–64",
+                "precipitation": "40–55% during the day; decreasing to 20–30% Thursday evening and night",
+                "hazard": "No official NWS alert at issuance; isolated thunder and locally heavy downpours remain possible near the lingering boundary",
+                "weatherRegime": "frontal-convective",
+                "forecast": "Variable clouds with scattered showers and a few thunderstorms as the moisture-rich boundary lingers nearby. Dry intervals are likely, and southern parts of the region may become quite warm if clouds break. Rain coverage should diminish Thursday evening, while the stronger cold front remains west of the region until later."
+              }
+            ],
+            "bottomLine": "Today is dry and near record-warm. Rain and thunder chances rise quickly Wednesday, with the greatest concern Wednesday afternoon and night for localized heavy downpours and isolated strong wind gusts. Scattered rain may linger Thursday, but the major late-week cool-down arrives after this forecast window.",
+            "confidence": "High on today's dry heat; moderate-high on Wednesday's widespread rain opportunity; moderate on exact storm timing, local rainfall totals and Thursday coverage",
+            "verificationStations": [
+              "KDVK",
+              "KLEX"
+            ],
+            "radarLinks": [
+              {
+                "label": "NWS KLVX radar",
+                "url": "https://radar.weather.gov/station/KLVX/standard"
+              },
+              {
+                "label": "NWS KJKL radar",
+                "url": "https://radar.weather.gov/station/KJKL/standard"
+              }
+            ]
+          },
+          "upstate": {
+            "name": "Upstate South Carolina",
+            "subtitle": "Clemson / Central primary · Tempest excluded",
+            "theme": "teal",
+            "summary": "High pressure and upper-level ridging keep Clemson and Central dry, sunny and roughly ten degrees warmer than normal through Thursday. Afternoon temperatures remain in the middle to upper 80s, while clear nights produce sizable local low-temperature differences between KCEU and the cooler KLQK valley location. No official NWS alerts were active for the Upstate at issuance.",
+            "currentConditions": [
+              {
+                "site": "Oconee County Regional Airport (KCEU)",
+                "observedAt": "2026-10-13T08:20:00-04:00",
+                "temperatureF": 57,
+                "dewpointF": 57,
+                "wind": "Calm",
+                "condition": "Clear",
+                "visibility": "10 miles",
+                "precipitation": "No reliable hourly amount reported",
+                "sourceUrl": "https://api.weather.gov/stations/KCEU/observations/latest"
+              },
+              {
+                "site": "Pickens County Airport (KLQK)",
+                "observedAt": "2026-10-13T07:55:00-04:00",
+                "temperatureF": 49,
+                "dewpointF": 47,
+                "wind": "Calm",
+                "condition": "Clear",
+                "visibility": "10 miles",
+                "precipitation": "No reliable hourly amount reported",
+                "sourceUrl": "https://api.weather.gov/stations/KLQK/observations/latest"
+              },
+              {
+                "site": "Clemson Weather Network",
+                "observedAt": "2026-10-13T08:20:00-04:00",
+                "condition": "Network observations are WeatherFlow–Tempest-fed and excluded; official KCEU and KLQK observations used instead",
+                "sourceUrl": "https://clemson-weather.app.clemson.edu/index.php"
+              }
+            ],
+            "days": [
+              {
+                "date": "2026-10-13",
+                "label": "Tuesday",
+                "highF": "84–88",
+                "lowF": "53–61",
+                "precipitation": "5% or less",
+                "hazard": "No significant weather hazards expected near Clemson and Central",
+                "weatherRegime": "warm-ridge",
+                "forecast": "Sunny, dry and unseasonably warm with light west winds. Clear skies and nearly calm winds tonight favor a wide temperature spread, with sheltered locations becoming noticeably cooler than exposed sites."
+              },
+              {
+                "date": "2026-10-14",
+                "label": "Wednesday",
+                "highF": "84–89",
+                "lowF": "56–64",
+                "precipitation": "5% or less",
+                "hazard": "No significant weather hazards expected",
+                "weatherRegime": "warm-ridge",
+                "forecast": "Sunny, dry and very warm beneath persistent upper-level ridging. Winds remain light, and clear conditions continue Wednesday night. Patchy fog may develop in mountain river valleys but is not expected to be a widespread Clemson–Central concern."
+              },
+              {
+                "date": "2026-10-15",
+                "label": "Thursday",
+                "highF": "85–90",
+                "lowF": "59–66",
+                "precipitation": "5% or less",
+                "hazard": "No significant weather hazards expected",
+                "weatherRegime": "warm-ridge",
+                "forecast": "Sunny and unusually warm, with afternoon temperatures in the middle to upper 80s and an isolated 90-degree reading possible. Light winds and clear skies continue Thursday night. The approaching cold front remains too moisture-starved and too far west to affect this period."
+              }
+            ],
+            "bottomLine": "Clemson and Central remain sunny, dry and unusually warm through Thursday. No significant weather hazards are expected, and Tempest observations remain excluded from analysis and verification.",
+            "confidence": "High on the dry three-day forecast and persistent warmth; moderate-high on daytime ranges; moderate on localized nighttime lows because official stations continue to diverge substantially",
+            "verificationStations": [
+              "KCEU",
+              "KLQK"
+            ],
+            "excludedSources": [
+              "Tempest public stations",
+              "Clemson Weather Network WeatherFlow–Tempest observations"
+            ],
+            "radarLinks": [
+              {
+                "label": "NWS KGSP radar",
+                "url": "https://radar.weather.gov/station/KGSP/standard"
+              },
+              {
+                "label": "NWS KCAE radar",
+                "url": "https://radar.weather.gov/station/KCAE/standard"
+              }
+            ]
+          }
+        },
+        "modelStatus": [
+          {
+            "model": "HRRR",
+            "run": "2026-10-13 06Z",
+            "status": "complete through forecast hour 48; newer 07Z–11Z cycles were available through hour 18 at the source check",
+            "use": "Near-term temperature, mixing and the initial Wednesday rain progression",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/hrrr/prod/hrrr.20261013/conus/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-HRRR-SE"
+          },
+          {
+            "model": "RAP",
+            "run": "2026-10-13 09Z",
+            "status": "complete extended cycle through forecast hour 51; the 10Z and 11Z cycles were available through hour 21",
+            "use": "Near-term temperature, southwest-wind mixing and Wednesday moisture arrival",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/rap/prod/rap.20261013/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-RAP-US"
+          },
+          {
+            "model": "NAM",
+            "run": "2026-10-13 06Z",
+            "status": "complete through forecast hour 84",
+            "use": "Full 72-hour temperature gradient, boundary placement and moisture evolution",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/nam/prod/nam.20261013/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-NAM-SE"
+          },
+          {
+            "model": "NAM 3-km Nest",
+            "run": "2026-10-13 06Z",
+            "status": "complete through forecast hour 60",
+            "use": "Qualitative convective placement and Wednesday timing uncertainty",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/nam/prod/nam.20261013/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-NAMNST-SE"
+          },
+          {
+            "model": "GFS",
+            "run": "2026-10-13 06Z",
+            "status": "complete through forecast hour 384",
+            "use": "Global comparison for Wednesday warmth, moisture and Thursday boundary persistence",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/gfs.20261013/06/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-GFS-SE"
+          },
+          {
+            "model": "GEFS",
+            "run": "2026-10-13 06Z",
+            "status": "ensemble mean complete through forecast hour 384",
+            "use": "Ensemble context for the regional temperature split and Central Kentucky precipitation uncertainty",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/gens/prod/gefs.20261013/06/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-GEFS-SE"
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-10-13 06Z",
+            "status": "latest deterministic cycle available through forecast hour 144, fully covering the 72-hour period; the 00Z cycle was complete through hour 360",
+            "use": "Independent global comparison for Wednesday–Thursday temperature and ridge evolution",
+            "primaryUrl": "https://data.ecmwf.int/forecasts/20261013/06z/ifs/0p25/oper/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-ECMWF-SE"
+          }
+        ],
+        "modelBenchmarks": [
+          {
+            "model": "HRRR",
+            "run": "2026-10-13 06Z",
+            "region": "kentucky",
+            "targetDate": "2026-10-13",
+            "leadTimeHours": 12,
+            "highF": 86,
+            "weatherRegime": "warm-ridge",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/HRRR/2026101306/SE/HRRRSE_sfc_temp_012.png",
+            "note": "Representative Tuesday-afternoon Danville-area 2-m temperature."
+          },
+          {
+            "model": "HRRR",
+            "run": "2026-10-13 06Z",
+            "region": "upstate",
+            "targetDate": "2026-10-13",
+            "leadTimeHours": 12,
+            "highF": 84,
+            "weatherRegime": "warm-ridge",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/HRRR/2026101306/SE/HRRRSE_sfc_temp_012.png",
+            "note": "Representative Tuesday-afternoon Clemson-area temperature."
+          },
+          {
+            "model": "RAP",
+            "run": "2026-10-13 09Z",
+            "region": "kentucky",
+            "targetDate": "2026-10-13",
+            "leadTimeHours": 9,
+            "highF": 86,
+            "weatherRegime": "warm-ridge",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/RAP/2026101309/SE/RAPSE_sfc_temp_009.png",
+            "note": "Representative Tuesday-afternoon Danville-area temperature."
+          },
+          {
+            "model": "RAP",
+            "run": "2026-10-13 09Z",
+            "region": "upstate",
+            "targetDate": "2026-10-13",
+            "leadTimeHours": 9,
+            "highF": 84,
+            "weatherRegime": "warm-ridge",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/RAP/2026101309/SE/RAPSE_sfc_temp_009.png",
+            "note": "Representative Tuesday-afternoon Clemson-area temperature."
+          },
+          {
+            "model": "NAM",
+            "run": "2026-10-13 06Z",
+            "region": "kentucky",
+            "targetDate": "2026-10-13",
+            "leadTimeHours": 12,
+            "highF": 86,
+            "weatherRegime": "warm-ridge",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/NAM/2026101306/SE/NAMSE_sfc_temp_012.png",
+            "note": "Representative Tuesday-afternoon Danville-area temperature."
+          },
+          {
+            "model": "NAM",
+            "run": "2026-10-13 06Z",
+            "region": "upstate",
+            "targetDate": "2026-10-13",
+            "leadTimeHours": 12,
+            "highF": 84,
+            "weatherRegime": "warm-ridge",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/NAM/2026101306/SE/NAMSE_sfc_temp_012.png",
+            "note": "Representative Tuesday-afternoon Clemson-area temperature."
+          },
+          {
+            "model": "GFS",
+            "run": "2026-10-13 06Z",
+            "region": "kentucky",
+            "targetDate": "2026-10-14",
+            "leadTimeHours": 36,
+            "highF": 87,
+            "weatherRegime": "frontal-convective",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/GFS/2026101306/SE/GFSSE_sfc_temp_036.png",
+            "note": "Representative Wednesday-afternoon Danville-area temperature; convection timing may lower realized values."
+          },
+          {
+            "model": "GFS",
+            "run": "2026-10-13 06Z",
+            "region": "upstate",
+            "targetDate": "2026-10-14",
+            "leadTimeHours": 36,
+            "highF": 87,
+            "weatherRegime": "warm-ridge",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/GFS/2026101306/SE/GFSSE_sfc_temp_036.png",
+            "note": "Representative Wednesday-afternoon Clemson-area temperature."
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-10-13 00Z",
+            "region": "kentucky",
+            "targetDate": "2026-10-14",
+            "leadTimeHours": 42,
+            "highF": 85,
+            "weatherRegime": "frontal-convective",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/ECMWF/2026101300/SE/ECMWFSE_sfc_temp_042.png",
+            "note": "Representative Wednesday-afternoon Danville-area temperature from the latest archived COD panel."
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-10-13 00Z",
+            "region": "upstate",
+            "targetDate": "2026-10-14",
+            "leadTimeHours": 42,
+            "highF": 85,
+            "weatherRegime": "warm-ridge",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/ECMWF/2026101300/SE/ECMWFSE_sfc_temp_042.png",
+            "note": "Representative Wednesday-afternoon Clemson-area temperature from the latest archived COD panel."
+          }
+        ],
+        "modelBenchmarkExclusions": [
+          {
+            "model": "NAM 3-km Nest",
+            "run": "2026-10-13 06Z",
+            "reason": "The preserved panel is deterministic simulated reflectivity, not probability guidance; it is used qualitatively for precipitation placement and timing rather than converted into a false probability benchmark."
+          },
+          {
+            "model": "GEFS",
+            "run": "2026-10-13 06Z",
+            "reason": "The ensemble mean was used for the temperature split and precipitation uncertainty, but no scoreable point ensemble statistic was preserved at issuance."
+          }
+        ],
+        "modelImages": [
+          {
+            "model": "HRRR",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-10-13 06Z",
+            "valid": "2026-10-13 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/HRRR/2026101306/SE/HRRRSE_sfc_temp_012.png",
+            "note": "Supports a dry, warm and breezy Tuesday across Central Kentucky and a warm, dry Upstate."
+          },
+          {
+            "model": "RAP",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-10-13 09Z",
+            "valid": "2026-10-13 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/RAP/2026101309/SE/RAPSE_sfc_temp_009.png",
+            "note": "Provides the near-term Tuesday temperature and mixing comparison."
+          },
+          {
+            "model": "NAM",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-10-13 06Z",
+            "valid": "2026-10-13 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/NAM/2026101306/SE/NAMSE_sfc_temp_012.png",
+            "note": "Supports middle-to-upper 80s Tuesday afternoon across both regions."
+          },
+          {
+            "model": "NAM 3-km Nest",
+            "field": "Simulated reflectivity",
+            "run": "2026-10-13 06Z",
+            "valid": "2026-10-14 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/NAMNST/2026101306/SE/NAMNSTSE_prec_radar_036.png",
+            "note": "Keeps much of Central Kentucky dry at 18Z Wednesday, highlighting timing uncertainty relative to wetter official guidance; the Upstate remains dry."
+          },
+          {
+            "model": "GFS",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-10-13 06Z",
+            "valid": "2026-10-14 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/GFS/2026101306/SE/GFSSE_sfc_temp_036.png",
+            "note": "Maintains very warm Wednesday temperatures, especially where convection is delayed."
+          },
+          {
+            "model": "ECMWF IFS",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-10-13 00Z",
+            "valid": "2026-10-14 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/ECMWF/2026101300/SE/ECMWFSE_sfc_temp_042.png",
+            "note": "Provides an independent global comparison for Wednesday's warmth and regional gradient."
+          }
+        ],
+        "sources": [
+          {
+            "label": "NWS KDVK latest observation",
+            "timestamp": "2026-10-13T07:55:00-04:00",
+            "url": "https://api.weather.gov/stations/KDVK/observations/latest"
+          },
+          {
+            "label": "NWS KLEX latest observation",
+            "timestamp": "2026-10-13T08:20:00-04:00",
+            "url": "https://api.weather.gov/stations/KLEX/observations/latest"
+          },
+          {
+            "label": "NWS KCEU latest observation",
+            "timestamp": "2026-10-13T08:20:00-04:00",
+            "url": "https://api.weather.gov/stations/KCEU/observations/latest"
+          },
+          {
+            "label": "NWS KLQK latest observation",
+            "timestamp": "2026-10-13T07:55:00-04:00",
+            "url": "https://api.weather.gov/stations/KLQK/observations/latest"
+          },
+          {
+            "label": "NWS Danville point forecast",
+            "timestamp": "2026-10-13T08:40:11-04:00",
+            "url": "https://api.weather.gov/gridpoints/LMK/86,53/forecast"
+          },
+          {
+            "label": "NWS Clemson point forecast",
+            "timestamp": "2026-10-13T08:40:11-04:00",
+            "url": "https://api.weather.gov/gridpoints/GSP/49,34/forecast"
+          },
+          {
+            "label": "NWS Louisville Area Forecast Discussion",
+            "timestamp": "2026-10-13T07:09:00-04:00",
+            "url": "https://api.weather.gov/products/6500ad37-a209-41d1-8479-be1c6b4a340a"
+          },
+          {
+            "label": "NWS Greenville-Spartanburg Area Forecast Discussion",
+            "timestamp": "2026-10-13T06:27:00-04:00",
+            "url": "https://api.weather.gov/products/b67c6e7f-759c-4fda-a958-b07661912251"
+          },
+          {
+            "label": "College of DuPage Southeast radar mosaic",
+            "timestamp": "2026-10-13T08:30:00-04:00",
+            "url": "https://weather.cod.edu/wxdata/satellite_r/regional/southeast/radar/southeast.radar.20261013.123000.gif"
+          },
+          {
+            "label": "College of DuPage GOES-East clean infrared",
+            "timestamp": "2026-10-13T08:36:17-04:00",
+            "url": "https://weather.cod.edu/wxdata/satellite/regional/southeast/13/southeast.13.20261013.123617.jpg"
+          },
+          {
+            "label": "Cumulative forecast accuracy summary",
+            "timestamp": "2026-10-12T18:08:21.060-04:00",
+            "url": "https://raw.githubusercontent.com/mjhdp91-bot/amateur-weather-alerts/main/forecast-accuracy.json"
+          }
+        ],
+        "analysisLinks": [
+          {
+            "label": "NEXLAB forecast models",
+            "url": "https://weather.cod.edu/forecast/"
+          },
+          {
+            "label": "NEXLAB Southeast radar mosaic",
+            "url": "https://weather.cod.edu/satrad/?parms=regional-southeast-comp_radar-24-0-100-1&checked=map&colorbar=undefined"
+          },
+          {
+            "label": "NEXLAB Southeast infrared satellite",
+            "url": "https://weather.cod.edu/satrad/?parms=regional-southeast-13-24-1-100-1&checked=map&colorbar=undefined"
+          },
+          {
+            "label": "NWS Louisville forecast discussion",
+            "url": "https://forecast.weather.gov/product.php?site=LMK&issuedby=LMK&product=AFD"
+          },
+          {
+            "label": "NWS Greenville-Spartanburg forecast discussion",
+            "url": "https://forecast.weather.gov/product.php?site=GSP&issuedby=GSP&product=AFD"
+          },
+          {
+            "label": "Kentucky Mesonet DANV",
+            "url": "https://www.kymesonet.org/data/station/DANV"
+          },
+          {
+            "label": "Clemson Weather Network",
+            "url": "https://clemson-weather.app.clemson.edu/index.php"
+          }
+        ],
+        "sourceNotes": [
+          "Official airport observations span 7:55–8:20 AM EDT. KDVK was mostly cloudy at 61°F with a south wind near 5 mph, KLEX was clear at 64°F with a south wind near 9 mph, KCEU was clear and calm at 57°F, and KLQK was clear and calm at 49°F. The local collector was corrected to honor the NWS km/h wind-speed unit before these values were used. No Tempest observations were used.",
+          "The NWS point forecasts were generated at 8:40 AM EDT. Danville has a high near 87°F today, 84°F Wednesday and 84°F Thursday, with rain chances increasing from 30% Wednesday afternoon to 70% Wednesday night and remaining near 50% Thursday. Clemson has highs of 86°F today and Wednesday and 87°F Thursday with essentially no rain.",
+          "Official hazards are distinct from the independent forecast: no active NWS alert covered either forecast point at issuance. The Louisville discussion nevertheless identifies a low-end Wednesday severe-wind risk in the Bluegrass and the potential for localized heavy downpours; these are forecast concerns, not active warnings.",
+          "The Louisville discussion expects near-record heat today, then a moisture-rich boundary with precipitable water near or above two inches Wednesday. Rain and storms spread southeast from southern Indiana, with large timing and temperature gradients. The Greenville–Spartanburg discussion expects dry weather and temperatures around ten degrees above normal through Friday, with only localized mountain-valley fog.",
+          "Model inventories checked at 8:40 AM EDT showed complete 06Z HRRR through hour 48, 09Z RAP through hour 51, 06Z NAM through hour 84, 06Z NAM 3-km Nest through hour 60, 06Z GFS and GEFS through hour 384, and 06Z ECMWF through hour 144. Every required model therefore covered its intended role, and the ECMWF cycle covered the full 72-hour period.",
+          "College of DuPage radar at 8:30 AM EDT showed no precipitation across either forecast region. Clean-infrared imagery at 8:36 AM showed mostly clear conditions from Kentucky through the Carolinas, with upstream clouds and convection remaining well to the west.",
+          "HRRR, RAP and NAM cluster near the middle 80s for both forecast regions today. GFS is warmer Wednesday, while ECMWF is slightly cooler. NAM 3-km simulated reflectivity is slower and drier across Central Kentucky at 2 PM Wednesday than official guidance; this non-material timing disagreement is represented by a broad daytime probability range and higher Wednesday-night probabilities rather than ignored.",
+          "Clemson Weather Network identifies its observations as WeatherFlow–Tempest data. Those observations were excluded, and official KCEU and KLQK observations were used for Upstate analysis and verification.",
+          "The forecast-accuracy summary generated at 6:08 PM EDT October 12 was consulted. Central Kentucky ranges use KDVK's recommended -1.5°F high correction and -2°F low correction, while KLEX remains unadjusted. Upstate lows remain deliberately broad because KCEU has a recommended +1.5°F correction and KLQK has a recommended -2.5°F correction.",
+          "HRRR remains the best overall high-temperature model with a 1.6°F mean absolute error, followed by RAP at 2.4°F. HRRR, NAM and RAP received the greatest weight for the dry warm-ridge periods. Central Kentucky Wednesday and Thursday ranges remain broad because frontal-convective coverage is only 50% and 72-hour coverage is 55.4%. This candidate does not modify the repository, forecast archive, website or widget."
+        ],
+        "accuracyFeedback": {
+          "source": "forecast-accuracy.json",
+          "summaryGeneratedAt": "2026-10-12T22:08:21.060Z",
+          "consultedForecastIds": [
+            "20260924T1205Z",
+            "20260925T1320Z",
+            "20260926T1101Z",
+            "20260928T1153Z",
+            "20260929T1140Z",
+            "20260930T1140Z",
+            "20261002T1025Z",
+            "20261003T1707Z",
+            "20261004T1409Z",
+            "20261005T1300Z",
+            "20261006T1255Z",
+            "20261007T1325Z",
+            "20261008T1248Z",
+            "20261009T1147Z",
+            "20261010T1200Z",
+            "20261011T1250Z"
+          ],
+          "appliedAdjustments": [
+            {
+              "region": "kentucky",
+              "decision": "Applied",
+              "details": "Shifted Danville-centered temperature ranges modestly downward using KDVK's recommended -1.5°F high and -2°F low corrections; KLEX remains below correction thresholds. Kept Wednesday and Thursday ranges wider because frontal-convective coverage is 50%, 72-hour coverage is 55.4%, and convection timing strongly affects daytime temperatures."
+            },
+            {
+              "region": "upstate",
+              "decision": "Applied",
+              "details": "Kept daytime guidance largely unchanged because neither KCEU nor KLQK has a qualifying high-temperature correction. Widened overnight ranges in both directions because KCEU retains a recommended +1.5°F low correction while KLQK retains a recommended -2.5°F correction. HRRR, NAM and RAP received the greatest warm-ridge weight."
+            }
+          ]
+        },
+        "verification": {
+          "historyUrl": "forecast-history.json",
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "checkpoints": [
+            {
+              "hours": 24,
+              "due": "2026-10-14T08:50:00-04:00",
+              "status": "pending"
+            },
+            {
+              "hours": 48,
+              "due": "2026-10-15T08:50:00-04:00",
+              "status": "pending"
+            },
+            {
+              "hours": 72,
+              "due": "2026-10-16T08:50:00-04:00",
+              "status": "pending"
+            }
+          ]
+        }
+      },
+      "centralKentucky": {
+        "days": [
+          {
+            "date": "2026-10-13",
+            "highF": "85–89",
+            "lowF": "63–68",
+            "precipitation": "5% or less"
+          },
+          {
+            "date": "2026-10-14",
+            "highF": "82–87",
+            "lowF": "64–69",
+            "precipitation": "30–45% from late morning through afternoon; increasing to 65–75% Wednesday evening and night"
+          },
+          {
+            "date": "2026-10-15",
+            "highF": "81–86",
+            "lowF": "58–64",
+            "precipitation": "40–55% during the day; decreasing to 20–30% Thursday evening and night"
+          }
+        ]
+      },
+      "upstateSouthCarolina": {
+        "days": [
+          {
+            "date": "2026-10-13",
+            "highF": "84–88",
+            "lowF": "53–61",
+            "precipitation": "5% or less"
+          },
+          {
+            "date": "2026-10-14",
+            "highF": "84–89",
+            "lowF": "56–64",
+            "precipitation": "5% or less"
+          },
+          {
+            "date": "2026-10-15",
+            "highF": "85–90",
+            "lowF": "59–66",
+            "precipitation": "5% or less"
+          }
+        ]
+      },
+      "verification": {
+        "24h": {
+          "due": "2026-10-14T08:50:00-04:00",
+          "status": "pending"
+        },
+        "48h": {
+          "due": "2026-10-15T08:50:00-04:00",
+          "status": "pending"
+        },
+        "72h": {
+          "due": "2026-10-16T08:50:00-04:00",
+          "status": "pending"
+        }
+      }
+    },
+    {
       "forecastId": "20261012T1145Z",
       "issuedAt": "2026-10-12T07:45:00-04:00",
       "validThrough": "2026-10-15T07:45:00-04:00",
@@ -652,8 +1287,286 @@
       },
       "verification": {
         "24h": {
+          "forecastId": "20261012T1145Z",
+          "checkpointHours": 24,
           "due": "2026-10-13T07:45:00-04:00",
-          "status": "pending"
+          "status": "verified",
+          "verifiedAt": "2026-10-13T20:15:14.280Z",
+          "window": {
+            "start": "2026-10-12T11:45:00.000Z",
+            "end": "2026-10-13T11:45:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "3/4 station highs and 1/4 station lows fell inside the issued ranges; precipitation occurred in 1/2 regions.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-10-12",
+                "highF": "80–84",
+                "lowF": "59–64",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "fog-low-cloud",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-12T11:55:00+00:00",
+                    "lastObservedAt": "2026-10-13T11:35:00+00:00",
+                    "highF": 82.4,
+                    "lowF": 55.4,
+                    "maximumSustainedWindMph": 33,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 0.2,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 7
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      80,
+                      84
+                    ],
+                    "forecastMidpointF": 82,
+                    "observedF": 82.4,
+                    "errorF": 0.4,
+                    "absoluteErrorF": 0.4,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      59,
+                      64
+                    ],
+                    "forecastMidpointF": 61.5,
+                    "observedF": 55.4,
+                    "errorF": -6.1,
+                    "absoluteErrorF": 6.1,
+                    "withinRange": false,
+                    "rangeWidthF": 5
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 318,
+                    "temperatureObservationCount": 318,
+                    "firstObservedAt": "2026-10-12T11:45:00+00:00",
+                    "lastObservedAt": "2026-10-13T11:40:00+00:00",
+                    "highF": 82.9,
+                    "lowF": 55.4,
+                    "maximumSustainedWindMph": 45.6,
+                    "maximumGustMph": 62.2,
+                    "minimumVisibilityMi": 0.1,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 44
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      80,
+                      84
+                    ],
+                    "forecastMidpointF": 82,
+                    "observedF": 82.9,
+                    "errorF": 0.9,
+                    "absoluteErrorF": 0.9,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      59,
+                      64
+                    ],
+                    "forecastMidpointF": 61.5,
+                    "observedF": 55.4,
+                    "errorF": -6.1,
+                    "absoluteErrorF": 6.1,
+                    "withinRange": false,
+                    "rangeWidthF": 5
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-10-12",
+                "highF": "81–86",
+                "lowF": "52–59",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "post-frontal-high-pressure",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 319,
+                    "temperatureObservationCount": 319,
+                    "firstObservedAt": "2026-10-12T11:45:00+00:00",
+                    "lastObservedAt": "2026-10-13T11:40:00+00:00",
+                    "highF": 86,
+                    "lowF": 55,
+                    "maximumSustainedWindMph": 41.4,
+                    "maximumGustMph": 58,
+                    "minimumVisibilityMi": 0.2,
+                    "rainReports": 9,
+                    "thunderReports": 0,
+                    "fogReports": 18
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      81,
+                      86
+                    ],
+                    "forecastMidpointF": 83.5,
+                    "observedF": 86,
+                    "errorF": 2.5,
+                    "absoluteErrorF": 2.5,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      52,
+                      59
+                    ],
+                    "forecastMidpointF": 55.5,
+                    "observedF": 55,
+                    "errorF": -0.5,
+                    "absoluteErrorF": 0.5,
+                    "withinRange": true,
+                    "rangeWidthF": 7
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-12T11:55:00+00:00",
+                    "lastObservedAt": "2026-10-13T11:35:00+00:00",
+                    "highF": 86.4,
+                    "lowF": 49.1,
+                    "maximumSustainedWindMph": 25,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 7,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      81,
+                      86
+                    ],
+                    "forecastMidpointF": 83.5,
+                    "observedF": 86.4,
+                    "errorF": 2.9,
+                    "absoluteErrorF": 2.9,
+                    "withinRange": false,
+                    "rangeWidthF": 5
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      52,
+                      59
+                    ],
+                    "forecastMidpointF": 55.5,
+                    "observedF": 49.1,
+                    "errorF": -6.4,
+                    "absoluteErrorF": 6.4,
+                    "withinRange": false,
+                    "rangeWidthF": 7
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": true,
+                "brierScore": 0.9025
+              }
+            }
+          },
+          "modelScores": [
+            {
+              "model": "HRRR",
+              "run": "2026-10-12 06Z",
+              "region": "kentucky",
+              "targetDate": "2026-10-12",
+              "leadTimeHours": 12,
+              "weatherRegime": "fog-low-cloud",
+              "highErrorF": -0.3,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "RAP",
+              "run": "2026-10-12 09Z",
+              "region": "kentucky",
+              "targetDate": "2026-10-12",
+              "leadTimeHours": 9,
+              "weatherRegime": "fog-low-cloud",
+              "highErrorF": 0.7,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "NAM",
+              "run": "2026-10-12 06Z",
+              "region": "kentucky",
+              "targetDate": "2026-10-12",
+              "leadTimeHours": 12,
+              "weatherRegime": "fog-low-cloud",
+              "highErrorF": 0.7,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "HRRR",
+              "run": "2026-10-12 06Z",
+              "region": "upstate",
+              "targetDate": "2026-10-12",
+              "leadTimeHours": 12,
+              "weatherRegime": "post-frontal-high-pressure",
+              "highErrorF": 6.2,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "RAP",
+              "run": "2026-10-12 09Z",
+              "region": "upstate",
+              "targetDate": "2026-10-12",
+              "leadTimeHours": 9,
+              "weatherRegime": "post-frontal-high-pressure",
+              "highErrorF": 7.2,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "NAM",
+              "run": "2026-10-12 06Z",
+              "region": "upstate",
+              "targetDate": "2026-10-12",
+              "leadTimeHours": 12,
+              "weatherRegime": "post-frontal-high-pressure",
+              "highErrorF": 6.2,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            }
+          ],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-10-12T11%3A45%3A00.000Z&end=2026-10-13T11%3A45%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-10-12T11%3A45%3A00.000Z&end=2026-10-13T11%3A45%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-10-12T11%3A45%3A00.000Z&end=2026-10-13T11%3A45%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-10-12T11%3A45%3A00.000Z&end=2026-10-13T11%3A45%3A00.000Z&limit=500"
+          ]
         },
         "48h": {
           "due": "2026-10-14T07:45:00-04:00",
@@ -1572,8 +2485,264 @@
           ]
         },
         "48h": {
+          "forecastId": "20261011T1250Z",
+          "checkpointHours": 48,
           "due": "2026-10-13T08:50:00-04:00",
-          "status": "pending"
+          "status": "verified",
+          "verifiedAt": "2026-10-13T20:15:14.280Z",
+          "window": {
+            "start": "2026-10-12T12:50:00.000Z",
+            "end": "2026-10-13T12:50:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "4/4 station highs and 1/4 station lows fell inside the issued ranges; precipitation occurred in 1/2 regions.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-10-12",
+                "highF": "80–85",
+                "lowF": "58–64",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "post-tropical-high-pressure",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-12T12:55:00+00:00",
+                    "lastObservedAt": "2026-10-13T12:35:00+00:00",
+                    "highF": 82.4,
+                    "lowF": 55.4,
+                    "maximumSustainedWindMph": 33,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 0.2,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 4
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      80,
+                      85
+                    ],
+                    "forecastMidpointF": 82.5,
+                    "observedF": 82.4,
+                    "errorF": -0.1,
+                    "absoluteErrorF": 0.1,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      58,
+                      64
+                    ],
+                    "forecastMidpointF": 61,
+                    "observedF": 55.4,
+                    "errorF": -5.6,
+                    "absoluteErrorF": 5.6,
+                    "withinRange": false,
+                    "rangeWidthF": 6
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 317,
+                    "temperatureObservationCount": 317,
+                    "firstObservedAt": "2026-10-12T12:50:00+00:00",
+                    "lastObservedAt": "2026-10-13T12:45:00+00:00",
+                    "highF": 82.9,
+                    "lowF": 55.4,
+                    "maximumSustainedWindMph": 45.6,
+                    "maximumGustMph": 62.2,
+                    "minimumVisibilityMi": 0.1,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 29
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      80,
+                      85
+                    ],
+                    "forecastMidpointF": 82.5,
+                    "observedF": 82.9,
+                    "errorF": 0.4,
+                    "absoluteErrorF": 0.4,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      58,
+                      64
+                    ],
+                    "forecastMidpointF": 61,
+                    "observedF": 55.4,
+                    "errorF": -5.6,
+                    "absoluteErrorF": 5.6,
+                    "withinRange": false,
+                    "rangeWidthF": 6
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-10-12",
+                "highF": "82–87",
+                "lowF": "52–59",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "post-frontal-high-pressure",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 319,
+                    "temperatureObservationCount": 319,
+                    "firstObservedAt": "2026-10-12T12:50:00+00:00",
+                    "lastObservedAt": "2026-10-13T12:45:00+00:00",
+                    "highF": 86,
+                    "lowF": 55,
+                    "maximumSustainedWindMph": 41.4,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 0.2,
+                    "rainReports": 9,
+                    "thunderReports": 0,
+                    "fogReports": 18
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      82,
+                      87
+                    ],
+                    "forecastMidpointF": 84.5,
+                    "observedF": 86,
+                    "errorF": 1.5,
+                    "absoluteErrorF": 1.5,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      52,
+                      59
+                    ],
+                    "forecastMidpointF": 55.5,
+                    "observedF": 55,
+                    "errorF": -0.5,
+                    "absoluteErrorF": 0.5,
+                    "withinRange": true,
+                    "rangeWidthF": 7
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-12T12:55:00+00:00",
+                    "lastObservedAt": "2026-10-13T12:35:00+00:00",
+                    "highF": 86.4,
+                    "lowF": 49.1,
+                    "maximumSustainedWindMph": 25,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 7,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      82,
+                      87
+                    ],
+                    "forecastMidpointF": 84.5,
+                    "observedF": 86.4,
+                    "errorF": 1.9,
+                    "absoluteErrorF": 1.9,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      52,
+                      59
+                    ],
+                    "forecastMidpointF": 55.5,
+                    "observedF": 49.1,
+                    "errorF": -6.4,
+                    "absoluteErrorF": 6.4,
+                    "withinRange": false,
+                    "rangeWidthF": 7
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": true,
+                "brierScore": 0.9025
+              }
+            }
+          },
+          "modelScores": [
+            {
+              "model": "GFS",
+              "run": "2026-10-11 06Z",
+              "region": "kentucky",
+              "targetDate": "2026-10-12",
+              "leadTimeHours": 36,
+              "weatherRegime": "post-tropical-high-pressure",
+              "highErrorF": -1.3,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "ECMWF IFS",
+              "run": "2026-10-11 00Z",
+              "region": "kentucky",
+              "targetDate": "2026-10-12",
+              "leadTimeHours": 42,
+              "weatherRegime": "post-tropical-high-pressure",
+              "highErrorF": 0.7,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "GFS",
+              "run": "2026-10-11 06Z",
+              "region": "upstate",
+              "targetDate": "2026-10-12",
+              "leadTimeHours": 36,
+              "weatherRegime": "post-frontal-high-pressure",
+              "highErrorF": 2.2,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "ECMWF IFS",
+              "run": "2026-10-11 00Z",
+              "region": "upstate",
+              "targetDate": "2026-10-12",
+              "leadTimeHours": 42,
+              "weatherRegime": "post-frontal-high-pressure",
+              "highErrorF": 3.2,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            }
+          ],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-10-12T12%3A50%3A00.000Z&end=2026-10-13T12%3A50%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-10-12T12%3A50%3A00.000Z&end=2026-10-13T12%3A50%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-10-12T12%3A50%3A00.000Z&end=2026-10-13T12%3A50%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-10-12T12%3A50%3A00.000Z&end=2026-10-13T12%3A50%3A00.000Z&limit=500"
+          ]
         },
         "72h": {
           "due": "2026-10-14T08:50:00-04:00",
@@ -2763,8 +3932,219 @@
           ]
         },
         "72h": {
+          "forecastId": "20261010T1200Z",
+          "checkpointHours": 72,
           "due": "2026-10-13T08:00:00-04:00",
-          "status": "pending"
+          "status": "verified",
+          "verifiedAt": "2026-10-13T20:15:14.280Z",
+          "window": {
+            "start": "2026-10-12T12:00:00.000Z",
+            "end": "2026-10-13T12:00:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "3/4 station highs and 1/4 station lows fell inside the issued ranges; precipitation occurred in 1/2 regions.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-10-12",
+                "highF": "79–84",
+                "lowF": "58–64",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "post-frontal-high-pressure",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-12T12:15:00+00:00",
+                    "lastObservedAt": "2026-10-13T11:55:00+00:00",
+                    "highF": 82.4,
+                    "lowF": 55.4,
+                    "maximumSustainedWindMph": 33,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 0.2,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 6
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      79,
+                      84
+                    ],
+                    "forecastMidpointF": 81.5,
+                    "observedF": 82.4,
+                    "errorF": 0.9,
+                    "absoluteErrorF": 0.9,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      58,
+                      64
+                    ],
+                    "forecastMidpointF": 61,
+                    "observedF": 55.4,
+                    "errorF": -5.6,
+                    "absoluteErrorF": 5.6,
+                    "withinRange": false,
+                    "rangeWidthF": 6
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 318,
+                    "temperatureObservationCount": 318,
+                    "firstObservedAt": "2026-10-12T12:00:00+00:00",
+                    "lastObservedAt": "2026-10-13T11:55:00+00:00",
+                    "highF": 82.9,
+                    "lowF": 55.4,
+                    "maximumSustainedWindMph": 45.6,
+                    "maximumGustMph": 62.2,
+                    "minimumVisibilityMi": 0.1,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 40
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      79,
+                      84
+                    ],
+                    "forecastMidpointF": 81.5,
+                    "observedF": 82.9,
+                    "errorF": 1.4,
+                    "absoluteErrorF": 1.4,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      58,
+                      64
+                    ],
+                    "forecastMidpointF": 61,
+                    "observedF": 55.4,
+                    "errorF": -5.6,
+                    "absoluteErrorF": 5.6,
+                    "withinRange": false,
+                    "rangeWidthF": 6
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-10-12",
+                "highF": "81–86",
+                "lowF": "53–59",
+                "precipitation": "5% or less"
+              },
+              "weatherRegime": "post-frontal-high-pressure",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 319,
+                    "temperatureObservationCount": 319,
+                    "firstObservedAt": "2026-10-12T12:00:00+00:00",
+                    "lastObservedAt": "2026-10-13T11:55:00+00:00",
+                    "highF": 86,
+                    "lowF": 55,
+                    "maximumSustainedWindMph": 41.4,
+                    "maximumGustMph": 58,
+                    "minimumVisibilityMi": 0.2,
+                    "rainReports": 9,
+                    "thunderReports": 0,
+                    "fogReports": 18
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      81,
+                      86
+                    ],
+                    "forecastMidpointF": 83.5,
+                    "observedF": 86,
+                    "errorF": 2.5,
+                    "absoluteErrorF": 2.5,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      53,
+                      59
+                    ],
+                    "forecastMidpointF": 56,
+                    "observedF": 55,
+                    "errorF": -1,
+                    "absoluteErrorF": 1,
+                    "withinRange": true,
+                    "rangeWidthF": 6
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 72,
+                    "temperatureObservationCount": 72,
+                    "firstObservedAt": "2026-10-12T12:15:00+00:00",
+                    "lastObservedAt": "2026-10-13T11:55:00+00:00",
+                    "highF": 86.4,
+                    "lowF": 49.1,
+                    "maximumSustainedWindMph": 25,
+                    "maximumGustMph": null,
+                    "minimumVisibilityMi": 7,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      81,
+                      86
+                    ],
+                    "forecastMidpointF": 83.5,
+                    "observedF": 86.4,
+                    "errorF": 2.9,
+                    "absoluteErrorF": 2.9,
+                    "withinRange": false,
+                    "rangeWidthF": 5
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      53,
+                      59
+                    ],
+                    "forecastMidpointF": 56,
+                    "observedF": 49.1,
+                    "errorF": -6.9,
+                    "absoluteErrorF": 6.9,
+                    "withinRange": false,
+                    "rangeWidthF": 6
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": true,
+                "brierScore": 0.9025
+              }
+            }
+          },
+          "modelScores": [],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-10-12T12%3A00%3A00.000Z&end=2026-10-13T12%3A00%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-10-12T12%3A00%3A00.000Z&end=2026-10-13T12%3A00%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-10-12T12%3A00%3A00.000Z&end=2026-10-13T12%3A00%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-10-12T12%3A00%3A00.000Z&end=2026-10-13T12%3A00%3A00.000Z&limit=500"
+          ]
         }
       }
     },
