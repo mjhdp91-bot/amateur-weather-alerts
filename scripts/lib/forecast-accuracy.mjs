@@ -3,7 +3,7 @@ const MPH_PER_KPH = 0.6213711922;
 const MILES_PER_METER = 0.0006213711922;
 const INCHES_PER_METER = 39.37007874;
 
-export const SCORING_VERSION = 2;
+export const SCORING_VERSION = 3;
 
 export const COMPOSITE_CATEGORIES = [
   "temperature",
@@ -51,6 +51,26 @@ export const BIAS_RULES = {
   minimumAbsoluteMeanBiasF: 1.5,
   shrinkageFactor: 0.75,
   maximumAbsoluteAdjustmentF: 4,
+};
+
+export const RANGE_CALIBRATION_RULES = {
+  targetCoverage: 0.7,
+  minimumSamples: 8,
+  minimumWidthF: 4,
+  maximumWidthF: 10,
+};
+
+export const MODEL_WEIGHT_RULES = {
+  minimumSamplesPerRegime: 3,
+  minimumWeight: 0.1,
+};
+
+export const INTERMEDIATE_UPDATE_DEFAULTS = {
+  temperatureDeviationF: 4,
+  precipitationProbabilityChange: 0.25,
+  timingShiftHours: 3,
+  hazardProbabilityChange: 0.25,
+  newOfficialAlert: true,
 };
 
 export function round(value, digits = 1) {
@@ -222,6 +242,12 @@ export function summarizeNwsObservations(features = []) {
       thunder: uniquePeriods(usable.filter((item) => item.thunder).map((item) => item.period).filter(Boolean)),
       fog: uniquePeriods(usable.filter((item) => item.fog).map((item) => item.period).filter(Boolean)),
       wind: uniquePeriods(usable.filter((item) => item.strongWind).map((item) => item.period).filter(Boolean)),
+    },
+    eventTimestamps: {
+      rain: usable.filter((item) => item.rain).map((item) => item.timestamp).filter(Boolean).sort(),
+      thunder: usable.filter((item) => item.thunder).map((item) => item.timestamp).filter(Boolean).sort(),
+      fog: usable.filter((item) => item.fog).map((item) => item.timestamp).filter(Boolean).sort(),
+      wind: usable.filter((item) => item.strongWind).map((item) => item.timestamp).filter(Boolean).sort(),
     },
   };
 }
@@ -398,6 +424,10 @@ function aggregateRegionObservations(stationObservations) {
     event,
     uniquePeriods(observations.flatMap((item) => item.eventPeriods?.[event] ?? [])),
   ]));
+  const eventTimestamps = Object.fromEntries(["rain", "thunder", "fog", "wind"].map((event) => [
+    event,
+    [...new Set(observations.flatMap((item) => item.eventTimestamps?.[event] ?? []))].sort(),
+  ]));
   return {
     maximumSustainedWindMph: maximum("maximumSustainedWindMph"),
     maximumGustMph: maximum("maximumGustMph"),
@@ -411,6 +441,7 @@ function aggregateRegionObservations(stationObservations) {
     predominantSkyCondition,
     skyConditionCounts: skyCounts,
     eventPeriods,
+    eventTimestamps,
   };
 }
 
@@ -428,6 +459,37 @@ function hazardAccuracy(expected, observed) {
   if (!union.size) return 1;
   const intersection = [...forecastSet].filter((item) => observedSet.has(item)).length;
   return intersection / union.size;
+}
+
+function hazardProbabilityAccuracy(probabilities, observed) {
+  if (!probabilities || typeof probabilities !== "object" || Array.isArray(probabilities)) return null;
+  const observedSet = new Set(observed);
+  const scores = Object.entries(probabilities)
+    .filter(([hazard, probability]) => OBSERVABLE_HAZARDS.has(hazard) && Number.isFinite(probability))
+    .map(([hazard, probability]) => 1 - (probability - Number(observedSet.has(hazard))) ** 2);
+  return scores.length ? scores.reduce((sum, score) => sum + score, 0) / scores.length : null;
+}
+
+function eventWindowScores(windows, observedTimestamps) {
+  if (!Array.isArray(windows)) return [];
+  return windows.flatMap((window) => {
+    if (!window || !["rain", "thunder", "fog", "wind"].includes(window.event)) return [];
+    const start = Date.parse(window.start);
+    const end = Date.parse(window.end);
+    if (!Number.isFinite(start) || !Number.isFinite(end) || end <= start) return [];
+    const probability = Number.isFinite(window.probability) ? window.probability : 1;
+    const toleranceMs = (Number.isFinite(window.toleranceHours) ? window.toleranceHours : 3) * 60 * 60 * 1000;
+    const observations = (observedTimestamps?.[window.event] ?? []).map(Date.parse).filter(Number.isFinite);
+    const occurredInWindow = observations.some((timestamp) => timestamp >= start && timestamp <= end);
+    const occurredNearWindow = observations.some((timestamp) => timestamp >= start - toleranceMs && timestamp <= end + toleranceMs);
+    const outcome = occurredInWindow ? 1 : occurredNearWindow ? 0.5 : 0;
+    return [{
+      event: window.event,
+      forecastWindow: { start: window.start, end: window.end, probability, toleranceHours: toleranceMs / 3_600_000 },
+      observedTimestamps: observations.map((timestamp) => new Date(timestamp).toISOString()),
+      score: round(1 - (probability - outcome) ** 2, 4),
+    }];
+  });
 }
 
 function timingScores(targets, observedPeriods) {
@@ -476,14 +538,28 @@ export function evaluateExpandedComponents({ forecast, regionKey, day, stationOb
   const fogScore = usableVisibility.length ? usableVisibility.reduce((sum, value) => sum + value, 0) / usableVisibility.length : null;
   const thunderProbability = targets.thunderProbability;
   const thunderScore = Number.isFinite(thunderProbability) ? 1 - (thunderProbability - Number(observed.thunder)) ** 2 : null;
+  const thresholds = {
+    fogVisibilityMiles: 1,
+    windSustainedMph: 25,
+    windGustMph: 35,
+    heavyRainHourlyInches: 0.3,
+    heatHighF: 95,
+    freezeLowF: 32,
+    ...(targets.hazardThresholds ?? {}),
+  };
   const observedHazards = [];
-  if (observed.fog) observedHazards.push("fog");
-  if (observed.maximumSustainedWindMph >= 25 || observed.maximumGustMph >= 35) observedHazards.push("wind");
+  if (observed.fog || observed.minimumVisibilityMi <= thresholds.fogVisibilityMiles) observedHazards.push("fog");
+  if (observed.maximumSustainedWindMph >= thresholds.windSustainedMph || observed.maximumGustMph >= thresholds.windGustMph) observedHazards.push("wind");
   if (observed.thunder) observedHazards.push("thunder");
-  if (observed.maximumHourlyPrecipitationIn >= 0.3) observedHazards.push("heavy-rain");
-  if (observed.highF >= 95) observedHazards.push("heat");
-  if (observed.lowF <= 32) observedHazards.push("freeze");
+  if (observed.maximumHourlyPrecipitationIn >= thresholds.heavyRainHourlyInches) observedHazards.push("heavy-rain");
+  if (observed.highF >= thresholds.heatHighF) observedHazards.push("heat");
+  if (observed.lowF <= thresholds.freezeLowF) observedHazards.push("freeze");
   const timing = timingScores(targets.eventTiming, observed.eventPeriods);
+  const eventWindows = eventWindowScores(targets.eventWindows, observed.eventTimestamps);
+  const legacyHazardScore = hazardAccuracy(targets.hazards, observedHazards);
+  const probabilisticHazardScore = hazardProbabilityAccuracy(targets.hazardProbabilities, observedHazards);
+  const hazardScore = Number.isFinite(probabilisticHazardScore) ? probabilisticHazardScore : legacyHazardScore;
+  const timingValues = eventWindows.length ? eventWindows.map((item) => item.score) : timing.map((item) => item.score);
   const temperatureValues = Object.values(temperatureScores).flatMap((score) => [score.highTemperature, score.lowTemperature])
     .filter(Boolean)
     .map((score) => Number(score.withinRange));
@@ -494,8 +570,8 @@ export function evaluateExpandedComponents({ forecast, regionKey, day, stationOb
     fogScore,
     skyAccuracy(targets.sky?.categories, observed.predominantSkyCondition),
     thunderScore,
-    hazardAccuracy(targets.hazards, observedHazards),
-    ...timing.map((item) => item.score),
+    hazardScore,
+    ...timingValues,
     weatherRegimeAccuracy(inferWeatherRegime(day), observed),
   ].filter(Number.isFinite);
   const realizedAccuracy = componentOutcomes.length
@@ -513,8 +589,12 @@ export function evaluateExpandedComponents({ forecast, regionKey, day, stationOb
       visibilityFog: { score: round(fogScore, 4), forecastProbability: round(fogProbability, 3), forecastMinimumVisibilityRangeMiles: targets.visibility?.minimumVisibilityRangeMiles ?? null, observed: observed.fog, minimumVisibilityMi: round(observed.minimumVisibilityMi) },
       cloudCover: { score: round(skyAccuracy(targets.sky?.categories, observed.predominantSkyCondition), 4), forecastCategories: targets.sky?.categories ?? [], observedCategory: observed.predominantSkyCondition },
       thunder: { score: round(thunderScore, 4), forecastProbability: round(thunderProbability, 3), observed: observed.thunder },
-      hazards: { score: round(hazardAccuracy(targets.hazards, observedHazards), 4), forecast: targets.hazards ?? [], observed: observedHazards },
-      eventTiming: { score: timing.length ? round(timing.reduce((sum, item) => sum + item.score, 0) / timing.length, 4) : null, events: timing },
+      hazards: { score: round(hazardScore, 4), forecast: targets.hazards ?? [], forecastProbabilities: targets.hazardProbabilities ?? null, thresholds, observed: observedHazards },
+      eventTiming: {
+        score: timingValues.length ? round(timingValues.reduce((sum, item) => sum + item, 0) / timingValues.length, 4) : null,
+        events: eventWindows.length ? eventWindows : timing,
+        method: eventWindows.length ? "timestamped-windows" : "day-parts",
+      },
       weatherRegimeNarrative: { score: round(weatherRegimeAccuracy(inferWeatherRegime(day), observed), 4), forecastRegime: inferWeatherRegime(day) },
       officialAlertHandling: { score: targets.officialAlerts?.status === "unknown" ? null : Number(Boolean(targets.officialAlerts?.documented)), ...targets.officialAlerts },
       confidenceCalibration: { score: round(confidenceScore, 4), forecastConfidence: round(confidence, 3), realizedAccuracy: round(realizedAccuracy, 4) },
@@ -645,6 +725,66 @@ export function suggestedBiasAdjustment(meanErrorF, sampleCount, rules = BIAS_RU
   return { status: "recommended", adjustmentF: Math.round(bounded * 2) / 2 };
 }
 
+export function recommendedTemperatureRangeWidth(samples, rules = RANGE_CALIBRATION_RULES) {
+  const errors = samples.map((item) => Math.abs(item.errorF)).filter(Number.isFinite).sort((left, right) => left - right);
+  if (errors.length < rules.minimumSamples) {
+    return { status: "insufficient-samples", sampleCount: errors.length, recommendedWidthF: null };
+  }
+  const index = Math.min(errors.length - 1, Math.ceil(rules.targetCoverage * errors.length) - 1);
+  const empiricalWidth = Math.ceil(errors[index] * 2);
+  const recommendedWidthF = Math.max(rules.minimumWidthF, Math.min(rules.maximumWidthF, empiricalWidth));
+  return { status: "recommended", sampleCount: errors.length, recommendedWidthF };
+}
+
+export function recommendModelWeights(samples, rules = MODEL_WEIGHT_RULES) {
+  const usable = samples.filter((sample) => sample && sample.model);
+  const grouped = new Map();
+  for (const sample of usable) {
+    if (!grouped.has(sample.model)) grouped.set(sample.model, []);
+    grouped.get(sample.model).push(sample);
+  }
+  const scored = [...grouped.entries()].flatMap(([model, values]) => {
+    if (values.length < rules.minimumSamplesPerRegime) return [];
+    const temperatureErrors = values.flatMap((item) => [item.highErrorF, item.lowErrorF]).filter(Number.isFinite).map(Math.abs);
+    const precipitationScores = values.map((item) => item.precipitationBrierScore).filter(Number.isFinite);
+    if (!temperatureErrors.length && !precipitationScores.length) return [];
+    const temperatureSkill = temperatureErrors.length
+      ? 1 / (1 + temperatureErrors.reduce((sum, value) => sum + value, 0) / temperatureErrors.length)
+      : null;
+    const precipitationSkill = precipitationScores.length
+      ? 1 - precipitationScores.reduce((sum, value) => sum + value, 0) / precipitationScores.length
+      : null;
+    const components = [temperatureSkill, precipitationSkill].filter(Number.isFinite);
+    return [{ model, sampleCount: values.length, rawSkill: components.reduce((sum, value) => sum + value, 0) / components.length }];
+  });
+  if (scored.length < 2) return { status: "insufficient-samples", weights: [] };
+  const floor = rules.minimumWeight;
+  const rawTotal = scored.reduce((sum, item) => sum + item.rawSkill, 0);
+  const preliminary = scored.map((item) => ({ ...item, weight: item.rawSkill / rawTotal }));
+  const floored = preliminary.map((item) => ({ ...item, weight: Math.max(floor, item.weight) }));
+  const total = floored.reduce((sum, item) => sum + item.weight, 0);
+  return {
+    status: "recommended",
+    weights: floored.map((item) => ({ model: item.model, sampleCount: item.sampleCount, weight: round(item.weight / total, 3) })),
+  };
+}
+
+export function intermediateUpdateReasons({
+  temperatureDeviationF = 0,
+  precipitationProbabilityChange = 0,
+  timingShiftHours = 0,
+  hazardProbabilityChange = 0,
+  newOfficialAlert = false,
+}, policy = INTERMEDIATE_UPDATE_DEFAULTS) {
+  const reasons = [];
+  if (Math.abs(temperatureDeviationF) >= policy.temperatureDeviationF) reasons.push("temperature-deviation");
+  if (Math.abs(precipitationProbabilityChange) >= policy.precipitationProbabilityChange) reasons.push("precipitation-probability-change");
+  if (Math.abs(timingShiftHours) >= policy.timingShiftHours) reasons.push("event-timing-shift");
+  if (Math.abs(hazardProbabilityChange) >= policy.hazardProbabilityChange) reasons.push("hazard-probability-change");
+  if (policy.newOfficialAlert && newOfficialAlert) reasons.push("new-official-alert");
+  return reasons;
+}
+
 export function validateForecastFeedback(forecast, accuracySummary, { allowLegacy = false } = {}) {
   const errors = [];
   const issuedAt = Date.parse(forecast.issuedAt);
@@ -681,6 +821,15 @@ export function validateForecastFeedback(forecast, accuracySummary, { allowLegac
         if (!Array.isArray(targets.hazards) || !targets.hazards.every((item) => OBSERVABLE_HAZARDS.has(item))) {
           errors.push(`${regionKey} day ${index + 1} verificationTargets.hazards contains an invalid hazard`);
         }
+        const hazardProbabilities = targets.hazardProbabilities;
+        if (!hazardProbabilities || Array.isArray(hazardProbabilities)
+          || [...OBSERVABLE_HAZARDS].some((hazard) => !Number.isFinite(hazardProbabilities[hazard]) || hazardProbabilities[hazard] < 0 || hazardProbabilities[hazard] > 1)) {
+          errors.push(`${regionKey} day ${index + 1} verificationTargets.hazardProbabilities must contain a 0–1 probability for every observable hazard`);
+        }
+        const thresholdKeys = ["fogVisibilityMiles", "windSustainedMph", "windGustMph", "heavyRainHourlyInches", "heatHighF", "freezeLowF"];
+        if (!targets.hazardThresholds || thresholdKeys.some((key) => !Number.isFinite(targets.hazardThresholds[key]))) {
+          errors.push(`${regionKey} day ${index + 1} verificationTargets.hazardThresholds must define every measurable hazard threshold`);
+        }
         for (const event of ["rain", "thunder", "fog", "wind"]) {
           if (!Array.isArray(targets.eventTiming?.[event])) {
             errors.push(`${regionKey} day ${index + 1} verificationTargets.eventTiming.${event} must be an array`);
@@ -689,6 +838,20 @@ export function validateForecastFeedback(forecast, accuracySummary, { allowLegac
         for (const [event, periods] of Object.entries(targets.eventTiming ?? {})) {
           if (!["rain", "thunder", "fog", "wind"].includes(event) || !Array.isArray(periods) || !periods.every((period) => PERIODS.includes(period))) {
             errors.push(`${regionKey} day ${index + 1} verificationTargets.eventTiming contains an invalid event or period`);
+          }
+        }
+        if (!Array.isArray(targets.eventWindows)) {
+          errors.push(`${regionKey} day ${index + 1} verificationTargets.eventWindows must be an array`);
+        } else {
+          for (const [windowIndex, window] of targets.eventWindows.entries()) {
+            const start = Date.parse(window?.start);
+            const end = Date.parse(window?.end);
+            if (!["rain", "thunder", "fog", "wind"].includes(window?.event)
+              || !Number.isFinite(start) || !Number.isFinite(end) || end <= start
+              || !Number.isFinite(window?.probability) || window.probability < 0 || window.probability > 1
+              || !Number.isFinite(window?.toleranceHours) || window.toleranceHours < 0 || window.toleranceHours > 6) {
+              errors.push(`${regionKey} day ${index + 1} verificationTargets.eventWindows[${windowIndex}] is invalid`);
+            }
           }
         }
         for (const [metric, range] of Object.entries(targets.wind ?? {})) {
@@ -700,6 +863,24 @@ export function validateForecastFeedback(forecast, accuracySummary, { allowLegac
           || !Number.isFinite(Date.parse(targets.officialAlerts?.checkedAt))
           || !/^https:\/\/api\.weather\.gov\/alerts\//.test(targets.officialAlerts?.sourceUrl ?? "")) {
           errors.push(`${regionKey} day ${index + 1} verificationTargets.officialAlerts must include status, checkedAt and sourceUrl`);
+        } else {
+          const checkedAt = Date.parse(targets.officialAlerts.checkedAt);
+          const expectedPoint = REGION_CONFIG[regionKey].alertPoint;
+          if (checkedAt > issuedAt || issuedAt - checkedAt > 3 * 60 * 60 * 1000) {
+            errors.push(`${regionKey} day ${index + 1} official alert check must be no more than three hours before issuance`);
+          }
+          let alertPoint = null;
+          try {
+            alertPoint = new URL(targets.officialAlerts.sourceUrl).searchParams.get("point");
+          } catch {
+            // The format error above already reports an invalid official source URL.
+          }
+          if (alertPoint !== expectedPoint) {
+            errors.push(`${regionKey} day ${index + 1} official alert check must use the configured regional point`);
+          }
+          if (targets.officialAlerts.status === "active" && !Array.isArray(targets.officialAlerts.activeAlertIds)) {
+            errors.push(`${regionKey} day ${index + 1} active official alerts must preserve their NWS alert IDs`);
+          }
         }
       }
     }
@@ -752,6 +933,75 @@ export function validateForecastFeedback(forecast, accuracySummary, { allowLegac
       if (!feedback?.consultedForecastIds?.includes(forecastId)) {
         errors.push(`accuracyFeedback.consultedForecastIds must include verified forecast ${forecastId}`);
       }
+    }
+    for (const candidate of accuracySummary?.biasCorrection?.candidates ?? []) {
+      if (candidate.status !== "recommended") continue;
+      const decision = feedback?.stationBiasCorrections?.find((item) => item.station === candidate.station && item.metric === candidate.metric);
+      if (!decision || !["applied", "overridden"].includes(decision.decision)
+        || !Number.isFinite(decision.adjustmentF) || !decision.reason) {
+        errors.push(`accuracyFeedback.stationBiasCorrections must apply or explicitly override the ${candidate.station} ${candidate.metric} recommendation`);
+      } else if (decision.decision === "applied" && decision.adjustmentF !== candidate.suggestedAdjustmentF) {
+        errors.push(`accuracyFeedback.stationBiasCorrections must use ${candidate.suggestedAdjustmentF}°F for ${candidate.station} ${candidate.metric} or mark the decision overridden`);
+      }
+    }
+    for (const regionKey of Object.keys(REGION_CONFIG)) {
+      for (const [index, day] of (forecast.regions?.[regionKey]?.days ?? []).entries()) {
+        const leadTimeHours = (index + 1) * 24;
+        const rangeDecision = feedback?.temperatureRangeDecisions?.find((item) => item.region === regionKey && item.leadTimeHours === leadTimeHours);
+        if (!rangeDecision || !["applied", "overridden"].includes(rangeDecision.decision)
+          || !Number.isFinite(rangeDecision.highWidthF) || !Number.isFinite(rangeDecision.lowWidthF) || !rangeDecision.reason) {
+          errors.push(`accuracyFeedback.temperatureRangeDecisions must document ${regionKey} ${leadTimeHours}h high and low widths`);
+        } else {
+          const highRange = parseRange(day.highF);
+          const lowRange = parseRange(day.lowF);
+          if (!highRange || round(highRange.max - highRange.min) !== round(rangeDecision.highWidthF)
+            || !lowRange || round(lowRange.max - lowRange.min) !== round(rangeDecision.lowWidthF)) {
+            errors.push(`accuracyFeedback.temperatureRangeDecisions widths must match ${regionKey} day ${index + 1}`);
+          }
+          const recommendation = accuracySummary?.forecastDecisionSupport?.temperatureRanges?.byRegionAndLeadTimeHours?.[regionKey]?.[String(leadTimeHours)]
+            ?? accuracySummary?.forecastDecisionSupport?.temperatureRanges?.byLeadTimeHours?.[String(leadTimeHours)];
+          if (rangeDecision.decision === "applied"
+            && ((Number.isFinite(recommendation?.high?.recommendedWidthF) && rangeDecision.highWidthF < recommendation.high.recommendedWidthF)
+              || (Number.isFinite(recommendation?.low?.recommendedWidthF) && rangeDecision.lowWidthF < recommendation.low.recommendedWidthF))) {
+            errors.push(`accuracyFeedback.temperatureRangeDecisions must use the recommended ${leadTimeHours}h widths or mark the decision overridden`);
+          }
+        }
+        const blend = feedback?.modelWeighting?.find((item) => item.region === regionKey && item.leadTimeHours === leadTimeHours);
+        const weights = blend?.weights ?? [];
+        const weightTotal = weights.reduce((sum, item) => sum + (Number.isFinite(item.weight) ? item.weight : 0), 0);
+        if (!blend || !["applied", "overridden", "insufficient-evidence"].includes(blend.decision)
+          || blend.weatherRegime !== day.weatherRegime || !weights.length || Math.abs(weightTotal - 1) > 0.01
+          || weights.some((item) => !item.model || !Number.isFinite(item.weight) || item.weight < 0 || item.weight > 1) || !blend.reason) {
+          errors.push(`accuracyFeedback.modelWeighting must provide a documented 100% model blend for ${regionKey} ${leadTimeHours}h`);
+        } else {
+          const recommendation = accuracySummary?.forecastDecisionSupport?.modelWeighting?.recommendationsByRegionAndWeatherRegime?.[regionKey]?.[day.weatherRegime]
+            ?? accuracySummary?.forecastDecisionSupport?.modelWeighting?.recommendationsByWeatherRegime?.[day.weatherRegime];
+          if (blend.decision === "applied" && recommendation?.status === "recommended") {
+            const matches = recommendation.weights.length === weights.length && recommendation.weights.every((expected) => {
+              const actual = weights.find((item) => item.model === expected.model);
+              return actual && Math.abs(actual.weight - expected.weight) <= 0.02;
+            });
+            if (!matches) errors.push(`accuracyFeedback.modelWeighting must use the recommended ${regionKey} ${day.weatherRegime} weights or mark the decision overridden`);
+          }
+          if (blend.decision === "insufficient-evidence" && recommendation?.status === "recommended") {
+            errors.push(`accuracyFeedback.modelWeighting cannot claim insufficient evidence for ${regionKey} ${day.weatherRegime}`);
+          }
+        }
+        for (const category of ["fog", "wind", "hazards", "timing"]) {
+          const learning = feedback?.learningDecisions?.find((item) => item.region === regionKey && item.category === category);
+          if (!learning?.decision || !learning?.reason) errors.push(`accuracyFeedback.learningDecisions must document the ${regionKey} ${category} decision`);
+        }
+      }
+    }
+    const updatePolicy = forecast.intermediateUpdatePolicy;
+    if (!updatePolicy
+      || !Number.isFinite(updatePolicy.evaluationCadenceHours) || updatePolicy.evaluationCadenceHours <= 0 || updatePolicy.evaluationCadenceHours > 12
+      || !Number.isFinite(updatePolicy.temperatureDeviationF) || updatePolicy.temperatureDeviationF <= 0
+      || !Number.isFinite(updatePolicy.precipitationProbabilityChange) || updatePolicy.precipitationProbabilityChange <= 0 || updatePolicy.precipitationProbabilityChange > 1
+      || !Number.isFinite(updatePolicy.timingShiftHours) || updatePolicy.timingShiftHours <= 0
+      || !Number.isFinite(updatePolicy.hazardProbabilityChange) || updatePolicy.hazardProbabilityChange <= 0 || updatePolicy.hazardProbabilityChange > 1
+      || updatePolicy.newOfficialAlert !== true) {
+      errors.push("intermediateUpdatePolicy must define measurable observation-driven update thresholds and immediate handling of new official alerts");
     }
   }
   return errors;

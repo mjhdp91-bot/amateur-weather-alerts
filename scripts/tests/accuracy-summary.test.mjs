@@ -69,4 +69,7 @@ test("builds a category-balanced all-parts accuracy percentage", () => {
   assert.equal(summary.allCategoryAccuracy.overallAccuracyPercent, 52.3);
   assert.equal(summary.allCategoryAccuracy.byCategory.temperature.accuracyPercent, 50);
   assert.equal(summary.allCategoryAccuracy.byCategory.precipitation.accuracyPercent, 75);
+  assert.equal(summary.schemaVersion, 2);
+  assert.equal(summary.forecastDecisionSupport.temperatureRanges.byLeadTimeHours["24"].high.status, "insufficient-samples");
+  assert.equal(summary.forecastDecisionSupport.intermediateUpdates.defaults.timingShiftHours, 3);
 });

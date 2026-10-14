@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "generatedAt": "2026-10-13T20:15:14.280Z",
   "source": "forecast-verifications.json",
   "methodology": {
@@ -8,6 +8,20 @@
     "rangeCalibration": "Coverage is the percentage of official-station observations inside the issued range.",
     "models": "Per-model scores require modelBenchmarks captured at issuance; models are never reconstructed after the fact.",
     "weatherRegime": "Explicit day-level weatherRegime is required for new issues; legacy issues use documented text inference.",
+    "compositeAccuracy": "A category-balanced percentage covering temperature, precipitation, wind, fog/visibility, cloud cover, thunder, hazards, event timing, weather-regime narrative, official-alert documentation and confidence calibration. Each available category receives equal weight; missing categories are disclosed rather than counted as failures.",
+    "componentRules": {
+      "temperature": "Binary credit for each official-station high and low inside the issued range.",
+      "precipitation": "Probability accuracy is 1 minus the Brier score for regional occurrence.",
+      "wind": "Full credit inside the issued sustained/gust range, tapering to zero over 10 mph for sustained wind and 15 mph for gusts.",
+      "visibilityFog": "Brier-style probability accuracy for fog or sub-mile visibility.",
+      "cloudCover": "Ordinal agreement across clear, mostly clear, partly cloudy, mostly cloudy and overcast categories.",
+      "thunder": "Brier-style probability accuracy for an official-station thunder report.",
+      "hazards": "Mean Brier-style probability accuracy for observable fog, wind, thunder, heavy-rain, heat and freeze hazards against explicit measurable thresholds; legacy forecasts use Jaccard agreement.",
+      "eventTiming": "Brier-style accuracy for timestamped event windows with an issued tolerance; legacy forecasts use morning/afternoon/evening/night overlap.",
+      "weatherRegimeNarrative": "Deterministic outcome rule appropriate to the issued weatherRegime.",
+      "officialAlertHandling": "Checks that the issuance-time alert status is explicit and backed by a timestamped official source.",
+      "confidenceCalibration": "One minus squared error between issued confidence and realized component accuracy."
+    },
     "upstateTempestExcluded": true
   },
   "coverage": {
@@ -289,6 +303,394 @@
         "observedFrequency": 0.923
       }
     ]
+  },
+  "allCategoryAccuracy": {
+    "overallAccuracyPercent": 72.5,
+    "categoryCoverage": "8/11",
+    "availableCategoryCount": 8,
+    "totalCategoryCount": 11,
+    "weighting": "Each scored category receives equal weight; missing categories are excluded and disclosed through categoryCoverage.",
+    "byCategory": {
+      "temperature": {
+        "sampleCount": 384,
+        "meanScore": 0.5885,
+        "accuracyPercent": 58.9
+      },
+      "precipitation": {
+        "sampleCount": 96,
+        "meanScore": 0.8709,
+        "accuracyPercent": 87.1
+      },
+      "wind": {
+        "sampleCount": 2,
+        "meanScore": 0.595,
+        "accuracyPercent": 59.5
+      },
+      "visibilityFog": {
+        "sampleCount": 2,
+        "meanScore": 0.2675,
+        "accuracyPercent": 26.8
+      },
+      "cloudCover": {
+        "sampleCount": 0,
+        "meanScore": null,
+        "accuracyPercent": null
+      },
+      "thunder": {
+        "sampleCount": 2,
+        "meanScore": 0.9996,
+        "accuracyPercent": 100
+      },
+      "hazards": {
+        "sampleCount": 2,
+        "meanScore": 0.5,
+        "accuracyPercent": 50
+      },
+      "eventTiming": {
+        "sampleCount": 0,
+        "meanScore": null,
+        "accuracyPercent": null
+      },
+      "weatherRegimeNarrative": {
+        "sampleCount": 2,
+        "meanScore": 1,
+        "accuracyPercent": 100
+      },
+      "officialAlertHandling": {
+        "sampleCount": 0,
+        "meanScore": null,
+        "accuracyPercent": null
+      },
+      "confidenceCalibration": {
+        "sampleCount": 2,
+        "meanScore": 0.9731,
+        "accuracyPercent": 97.3
+      }
+    },
+    "byRegion": {
+      "kentucky": {
+        "overallAccuracyPercent": 79.8,
+        "categoryCoverage": "8/11",
+        "availableCategoryCount": 8,
+        "totalCategoryCount": 11,
+        "weighting": "Each scored category receives equal weight; missing categories are excluded and disclosed through categoryCoverage.",
+        "byCategory": {
+          "temperature": {
+            "sampleCount": 192,
+            "meanScore": 0.5833,
+            "accuracyPercent": 58.3
+          },
+          "precipitation": {
+            "sampleCount": 48,
+            "meanScore": 0.9792,
+            "accuracyPercent": 97.9
+          },
+          "wind": {
+            "sampleCount": 1,
+            "meanScore": 0.41,
+            "accuracyPercent": 41
+          },
+          "visibilityFog": {
+            "sampleCount": 1,
+            "meanScore": 0.4375,
+            "accuracyPercent": 43.8
+          },
+          "cloudCover": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "thunder": {
+            "sampleCount": 1,
+            "meanScore": 0.9996,
+            "accuracyPercent": 100
+          },
+          "hazards": {
+            "sampleCount": 1,
+            "meanScore": 1,
+            "accuracyPercent": 100
+          },
+          "eventTiming": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "weatherRegimeNarrative": {
+            "sampleCount": 1,
+            "meanScore": 1,
+            "accuracyPercent": 100
+          },
+          "officialAlertHandling": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "confidenceCalibration": {
+            "sampleCount": 1,
+            "meanScore": 0.9726,
+            "accuracyPercent": 97.3
+          }
+        }
+      },
+      "upstate": {
+        "overallAccuracyPercent": 65.1,
+        "categoryCoverage": "8/11",
+        "availableCategoryCount": 8,
+        "totalCategoryCount": 11,
+        "weighting": "Each scored category receives equal weight; missing categories are excluded and disclosed through categoryCoverage.",
+        "byCategory": {
+          "temperature": {
+            "sampleCount": 192,
+            "meanScore": 0.5938,
+            "accuracyPercent": 59.4
+          },
+          "precipitation": {
+            "sampleCount": 48,
+            "meanScore": 0.7626,
+            "accuracyPercent": 76.3
+          },
+          "wind": {
+            "sampleCount": 1,
+            "meanScore": 0.78,
+            "accuracyPercent": 78
+          },
+          "visibilityFog": {
+            "sampleCount": 1,
+            "meanScore": 0.0975,
+            "accuracyPercent": 9.8
+          },
+          "cloudCover": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "thunder": {
+            "sampleCount": 1,
+            "meanScore": 0.9996,
+            "accuracyPercent": 100
+          },
+          "hazards": {
+            "sampleCount": 1,
+            "meanScore": 0,
+            "accuracyPercent": 0
+          },
+          "eventTiming": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "weatherRegimeNarrative": {
+            "sampleCount": 1,
+            "meanScore": 1,
+            "accuracyPercent": 100
+          },
+          "officialAlertHandling": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "confidenceCalibration": {
+            "sampleCount": 1,
+            "meanScore": 0.9736,
+            "accuracyPercent": 97.4
+          }
+        }
+      }
+    },
+    "byLeadTimeHours": {
+      "24": {
+        "overallAccuracyPercent": 73,
+        "categoryCoverage": "8/11",
+        "availableCategoryCount": 8,
+        "totalCategoryCount": 11,
+        "weighting": "Each scored category receives equal weight; missing categories are excluded and disclosed through categoryCoverage.",
+        "byCategory": {
+          "temperature": {
+            "sampleCount": 136,
+            "meanScore": 0.5809,
+            "accuracyPercent": 58.1
+          },
+          "precipitation": {
+            "sampleCount": 34,
+            "meanScore": 0.9207,
+            "accuracyPercent": 92.1
+          },
+          "wind": {
+            "sampleCount": 2,
+            "meanScore": 0.595,
+            "accuracyPercent": 59.5
+          },
+          "visibilityFog": {
+            "sampleCount": 2,
+            "meanScore": 0.2675,
+            "accuracyPercent": 26.8
+          },
+          "cloudCover": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "thunder": {
+            "sampleCount": 2,
+            "meanScore": 0.9996,
+            "accuracyPercent": 100
+          },
+          "hazards": {
+            "sampleCount": 2,
+            "meanScore": 0.5,
+            "accuracyPercent": 50
+          },
+          "eventTiming": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "weatherRegimeNarrative": {
+            "sampleCount": 2,
+            "meanScore": 1,
+            "accuracyPercent": 100
+          },
+          "officialAlertHandling": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "confidenceCalibration": {
+            "sampleCount": 2,
+            "meanScore": 0.9731,
+            "accuracyPercent": 97.3
+          }
+        }
+      },
+      "48": {
+        "overallAccuracyPercent": 73.7,
+        "categoryCoverage": "2/11",
+        "availableCategoryCount": 2,
+        "totalCategoryCount": 11,
+        "weighting": "Each scored category receives equal weight; missing categories are excluded and disclosed through categoryCoverage.",
+        "byCategory": {
+          "temperature": {
+            "sampleCount": 128,
+            "meanScore": 0.6328,
+            "accuracyPercent": 63.3
+          },
+          "precipitation": {
+            "sampleCount": 32,
+            "meanScore": 0.84,
+            "accuracyPercent": 84
+          },
+          "wind": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "visibilityFog": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "cloudCover": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "thunder": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "hazards": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "eventTiming": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "weatherRegimeNarrative": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "officialAlertHandling": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "confidenceCalibration": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          }
+        }
+      },
+      "72": {
+        "overallAccuracyPercent": 69.9,
+        "categoryCoverage": "2/11",
+        "availableCategoryCount": 2,
+        "totalCategoryCount": 11,
+        "weighting": "Each scored category receives equal weight; missing categories are excluded and disclosed through categoryCoverage.",
+        "byCategory": {
+          "temperature": {
+            "sampleCount": 120,
+            "meanScore": 0.55,
+            "accuracyPercent": 55
+          },
+          "precipitation": {
+            "sampleCount": 30,
+            "meanScore": 0.8474,
+            "accuracyPercent": 84.7
+          },
+          "wind": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "visibilityFog": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "cloudCover": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "thunder": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "hazards": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "eventTiming": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "weatherRegimeNarrative": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "officialAlertHandling": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          },
+          "confidenceCalibration": {
+            "sampleCount": 0,
+            "meanScore": null,
+            "accuracyPercent": null
+          }
+        }
+      }
+    }
   },
   "models": {
     "sampleCount": 118,
@@ -579,6 +981,307 @@
           }
         }
       }
+    },
+    "recommendedWeightsByWeatherRegime": {
+      "cold-air-damming": {
+        "status": "recommended",
+        "weights": [
+          {
+            "model": "GFS",
+            "sampleCount": 4,
+            "weight": 0.32
+          },
+          {
+            "model": "ECMWF IFS",
+            "sampleCount": 4,
+            "weight": 0.451
+          },
+          {
+            "model": "NAM",
+            "sampleCount": 3,
+            "weight": 0.229
+          }
+        ]
+      },
+      "dry-high-pressure": {
+        "status": "recommended",
+        "weights": [
+          {
+            "model": "HRRR",
+            "sampleCount": 8,
+            "weight": 0.278
+          },
+          {
+            "model": "NAM",
+            "sampleCount": 9,
+            "weight": 0.222
+          },
+          {
+            "model": "GFS",
+            "sampleCount": 7,
+            "weight": 0.145
+          },
+          {
+            "model": "ECMWF IFS",
+            "sampleCount": 7,
+            "weight": 0.156
+          },
+          {
+            "model": "RAP",
+            "sampleCount": 7,
+            "weight": 0.199
+          }
+        ]
+      },
+      "fog-low-cloud": {
+        "status": "insufficient-samples",
+        "weights": []
+      },
+      "frontal": {
+        "status": "insufficient-samples",
+        "weights": []
+      },
+      "frontal-convective": {
+        "status": "insufficient-samples",
+        "weights": []
+      },
+      "post-frontal-high-pressure": {
+        "status": "recommended",
+        "weights": [
+          {
+            "model": "GFS",
+            "sampleCount": 5,
+            "weight": 0.173
+          },
+          {
+            "model": "ECMWF IFS",
+            "sampleCount": 5,
+            "weight": 0.225
+          },
+          {
+            "model": "HRRR",
+            "sampleCount": 4,
+            "weight": 0.193
+          },
+          {
+            "model": "RAP",
+            "sampleCount": 3,
+            "weight": 0.16
+          },
+          {
+            "model": "NAM",
+            "sampleCount": 4,
+            "weight": 0.248
+          }
+        ]
+      },
+      "post-frontal-showers": {
+        "status": "insufficient-samples",
+        "weights": []
+      },
+      "post-tropical-frontal-passage": {
+        "status": "insufficient-samples",
+        "weights": []
+      },
+      "post-tropical-high-pressure": {
+        "status": "insufficient-samples",
+        "weights": []
+      },
+      "post-tropical-showers": {
+        "status": "insufficient-samples",
+        "weights": []
+      },
+      "pre-frontal-warm-sector": {
+        "status": "insufficient-samples",
+        "weights": []
+      },
+      "tropical-remnant-precipitation": {
+        "status": "insufficient-samples",
+        "weights": []
+      },
+      "tropical-remnant-stratiform": {
+        "status": "insufficient-samples",
+        "weights": []
+      },
+      "wedge-erosion": {
+        "status": "insufficient-samples",
+        "weights": []
+      }
+    },
+    "recommendedWeightsByRegionAndWeatherRegime": {
+      "kentucky": {
+        "dry-high-pressure": {
+          "status": "recommended",
+          "weights": [
+            {
+              "model": "HRRR",
+              "sampleCount": 4,
+              "weight": 0.26
+            },
+            {
+              "model": "NAM",
+              "sampleCount": 5,
+              "weight": 0.245
+            },
+            {
+              "model": "GFS",
+              "sampleCount": 4,
+              "weight": 0.122
+            },
+            {
+              "model": "ECMWF IFS",
+              "sampleCount": 4,
+              "weight": 0.128
+            },
+            {
+              "model": "RAP",
+              "sampleCount": 4,
+              "weight": 0.245
+            }
+          ]
+        },
+        "fog-low-cloud": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "frontal": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "frontal-convective": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "post-frontal-high-pressure": {
+          "status": "recommended",
+          "weights": [
+            {
+              "model": "GFS",
+              "sampleCount": 4,
+              "weight": 0.139
+            },
+            {
+              "model": "ECMWF IFS",
+              "sampleCount": 4,
+              "weight": 0.207
+            },
+            {
+              "model": "HRRR",
+              "sampleCount": 3,
+              "weight": 0.238
+            },
+            {
+              "model": "NAM",
+              "sampleCount": 3,
+              "weight": 0.416
+            }
+          ]
+        },
+        "post-frontal-showers": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "post-tropical-high-pressure": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "post-tropical-showers": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "pre-frontal-warm-sector": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "tropical-remnant-precipitation": {
+          "status": "insufficient-samples",
+          "weights": []
+        }
+      },
+      "upstate": {
+        "cold-air-damming": {
+          "status": "recommended",
+          "weights": [
+            {
+              "model": "GFS",
+              "sampleCount": 4,
+              "weight": 0.32
+            },
+            {
+              "model": "ECMWF IFS",
+              "sampleCount": 4,
+              "weight": 0.451
+            },
+            {
+              "model": "NAM",
+              "sampleCount": 3,
+              "weight": 0.229
+            }
+          ]
+        },
+        "dry-high-pressure": {
+          "status": "recommended",
+          "weights": [
+            {
+              "model": "HRRR",
+              "sampleCount": 4,
+              "weight": 0.276
+            },
+            {
+              "model": "NAM",
+              "sampleCount": 4,
+              "weight": 0.185
+            },
+            {
+              "model": "RAP",
+              "sampleCount": 3,
+              "weight": 0.147
+            },
+            {
+              "model": "GFS",
+              "sampleCount": 3,
+              "weight": 0.184
+            },
+            {
+              "model": "ECMWF IFS",
+              "sampleCount": 3,
+              "weight": 0.207
+            }
+          ]
+        },
+        "fog-low-cloud": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "frontal-convective": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "post-frontal-high-pressure": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "post-tropical-frontal-passage": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "pre-frontal-warm-sector": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "tropical-remnant-stratiform": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "wedge-erosion": {
+          "status": "insufficient-samples",
+          "weights": []
+        }
+      }
+    },
+    "weightingRules": {
+      "minimumSamplesPerRegime": 3,
+      "minimumWeight": 0.1
     }
   },
   "biasCorrection": {
@@ -672,12 +1375,471 @@
       }
     ]
   },
+  "forecastDecisionSupport": {
+    "temperatureRanges": {
+      "rules": {
+        "targetCoverage": 0.7,
+        "minimumSamples": 8,
+        "minimumWidthF": 4,
+        "maximumWidthF": 10
+      },
+      "byLeadTimeHours": {
+        "24": {
+          "all": {
+            "status": "recommended",
+            "sampleCount": 136,
+            "recommendedWidthF": 7
+          },
+          "high": {
+            "status": "recommended",
+            "sampleCount": 68,
+            "recommendedWidthF": 5
+          },
+          "low": {
+            "status": "recommended",
+            "sampleCount": 68,
+            "recommendedWidthF": 10
+          }
+        },
+        "48": {
+          "all": {
+            "status": "recommended",
+            "sampleCount": 128,
+            "recommendedWidthF": 7
+          },
+          "high": {
+            "status": "recommended",
+            "sampleCount": 64,
+            "recommendedWidthF": 5
+          },
+          "low": {
+            "status": "recommended",
+            "sampleCount": 64,
+            "recommendedWidthF": 9
+          }
+        },
+        "72": {
+          "all": {
+            "status": "recommended",
+            "sampleCount": 120,
+            "recommendedWidthF": 8
+          },
+          "high": {
+            "status": "recommended",
+            "sampleCount": 60,
+            "recommendedWidthF": 7
+          },
+          "low": {
+            "status": "recommended",
+            "sampleCount": 60,
+            "recommendedWidthF": 10
+          }
+        }
+      },
+      "byRegionAndLeadTimeHours": {
+        "kentucky": {
+          "24": {
+            "high": {
+              "status": "recommended",
+              "sampleCount": 34,
+              "recommendedWidthF": 5
+            },
+            "low": {
+              "status": "recommended",
+              "sampleCount": 34,
+              "recommendedWidthF": 10
+            }
+          },
+          "48": {
+            "high": {
+              "status": "recommended",
+              "sampleCount": 32,
+              "recommendedWidthF": 4
+            },
+            "low": {
+              "status": "recommended",
+              "sampleCount": 32,
+              "recommendedWidthF": 9
+            }
+          },
+          "72": {
+            "high": {
+              "status": "recommended",
+              "sampleCount": 30,
+              "recommendedWidthF": 7
+            },
+            "low": {
+              "status": "recommended",
+              "sampleCount": 30,
+              "recommendedWidthF": 10
+            }
+          }
+        },
+        "upstate": {
+          "24": {
+            "high": {
+              "status": "recommended",
+              "sampleCount": 34,
+              "recommendedWidthF": 4
+            },
+            "low": {
+              "status": "recommended",
+              "sampleCount": 34,
+              "recommendedWidthF": 9
+            }
+          },
+          "48": {
+            "high": {
+              "status": "recommended",
+              "sampleCount": 32,
+              "recommendedWidthF": 5
+            },
+            "low": {
+              "status": "recommended",
+              "sampleCount": 32,
+              "recommendedWidthF": 10
+            }
+          },
+          "72": {
+            "high": {
+              "status": "recommended",
+              "sampleCount": 30,
+              "recommendedWidthF": 6
+            },
+            "low": {
+              "status": "recommended",
+              "sampleCount": 30,
+              "recommendedWidthF": 10
+            }
+          }
+        }
+      },
+      "instruction": "Use at least the recommended empirical width unless current ensemble spread or a documented meteorological reason supports a wider range. A narrower range requires an explicit override reason."
+    },
+    "modelWeighting": {
+      "rules": {
+        "minimumSamplesPerRegime": 3,
+        "minimumWeight": 0.1
+      },
+      "recommendationsByWeatherRegime": {
+        "cold-air-damming": {
+          "status": "recommended",
+          "weights": [
+            {
+              "model": "GFS",
+              "sampleCount": 4,
+              "weight": 0.32
+            },
+            {
+              "model": "ECMWF IFS",
+              "sampleCount": 4,
+              "weight": 0.451
+            },
+            {
+              "model": "NAM",
+              "sampleCount": 3,
+              "weight": 0.229
+            }
+          ]
+        },
+        "dry-high-pressure": {
+          "status": "recommended",
+          "weights": [
+            {
+              "model": "HRRR",
+              "sampleCount": 8,
+              "weight": 0.278
+            },
+            {
+              "model": "NAM",
+              "sampleCount": 9,
+              "weight": 0.222
+            },
+            {
+              "model": "GFS",
+              "sampleCount": 7,
+              "weight": 0.145
+            },
+            {
+              "model": "ECMWF IFS",
+              "sampleCount": 7,
+              "weight": 0.156
+            },
+            {
+              "model": "RAP",
+              "sampleCount": 7,
+              "weight": 0.199
+            }
+          ]
+        },
+        "fog-low-cloud": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "frontal": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "frontal-convective": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "post-frontal-high-pressure": {
+          "status": "recommended",
+          "weights": [
+            {
+              "model": "GFS",
+              "sampleCount": 5,
+              "weight": 0.173
+            },
+            {
+              "model": "ECMWF IFS",
+              "sampleCount": 5,
+              "weight": 0.225
+            },
+            {
+              "model": "HRRR",
+              "sampleCount": 4,
+              "weight": 0.193
+            },
+            {
+              "model": "RAP",
+              "sampleCount": 3,
+              "weight": 0.16
+            },
+            {
+              "model": "NAM",
+              "sampleCount": 4,
+              "weight": 0.248
+            }
+          ]
+        },
+        "post-frontal-showers": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "post-tropical-frontal-passage": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "post-tropical-high-pressure": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "post-tropical-showers": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "pre-frontal-warm-sector": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "tropical-remnant-precipitation": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "tropical-remnant-stratiform": {
+          "status": "insufficient-samples",
+          "weights": []
+        },
+        "wedge-erosion": {
+          "status": "insufficient-samples",
+          "weights": []
+        }
+      },
+      "recommendationsByRegionAndWeatherRegime": {
+        "kentucky": {
+          "dry-high-pressure": {
+            "status": "recommended",
+            "weights": [
+              {
+                "model": "HRRR",
+                "sampleCount": 4,
+                "weight": 0.26
+              },
+              {
+                "model": "NAM",
+                "sampleCount": 5,
+                "weight": 0.245
+              },
+              {
+                "model": "GFS",
+                "sampleCount": 4,
+                "weight": 0.122
+              },
+              {
+                "model": "ECMWF IFS",
+                "sampleCount": 4,
+                "weight": 0.128
+              },
+              {
+                "model": "RAP",
+                "sampleCount": 4,
+                "weight": 0.245
+              }
+            ]
+          },
+          "fog-low-cloud": {
+            "status": "insufficient-samples",
+            "weights": []
+          },
+          "frontal": {
+            "status": "insufficient-samples",
+            "weights": []
+          },
+          "frontal-convective": {
+            "status": "insufficient-samples",
+            "weights": []
+          },
+          "post-frontal-high-pressure": {
+            "status": "recommended",
+            "weights": [
+              {
+                "model": "GFS",
+                "sampleCount": 4,
+                "weight": 0.139
+              },
+              {
+                "model": "ECMWF IFS",
+                "sampleCount": 4,
+                "weight": 0.207
+              },
+              {
+                "model": "HRRR",
+                "sampleCount": 3,
+                "weight": 0.238
+              },
+              {
+                "model": "NAM",
+                "sampleCount": 3,
+                "weight": 0.416
+              }
+            ]
+          },
+          "post-frontal-showers": {
+            "status": "insufficient-samples",
+            "weights": []
+          },
+          "post-tropical-high-pressure": {
+            "status": "insufficient-samples",
+            "weights": []
+          },
+          "post-tropical-showers": {
+            "status": "insufficient-samples",
+            "weights": []
+          },
+          "pre-frontal-warm-sector": {
+            "status": "insufficient-samples",
+            "weights": []
+          },
+          "tropical-remnant-precipitation": {
+            "status": "insufficient-samples",
+            "weights": []
+          }
+        },
+        "upstate": {
+          "cold-air-damming": {
+            "status": "recommended",
+            "weights": [
+              {
+                "model": "GFS",
+                "sampleCount": 4,
+                "weight": 0.32
+              },
+              {
+                "model": "ECMWF IFS",
+                "sampleCount": 4,
+                "weight": 0.451
+              },
+              {
+                "model": "NAM",
+                "sampleCount": 3,
+                "weight": 0.229
+              }
+            ]
+          },
+          "dry-high-pressure": {
+            "status": "recommended",
+            "weights": [
+              {
+                "model": "HRRR",
+                "sampleCount": 4,
+                "weight": 0.276
+              },
+              {
+                "model": "NAM",
+                "sampleCount": 4,
+                "weight": 0.185
+              },
+              {
+                "model": "RAP",
+                "sampleCount": 3,
+                "weight": 0.147
+              },
+              {
+                "model": "GFS",
+                "sampleCount": 3,
+                "weight": 0.184
+              },
+              {
+                "model": "ECMWF IFS",
+                "sampleCount": 3,
+                "weight": 0.207
+              }
+            ]
+          },
+          "fog-low-cloud": {
+            "status": "insufficient-samples",
+            "weights": []
+          },
+          "frontal-convective": {
+            "status": "insufficient-samples",
+            "weights": []
+          },
+          "post-frontal-high-pressure": {
+            "status": "insufficient-samples",
+            "weights": []
+          },
+          "post-tropical-frontal-passage": {
+            "status": "insufficient-samples",
+            "weights": []
+          },
+          "pre-frontal-warm-sector": {
+            "status": "insufficient-samples",
+            "weights": []
+          },
+          "tropical-remnant-stratiform": {
+            "status": "insufficient-samples",
+            "weights": []
+          },
+          "wedge-erosion": {
+            "status": "insufficient-samples",
+            "weights": []
+          }
+        }
+      },
+      "instruction": "Use regime-specific weights when available. When samples are insufficient, document the operational blend and retain at least two independent model families."
+    },
+    "intermediateUpdates": {
+      "defaults": {
+        "temperatureDeviationF": 4,
+        "precipitationProbabilityChange": 0.25,
+        "timingShiftHours": 3,
+        "hazardProbabilityChange": 0.25,
+        "newOfficialAlert": true
+      },
+      "instruction": "Issue an intermediate candidate only when an observation or guidance change crosses a threshold; a new official alert always triggers review."
+    }
+  },
   "futureForecastRequirement": {
     "summaryMustBeConsulted": true,
     "requiredFields": [
       "weatherRegime on every day",
+      "probabilistic verificationTargets on every day",
+      "timestamped eventWindows",
       "modelBenchmarks",
-      "accuracyFeedback"
+      "accuracyFeedback with station/range/model/learning decisions",
+      "intermediateUpdatePolicy"
     ],
     "noAdjustmentDecisionMustBeDocumented": true
   }

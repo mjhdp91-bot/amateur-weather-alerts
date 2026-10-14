@@ -2,9 +2,14 @@ import { readFileSync, writeFileSync } from "node:fs";
 import {
   BIAS_RULES,
   COMPOSITE_CATEGORIES,
+  INTERMEDIATE_UPDATE_DEFAULTS,
+  MODEL_WEIGHT_RULES,
+  RANGE_CALIBRATION_RULES,
   REGION_CONFIG,
   evaluateRegionCheckpoint,
   round,
+  recommendedTemperatureRangeWidth,
+  recommendModelWeights,
   statistics,
   suggestedBiasAdjustment,
 } from "./lib/forecast-accuracy.mjs";
@@ -123,6 +128,23 @@ function modelSummary(samples) {
       ? "Model benchmarks are being scored against regional official-observation means."
       : "No issued forecast yet contains modelBenchmarks; model scoring begins with the first forecast that passes the new validator.",
     byModel,
+    recommendedWeightsByWeatherRegime: Object.fromEntries(
+      [...groupBy(samples, (item) => item.weatherRegime)].sort(([left], [right]) => left.localeCompare(right)).map(([regime, regimeSamples]) => [
+        regime,
+        recommendModelWeights(regimeSamples),
+      ]),
+    ),
+    recommendedWeightsByRegionAndWeatherRegime: Object.fromEntries(
+      Object.keys(REGION_CONFIG).map((region) => [
+        region,
+        Object.fromEntries(
+          [...groupBy(samples.filter((item) => item.region === region), (item) => item.weatherRegime)]
+            .sort(([left], [right]) => left.localeCompare(right))
+            .map(([regime, regimeSamples]) => [regime, recommendModelWeights(regimeSamples)]),
+        ),
+      ]),
+    ),
+    weightingRules: MODEL_WEIGHT_RULES,
   };
 }
 
@@ -242,8 +264,35 @@ for (const [key, samples] of groupBy(temperatureSamples, (item) => `${item.regio
   });
 }
 
+const temperatureRangeRecommendations = Object.fromEntries(
+  [24, 48, 72].map((leadTimeHours) => {
+    const samples = temperatureSamples.filter((item) => item.leadTimeHours === leadTimeHours);
+    return [String(leadTimeHours), {
+      all: recommendedTemperatureRangeWidth(samples),
+      high: recommendedTemperatureRangeWidth(samples.filter((item) => item.metric === "high")),
+      low: recommendedTemperatureRangeWidth(samples.filter((item) => item.metric === "low")),
+    }];
+  }),
+);
+
+const regionalTemperatureRangeRecommendations = Object.fromEntries(
+  Object.keys(REGION_CONFIG).map((region) => [
+    region,
+    Object.fromEntries(
+      [24, 48, 72].map((leadTimeHours) => {
+        const samples = temperatureSamples.filter((item) => item.region === region && item.leadTimeHours === leadTimeHours);
+        return [String(leadTimeHours), {
+          high: recommendedTemperatureRangeWidth(samples.filter((item) => item.metric === "high")),
+          low: recommendedTemperatureRangeWidth(samples.filter((item) => item.metric === "low")),
+        }];
+      }),
+    ),
+  ]),
+);
+const modelAccuracySummary = modelSummary(modelSamples);
+
 const summary = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   generatedAt: ledger.generatedAt ?? new Date().toISOString(),
   source: "forecast-verifications.json",
   methodology: {
@@ -260,8 +309,8 @@ const summary = {
       visibilityFog: "Brier-style probability accuracy for fog or sub-mile visibility.",
       cloudCover: "Ordinal agreement across clear, mostly clear, partly cloudy, mostly cloudy and overcast categories.",
       thunder: "Brier-style probability accuracy for an official-station thunder report.",
-      hazards: "Jaccard agreement for observable fog, wind, thunder, heavy-rain, heat and freeze hazards.",
-      eventTiming: "Credit when observed rain, thunder, fog or strong-wind periods overlap the issued morning/afternoon/evening/night target.",
+      hazards: "Mean Brier-style probability accuracy for observable fog, wind, thunder, heavy-rain, heat and freeze hazards against explicit measurable thresholds; legacy forecasts use Jaccard agreement.",
+      eventTiming: "Brier-style accuracy for timestamped event windows with an issued tolerance; legacy forecasts use morning/afternoon/evening/night overlap.",
       weatherRegimeNarrative: "Deterministic outcome rule appropriate to the issued weatherRegime.",
       officialAlertHandling: "Checks that the issuance-time alert status is explicit and backed by a timestamped official source.",
       confidenceCalibration: "One minus squared error between issued confidence and realized component accuracy.",
@@ -293,15 +342,33 @@ const summary = {
       [24, 48, 72].map((hours) => [String(hours), balancedComposite(allCategorySamples.filter((item) => item.leadTimeHours === hours))]),
     ),
   },
-  models: modelSummary(modelSamples),
+  models: modelAccuracySummary,
   biasCorrection: {
     rules: BIAS_RULES,
     signConvention: "Positive means observations were warmer than the issued midpoint and future guidance may be adjusted upward.",
     candidates: biasCandidates.sort((left, right) => left.region.localeCompare(right.region) || left.station.localeCompare(right.station) || left.metric.localeCompare(right.metric)),
   },
+  forecastDecisionSupport: {
+    temperatureRanges: {
+      rules: RANGE_CALIBRATION_RULES,
+      byLeadTimeHours: temperatureRangeRecommendations,
+      byRegionAndLeadTimeHours: regionalTemperatureRangeRecommendations,
+      instruction: "Use at least the recommended empirical width unless current ensemble spread or a documented meteorological reason supports a wider range. A narrower range requires an explicit override reason.",
+    },
+    modelWeighting: {
+      rules: MODEL_WEIGHT_RULES,
+      recommendationsByWeatherRegime: modelAccuracySummary.recommendedWeightsByWeatherRegime,
+      recommendationsByRegionAndWeatherRegime: modelAccuracySummary.recommendedWeightsByRegionAndWeatherRegime,
+      instruction: "Use regime-specific weights when available. When samples are insufficient, document the operational blend and retain at least two independent model families.",
+    },
+    intermediateUpdates: {
+      defaults: INTERMEDIATE_UPDATE_DEFAULTS,
+      instruction: "Issue an intermediate candidate only when an observation or guidance change crosses a threshold; a new official alert always triggers review.",
+    },
+  },
   futureForecastRequirement: {
     summaryMustBeConsulted: true,
-    requiredFields: ["weatherRegime on every day", "verificationTargets on every day", "modelBenchmarks", "accuracyFeedback"],
+    requiredFields: ["weatherRegime on every day", "probabilistic verificationTargets on every day", "timestamped eventWindows", "modelBenchmarks", "accuracyFeedback with station/range/model/learning decisions", "intermediateUpdatePolicy"],
     noAdjustmentDecisionMustBeDocumented: true,
   },
 };
