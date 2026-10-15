@@ -27,6 +27,662 @@
   },
   "issues": [
     {
+      "forecastId": "20261014T1115Z",
+      "issuedAt": "2026-10-14T07:15:00-04:00",
+      "validThrough": "2026-10-17T07:15:00-04:00",
+      "headline": "Heavy downpours and isolated strong storms reach Central Kentucky today; the Upstate stays dry and near record warmth through Friday",
+      "sourceFile": "forecast.json",
+      "lockedOriginal": true,
+      "originalForecast": {
+        "schemaVersion": 1,
+        "forecastId": "20261014T1115Z",
+        "issuedAt": "2026-10-14T07:15:00-04:00",
+        "validThrough": "2026-10-17T07:15:00-04:00",
+        "timezone": "America/New_York",
+        "headline": "Heavy downpours and isolated strong storms reach Central Kentucky today; the Upstate stays dry and near record warmth through Friday",
+        "disclaimer": "Independent amateur analysis. This is not an official forecast or warning. Follow the National Weather Service and local authorities during hazardous weather.",
+        "refresh": {
+          "seconds": 300,
+          "cachePolicy": "no-store",
+          "workflow": "Update and commit forecast.json once. GitHub Actions automatically locks the prior issue in forecast-history.json. Then verify the GitHub Pages URL; every Google Sites embed reads the same file and refreshes automatically."
+        },
+        "regions": {
+          "kentucky": {
+            "name": "Central Kentucky",
+            "subtitle": "Danville primary · Lexington comparison",
+            "theme": "blue",
+            "summary": "Central Kentucky starts warm and humid beneath increasing clouds. A line of showers and thunderstorms approaches from the northwest and should reach the Danville–Lexington corridor mainly this afternoon and evening. Very high atmospheric moisture supports locally heavy downpours, isolated flash flooding and a low-end risk of strong wind gusts, although no official NWS watch or warning is active. Fog and a few lingering showers are possible Thursday morning before a strong cold front brings gusty winds and sharply falling temperatures Friday.",
+            "currentConditions": [
+              {
+                "site": "Danville–Boyle County Airport (KDVK)",
+                "observedAt": "2026-10-14T06:35:00-04:00",
+                "temperatureF": 68,
+                "dewpointF": 61,
+                "wind": "SSW 5 mph",
+                "condition": "Cloudy",
+                "visibility": "10 miles",
+                "precipitation": "No reliable hourly amount reported",
+                "sourceUrl": "https://api.weather.gov/stations/KDVK/observations/latest"
+              },
+              {
+                "site": "Lexington Blue Grass Airport (KLEX)",
+                "observedAt": "2026-10-14T06:50:00-04:00",
+                "temperatureF": 70,
+                "dewpointF": 63,
+                "wind": "SSW 8 mph",
+                "condition": "Mostly cloudy",
+                "visibility": "10 miles",
+                "precipitation": "No reliable hourly amount reported",
+                "sourceUrl": "https://api.weather.gov/stations/KLEX/observations/latest"
+              }
+            ],
+            "days": [
+              {
+                "date": "2026-10-14",
+                "label": "Wednesday",
+                "highF": "83–88",
+                "lowF": "65–70",
+                "precipitation": "10–25% before 1 PM; 45–65% from 2–5 PM; 70–85% during the evening; 25–45% overnight",
+                "hazard": "No official NWS watch or warning at issuance; locally heavy downpours, lightning, isolated flash flooding and isolated strong wind gusts are possible",
+                "weatherRegime": "frontal-convective",
+                "forecast": "Partly sunny, warm and humid through midday. Showers and thunderstorms should reach the Danville–Lexington corridor mainly during the afternoon, with the highest coverage during the evening. Rainfall of roughly one-quarter to one inch will be common where storms pass, while isolated heavier pockets are possible. Storm timing will create a sharp local temperature gradient, and some places may remain dry until late afternoon."
+              },
+              {
+                "date": "2026-10-15",
+                "label": "Thursday",
+                "highF": "80–85",
+                "lowF": "56–62",
+                "precipitation": "30–50% through midmorning; 10–25% from late morning through afternoon; 5–15% Thursday night",
+                "hazard": "No official NWS alert at issuance; dense patches of morning fog and an isolated thunderstorm remain possible",
+                "weatherRegime": "fog-low-cloud",
+                "forecast": "Patchy fog, low clouds and a few lingering showers are possible early. Conditions should become mainly dry by late morning, followed by intervals of sunshine and another warm afternoon. A brief isolated shower cannot be ruled out near the retreating boundary, but most locations should be dry by late day. Southwest winds increase Thursday night ahead of the stronger cold front."
+              },
+              {
+                "date": "2026-10-16",
+                "label": "Friday",
+                "highF": "61–68",
+                "lowF": "37–43",
+                "precipitation": "20–35% from morning through early evening; 5% or less late Friday night",
+                "hazard": "No official NWS alert at issuance; west-to-northwest gusts of 25–30 mph and rapidly falling temperatures are possible behind the cold front",
+                "weatherRegime": "frontal",
+                "forecast": "A strong cold front crosses during the morning with a narrow band of showers possible. Temperatures may briefly reach the middle 60s before falling through the afternoon. West winds become brisk and gusty, and much colder air pours in Friday night. Most locations should reach the upper 30s to lower 40s by daybreak Saturday."
+              }
+            ],
+            "bottomLine": "The main Central Kentucky impact window is this afternoon and evening, when storms may produce heavy downpours, lightning, isolated flash flooding and isolated strong gusts. Thursday improves after morning fog and lingering showers. Friday turns windy and sharply colder behind a strong front.",
+            "confidence": "Moderate-high on afternoon and evening storm coverage; moderate on exact arrival time, rainfall totals and localized wind or flooding impacts; high on Friday's strong cooling trend",
+            "verificationStations": [
+              "KDVK",
+              "KLEX"
+            ],
+            "radarLinks": [
+              {
+                "label": "NWS KLVX radar",
+                "url": "https://radar.weather.gov/station/KLVX/standard"
+              },
+              {
+                "label": "NWS KJKL radar",
+                "url": "https://radar.weather.gov/station/KJKL/standard"
+              }
+            ]
+          },
+          "upstate": {
+            "name": "Upstate South Carolina",
+            "subtitle": "Clemson / Central primary · Tempest excluded",
+            "theme": "teal",
+            "summary": "Clemson and Central remain dry beneath upper-level high pressure through Friday. Sunny skies support near-record warmth today and Thursday, with another very warm day Friday before a strong cold front arrives Friday night. Winds increase Friday afternoon and evening, but meaningful rainfall should remain confined mainly to the mountains. Official KCEU and KLQK observations remain the verification basis; Tempest data are excluded.",
+            "currentConditions": [
+              {
+                "site": "Oconee County Regional Airport (KCEU)",
+                "observedAt": "2026-10-14T06:50:00-04:00",
+                "temperatureF": 63,
+                "dewpointF": 57,
+                "wind": "Calm",
+                "condition": "Clear",
+                "visibility": "10 miles",
+                "precipitation": "No reliable hourly amount reported",
+                "sourceUrl": "https://api.weather.gov/stations/KCEU/observations/latest"
+              },
+              {
+                "site": "Pickens County Airport (KLQK)",
+                "observedAt": "2026-10-14T06:35:00-04:00",
+                "temperatureF": 53,
+                "dewpointF": 51,
+                "wind": "Calm",
+                "condition": "Clear",
+                "visibility": "10 miles",
+                "precipitation": "No reliable hourly amount reported",
+                "sourceUrl": "https://api.weather.gov/stations/KLQK/observations/latest"
+              },
+              {
+                "site": "Clemson Weather Network",
+                "observedAt": "2026-10-14T07:10:00-04:00",
+                "condition": "WeatherFlow–Tempest observations excluded; official KCEU and KLQK observations used instead",
+                "sourceUrl": "https://clemson-weather.app.clemson.edu/index.php"
+              }
+            ],
+            "days": [
+              {
+                "date": "2026-10-14",
+                "label": "Wednesday",
+                "highF": "85–89",
+                "lowF": "55–63",
+                "precipitation": "5% or less",
+                "hazard": "No significant weather hazards expected; no official NWS alert is active",
+                "weatherRegime": "warm-ridge",
+                "forecast": "Sunny, dry and unusually warm, with light south to southwest winds. Near-record afternoon temperatures are possible. Clear skies and nearly calm winds tonight will again produce a wide local temperature spread, with KLQK and sheltered valleys likely cooler than KCEU."
+              },
+              {
+                "date": "2026-10-15",
+                "label": "Thursday",
+                "highF": "86–90",
+                "lowF": "58–65",
+                "precipitation": "5% or less",
+                "hazard": "No significant weather hazards expected; near-record warmth is possible",
+                "weatherRegime": "warm-ridge",
+                "forecast": "Sunny, dry and near record warmth under persistent high pressure. Winds remain light, and clear to mostly clear conditions continue Thursday night. The moisture-rich boundary affecting Kentucky remains northwest of the Clemson–Central area."
+              },
+              {
+                "date": "2026-10-16",
+                "label": "Friday",
+                "highF": "83–87",
+                "lowF": "44–50",
+                "precipitation": "5% or less near Clemson and Central",
+                "hazard": "No official NWS alert at issuance; west winds may gust 20–25 mph late in the day and stronger gusts are possible in the mountains Friday night",
+                "weatherRegime": "pre-frontal-warm-sector",
+                "forecast": "Sunny, dry and very warm ahead of a strong cold front. West to southwest winds increase during the afternoon, with occasional gusts near 20–25 mph. The front crosses Friday night with little or no rain near Clemson and Central, followed by a rapid temperature drop into the 40s by Saturday morning."
+              }
+            ],
+            "bottomLine": "Clemson and Central stay sunny, dry and near record warmth through Friday. The meaningful change arrives Friday evening and night as winds increase and a dry cold front brings a sharp temperature drop. Tempest observations remain excluded.",
+            "confidence": "High on dry weather and unusual warmth through Friday afternoon; moderate-high on daytime ranges; moderate on localized nighttime lows and the exact timing of Friday night's temperature drop",
+            "verificationStations": [
+              "KCEU",
+              "KLQK"
+            ],
+            "excludedSources": [
+              "Tempest public stations",
+              "Clemson Weather Network WeatherFlow–Tempest observations"
+            ],
+            "radarLinks": [
+              {
+                "label": "NWS KGSP radar",
+                "url": "https://radar.weather.gov/station/KGSP/standard"
+              },
+              {
+                "label": "NWS KCAE radar",
+                "url": "https://radar.weather.gov/station/KCAE/standard"
+              }
+            ]
+          }
+        },
+        "modelStatus": [
+          {
+            "model": "HRRR",
+            "run": "2026-10-14 06Z",
+            "status": "complete through forecast hour 48",
+            "use": "Today's storm timing, near-term temperatures and Thursday drying",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/hrrr/prod/hrrr.20261014/conus/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-HRRR-SE"
+          },
+          {
+            "model": "RAP",
+            "run": "2026-10-14 09Z",
+            "status": "complete extended cycle through forecast hour 51",
+            "use": "Today's moisture and precipitation progression plus Thursday boundary placement",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/rap/prod/rap.20261014/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-RAP-US"
+          },
+          {
+            "model": "NAM",
+            "run": "2026-10-14 06Z",
+            "status": "complete through forecast hour 84",
+            "use": "Full 72-hour temperature gradient, frontal timing and precipitation evolution",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/nam/prod/nam.20261014/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-NAM-SE"
+          },
+          {
+            "model": "NAM 3-km Nest",
+            "run": "2026-10-14 06Z",
+            "status": "complete through forecast hour 60",
+            "use": "Qualitative convective placement today and Friday frontal-shower timing",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/nam/prod/nam.20261014/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-NAMNST-SE"
+          },
+          {
+            "model": "GFS",
+            "run": "2026-10-14 06Z",
+            "status": "complete through forecast hour 384",
+            "use": "Global comparison for Thursday warmth and Friday cold-frontal passage",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/gfs.20261014/06/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-GFS-SE"
+          },
+          {
+            "model": "GEFS",
+            "run": "2026-10-14 06Z",
+            "status": "ensemble mean available through at least forecast hour 201, fully covering this forecast",
+            "use": "Ensemble context for the regional precipitation split and Friday frontal progression",
+            "primaryUrl": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/gens/prod/gefs.20261014/06/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-GEFS-SE"
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-10-14 00Z",
+            "status": "complete deterministic cycle through forecast hour 360",
+            "use": "Independent global comparison for Thursday warmth and Friday temperature gradient",
+            "primaryUrl": "https://data.ecmwf.int/forecasts/20261014/00z/ifs/0p25/oper/",
+            "backupUrl": "https://weather.cod.edu/forecast/?parms=current-ECMWF-SE"
+          }
+        ],
+        "modelBenchmarks": [
+          {
+            "model": "HRRR",
+            "run": "2026-10-14 06Z",
+            "region": "kentucky",
+            "targetDate": "2026-10-14",
+            "leadTimeHours": 12,
+            "highF": 88,
+            "weatherRegime": "frontal-convective",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/HRRR/2026101406/SE/HRRRSE_sfc_temp_012.png",
+            "note": "Representative Wednesday-afternoon Danville-area 2-m temperature; storms arriving sooner would lower the realized high."
+          },
+          {
+            "model": "HRRR",
+            "run": "2026-10-14 06Z",
+            "region": "upstate",
+            "targetDate": "2026-10-14",
+            "leadTimeHours": 12,
+            "highF": 85,
+            "weatherRegime": "warm-ridge",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/HRRR/2026101406/SE/HRRRSE_sfc_temp_012.png",
+            "note": "Representative Wednesday-afternoon Clemson-area temperature."
+          },
+          {
+            "model": "RAP",
+            "run": "2026-10-14 09Z",
+            "region": "kentucky",
+            "targetDate": "2026-10-14",
+            "leadTimeHours": 9,
+            "highF": 87,
+            "weatherRegime": "frontal-convective",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/RAP/2026101409/SE/RAPSE_sfc_temp_009.png",
+            "note": "Representative Wednesday-afternoon Danville-area temperature with precipitation approaching from the northwest."
+          },
+          {
+            "model": "RAP",
+            "run": "2026-10-14 09Z",
+            "region": "upstate",
+            "targetDate": "2026-10-14",
+            "leadTimeHours": 9,
+            "highF": 84,
+            "weatherRegime": "warm-ridge",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/RAP/2026101409/SE/RAPSE_sfc_temp_009.png",
+            "note": "Representative Wednesday-afternoon Clemson-area temperature."
+          },
+          {
+            "model": "NAM",
+            "run": "2026-10-14 06Z",
+            "region": "kentucky",
+            "targetDate": "2026-10-14",
+            "leadTimeHours": 12,
+            "highF": 89,
+            "weatherRegime": "frontal-convective",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/NAM/2026101406/SE/NAMSE_sfc_temp_012.png",
+            "note": "Representative Wednesday-afternoon Danville-area temperature on the warm side of the convective gradient."
+          },
+          {
+            "model": "NAM",
+            "run": "2026-10-14 06Z",
+            "region": "upstate",
+            "targetDate": "2026-10-14",
+            "leadTimeHours": 12,
+            "highF": 85,
+            "weatherRegime": "warm-ridge",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/NAM/2026101406/SE/NAMSE_sfc_temp_012.png",
+            "note": "Representative Wednesday-afternoon Clemson-area temperature."
+          },
+          {
+            "model": "GFS",
+            "run": "2026-10-14 06Z",
+            "region": "kentucky",
+            "targetDate": "2026-10-15",
+            "leadTimeHours": 36,
+            "highF": 88,
+            "weatherRegime": "fog-low-cloud",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/GFS/2026101406/SE/GFSSE_sfc_temp_036.png",
+            "note": "Representative Thursday-afternoon Danville-area temperature before station-bias and morning-cloud adjustments."
+          },
+          {
+            "model": "GFS",
+            "run": "2026-10-14 06Z",
+            "region": "upstate",
+            "targetDate": "2026-10-15",
+            "leadTimeHours": 36,
+            "highF": 87,
+            "weatherRegime": "warm-ridge",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/GFS/2026101406/SE/GFSSE_sfc_temp_036.png",
+            "note": "Representative Thursday-afternoon Clemson-area temperature."
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-10-14 00Z",
+            "region": "kentucky",
+            "targetDate": "2026-10-15",
+            "leadTimeHours": 42,
+            "highF": 86,
+            "weatherRegime": "fog-low-cloud",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/ECMWF/2026101400/SE/ECMWFSE_sfc_temp_042.png",
+            "note": "Representative Thursday-afternoon Danville-area temperature from the complete 00Z cycle."
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-10-14 00Z",
+            "region": "upstate",
+            "targetDate": "2026-10-15",
+            "leadTimeHours": 42,
+            "highF": 85,
+            "weatherRegime": "warm-ridge",
+            "sourceUrl": "https://weather.cod.edu/wxdata/forecast/ECMWF/2026101400/SE/ECMWFSE_sfc_temp_042.png",
+            "note": "Representative Thursday-afternoon Clemson-area temperature from the complete 00Z cycle."
+          }
+        ],
+        "modelBenchmarkExclusions": [
+          {
+            "model": "NAM 3-km Nest",
+            "run": "2026-10-14 06Z",
+            "reason": "Deterministic simulated reflectivity was used qualitatively for storm placement and timing rather than converted into a probability benchmark."
+          },
+          {
+            "model": "GEFS",
+            "run": "2026-10-14 06Z",
+            "reason": "The ensemble mean precipitation field supported the regional split and frontal assessment, but no scoreable point ensemble statistic was preserved."
+          }
+        ],
+        "modelImages": [
+          {
+            "model": "HRRR",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-10-14 06Z",
+            "valid": "2026-10-14 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/HRRR/2026101406/SE/HRRRSE_sfc_temp_012.png",
+            "note": "Supports a sharp Kentucky temperature gradient governed by storm timing and continued Upstate warmth."
+          },
+          {
+            "model": "HRRR",
+            "field": "Simulated reflectivity",
+            "run": "2026-10-14 06Z",
+            "valid": "2026-10-14 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/HRRR/2026101406/SE/HRRRSE_prec_radar_012.png",
+            "note": "Keeps the main organized convection northwest of the southern Appalachians early this afternoon."
+          },
+          {
+            "model": "RAP",
+            "field": "Simulated reflectivity",
+            "run": "2026-10-14 09Z",
+            "valid": "2026-10-14 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/RAP/2026101409/SE/RAPSE_prec_radar_009.png",
+            "note": "Shows broader precipitation approaching Kentucky from the northwest while the Upstate remains dry."
+          },
+          {
+            "model": "NAM 3-km Nest",
+            "field": "Simulated reflectivity",
+            "run": "2026-10-14 06Z",
+            "valid": "2026-10-14 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/NAMNST/2026101406/SE/NAMNSTSE_prec_radar_012.png",
+            "note": "Supports scattered-to-broken convective coverage advancing southeast, with timing uncertainty near Danville."
+          },
+          {
+            "model": "GFS",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-10-14 06Z",
+            "valid": "2026-10-16 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/GFS/2026101406/SE/GFSSE_sfc_temp_060.png",
+            "note": "Shows the strong Friday temperature gradient behind the Kentucky front while the Upstate remains warm ahead of it."
+          },
+          {
+            "model": "GEFS",
+            "field": "6-hour ensemble-mean precipitation",
+            "run": "2026-10-14 06Z",
+            "valid": "2026-10-16 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/GEFS/2026101406/SE/GEFSSE_prec_meanprec_060.png",
+            "note": "Keeps meaningful Friday precipitation away from the Clemson–Central area and supports limited frontal rainfall there."
+          },
+          {
+            "model": "ECMWF IFS",
+            "field": "2-m temperature and 10-m wind",
+            "run": "2026-10-14 00Z",
+            "valid": "2026-10-16 18Z",
+            "url": "https://weather.cod.edu/wxdata/forecast/ECMWF/2026101400/SE/ECMWFSE_sfc_temp_066.png",
+            "note": "Independently supports the sharp Friday cool-down in Kentucky and delayed cooling in the Upstate."
+          }
+        ],
+        "sources": [
+          {
+            "label": "NWS KDVK latest observation",
+            "timestamp": "2026-10-14T06:35:00-04:00",
+            "url": "https://api.weather.gov/stations/KDVK/observations/latest"
+          },
+          {
+            "label": "NWS KLEX latest observation",
+            "timestamp": "2026-10-14T06:50:00-04:00",
+            "url": "https://api.weather.gov/stations/KLEX/observations/latest"
+          },
+          {
+            "label": "NWS KCEU latest observation",
+            "timestamp": "2026-10-14T06:50:00-04:00",
+            "url": "https://api.weather.gov/stations/KCEU/observations/latest"
+          },
+          {
+            "label": "NWS KLQK latest observation",
+            "timestamp": "2026-10-14T06:35:00-04:00",
+            "url": "https://api.weather.gov/stations/KLQK/observations/latest"
+          },
+          {
+            "label": "NWS Danville point forecast",
+            "timestamp": "2026-10-14T07:10:39-04:00",
+            "url": "https://api.weather.gov/gridpoints/LMK/86,53/forecast"
+          },
+          {
+            "label": "NWS Clemson point forecast",
+            "timestamp": "2026-10-14T07:02:53-04:00",
+            "url": "https://api.weather.gov/gridpoints/GSP/49,34/forecast"
+          },
+          {
+            "label": "NWS Louisville Area Forecast Discussion",
+            "timestamp": "2026-10-14T03:30:00-04:00",
+            "url": "https://api.weather.gov/products/5fba9572-5374-4e8d-adb8-64d460c6c4e4"
+          },
+          {
+            "label": "NWS Greenville–Spartanburg Area Forecast Discussion",
+            "timestamp": "2026-10-14T06:30:00-04:00",
+            "url": "https://api.weather.gov/products/bccfd6ca-3720-4014-a1fa-6bb0f3c4b5ad"
+          },
+          {
+            "label": "NWS active-alert check for Danville",
+            "timestamp": "2026-10-14T07:12:00-04:00",
+            "url": "https://api.weather.gov/alerts/active?point=37.6456,-84.7722"
+          },
+          {
+            "label": "NWS active-alert check for Clemson",
+            "timestamp": "2026-10-14T07:12:00-04:00",
+            "url": "https://api.weather.gov/alerts/active?point=34.6834,-82.8374"
+          },
+          {
+            "label": "College of DuPage Southeast radar mosaic",
+            "timestamp": "2026-10-14T07:05:00-04:00",
+            "url": "https://weather.cod.edu/wxdata/satellite_r/regional/southeast/radar/southeast.radar.20261014.110500.gif"
+          },
+          {
+            "label": "College of DuPage GOES-East clean infrared",
+            "timestamp": "2026-10-14T07:06:17-04:00",
+            "url": "https://weather.cod.edu/wxdata/satellite/regional/southeast/13/southeast.13.20261014.110617.jpg"
+          },
+          {
+            "label": "Cumulative forecast accuracy summary",
+            "timestamp": "2026-10-13T16:15:14.280-04:00",
+            "url": "https://raw.githubusercontent.com/mjhdp91-bot/amateur-weather-alerts/main/forecast-accuracy.json"
+          }
+        ],
+        "analysisLinks": [
+          {
+            "label": "NEXLAB forecast models",
+            "url": "https://weather.cod.edu/forecast/"
+          },
+          {
+            "label": "NEXLAB Southeast radar mosaic",
+            "url": "https://weather.cod.edu/satrad/?parms=regional-southeast-comp_radar-24-0-100-1&checked=map&colorbar=undefined"
+          },
+          {
+            "label": "NEXLAB Southeast infrared satellite",
+            "url": "https://weather.cod.edu/satrad/?parms=regional-southeast-13-24-1-100-1&checked=map&colorbar=undefined"
+          },
+          {
+            "label": "NWS Louisville forecast discussion",
+            "url": "https://forecast.weather.gov/product.php?site=LMK&issuedby=LMK&product=AFD"
+          },
+          {
+            "label": "NWS Greenville-Spartanburg forecast discussion",
+            "url": "https://forecast.weather.gov/product.php?site=GSP&issuedby=GSP&product=AFD"
+          },
+          {
+            "label": "Kentucky Mesonet DANV",
+            "url": "https://www.kymesonet.org/data/station/DANV"
+          },
+          {
+            "label": "Clemson Weather Network",
+            "url": "https://clemson-weather.app.clemson.edu/index.php"
+          }
+        ],
+        "sourceNotes": [
+          "Official airport observations span 6:35–6:50 AM EDT. KDVK was cloudy at 68°F with a south-southwest wind near 5 mph; KLEX was mostly cloudy at 70°F with a south-southwest wind near 8 mph; KCEU was clear and calm at 63°F; and KLQK was clear and calm at 53°F. NWS unit codes were honored. No Tempest observations were used.",
+          "The Danville point forecast generated at 7:10 AM EDT raises rain chances from 27% at 2 PM to 53–56% at 3–4 PM and 67–79% from 6–8 PM. It keeps a 50% chance Thursday morning and introduces a 20–35% shower chance with the strong Friday front. Clemson remains at 0–1% through the period.",
+          "Official hazards are distinct from this independent analysis: no active NWS alert covered either forecast point at 7:12 AM EDT. The Louisville discussion's isolated flash-flood and severe-gust concerns are forecast risks, not active warnings.",
+          "The 3:30 AM Louisville discussion expects the main storm line by late morning in southern Indiana and later across Kentucky, with near-record moisture, isolated 2–5 inch pockets in the broader forecast area and a primary concern for localized flash flooding. The 6:30 AM Greenville–Spartanburg discussion keeps the Upstate dry through Thursday night and near record warmth through Friday.",
+          "College of DuPage radar at 7:05 AM EDT showed both forecast regions dry, with an organized band of showers and storms still well northwest of Central Kentucky. Clean-infrared imagery at 7:06 AM showed the associated cloud shield advancing east while the Upstate remained largely clear.",
+          "The 06Z HRRR, 09Z RAP, 06Z NAM/NAM 3-km, 06Z GFS and 06Z GEFS guidance were verified available through their needed forecast periods. The complete 00Z ECMWF cycle was available through hour 360. All required model families covered their intended roles.",
+          "Short-range guidance differs on the exact speed and continuity of today's storm line near Danville, but all credible sources support increasing afternoon or evening storm chances. The candidate resolves the spread with staged probabilities and moderate timing confidence rather than selecting a single deterministic solution.",
+          "Thursday-afternoon deterministic guidance is mostly dry in both regions. The Kentucky forecast retains early fog and lingering shower chances because the official forecast and boundary placement support morning moisture, then trends drier by late morning.",
+          "Friday global guidance consistently shows a strong Kentucky temperature gradient behind the cold front while Clemson remains warm ahead of the boundary. The forecast emphasizes falling Kentucky temperatures and a delayed Friday-night Upstate cool-down.",
+          "Clemson Weather Network observations are WeatherFlow–Tempest-fed. Those observations remain excluded, and only official KCEU and KLQK observations are used for Upstate verification.",
+          "The October 13 accuracy summary was consulted. The KDVK downward high and low corrections and KLEX low correction were applied to Kentucky ranges. Opposing KCEU and KLQK nighttime-low corrections were handled with wider Upstate low ranges. HRRR and RAP received the greatest near-term weight, while the official forecast controlled public-facing storm probabilities.",
+          "This is an independent forecast candidate. It does not modify GitHub, forecast-history.json, the website or the widget."
+        ],
+        "accuracyFeedback": {
+          "source": "forecast-accuracy.json",
+          "summaryGeneratedAt": "2026-10-13T20:15:14.280Z",
+          "consultedForecastIds": [
+            "20260924T1205Z",
+            "20260925T1320Z",
+            "20260926T1101Z",
+            "20260928T1153Z",
+            "20260929T1140Z",
+            "20260930T1140Z",
+            "20261002T1025Z",
+            "20261003T1707Z",
+            "20261004T1409Z",
+            "20261005T1300Z",
+            "20261006T1255Z",
+            "20261007T1325Z",
+            "20261008T1248Z",
+            "20261009T1147Z",
+            "20261010T1200Z",
+            "20261011T1250Z",
+            "20261012T1145Z"
+          ],
+          "appliedAdjustments": [
+            {
+              "region": "kentucky",
+              "decision": "Applied",
+              "details": "Applied KDVK's recommended -1.5°F high and -2°F low adjustments plus KLEX's -1°F low adjustment. Kept today's range wide because frontal-convective coverage remains only 50% and storm timing can materially change the high. Friday uses a wider range to represent the rapid temperature fall behind the front."
+            },
+            {
+              "region": "upstate",
+              "decision": "Applied",
+              "details": "Left daytime guidance essentially unadjusted because neither KCEU nor KLQK has a qualifying high-temperature bias. Widened nighttime ranges to accommodate KCEU's +1°F and KLQK's -2.5°F low corrections, and gave the best-performing HRRR the greatest short-range temperature weight without overriding official guidance."
+            }
+          ]
+        },
+        "verification": {
+          "historyUrl": "forecast-history.json",
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "checkpoints": [
+            {
+              "hours": 24,
+              "due": "2026-10-15T07:15:00-04:00",
+              "status": "pending"
+            },
+            {
+              "hours": 48,
+              "due": "2026-10-16T07:15:00-04:00",
+              "status": "pending"
+            },
+            {
+              "hours": 72,
+              "due": "2026-10-17T07:15:00-04:00",
+              "status": "pending"
+            }
+          ]
+        }
+      },
+      "centralKentucky": {
+        "days": [
+          {
+            "date": "2026-10-14",
+            "highF": "83–88",
+            "lowF": "65–70",
+            "precipitation": "10–25% before 1 PM; 45–65% from 2–5 PM; 70–85% during the evening; 25–45% overnight"
+          },
+          {
+            "date": "2026-10-15",
+            "highF": "80–85",
+            "lowF": "56–62",
+            "precipitation": "30–50% through midmorning; 10–25% from late morning through afternoon; 5–15% Thursday night"
+          },
+          {
+            "date": "2026-10-16",
+            "highF": "61–68",
+            "lowF": "37–43",
+            "precipitation": "20–35% from morning through early evening; 5% or less late Friday night"
+          }
+        ]
+      },
+      "upstateSouthCarolina": {
+        "days": [
+          {
+            "date": "2026-10-14",
+            "highF": "85–89",
+            "lowF": "55–63",
+            "precipitation": "5% or less"
+          },
+          {
+            "date": "2026-10-15",
+            "highF": "86–90",
+            "lowF": "58–65",
+            "precipitation": "5% or less"
+          },
+          {
+            "date": "2026-10-16",
+            "highF": "83–87",
+            "lowF": "44–50",
+            "precipitation": "5% or less near Clemson and Central"
+          }
+        ]
+      },
+      "verification": {
+        "24h": {
+          "due": "2026-10-15T07:15:00-04:00",
+          "status": "pending"
+        },
+        "48h": {
+          "due": "2026-10-16T07:15:00-04:00",
+          "status": "pending"
+        },
+        "72h": {
+          "due": "2026-10-17T07:15:00-04:00",
+          "status": "pending"
+        }
+      }
+    },
+    {
       "forecastId": "20261013T1250Z",
       "issuedAt": "2026-10-13T08:50:00-04:00",
       "validThrough": "2026-10-16T08:50:00-04:00",
