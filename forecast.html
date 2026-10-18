@@ -17,6 +17,7 @@
       --navy: #173d64;
       --blue: #1772b8;
       --teal: #167a78;
+      --orange: #b45309;
       --ok: #187553;
       --warn: #9b5b08;
       --error: #9f2525;
@@ -50,9 +51,10 @@
     .status.error { color: var(--error); }
     .headline { margin: 0 0 12px; font: 700 clamp(1.15rem,2.6vw,1.45rem)/1.25 Georgia,"Times New Roman",serif; color: var(--navy); }
     .regions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
-    .region { min-width: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--panel); }
+    .region { --accent: var(--teal); min-width: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--panel); }
     .region[data-theme="blue"] { --accent: var(--blue); }
     .region[data-theme="teal"] { --accent: var(--teal); }
+    .region[data-theme="orange"] { --accent: var(--orange); }
     .region-head { padding: 13px 14px 12px; color: #fff; background: linear-gradient(115deg,var(--navy),var(--accent)); }
     .region-head h2 { margin: 0; font-size: 1.12rem; }
     .region-head p { margin: 3px 0 0; color: rgba(255,255,255,.86); font-size: .8rem; }
