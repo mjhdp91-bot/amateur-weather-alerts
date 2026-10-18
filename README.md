@@ -103,6 +103,21 @@ they include:
 - `intermediateUpdatePolicy`, defining the observation and guidance changes that
   justify an interim candidate.
 
+### Supplemental forecast research
+
+Review the latest relevant [Kentucky Weather Center](https://kyweathercenter.com/)
+post when preparing every Central Kentucky forecast. Use its Kentucky-focused
+pattern, temperature, precipitation and timing discussion as supplemental
+analysis, then compare it with current NWS observations, alerts and forecast
+discussions plus the available model guidance.
+
+When Kentucky Weather Center materially informs a forecast, record the specific
+post URL and publication timestamp in `sources`, include the site in
+`analysisLinks`, and summarize the agreement or disagreement in `sourceNotes`.
+It is an independent supplemental source: never present its statements as an
+official NWS alert, observation or forecast, and never let it override a current
+official alert or reliable timestamped observational evidence.
+
 Minimal feedback structure:
 
 ```json
