@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-22T18:32:31.183Z",
+  "generatedAt": "2026-10-23T18:20:40.075Z",
   "source": "forecast-verifications.json",
   "methodology": {
     "temperatureError": "Observed official-station temperature minus the midpoint of the issued range.",
     "precipitation": "Brier score for occurrence at either official station in the region; lower is better.",
     "rangeCalibration": "Coverage is the percentage of official-station observations inside the issued range.",
-    "models": "Per-model scores require modelBenchmarks captured at issuance; models are never reconstructed after the fact.",
+    "models": "Per-model scores require modelBenchmarks captured at issuance; station-tagged benchmarks use that exact official station and untagged legacy benchmarks use the regional official-station mean. Models are never reconstructed after the fact.",
     "weatherRegime": "Explicit day-level weatherRegime is required for new issues; legacy issues use documented text inference.",
     "compositeAccuracy": "A category-balanced percentage covering temperature, precipitation, wind, fog/visibility, cloud cover, thunder, hazards, event timing, weather-regime narrative, official-alert documentation and confidence calibration. Each available category receives equal weight; missing categories are disclosed rather than counted as failures.",
     "componentRules": {
@@ -25,10 +25,10 @@
     "upstateTempestExcluded": true
   },
   "coverage": {
-    "forecastCount": 28,
-    "checkpointCount": 84,
-    "verifiedCheckpoints": 70,
-    "pendingCheckpoints": 9,
+    "forecastCount": 30,
+    "checkpointCount": 90,
+    "verifiedCheckpoints": 74,
+    "pendingCheckpoints": 11,
     "deferredCheckpoints": 5,
     "verifiedForecastIds": [
       "20260924T1205Z",
@@ -56,94 +56,96 @@
       "20261018T1116Z",
       "20261019T1033Z",
       "20261020T1046Z",
-      "20261021T1030Z"
+      "20261021T1030Z",
+      "20261022T1230Z",
+      "20261022T1332Z"
     ]
   },
   "temperature": {
     "overall": {
-      "sampleCount": 560,
-      "meanErrorF": -0.8,
-      "meanAbsoluteErrorF": 3.1,
-      "rmseF": 4.6,
-      "rangeCoveragePercent": 59.8,
-      "averageRangeWidthF": 5.7
+      "sampleCount": 592,
+      "meanErrorF": -1.2,
+      "meanAbsoluteErrorF": 3.4,
+      "rmseF": 4.9,
+      "rangeCoveragePercent": 58.3,
+      "averageRangeWidthF": 5.8
     },
     "byRegion": {
       "kentucky": {
-        "sampleCount": 280,
-        "meanErrorF": -1.1,
-        "meanAbsoluteErrorF": 3,
-        "rmseF": 4.3,
-        "rangeCoveragePercent": 58.6,
-        "averageRangeWidthF": 5.5
+        "sampleCount": 296,
+        "meanErrorF": -1.4,
+        "meanAbsoluteErrorF": 3.2,
+        "rmseF": 4.5,
+        "rangeCoveragePercent": 56.8,
+        "averageRangeWidthF": 5.6
       },
       "upstate": {
-        "sampleCount": 280,
-        "meanErrorF": -0.6,
-        "meanAbsoluteErrorF": 3.2,
-        "rmseF": 4.8,
-        "rangeCoveragePercent": 61.1,
-        "averageRangeWidthF": 5.8
+        "sampleCount": 296,
+        "meanErrorF": -1,
+        "meanAbsoluteErrorF": 3.5,
+        "rmseF": 5.3,
+        "rangeCoveragePercent": 59.8,
+        "averageRangeWidthF": 5.9
       }
     },
     "byStation": {
       "KCEU": {
-        "sampleCount": 140,
-        "meanErrorF": 0.8,
-        "meanAbsoluteErrorF": 2.7,
-        "rmseF": 4.5,
-        "rangeCoveragePercent": 67.1,
-        "averageRangeWidthF": 5.8
+        "sampleCount": 148,
+        "meanErrorF": 0.4,
+        "meanAbsoluteErrorF": 2.9,
+        "rmseF": 4.8,
+        "rangeCoveragePercent": 66.2,
+        "averageRangeWidthF": 5.9
       },
       "KDVK": {
-        "sampleCount": 140,
-        "meanErrorF": -1.7,
-        "meanAbsoluteErrorF": 3.1,
-        "rmseF": 4.3,
-        "rangeCoveragePercent": 58.6,
-        "averageRangeWidthF": 5.5
+        "sampleCount": 148,
+        "meanErrorF": -2,
+        "meanAbsoluteErrorF": 3.4,
+        "rmseF": 4.6,
+        "rangeCoveragePercent": 55.4,
+        "averageRangeWidthF": 5.6
       },
       "KLEX": {
-        "sampleCount": 140,
-        "meanErrorF": -0.4,
-        "meanAbsoluteErrorF": 2.9,
-        "rmseF": 4.2,
-        "rangeCoveragePercent": 58.6,
-        "averageRangeWidthF": 5.5
+        "sampleCount": 148,
+        "meanErrorF": -0.7,
+        "meanAbsoluteErrorF": 3.1,
+        "rmseF": 4.3,
+        "rangeCoveragePercent": 58.1,
+        "averageRangeWidthF": 5.6
       },
       "KLQK": {
-        "sampleCount": 140,
-        "meanErrorF": -2,
-        "meanAbsoluteErrorF": 3.7,
-        "rmseF": 5.1,
-        "rangeCoveragePercent": 55,
-        "averageRangeWidthF": 5.8
+        "sampleCount": 148,
+        "meanErrorF": -2.5,
+        "meanAbsoluteErrorF": 4.1,
+        "rmseF": 5.8,
+        "rangeCoveragePercent": 53.4,
+        "averageRangeWidthF": 5.9
       }
     },
     "byLeadTimeHours": {
       "24": {
-        "sampleCount": 192,
-        "meanErrorF": -0.7,
-        "meanAbsoluteErrorF": 2.9,
-        "rmseF": 4.4,
-        "rangeCoveragePercent": 61.5,
-        "averageRangeWidthF": 5.4
-      },
-      "48": {
-        "sampleCount": 184,
-        "meanErrorF": -0.8,
-        "meanAbsoluteErrorF": 3.1,
-        "rmseF": 4.6,
-        "rangeCoveragePercent": 62,
-        "averageRangeWidthF": 5.6
-      },
-      "72": {
-        "sampleCount": 184,
+        "sampleCount": 208,
         "meanErrorF": -1.1,
         "meanAbsoluteErrorF": 3.3,
-        "rmseF": 4.7,
-        "rangeCoveragePercent": 56,
-        "averageRangeWidthF": 6
+        "rmseF": 4.9,
+        "rangeCoveragePercent": 59.6,
+        "averageRangeWidthF": 5.5
+      },
+      "48": {
+        "sampleCount": 192,
+        "meanErrorF": -1.1,
+        "meanAbsoluteErrorF": 3.3,
+        "rmseF": 4.8,
+        "rangeCoveragePercent": 60.4,
+        "averageRangeWidthF": 5.7
+      },
+      "72": {
+        "sampleCount": 192,
+        "meanErrorF": -1.4,
+        "meanAbsoluteErrorF": 3.6,
+        "rmseF": 5,
+        "rangeCoveragePercent": 54.7,
+        "averageRangeWidthF": 6.1
       }
     },
     "byWeatherRegime": {
@@ -164,20 +166,20 @@
         "averageRangeWidthF": 3.7
       },
       "dry-high-pressure": {
-        "sampleCount": 216,
-        "meanErrorF": -1.5,
-        "meanAbsoluteErrorF": 3.3,
-        "rmseF": 4.9,
-        "rangeCoveragePercent": 60.2,
-        "averageRangeWidthF": 5.9
+        "sampleCount": 236,
+        "meanErrorF": -2,
+        "meanAbsoluteErrorF": 3.7,
+        "rmseF": 5.5,
+        "rangeCoveragePercent": 57.6,
+        "averageRangeWidthF": 6.1
       },
       "fog-low-cloud": {
-        "sampleCount": 52,
-        "meanErrorF": -0.1,
-        "meanAbsoluteErrorF": 2.7,
-        "rmseF": 3.6,
-        "rangeCoveragePercent": 61.5,
-        "averageRangeWidthF": 5.2
+        "sampleCount": 64,
+        "meanErrorF": -1.4,
+        "meanAbsoluteErrorF": 3.6,
+        "rmseF": 4.8,
+        "rangeCoveragePercent": 56.3,
+        "averageRangeWidthF": 5.6
       },
       "frontal": {
         "sampleCount": 12,
@@ -286,14 +288,14 @@
     }
   },
   "precipitation": {
-    "sampleCount": 140,
-    "brierScore": 0.1808,
+    "sampleCount": 148,
+    "brierScore": 0.1894,
     "reliability": [
       {
         "bin": "0–20%",
-        "sampleCount": 106,
-        "meanForecastProbability": 0.057,
-        "observedFrequency": 0.208
+        "sampleCount": 114,
+        "meanForecastProbability": 0.056,
+        "observedFrequency": 0.219
       },
       {
         "bin": "21–40%",
@@ -322,201 +324,265 @@
     ]
   },
   "allCategoryAccuracy": {
-    "overallAccuracyPercent": 74.1,
+    "overallAccuracyPercent": 75.1,
     "categoryCoverage": "11/11",
     "availableCategoryCount": 11,
     "totalCategoryCount": 11,
     "weighting": "Each scored category receives equal weight; missing categories are excluded and disclosed through categoryCoverage.",
     "byCategory": {
       "temperature": {
-        "sampleCount": 560,
-        "meanScore": 0.5982,
-        "accuracyPercent": 59.8
+        "sampleCount": 592,
+        "meanScore": 0.5828,
+        "accuracyPercent": 58.3
       },
       "precipitation": {
-        "sampleCount": 140,
-        "meanScore": 0.8192,
-        "accuracyPercent": 81.9
-      },
-      "wind": {
-        "sampleCount": 50,
-        "meanScore": 0.811,
+        "sampleCount": 148,
+        "meanScore": 0.8106,
         "accuracyPercent": 81.1
       },
+      "wind": {
+        "sampleCount": 58,
+        "meanScore": 0.8351,
+        "accuracyPercent": 83.5
+      },
       "visibilityFog": {
-        "sampleCount": 86,
-        "meanScore": 0.4401,
-        "accuracyPercent": 44
+        "sampleCount": 94,
+        "meanScore": 0.4679,
+        "accuracyPercent": 46.8
       },
       "cloudCover": {
-        "sampleCount": 79,
-        "meanScore": 0.9209,
-        "accuracyPercent": 92.1
+        "sampleCount": 87,
+        "meanScore": 0.9282,
+        "accuracyPercent": 92.8
       },
       "thunder": {
-        "sampleCount": 86,
-        "meanScore": 0.9615,
-        "accuracyPercent": 96.1
+        "sampleCount": 94,
+        "meanScore": 0.9647,
+        "accuracyPercent": 96.5
       },
       "hazards": {
-        "sampleCount": 86,
-        "meanScore": 0.5239,
-        "accuracyPercent": 52.4
+        "sampleCount": 94,
+        "meanScore": 0.5611,
+        "accuracyPercent": 56.1
       },
       "eventTiming": {
-        "sampleCount": 29,
-        "meanScore": 0.841,
-        "accuracyPercent": 84.1
+        "sampleCount": 32,
+        "meanScore": 0.8508,
+        "accuracyPercent": 85.1
       },
       "weatherRegimeNarrative": {
-        "sampleCount": 85,
-        "meanScore": 0.7176,
-        "accuracyPercent": 71.8
+        "sampleCount": 93,
+        "meanScore": 0.6882,
+        "accuracyPercent": 68.8
       },
       "officialAlertHandling": {
-        "sampleCount": 58,
-        "meanScore": 0.5517,
-        "accuracyPercent": 55.2
+        "sampleCount": 66,
+        "meanScore": 0.6061,
+        "accuracyPercent": 60.6
       },
       "confidenceCalibration": {
-        "sampleCount": 86,
-        "meanScore": 0.9696,
-        "accuracyPercent": 97
+        "sampleCount": 94,
+        "meanScore": 0.9648,
+        "accuracyPercent": 96.5
       }
     },
     "byRegion": {
       "kentucky": {
-        "overallAccuracyPercent": 78.4,
+        "overallAccuracyPercent": 79.6,
         "categoryCoverage": "11/11",
         "availableCategoryCount": 11,
         "totalCategoryCount": 11,
         "weighting": "Each scored category receives equal weight; missing categories are excluded and disclosed through categoryCoverage.",
         "byCategory": {
           "temperature": {
-            "sampleCount": 280,
-            "meanScore": 0.5857,
-            "accuracyPercent": 58.6
+            "sampleCount": 296,
+            "meanScore": 0.5676,
+            "accuracyPercent": 56.8
           },
           "precipitation": {
-            "sampleCount": 70,
-            "meanScore": 0.9436,
-            "accuracyPercent": 94.4
+            "sampleCount": 74,
+            "meanScore": 0.9465,
+            "accuracyPercent": 94.7
           },
           "wind": {
-            "sampleCount": 25,
-            "meanScore": 0.7945,
-            "accuracyPercent": 79.4
+            "sampleCount": 29,
+            "meanScore": 0.8228,
+            "accuracyPercent": 82.3
           },
           "visibilityFog": {
-            "sampleCount": 43,
-            "meanScore": 0.5988,
-            "accuracyPercent": 59.9
+            "sampleCount": 47,
+            "meanScore": 0.6307,
+            "accuracyPercent": 63.1
           },
           "cloudCover": {
-            "sampleCount": 37,
-            "meanScore": 0.8784,
-            "accuracyPercent": 87.8
+            "sampleCount": 41,
+            "meanScore": 0.8902,
+            "accuracyPercent": 89
           },
           "thunder": {
-            "sampleCount": 43,
-            "meanScore": 0.9375,
-            "accuracyPercent": 93.7
+            "sampleCount": 47,
+            "meanScore": 0.9428,
+            "accuracyPercent": 94.3
           },
           "hazards": {
-            "sampleCount": 43,
-            "meanScore": 0.6644,
-            "accuracyPercent": 66.4
+            "sampleCount": 47,
+            "meanScore": 0.6925,
+            "accuracyPercent": 69.3
           },
           "eventTiming": {
-            "sampleCount": 18,
-            "meanScore": 0.8035,
-            "accuracyPercent": 80.3
+            "sampleCount": 20,
+            "meanScore": 0.8181,
+            "accuracyPercent": 81.8
           },
           "weatherRegimeNarrative": {
-            "sampleCount": 42,
-            "meanScore": 0.9286,
-            "accuracyPercent": 92.9
+            "sampleCount": 46,
+            "meanScore": 0.8913,
+            "accuracyPercent": 89.1
           },
           "officialAlertHandling": {
-            "sampleCount": 31,
-            "meanScore": 0.5161,
-            "accuracyPercent": 51.6
+            "sampleCount": 35,
+            "meanScore": 0.5714,
+            "accuracyPercent": 57.1
           },
           "confidenceCalibration": {
-            "sampleCount": 43,
-            "meanScore": 0.9792,
-            "accuracyPercent": 97.9
+            "sampleCount": 47,
+            "meanScore": 0.9763,
+            "accuracyPercent": 97.6
           }
         }
       },
       "upstate": {
-        "overallAccuracyPercent": 70.1,
+        "overallAccuracyPercent": 70.9,
         "categoryCoverage": "11/11",
         "availableCategoryCount": 11,
         "totalCategoryCount": 11,
         "weighting": "Each scored category receives equal weight; missing categories are excluded and disclosed through categoryCoverage.",
         "byCategory": {
           "temperature": {
-            "sampleCount": 280,
-            "meanScore": 0.6107,
-            "accuracyPercent": 61.1
+            "sampleCount": 296,
+            "meanScore": 0.598,
+            "accuracyPercent": 59.8
           },
           "precipitation": {
-            "sampleCount": 70,
-            "meanScore": 0.6949,
-            "accuracyPercent": 69.5
+            "sampleCount": 74,
+            "meanScore": 0.6747,
+            "accuracyPercent": 67.5
           },
           "wind": {
-            "sampleCount": 25,
-            "meanScore": 0.8275,
-            "accuracyPercent": 82.7
+            "sampleCount": 29,
+            "meanScore": 0.8475,
+            "accuracyPercent": 84.7
           },
           "visibilityFog": {
-            "sampleCount": 43,
-            "meanScore": 0.2814,
-            "accuracyPercent": 28.1
+            "sampleCount": 47,
+            "meanScore": 0.3052,
+            "accuracyPercent": 30.5
           },
           "cloudCover": {
-            "sampleCount": 42,
-            "meanScore": 0.9583,
-            "accuracyPercent": 95.8
+            "sampleCount": 46,
+            "meanScore": 0.962,
+            "accuracyPercent": 96.2
           },
           "thunder": {
-            "sampleCount": 43,
-            "meanScore": 0.9855,
-            "accuracyPercent": 98.5
+            "sampleCount": 47,
+            "meanScore": 0.9867,
+            "accuracyPercent": 98.7
           },
           "hazards": {
-            "sampleCount": 43,
-            "meanScore": 0.3834,
-            "accuracyPercent": 38.3
+            "sampleCount": 47,
+            "meanScore": 0.4297,
+            "accuracyPercent": 43
           },
           "eventTiming": {
-            "sampleCount": 11,
-            "meanScore": 0.9025,
-            "accuracyPercent": 90.2
+            "sampleCount": 12,
+            "meanScore": 0.9054,
+            "accuracyPercent": 90.5
           },
           "weatherRegimeNarrative": {
-            "sampleCount": 43,
-            "meanScore": 0.5116,
-            "accuracyPercent": 51.2
+            "sampleCount": 47,
+            "meanScore": 0.4894,
+            "accuracyPercent": 48.9
           },
           "officialAlertHandling": {
-            "sampleCount": 27,
-            "meanScore": 0.5926,
-            "accuracyPercent": 59.3
+            "sampleCount": 31,
+            "meanScore": 0.6452,
+            "accuracyPercent": 64.5
           },
           "confidenceCalibration": {
-            "sampleCount": 43,
-            "meanScore": 0.96,
-            "accuracyPercent": 96
+            "sampleCount": 47,
+            "meanScore": 0.9533,
+            "accuracyPercent": 95.3
           }
         }
       }
     },
     "byLeadTimeHours": {
       "24": {
-        "overallAccuracyPercent": 76.1,
+        "overallAccuracyPercent": 77.7,
+        "categoryCoverage": "11/11",
+        "availableCategoryCount": 11,
+        "totalCategoryCount": 11,
+        "weighting": "Each scored category receives equal weight; missing categories are excluded and disclosed through categoryCoverage.",
+        "byCategory": {
+          "temperature": {
+            "sampleCount": 208,
+            "meanScore": 0.5962,
+            "accuracyPercent": 59.6
+          },
+          "precipitation": {
+            "sampleCount": 52,
+            "meanScore": 0.8417,
+            "accuracyPercent": 84.2
+          },
+          "wind": {
+            "sampleCount": 24,
+            "meanScore": 0.8383,
+            "accuracyPercent": 83.8
+          },
+          "visibilityFog": {
+            "sampleCount": 32,
+            "meanScore": 0.573,
+            "accuracyPercent": 57.3
+          },
+          "cloudCover": {
+            "sampleCount": 30,
+            "meanScore": 0.9083,
+            "accuracyPercent": 90.8
+          },
+          "thunder": {
+            "sampleCount": 32,
+            "meanScore": 0.9531,
+            "accuracyPercent": 95.3
+          },
+          "hazards": {
+            "sampleCount": 32,
+            "meanScore": 0.646,
+            "accuracyPercent": 64.6
+          },
+          "eventTiming": {
+            "sampleCount": 15,
+            "meanScore": 0.9081,
+            "accuracyPercent": 90.8
+          },
+          "weatherRegimeNarrative": {
+            "sampleCount": 32,
+            "meanScore": 0.6875,
+            "accuracyPercent": 68.8
+          },
+          "officialAlertHandling": {
+            "sampleCount": 29,
+            "meanScore": 0.6207,
+            "accuracyPercent": 62.1
+          },
+          "confidenceCalibration": {
+            "sampleCount": 32,
+            "meanScore": 0.9695,
+            "accuracyPercent": 96.9
+          }
+        }
+      },
+      "48": {
+        "overallAccuracyPercent": 74.6,
         "categoryCoverage": "11/11",
         "availableCategoryCount": 11,
         "totalCategoryCount": 11,
@@ -524,166 +590,102 @@
         "byCategory": {
           "temperature": {
             "sampleCount": 192,
-            "meanScore": 0.6146,
-            "accuracyPercent": 61.5
+            "meanScore": 0.6042,
+            "accuracyPercent": 60.4
           },
           "precipitation": {
             "sampleCount": 48,
-            "meanScore": 0.8474,
-            "accuracyPercent": 84.7
+            "meanScore": 0.7812,
+            "accuracyPercent": 78.1
           },
           "wind": {
-            "sampleCount": 20,
-            "meanScore": 0.8115,
-            "accuracyPercent": 81.2
+            "sampleCount": 17,
+            "meanScore": 0.8155,
+            "accuracyPercent": 81.5
           },
           "visibilityFog": {
-            "sampleCount": 28,
-            "meanScore": 0.5151,
-            "accuracyPercent": 51.5
+            "sampleCount": 30,
+            "meanScore": 0.4223,
+            "accuracyPercent": 42.2
           },
           "cloudCover": {
-            "sampleCount": 26,
-            "meanScore": 0.8942,
-            "accuracyPercent": 89.4
-          },
-          "thunder": {
-            "sampleCount": 28,
-            "meanScore": 0.9465,
-            "accuracyPercent": 94.6
-          },
-          "hazards": {
-            "sampleCount": 28,
-            "meanScore": 0.5961,
-            "accuracyPercent": 59.6
-          },
-          "eventTiming": {
-            "sampleCount": 13,
-            "meanScore": 0.9004,
-            "accuracyPercent": 90
-          },
-          "weatherRegimeNarrative": {
-            "sampleCount": 28,
-            "meanScore": 0.7143,
-            "accuracyPercent": 71.4
-          },
-          "officialAlertHandling": {
-            "sampleCount": 25,
-            "meanScore": 0.56,
-            "accuracyPercent": 56
-          },
-          "confidenceCalibration": {
-            "sampleCount": 28,
-            "meanScore": 0.9725,
-            "accuracyPercent": 97.3
-          }
-        }
-      },
-      "48": {
-        "overallAccuracyPercent": 74.3,
-        "categoryCoverage": "11/11",
-        "availableCategoryCount": 11,
-        "totalCategoryCount": 11,
-        "weighting": "Each scored category receives equal weight; missing categories are excluded and disclosed through categoryCoverage.",
-        "byCategory": {
-          "temperature": {
-            "sampleCount": 184,
-            "meanScore": 0.6196,
-            "accuracyPercent": 62
-          },
-          "precipitation": {
-            "sampleCount": 46,
-            "meanScore": 0.7914,
-            "accuracyPercent": 79.1
-          },
-          "wind": {
-            "sampleCount": 15,
-            "meanScore": 0.7909,
-            "accuracyPercent": 79.1
-          },
-          "visibilityFog": {
-            "sampleCount": 28,
-            "meanScore": 0.4127,
-            "accuracyPercent": 41.3
-          },
-          "cloudCover": {
-            "sampleCount": 25,
-            "meanScore": 0.93,
-            "accuracyPercent": 93
-          },
-          "thunder": {
-            "sampleCount": 28,
-            "meanScore": 0.9768,
-            "accuracyPercent": 97.7
-          },
-          "hazards": {
-            "sampleCount": 28,
-            "meanScore": 0.5174,
-            "accuracyPercent": 51.7
-          },
-          "eventTiming": {
-            "sampleCount": 8,
-            "meanScore": 0.8508,
-            "accuracyPercent": 85.1
-          },
-          "weatherRegimeNarrative": {
             "sampleCount": 27,
-            "meanScore": 0.7407,
-            "accuracyPercent": 74.1
+            "meanScore": 0.9352,
+            "accuracyPercent": 93.5
+          },
+          "thunder": {
+            "sampleCount": 30,
+            "meanScore": 0.9784,
+            "accuracyPercent": 97.8
+          },
+          "hazards": {
+            "sampleCount": 30,
+            "meanScore": 0.5446,
+            "accuracyPercent": 54.5
+          },
+          "eventTiming": {
+            "sampleCount": 9,
+            "meanScore": 0.8587,
+            "accuracyPercent": 85.9
+          },
+          "weatherRegimeNarrative": {
+            "sampleCount": 29,
+            "meanScore": 0.6897,
+            "accuracyPercent": 69
           },
           "officialAlertHandling": {
-            "sampleCount": 16,
-            "meanScore": 0.5625,
-            "accuracyPercent": 56.3
+            "sampleCount": 18,
+            "meanScore": 0.6111,
+            "accuracyPercent": 61.1
           },
           "confidenceCalibration": {
-            "sampleCount": 28,
-            "meanScore": 0.9749,
-            "accuracyPercent": 97.5
+            "sampleCount": 30,
+            "meanScore": 0.9682,
+            "accuracyPercent": 96.8
           }
         }
       },
       "72": {
-        "overallAccuracyPercent": 71.7,
+        "overallAccuracyPercent": 72.4,
         "categoryCoverage": "11/11",
         "availableCategoryCount": 11,
         "totalCategoryCount": 11,
         "weighting": "Each scored category receives equal weight; missing categories are excluded and disclosed through categoryCoverage.",
         "byCategory": {
           "temperature": {
-            "sampleCount": 184,
-            "meanScore": 0.5598,
-            "accuracyPercent": 56
+            "sampleCount": 192,
+            "meanScore": 0.5469,
+            "accuracyPercent": 54.7
           },
           "precipitation": {
-            "sampleCount": 46,
-            "meanScore": 0.8177,
-            "accuracyPercent": 81.8
+            "sampleCount": 48,
+            "meanScore": 0.8064,
+            "accuracyPercent": 80.6
           },
           "wind": {
-            "sampleCount": 15,
-            "meanScore": 0.8303,
-            "accuracyPercent": 83
+            "sampleCount": 17,
+            "meanScore": 0.8503,
+            "accuracyPercent": 85
           },
           "visibilityFog": {
-            "sampleCount": 30,
-            "meanScore": 0.3956,
-            "accuracyPercent": 39.6
+            "sampleCount": 32,
+            "meanScore": 0.4057,
+            "accuracyPercent": 40.6
           },
           "cloudCover": {
-            "sampleCount": 28,
-            "meanScore": 0.9375,
-            "accuracyPercent": 93.8
+            "sampleCount": 30,
+            "meanScore": 0.9417,
+            "accuracyPercent": 94.2
           },
           "thunder": {
-            "sampleCount": 30,
-            "meanScore": 0.9612,
-            "accuracyPercent": 96.1
+            "sampleCount": 32,
+            "meanScore": 0.9636,
+            "accuracyPercent": 96.4
           },
           "hazards": {
-            "sampleCount": 30,
-            "meanScore": 0.4627,
-            "accuracyPercent": 46.3
+            "sampleCount": 32,
+            "meanScore": 0.4916,
+            "accuracyPercent": 49.2
           },
           "eventTiming": {
             "sampleCount": 8,
@@ -691,98 +693,169 @@
             "accuracyPercent": 73.5
           },
           "weatherRegimeNarrative": {
-            "sampleCount": 30,
-            "meanScore": 0.7,
-            "accuracyPercent": 70
+            "sampleCount": 32,
+            "meanScore": 0.6875,
+            "accuracyPercent": 68.8
           },
           "officialAlertHandling": {
-            "sampleCount": 17,
-            "meanScore": 0.5294,
-            "accuracyPercent": 52.9
+            "sampleCount": 19,
+            "meanScore": 0.5789,
+            "accuracyPercent": 57.9
           },
           "confidenceCalibration": {
-            "sampleCount": 30,
-            "meanScore": 0.9619,
-            "accuracyPercent": 96.2
+            "sampleCount": 32,
+            "meanScore": 0.957,
+            "accuracyPercent": 95.7
           }
         }
       }
     }
   },
   "models": {
-    "sampleCount": 202,
-    "availability": "Model benchmarks are being scored against regional official-observation means.",
+    "sampleCount": 218,
+    "availability": "Station-tagged model benchmarks are scored against that official station; legacy untagged benchmarks retain regional official-observation means.",
     "byModel": {
       "HRRR": {
         "sampleCount": 36,
         "highTemperatureMeanAbsoluteErrorF": 2.9,
         "lowTemperatureMeanAbsoluteErrorF": 3,
         "precipitationBrierScore": 0.3217,
+        "byStation": {
+          "regional-mean": {
+            "sampleCount": 36,
+            "highTemperatureMeanAbsoluteErrorF": 2.9,
+            "lowTemperatureMeanAbsoluteErrorF": 3,
+            "precipitationBrierScore": 0.3217
+          }
+        },
+        "byLeadTimeHours": {
+          "3": {
+            "sampleCount": 2,
+            "highTemperatureMeanAbsoluteErrorF": 2.4,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "6": {
+            "sampleCount": 2,
+            "highTemperatureMeanAbsoluteErrorF": 3.1,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "8": {
+            "sampleCount": 2,
+            "highTemperatureMeanAbsoluteErrorF": 1.2,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "9": {
+            "sampleCount": 2,
+            "highTemperatureMeanAbsoluteErrorF": 3.7,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "12": {
+            "sampleCount": 16,
+            "highTemperatureMeanAbsoluteErrorF": 1.4,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "24": {
+            "sampleCount": 4,
+            "highTemperatureMeanAbsoluteErrorF": 4.3,
+            "lowTemperatureMeanAbsoluteErrorF": 4,
+            "precipitationBrierScore": 0.2602
+          },
+          "36": {
+            "sampleCount": 4,
+            "highTemperatureMeanAbsoluteErrorF": 9.5,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "48": {
+            "sampleCount": 4,
+            "highTemperatureMeanAbsoluteErrorF": 1.3,
+            "lowTemperatureMeanAbsoluteErrorF": 2,
+            "precipitationBrierScore": 0.3833
+          }
+        },
         "byWeatherRegime": {
           "frontal-convective": {
             "sampleCount": 3,
             "highTemperatureMeanAbsoluteErrorF": 3.3,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "pre-frontal-warm-sector": {
             "sampleCount": 5,
             "highTemperatureMeanAbsoluteErrorF": 0.7,
-            "lowTemperatureMeanAbsoluteErrorF": 2.2
+            "lowTemperatureMeanAbsoluteErrorF": 2.2,
+            "precipitationBrierScore": 0.1545
           },
           "dry-high-pressure": {
             "sampleCount": 11,
             "highTemperatureMeanAbsoluteErrorF": 4.4,
-            "lowTemperatureMeanAbsoluteErrorF": 2.8
+            "lowTemperatureMeanAbsoluteErrorF": 2.8,
+            "precipitationBrierScore": 0.3333
           },
           "post-frontal-high-pressure": {
             "sampleCount": 4,
             "highTemperatureMeanAbsoluteErrorF": 2.7,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "cold-air-damming": {
             "sampleCount": 2,
             "highTemperatureMeanAbsoluteErrorF": 2.6,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "fog-low-cloud": {
             "sampleCount": 2,
             "highTemperatureMeanAbsoluteErrorF": 0.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "tropical-remnant-precipitation": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 1.5,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "tropical-remnant-stratiform": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 1.8,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "post-tropical-showers": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 2.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "post-tropical-frontal-passage": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 1.5,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "warm-ridge": {
             "sampleCount": 3,
             "highTemperatureMeanAbsoluteErrorF": 1.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "frontal": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 2.2,
-            "lowTemperatureMeanAbsoluteErrorF": 2.8
+            "lowTemperatureMeanAbsoluteErrorF": 2.8,
+            "precipitationBrierScore": 0.5329
           },
           "post-frontal-showers": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 11.7,
-            "lowTemperatureMeanAbsoluteErrorF": 5.7
+            "lowTemperatureMeanAbsoluteErrorF": 5.7,
+            "precipitationBrierScore": 0.5776
           }
         }
       },
@@ -791,217 +864,400 @@
         "highTemperatureMeanAbsoluteErrorF": 2.8,
         "lowTemperatureMeanAbsoluteErrorF": null,
         "precipitationBrierScore": null,
+        "byStation": {
+          "regional-mean": {
+            "sampleCount": 32,
+            "highTemperatureMeanAbsoluteErrorF": 2.8,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          }
+        },
+        "byLeadTimeHours": {
+          "12": {
+            "sampleCount": 10,
+            "highTemperatureMeanAbsoluteErrorF": 2.2,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "30": {
+            "sampleCount": 2,
+            "highTemperatureMeanAbsoluteErrorF": 5.4,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "36": {
+            "sampleCount": 12,
+            "highTemperatureMeanAbsoluteErrorF": 2.7,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "54": {
+            "sampleCount": 2,
+            "highTemperatureMeanAbsoluteErrorF": 3.7,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "60": {
+            "sampleCount": 6,
+            "highTemperatureMeanAbsoluteErrorF": 3,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          }
+        },
         "byWeatherRegime": {
           "post-frontal-showers": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 4.4,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "frontal-convective": {
             "sampleCount": 2,
             "highTemperatureMeanAbsoluteErrorF": 3.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "frontal": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 0.3,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "dry-high-pressure": {
             "sampleCount": 9,
             "highTemperatureMeanAbsoluteErrorF": 2.8,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "post-frontal-high-pressure": {
             "sampleCount": 4,
             "highTemperatureMeanAbsoluteErrorF": 1.9,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "cold-air-damming": {
             "sampleCount": 3,
             "highTemperatureMeanAbsoluteErrorF": 4.1,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "wedge-erosion": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 6.8,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "fog-low-cloud": {
             "sampleCount": 2,
             "highTemperatureMeanAbsoluteErrorF": 5.3,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "tropical-remnant-precipitation": {
             "sampleCount": 2,
             "highTemperatureMeanAbsoluteErrorF": 2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "tropical-remnant-stratiform": {
             "sampleCount": 2,
             "highTemperatureMeanAbsoluteErrorF": 1.5,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "post-tropical-showers": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 4.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "post-tropical-frontal-passage": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 2.5,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "warm-ridge": {
             "sampleCount": 3,
             "highTemperatureMeanAbsoluteErrorF": 1.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           }
         }
       },
       "GFS": {
-        "sampleCount": 55,
-        "highTemperatureMeanAbsoluteErrorF": 2.9,
-        "lowTemperatureMeanAbsoluteErrorF": 3,
-        "precipitationBrierScore": 0.2529,
+        "sampleCount": 63,
+        "highTemperatureMeanAbsoluteErrorF": 4.2,
+        "lowTemperatureMeanAbsoluteErrorF": 3.2,
+        "precipitationBrierScore": 0.311,
+        "byStation": {
+          "regional-mean": {
+            "sampleCount": 63,
+            "highTemperatureMeanAbsoluteErrorF": 4.2,
+            "lowTemperatureMeanAbsoluteErrorF": 3.2,
+            "precipitationBrierScore": 0.311
+          }
+        },
+        "byLeadTimeHours": {
+          "24": {
+            "sampleCount": 14,
+            "highTemperatureMeanAbsoluteErrorF": 5.2,
+            "lowTemperatureMeanAbsoluteErrorF": 2.3,
+            "precipitationBrierScore": 0.2886
+          },
+          "30": {
+            "sampleCount": 2,
+            "highTemperatureMeanAbsoluteErrorF": 7.4,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "36": {
+            "sampleCount": 14,
+            "highTemperatureMeanAbsoluteErrorF": 2.6,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "48": {
+            "sampleCount": 10,
+            "highTemperatureMeanAbsoluteErrorF": 3.3,
+            "lowTemperatureMeanAbsoluteErrorF": 2.8,
+            "precipitationBrierScore": 0.4533
+          },
+          "54": {
+            "sampleCount": 1,
+            "highTemperatureMeanAbsoluteErrorF": 4.6,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "60": {
+            "sampleCount": 12,
+            "highTemperatureMeanAbsoluteErrorF": 4.6,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "72": {
+            "sampleCount": 10,
+            "highTemperatureMeanAbsoluteErrorF": 4.8,
+            "lowTemperatureMeanAbsoluteErrorF": 5,
+            "precipitationBrierScore": 0.2
+          }
+        },
         "byWeatherRegime": {
           "post-frontal-high-pressure": {
             "sampleCount": 5,
             "highTemperatureMeanAbsoluteErrorF": 3.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "cold-air-damming": {
             "sampleCount": 4,
             "highTemperatureMeanAbsoluteErrorF": 7.6,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "frontal-convective": {
             "sampleCount": 2,
             "highTemperatureMeanAbsoluteErrorF": 2.3,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "pre-frontal-warm-sector": {
             "sampleCount": 4,
             "highTemperatureMeanAbsoluteErrorF": 0.9,
-            "lowTemperatureMeanAbsoluteErrorF": 2.4
+            "lowTemperatureMeanAbsoluteErrorF": 2.4,
+            "precipitationBrierScore": 0.1545
           },
           "dry-high-pressure": {
-            "sampleCount": 26,
-            "highTemperatureMeanAbsoluteErrorF": 2.4,
-            "lowTemperatureMeanAbsoluteErrorF": 3.2
+            "sampleCount": 31,
+            "highTemperatureMeanAbsoluteErrorF": 4.2,
+            "lowTemperatureMeanAbsoluteErrorF": 3.4,
+            "precipitationBrierScore": 0.2917
           },
           "tropical-remnant-precipitation": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 7.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "wedge-erosion": {
             "sampleCount": 2,
             "highTemperatureMeanAbsoluteErrorF": 1.5,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "post-tropical-showers": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 6.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "post-tropical-high-pressure": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 1.3,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "warm-ridge": {
             "sampleCount": 4,
             "highTemperatureMeanAbsoluteErrorF": 1.4,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "fog-low-cloud": {
-            "sampleCount": 3,
-            "highTemperatureMeanAbsoluteErrorF": 2.3,
-            "lowTemperatureMeanAbsoluteErrorF": 1.6
+            "sampleCount": 6,
+            "highTemperatureMeanAbsoluteErrorF": 7.1,
+            "lowTemperatureMeanAbsoluteErrorF": 2.7,
+            "precipitationBrierScore": 0.4
           },
           "frontal": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 2.2,
-            "lowTemperatureMeanAbsoluteErrorF": 1.9
+            "lowTemperatureMeanAbsoluteErrorF": 1.9,
+            "precipitationBrierScore": 0.5329
           },
           "post-frontal-showers": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 11.7,
-            "lowTemperatureMeanAbsoluteErrorF": 5.7
+            "lowTemperatureMeanAbsoluteErrorF": 5.7,
+            "precipitationBrierScore": 0.5776
           }
         }
       },
       "ECMWF IFS": {
-        "sampleCount": 55,
-        "highTemperatureMeanAbsoluteErrorF": 3.3,
-        "lowTemperatureMeanAbsoluteErrorF": 4.8,
-        "precipitationBrierScore": 0.2283,
+        "sampleCount": 63,
+        "highTemperatureMeanAbsoluteErrorF": 4.3,
+        "lowTemperatureMeanAbsoluteErrorF": 4.9,
+        "precipitationBrierScore": 0.2629,
+        "byStation": {
+          "regional-mean": {
+            "sampleCount": 63,
+            "highTemperatureMeanAbsoluteErrorF": 4.3,
+            "lowTemperatureMeanAbsoluteErrorF": 4.9,
+            "precipitationBrierScore": 0.2629
+          }
+        },
+        "byLeadTimeHours": {
+          "24": {
+            "sampleCount": 14,
+            "highTemperatureMeanAbsoluteErrorF": 5.2,
+            "lowTemperatureMeanAbsoluteErrorF": 4.6,
+            "precipitationBrierScore": 0.2526
+          },
+          "36": {
+            "sampleCount": 2,
+            "highTemperatureMeanAbsoluteErrorF": 2.2,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "42": {
+            "sampleCount": 14,
+            "highTemperatureMeanAbsoluteErrorF": 2.3,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "48": {
+            "sampleCount": 10,
+            "highTemperatureMeanAbsoluteErrorF": 4.3,
+            "lowTemperatureMeanAbsoluteErrorF": 5.9,
+            "precipitationBrierScore": 0.3401
+          },
+          "60": {
+            "sampleCount": 3,
+            "highTemperatureMeanAbsoluteErrorF": 10.3,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "66": {
+            "sampleCount": 10,
+            "highTemperatureMeanAbsoluteErrorF": 4.6,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "72": {
+            "sampleCount": 10,
+            "highTemperatureMeanAbsoluteErrorF": 4.1,
+            "lowTemperatureMeanAbsoluteErrorF": 4.6,
+            "precipitationBrierScore": 0.2
+          }
+        },
         "byWeatherRegime": {
           "post-frontal-high-pressure": {
             "sampleCount": 5,
             "highTemperatureMeanAbsoluteErrorF": 2.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "cold-air-damming": {
             "sampleCount": 4,
             "highTemperatureMeanAbsoluteErrorF": 5.8,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "frontal-convective": {
             "sampleCount": 2,
             "highTemperatureMeanAbsoluteErrorF": 5.3,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "pre-frontal-warm-sector": {
             "sampleCount": 4,
             "highTemperatureMeanAbsoluteErrorF": 1.1,
-            "lowTemperatureMeanAbsoluteErrorF": 2.9
+            "lowTemperatureMeanAbsoluteErrorF": 2.9,
+            "precipitationBrierScore": 0.0303
           },
           "dry-high-pressure": {
-            "sampleCount": 26,
-            "highTemperatureMeanAbsoluteErrorF": 2.8,
-            "lowTemperatureMeanAbsoluteErrorF": 4.8
+            "sampleCount": 31,
+            "highTemperatureMeanAbsoluteErrorF": 4.2,
+            "lowTemperatureMeanAbsoluteErrorF": 4.9,
+            "precipitationBrierScore": 0.2917
           },
           "tropical-remnant-precipitation": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 13.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "wedge-erosion": {
             "sampleCount": 2,
             "highTemperatureMeanAbsoluteErrorF": 4.5,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "post-tropical-showers": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 6.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "post-tropical-high-pressure": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 0.7,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "warm-ridge": {
             "sampleCount": 4,
             "highTemperatureMeanAbsoluteErrorF": 1.8,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "fog-low-cloud": {
-            "sampleCount": 3,
-            "highTemperatureMeanAbsoluteErrorF": 1.7,
-            "lowTemperatureMeanAbsoluteErrorF": 5.1
+            "sampleCount": 6,
+            "highTemperatureMeanAbsoluteErrorF": 6.1,
+            "lowTemperatureMeanAbsoluteErrorF": 5.4,
+            "precipitationBrierScore": 0.2
           },
           "frontal": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 5.4,
-            "lowTemperatureMeanAbsoluteErrorF": 7.7
+            "lowTemperatureMeanAbsoluteErrorF": 7.7,
+            "precipitationBrierScore": 0.3969
           },
           "post-frontal-showers": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 14.7,
-            "lowTemperatureMeanAbsoluteErrorF": 7.7
+            "lowTemperatureMeanAbsoluteErrorF": 7.7,
+            "precipitationBrierScore": 0.4489
           }
         }
       },
@@ -1010,63 +1266,208 @@
         "highTemperatureMeanAbsoluteErrorF": 3.6,
         "lowTemperatureMeanAbsoluteErrorF": null,
         "precipitationBrierScore": null,
+        "byStation": {
+          "regional-mean": {
+            "sampleCount": 24,
+            "highTemperatureMeanAbsoluteErrorF": 3.6,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          }
+        },
+        "byLeadTimeHours": {
+          "9": {
+            "sampleCount": 16,
+            "highTemperatureMeanAbsoluteErrorF": 1.7,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "27": {
+            "sampleCount": 2,
+            "highTemperatureMeanAbsoluteErrorF": 5.4,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          },
+          "33": {
+            "sampleCount": 6,
+            "highTemperatureMeanAbsoluteErrorF": 8,
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
+          }
+        },
         "byWeatherRegime": {
           "post-frontal-high-pressure": {
             "sampleCount": 3,
             "highTemperatureMeanAbsoluteErrorF": 3.5,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "cold-air-damming": {
             "sampleCount": 2,
             "highTemperatureMeanAbsoluteErrorF": 4.4,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "dry-high-pressure": {
             "sampleCount": 7,
             "highTemperatureMeanAbsoluteErrorF": 6.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "fog-low-cloud": {
             "sampleCount": 3,
             "highTemperatureMeanAbsoluteErrorF": 3.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "pre-frontal-warm-sector": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 0.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "tropical-remnant-precipitation": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 0.5,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "tropical-remnant-stratiform": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 1.8,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "post-tropical-showers": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 1.2,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "post-tropical-frontal-passage": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 4.5,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "warm-ridge": {
             "sampleCount": 3,
             "highTemperatureMeanAbsoluteErrorF": 1.6,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           },
           "frontal-convective": {
             "sampleCount": 1,
             "highTemperatureMeanAbsoluteErrorF": 1,
-            "lowTemperatureMeanAbsoluteErrorF": null
+            "lowTemperatureMeanAbsoluteErrorF": null,
+            "precipitationBrierScore": null
           }
         }
+      }
+    },
+    "byStation": {
+      "regional-mean": {
+        "sampleCount": 218,
+        "highTemperatureMeanAbsoluteErrorF": 3.7,
+        "lowTemperatureMeanAbsoluteErrorF": 4,
+        "precipitationBrierScore": 0.2906
+      }
+    },
+    "byLeadTimeHours": {
+      "3": {
+        "sampleCount": 2,
+        "highTemperatureMeanAbsoluteErrorF": 2.4,
+        "lowTemperatureMeanAbsoluteErrorF": null,
+        "precipitationBrierScore": null
+      },
+      "6": {
+        "sampleCount": 2,
+        "highTemperatureMeanAbsoluteErrorF": 3.1,
+        "lowTemperatureMeanAbsoluteErrorF": null,
+        "precipitationBrierScore": null
+      },
+      "8": {
+        "sampleCount": 2,
+        "highTemperatureMeanAbsoluteErrorF": 1.2,
+        "lowTemperatureMeanAbsoluteErrorF": null,
+        "precipitationBrierScore": null
+      },
+      "9": {
+        "sampleCount": 18,
+        "highTemperatureMeanAbsoluteErrorF": 1.9,
+        "lowTemperatureMeanAbsoluteErrorF": null,
+        "precipitationBrierScore": null
+      },
+      "12": {
+        "sampleCount": 26,
+        "highTemperatureMeanAbsoluteErrorF": 1.7,
+        "lowTemperatureMeanAbsoluteErrorF": null,
+        "precipitationBrierScore": null
+      },
+      "24": {
+        "sampleCount": 32,
+        "highTemperatureMeanAbsoluteErrorF": 5.1,
+        "lowTemperatureMeanAbsoluteErrorF": 3.5,
+        "precipitationBrierScore": 0.2693
+      },
+      "27": {
+        "sampleCount": 2,
+        "highTemperatureMeanAbsoluteErrorF": 5.4,
+        "lowTemperatureMeanAbsoluteErrorF": null,
+        "precipitationBrierScore": null
+      },
+      "30": {
+        "sampleCount": 4,
+        "highTemperatureMeanAbsoluteErrorF": 6.4,
+        "lowTemperatureMeanAbsoluteErrorF": null,
+        "precipitationBrierScore": null
+      },
+      "33": {
+        "sampleCount": 6,
+        "highTemperatureMeanAbsoluteErrorF": 8,
+        "lowTemperatureMeanAbsoluteErrorF": null,
+        "precipitationBrierScore": null
+      },
+      "36": {
+        "sampleCount": 32,
+        "highTemperatureMeanAbsoluteErrorF": 3.5,
+        "lowTemperatureMeanAbsoluteErrorF": null,
+        "precipitationBrierScore": null
+      },
+      "42": {
+        "sampleCount": 14,
+        "highTemperatureMeanAbsoluteErrorF": 2.3,
+        "lowTemperatureMeanAbsoluteErrorF": null,
+        "precipitationBrierScore": null
+      },
+      "48": {
+        "sampleCount": 24,
+        "highTemperatureMeanAbsoluteErrorF": 3.4,
+        "lowTemperatureMeanAbsoluteErrorF": 3.9,
+        "precipitationBrierScore": 0.3944
+      },
+      "54": {
+        "sampleCount": 3,
+        "highTemperatureMeanAbsoluteErrorF": 4,
+        "lowTemperatureMeanAbsoluteErrorF": null,
+        "precipitationBrierScore": null
+      },
+      "60": {
+        "sampleCount": 21,
+        "highTemperatureMeanAbsoluteErrorF": 5,
+        "lowTemperatureMeanAbsoluteErrorF": null,
+        "precipitationBrierScore": null
+      },
+      "66": {
+        "sampleCount": 10,
+        "highTemperatureMeanAbsoluteErrorF": 4.6,
+        "lowTemperatureMeanAbsoluteErrorF": null,
+        "precipitationBrierScore": null
+      },
+      "72": {
+        "sampleCount": 20,
+        "highTemperatureMeanAbsoluteErrorF": 4.4,
+        "lowTemperatureMeanAbsoluteErrorF": 4.8,
+        "precipitationBrierScore": 0.2
       }
     },
     "recommendedWeightsByWeatherRegime": {
@@ -1096,22 +1497,22 @@
           {
             "model": "HRRR",
             "sampleCount": 11,
-            "weight": 0.233
+            "weight": 0.244
           },
           {
             "model": "NAM",
             "sampleCount": 9,
-            "weight": 0.143
+            "weight": 0.149
           },
           {
             "model": "GFS",
-            "sampleCount": 26,
-            "weight": 0.271
+            "sampleCount": 31,
+            "weight": 0.258
           },
           {
             "model": "ECMWF IFS",
-            "sampleCount": 26,
-            "weight": 0.256
+            "sampleCount": 31,
+            "weight": 0.251
           },
           {
             "model": "RAP",
@@ -1126,17 +1527,17 @@
           {
             "model": "RAP",
             "sampleCount": 3,
-            "weight": 0.157
+            "weight": 0.219
           },
           {
             "model": "GFS",
-            "sampleCount": 3,
-            "weight": 0.435
+            "sampleCount": 6,
+            "weight": 0.349
           },
           {
             "model": "ECMWF IFS",
-            "sampleCount": 3,
-            "weight": 0.408
+            "sampleCount": 6,
+            "weight": 0.432
           }
         ]
       },
@@ -1265,22 +1666,22 @@
             {
               "model": "HRRR",
               "sampleCount": 5,
-              "weight": 0.261
+              "weight": 0.264
             },
             {
               "model": "NAM",
               "sampleCount": 5,
-              "weight": 0.102
+              "weight": 0.103
             },
             {
               "model": "GFS",
-              "sampleCount": 12,
-              "weight": 0.274
+              "sampleCount": 14,
+              "weight": 0.271
             },
             {
               "model": "ECMWF IFS",
-              "sampleCount": 12,
-              "weight": 0.266
+              "sampleCount": 14,
+              "weight": 0.265
             },
             {
               "model": "RAP",
@@ -1294,13 +1695,13 @@
           "weights": [
             {
               "model": "GFS",
-              "sampleCount": 3,
-              "weight": 0.516
+              "sampleCount": 5,
+              "weight": 0.449
             },
             {
               "model": "ECMWF IFS",
-              "sampleCount": 3,
-              "weight": 0.484
+              "sampleCount": 5,
+              "weight": 0.551
             }
           ]
         },
@@ -1389,27 +1790,27 @@
             {
               "model": "HRRR",
               "sampleCount": 6,
-              "weight": 0.217
+              "weight": 0.235
             },
             {
               "model": "NAM",
               "sampleCount": 4,
-              "weight": 0.196
+              "weight": 0.213
             },
             {
               "model": "RAP",
               "sampleCount": 3,
-              "weight": 0.098
+              "weight": 0.099
             },
             {
               "model": "GFS",
-              "sampleCount": 14,
-              "weight": 0.256
+              "sampleCount": 17,
+              "weight": 0.23
             },
             {
               "model": "ECMWF IFS",
-              "sampleCount": 14,
-              "weight": 0.233
+              "sampleCount": 17,
+              "weight": 0.223
             }
           ]
         },
@@ -1492,19 +1893,19 @@
         "region": "kentucky",
         "station": "KDVK",
         "metric": "high",
-        "sampleCount": 70,
-        "meanErrorF": -1.5,
-        "meanAbsoluteErrorF": 2.5,
+        "sampleCount": 74,
+        "meanErrorF": -1.9,
+        "meanAbsoluteErrorF": 2.9,
         "status": "recommended",
-        "suggestedAdjustmentF": -1
+        "suggestedAdjustmentF": -1.5
       },
       {
         "region": "kentucky",
         "station": "KDVK",
         "metric": "low",
-        "sampleCount": 70,
-        "meanErrorF": -2,
-        "meanAbsoluteErrorF": 3.8,
+        "sampleCount": 74,
+        "meanErrorF": -2.2,
+        "meanAbsoluteErrorF": 3.9,
         "status": "recommended",
         "suggestedAdjustmentF": -1.5
       },
@@ -1512,9 +1913,9 @@
         "region": "kentucky",
         "station": "KLEX",
         "metric": "high",
-        "sampleCount": 70,
-        "meanErrorF": -0.2,
-        "meanAbsoluteErrorF": 2.8,
+        "sampleCount": 74,
+        "meanErrorF": -0.6,
+        "meanAbsoluteErrorF": 3.1,
         "status": "monitoring",
         "suggestedAdjustmentF": 0
       },
@@ -1522,9 +1923,9 @@
         "region": "kentucky",
         "station": "KLEX",
         "metric": "low",
-        "sampleCount": 70,
-        "meanErrorF": -0.7,
-        "meanAbsoluteErrorF": 3.1,
+        "sampleCount": 74,
+        "meanErrorF": -0.8,
+        "meanAbsoluteErrorF": 3,
         "status": "monitoring",
         "suggestedAdjustmentF": 0
       },
@@ -1532,9 +1933,9 @@
         "region": "upstate",
         "station": "KCEU",
         "metric": "high",
-        "sampleCount": 70,
-        "meanErrorF": -0.7,
-        "meanAbsoluteErrorF": 2.1,
+        "sampleCount": 74,
+        "meanErrorF": -1.3,
+        "meanAbsoluteErrorF": 2.6,
         "status": "monitoring",
         "suggestedAdjustmentF": 0
       },
@@ -1542,8 +1943,8 @@
         "region": "upstate",
         "station": "KCEU",
         "metric": "low",
-        "sampleCount": 70,
-        "meanErrorF": 2.3,
+        "sampleCount": 74,
+        "meanErrorF": 2.2,
         "meanAbsoluteErrorF": 3.3,
         "status": "recommended",
         "suggestedAdjustmentF": 1.5
@@ -1552,9 +1953,9 @@
         "region": "upstate",
         "station": "KLQK",
         "metric": "high",
-        "sampleCount": 70,
-        "meanErrorF": 0.3,
-        "meanAbsoluteErrorF": 1.9,
+        "sampleCount": 74,
+        "meanErrorF": -0.6,
+        "meanAbsoluteErrorF": 2.7,
         "status": "monitoring",
         "suggestedAdjustmentF": 0
       },
@@ -1562,11 +1963,11 @@
         "region": "upstate",
         "station": "KLQK",
         "metric": "low",
-        "sampleCount": 70,
-        "meanErrorF": -4.3,
-        "meanAbsoluteErrorF": 5.4,
+        "sampleCount": 74,
+        "meanErrorF": -4.5,
+        "meanAbsoluteErrorF": 5.5,
         "status": "recommended",
-        "suggestedAdjustmentF": -3
+        "suggestedAdjustmentF": -3.5
       }
     ]
   },
@@ -1580,6 +1981,23 @@
       },
       "byLeadTimeHours": {
         "24": {
+          "all": {
+            "status": "recommended",
+            "sampleCount": 208,
+            "recommendedWidthF": 8
+          },
+          "high": {
+            "status": "recommended",
+            "sampleCount": 104,
+            "recommendedWidthF": 5
+          },
+          "low": {
+            "status": "recommended",
+            "sampleCount": 104,
+            "recommendedWidthF": 10
+          }
+        },
+        "48": {
           "all": {
             "status": "recommended",
             "sampleCount": 192,
@@ -1596,37 +2014,20 @@
             "recommendedWidthF": 10
           }
         },
-        "48": {
-          "all": {
-            "status": "recommended",
-            "sampleCount": 184,
-            "recommendedWidthF": 7
-          },
-          "high": {
-            "status": "recommended",
-            "sampleCount": 92,
-            "recommendedWidthF": 5
-          },
-          "low": {
-            "status": "recommended",
-            "sampleCount": 92,
-            "recommendedWidthF": 10
-          }
-        },
         "72": {
           "all": {
             "status": "recommended",
-            "sampleCount": 184,
-            "recommendedWidthF": 9
+            "sampleCount": 192,
+            "recommendedWidthF": 10
           },
           "high": {
             "status": "recommended",
-            "sampleCount": 92,
-            "recommendedWidthF": 6
+            "sampleCount": 96,
+            "recommendedWidthF": 7
           },
           "low": {
             "status": "recommended",
-            "sampleCount": 92,
+            "sampleCount": 96,
             "recommendedWidthF": 10
           }
         }
@@ -1636,36 +2037,36 @@
           "24": {
             "high": {
               "status": "recommended",
-              "sampleCount": 48,
-              "recommendedWidthF": 5
+              "sampleCount": 52,
+              "recommendedWidthF": 6
             },
             "low": {
               "status": "recommended",
-              "sampleCount": 48,
+              "sampleCount": 52,
               "recommendedWidthF": 10
             }
           },
           "48": {
             "high": {
               "status": "recommended",
-              "sampleCount": 46,
-              "recommendedWidthF": 5
+              "sampleCount": 48,
+              "recommendedWidthF": 6
             },
             "low": {
               "status": "recommended",
-              "sampleCount": 46,
+              "sampleCount": 48,
               "recommendedWidthF": 9
             }
           },
           "72": {
             "high": {
               "status": "recommended",
-              "sampleCount": 46,
-              "recommendedWidthF": 8
+              "sampleCount": 48,
+              "recommendedWidthF": 9
             },
             "low": {
               "status": "recommended",
-              "sampleCount": 46,
+              "sampleCount": 48,
               "recommendedWidthF": 10
             }
           }
@@ -1674,36 +2075,36 @@
           "24": {
             "high": {
               "status": "recommended",
-              "sampleCount": 48,
-              "recommendedWidthF": 4
+              "sampleCount": 52,
+              "recommendedWidthF": 5
             },
             "low": {
               "status": "recommended",
-              "sampleCount": 48,
+              "sampleCount": 52,
               "recommendedWidthF": 10
             }
           },
           "48": {
             "high": {
               "status": "recommended",
-              "sampleCount": 46,
+              "sampleCount": 48,
               "recommendedWidthF": 5
             },
             "low": {
               "status": "recommended",
-              "sampleCount": 46,
+              "sampleCount": 48,
               "recommendedWidthF": 10
             }
           },
           "72": {
             "high": {
               "status": "recommended",
-              "sampleCount": 46,
+              "sampleCount": 48,
               "recommendedWidthF": 6
             },
             "low": {
               "status": "recommended",
-              "sampleCount": 46,
+              "sampleCount": 48,
               "recommendedWidthF": 10
             }
           }
@@ -1743,22 +2144,22 @@
             {
               "model": "HRRR",
               "sampleCount": 11,
-              "weight": 0.233
+              "weight": 0.244
             },
             {
               "model": "NAM",
               "sampleCount": 9,
-              "weight": 0.143
+              "weight": 0.149
             },
             {
               "model": "GFS",
-              "sampleCount": 26,
-              "weight": 0.271
+              "sampleCount": 31,
+              "weight": 0.258
             },
             {
               "model": "ECMWF IFS",
-              "sampleCount": 26,
-              "weight": 0.256
+              "sampleCount": 31,
+              "weight": 0.251
             },
             {
               "model": "RAP",
@@ -1773,17 +2174,17 @@
             {
               "model": "RAP",
               "sampleCount": 3,
-              "weight": 0.157
+              "weight": 0.219
             },
             {
               "model": "GFS",
-              "sampleCount": 3,
-              "weight": 0.435
+              "sampleCount": 6,
+              "weight": 0.349
             },
             {
               "model": "ECMWF IFS",
-              "sampleCount": 3,
-              "weight": 0.408
+              "sampleCount": 6,
+              "weight": 0.432
             }
           ]
         },
@@ -1912,22 +2313,22 @@
               {
                 "model": "HRRR",
                 "sampleCount": 5,
-                "weight": 0.261
+                "weight": 0.264
               },
               {
                 "model": "NAM",
                 "sampleCount": 5,
-                "weight": 0.102
+                "weight": 0.103
               },
               {
                 "model": "GFS",
-                "sampleCount": 12,
-                "weight": 0.274
+                "sampleCount": 14,
+                "weight": 0.271
               },
               {
                 "model": "ECMWF IFS",
-                "sampleCount": 12,
-                "weight": 0.266
+                "sampleCount": 14,
+                "weight": 0.265
               },
               {
                 "model": "RAP",
@@ -1941,13 +2342,13 @@
             "weights": [
               {
                 "model": "GFS",
-                "sampleCount": 3,
-                "weight": 0.516
+                "sampleCount": 5,
+                "weight": 0.449
               },
               {
                 "model": "ECMWF IFS",
-                "sampleCount": 3,
-                "weight": 0.484
+                "sampleCount": 5,
+                "weight": 0.551
               }
             ]
           },
@@ -2036,27 +2437,27 @@
               {
                 "model": "HRRR",
                 "sampleCount": 6,
-                "weight": 0.217
+                "weight": 0.235
               },
               {
                 "model": "NAM",
                 "sampleCount": 4,
-                "weight": 0.196
+                "weight": 0.213
               },
               {
                 "model": "RAP",
                 "sampleCount": 3,
-                "weight": 0.098
+                "weight": 0.099
               },
               {
                 "model": "GFS",
-                "sampleCount": 14,
-                "weight": 0.256
+                "sampleCount": 17,
+                "weight": 0.23
               },
               {
                 "model": "ECMWF IFS",
-                "sampleCount": 14,
-                "weight": 0.233
+                "sampleCount": 17,
+                "weight": 0.223
               }
             ]
           },
