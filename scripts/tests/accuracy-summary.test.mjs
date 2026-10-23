@@ -50,7 +50,28 @@ test("builds a category-balanced all-parts accuracy percentage", () => {
                 },
               },
             },
-            modelScores: [],
+            modelScores: [
+              {
+                model: "HRRR",
+                region: "kentucky",
+                station: "KDVK",
+                leadTimeHours: 24,
+                weatherRegime: "dry-high-pressure",
+                highErrorF: 1,
+                lowErrorF: -2,
+                precipitationBrierScore: 0.04,
+              },
+              {
+                model: "HRRR",
+                region: "kentucky",
+                station: null,
+                leadTimeHours: 48,
+                weatherRegime: "dry-high-pressure",
+                highErrorF: 3,
+                lowErrorF: -4,
+                precipitationBrierScore: 0.16,
+              },
+            ],
           },
         },
       },
@@ -72,4 +93,8 @@ test("builds a category-balanced all-parts accuracy percentage", () => {
   assert.equal(summary.schemaVersion, 2);
   assert.equal(summary.forecastDecisionSupport.temperatureRanges.byLeadTimeHours["24"].high.status, "insufficient-samples");
   assert.equal(summary.forecastDecisionSupport.intermediateUpdates.defaults.timingShiftHours, 3);
+  assert.equal(summary.models.byModel.HRRR.byStation.KDVK.highTemperatureMeanAbsoluteErrorF, 1);
+  assert.equal(summary.models.byModel.HRRR.byStation["regional-mean"].lowTemperatureMeanAbsoluteErrorF, 4);
+  assert.equal(summary.models.byModel.HRRR.byLeadTimeHours["48"].sampleCount, 1);
+  assert.equal(summary.models.byStation.KDVK.precipitationBrierScore, 0.04);
 });

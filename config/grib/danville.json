@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "id": "danville-ky",
+    "name": "Danville, Kentucky",
+    "timezone": "America/New_York",
+    "center": {
+      "latitude": 37.6456,
+      "longitude": -84.7722
+    },
+    "boundingBox": {
+      "west": -85.8,
+      "east": -83.75,
+      "south": 36.6,
+      "north": 38.7
+    },
+    "neighborhoodBounds": {
+      "west": -84.95,
+      "east": -84.6,
+      "south": 37.48,
+      "north": 37.8
+    },
+    "points": [
+      {
+        "id": "danville",
+        "name": "Danville forecast point",
+        "latitude": 37.6456,
+        "longitude": -84.7722
+      },
+      {
+        "id": "kdvk",
+        "name": "Stuart Powell Field",
+        "station": "KDVK",
+        "latitude": 37.5779,
+        "longitude": -84.7697
+      },
+      {
+        "id": "klex",
+        "name": "Blue Grass Airport",
+        "station": "KLEX",
+        "latitude": 38.0365,
+        "longitude": -84.6059
+      }
+    ]
+  },
+  "storage": {
+    "root": "grib-data",
+    "retainCyclesPerModel": 2,
+    "maxCacheBytes": 5368709120
+  },
+  "request": {
+    "defaultHorizonHours": 72,
+    "timeoutSeconds": 90,
+    "attempts": 3,
+    "backoffSeconds": 3,
+    "userAgent": "amateur-weather-alerts-grib/1.0 (local forecast research; contact via github.com/mjhdp91-bot/amateur-weather-alerts)",
+    "nomadsMinimumIntervalSeconds": 10
+  },
+  "models": {
+    "hrrr": {
+      "enabled": true,
+      "required": true,
+      "provider": "noaa-nomads",
+      "label": "HRRR CONUS",
+      "product": "wrfsfc",
+      "variant": "deterministic",
+      "filter": "filter_hrrr_2d.pl",
+      "archiveModel": "hrrr",
+      "directoryTemplate": "/hrrr.{date}/conus",
+      "fileTemplate": "hrrr.t{hour:02d}z.wrfsfcf{forecastHour:02d}.grib2",
+      "cycles": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+      "lookbackCycles": 8,
+      "maximumCycleAgeHours": 12,
+      "maximumLeadHours": 48,
+      "extendedCycles": [0, 6, 12, 18],
+      "standardMaximumLeadHours": 18,
+      "availability": [{"through": 48, "every": 1}],
+      "sampling": {"baseIntervalHours": 1, "fineIntervalHours": 1, "fineWindowHours": 18},
+      "variables": ["TMP", "DPT", "UGRD", "VGRD", "GUST", "APCP", "PRATE", "MSLMA", "TCDC", "VIS", "CAPE", "CIN", "PWAT", "RH", "HGT"],
+      "levels": ["2_m_above_ground", "10_m_above_ground", "surface", "mean_sea_level", "entire_atmosphere", "entire_atmosphere_(considered_as_a_single_layer)", "180-0_mb_above_ground", "255-0_mb_above_ground", "925_mb", "850_mb", "700_mb", "500_mb"],
+      "requiredIndexPatterns": [":TMP:2 m above ground:", ":UGRD:10 m above ground:", ":VGRD:10 m above ground:"],
+      "requiredShortNames": ["2t", "10u", "10v"]
+    },
+    "rap": {
+      "enabled": true,
+      "required": true,
+      "provider": "noaa-nomads",
+      "label": "RAP 13 km",
+      "product": "awp130pgrb",
+      "variant": "deterministic",
+      "filter": "filter_rap.pl",
+      "archiveModel": "rap",
+      "directoryTemplate": "/rap.{date}",
+      "fileTemplate": "rap.t{hour:02d}z.awp130pgrbf{forecastHour:02d}.grib2",
+      "cycles": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+      "lookbackCycles": 8,
+      "maximumCycleAgeHours": 12,
+      "maximumLeadHours": 51,
+      "extendedCycles": [3, 9, 15, 21],
+      "standardMaximumLeadHours": 21,
+      "availability": [{"through": 51, "every": 1}],
+      "sampling": {"baseIntervalHours": 1, "fineIntervalHours": 1, "fineWindowHours": 21},
+      "variables": ["TMP", "DPT", "UGRD", "VGRD", "GUST", "APCP", "PRATE", "MSLMA", "TCDC", "VIS", "CAPE", "CIN", "PWAT", "RH", "HGT"],
+      "levels": ["2_m_above_ground", "10_m_above_ground", "surface", "mean_sea_level", "entire_atmosphere", "entire_atmosphere_(considered_as_a_single_layer)", "180-0_mb_above_ground", "255-0_mb_above_ground", "925_mb", "850_mb", "700_mb", "500_mb"],
+      "requiredIndexPatterns": [":TMP:2 m above ground:", ":UGRD:10 m above ground:", ":VGRD:10 m above ground:"],
+      "requiredShortNames": ["2t", "10u", "10v"]
+    },
+    "nam": {
+      "enabled": true,
+      "required": false,
+      "provider": "noaa-nomads",
+      "label": "NAM 12 km",
+      "product": "awphys",
+      "variant": "deterministic",
+      "filter": "filter_nam.pl",
+      "archiveModel": "nam",
+      "directoryTemplate": "/nam.{date}",
+      "fileTemplate": "nam.t{hour:02d}z.awphys{forecastHour:02d}.tm00.grib2",
+      "cycles": [0, 6, 12, 18],
+      "lookbackCycles": 8,
+      "maximumCycleAgeHours": 12,
+      "maximumLeadHours": 84,
+      "availability": [{"through": 36, "every": 1}, {"through": 84, "every": 3}],
+      "sampling": {"baseIntervalHours": 3, "fineIntervalHours": 1, "fineWindowHours": 18},
+      "variables": ["TMP", "DPT", "UGRD", "VGRD", "GUST", "APCP", "PRMSL", "TCDC", "VIS", "CAPE", "CIN", "PWAT", "RH", "HGT"],
+      "levels": ["2_m_above_ground", "10_m_above_ground", "surface", "mean_sea_level", "entire_atmosphere_(considered_as_a_single_layer)", "180-0_mb_above_ground", "925_mb", "850_mb", "700_mb", "500_mb"],
+      "requiredIndexPatterns": [":TMP:2 m above ground:", ":UGRD:10 m above ground:", ":VGRD:10 m above ground:"],
+      "requiredShortNames": ["2t", "10u", "10v"],
+      "lifecycle": {
+        "status": "deprecated",
+        "scheduledEnd": "2026-11-03T12:00:00Z",
+        "replacementFamily": "RRFS/REFS",
+        "note": "Optional adapter retained only while the official NAM feed remains available."
+      }
+    },
+    "nam_conusnest": {
+      "enabled": true,
+      "required": false,
+      "provider": "noaa-nomads",
+      "label": "NAM CONUS Nest",
+      "product": "conusnest",
+      "variant": "deterministic",
+      "filter": "filter_nam_conusnest.pl",
+      "archiveModel": "nam",
+      "directoryTemplate": "/nam.{date}",
+      "fileTemplate": "nam.t{hour:02d}z.conusnest.hiresf{forecastHour:02d}.tm00.grib2",
+      "cycles": [0, 6, 12, 18],
+      "lookbackCycles": 8,
+      "maximumCycleAgeHours": 12,
+      "maximumLeadHours": 60,
+      "availability": [{"through": 60, "every": 1}],
+      "sampling": {"baseIntervalHours": 3, "fineIntervalHours": 1, "fineWindowHours": 18},
+      "variables": ["TMP", "DPT", "UGRD", "VGRD", "GUST", "APCP", "PRATE", "PRMSL", "TCDC", "VIS", "CAPE", "CIN", "PWAT", "RH", "HGT"],
+      "levels": ["2_m_above_ground", "10_m_above_ground", "surface", "mean_sea_level", "entire_atmosphere_(considered_as_a_single_layer)", "180-0_mb_above_ground", "255-0_mb_above_ground", "925_mb", "850_mb", "700_mb", "500_mb"],
+      "requiredIndexPatterns": [":TMP:2 m above ground:", ":UGRD:10 m above ground:", ":VGRD:10 m above ground:"],
+      "requiredShortNames": ["2t", "10u", "10v"],
+      "lifecycle": {
+        "status": "deprecated",
+        "scheduledEnd": "2026-11-03T12:00:00Z",
+        "replacementFamily": "RRFS/REFS",
+        "note": "Do not hard-code a grid spacing; read it from GRIB metadata."
+      }
+    },
+    "gfs": {
+      "enabled": true,
+      "required": true,
+      "provider": "noaa-nomads",
+      "label": "GFS 0.25 degree",
+      "product": "pgrb2-0p25",
+      "variant": "deterministic",
+      "filter": "filter_gfs_0p25.pl",
+      "archiveModel": "gfs",
+      "directoryTemplate": "/gfs.{date}/{hour:02d}/atmos",
+      "fileTemplate": "gfs.t{hour:02d}z.pgrb2.0p25.f{forecastHour:03d}",
+      "cycles": [0, 6, 12, 18],
+      "lookbackCycles": 8,
+      "maximumCycleAgeHours": 12,
+      "maximumLeadHours": 120,
+      "availability": [{"through": 120, "every": 1}],
+      "sampling": {"baseIntervalHours": 3},
+      "variables": ["TMP", "DPT", "UGRD", "VGRD", "GUST", "APCP", "PRATE", "PRMSL", "TCDC", "VIS", "CAPE", "CIN", "PWAT", "TMAX", "TMIN", "RH", "HGT"],
+      "levels": ["2_m_above_ground", "10_m_above_ground", "surface", "mean_sea_level", "entire_atmosphere", "entire_atmosphere_(considered_as_a_single_layer)", "180-0_mb_above_ground", "255-0_mb_above_ground", "925_mb", "850_mb", "700_mb", "500_mb"],
+      "requiredIndexPatterns": [":TMP:2 m above ground:", ":UGRD:10 m above ground:", ":VGRD:10 m above ground:"],
+      "requiredShortNames": ["2t", "10u", "10v"]
+    },
+    "gefs": {
+      "enabled": true,
+      "required": true,
+      "provider": "noaa-nomads",
+      "label": "GEFS 0.5 degree mean and spread",
+      "product": "pgrb2a-0p50",
+      "filter": "filter_gefs_atmos_0p50a.pl",
+      "archiveModel": "gens",
+      "directoryTemplate": "/gefs.{date}/{hour:02d}/atmos/pgrb2ap5",
+      "components": [
+        {"variant": "mean", "fileTemplate": "geavg.t{hour:02d}z.pgrb2a.0p50.f{forecastHour:03d}"},
+        {"variant": "spread", "fileTemplate": "gespr.t{hour:02d}z.pgrb2a.0p50.f{forecastHour:03d}"}
+      ],
+      "cycles": [0, 6, 12, 18],
+      "lookbackCycles": 8,
+      "maximumCycleAgeHours": 12,
+      "maximumLeadHours": 120,
+      "availability": [{"through": 120, "every": 3}],
+      "sampling": {"baseIntervalHours": 6},
+      "variables": ["TMP", "RH", "UGRD", "VGRD", "APCP", "PRMSL", "TCDC", "CAPE", "CIN", "PWAT", "TMAX", "TMIN", "HGT", "VVEL"],
+      "levels": ["2_m_above_ground", "10_m_above_ground", "surface", "mean_sea_level", "entire_atmosphere", "entire_atmosphere_(considered_as_a_single_layer)", "180-0_mb_above_ground", "925_mb", "850_mb", "700_mb", "500_mb"],
+      "requiredIndexPatterns": [":TMP:2 m above ground:"],
+      "requiredShortNames": ["2t"]
+    },
+    "ecmwf": {
+      "enabled": true,
+      "required": true,
+      "provider": "ecmwf-open-data",
+      "label": "ECMWF IFS Open Data 0.25 degree",
+      "product": "ifs-0p25",
+      "variant": "deterministic",
+      "model": "ifs",
+      "resolution": "0p25",
+      "stream": "oper",
+      "type": "fc",
+      "sources": ["ecmwf", "aws", "azure", "google"],
+      "indexRoot": "https://data.ecmwf.int/forecasts",
+      "cycles": [0, 6, 12, 18],
+      "lookbackCycles": 8,
+      "maximumCycleAgeHours": 12,
+      "maximumLeadHours": 144,
+      "availability": [{"through": 144, "every": 3}],
+      "sampling": {"baseIntervalHours": 3},
+      "products": [
+        {
+          "name": "surface",
+          "levtype": "sfc",
+          "intervalHours": 3,
+          "parameters": ["2t", "2d", "10u", "10v", "10fg", "msl", "tp", "tprate", "tcc", "mucape", "ptype", "mx2t3", "mn2t3", "tcwv"],
+          "requiredParameters": ["2t", "2d", "10u", "10v", "msl", "tp", "tcc"]
+        },
+        {
+          "name": "pressure",
+          "levtype": "pl",
+          "intervalHours": 6,
+          "parameters": ["t", "r", "u", "v", "w", "gh"],
+          "levels": [925, 850, 700, 500],
+          "requiredParameters": ["t", "r", "u", "v", "gh"]
+        }
+      ],
+      "attribution": {
+        "provider": "ECMWF Open Data",
+        "statement": "Contains modified ECMWF Open Data; selected and processed locally for independent forecast research.",
+        "licenseName": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "modificationNotice": "Selected GRIB messages were downloaded from official ECMWF Open Data sources, then locally extracted and reduced to Danville-area point and neighborhood guidance."
+      }
+    }
+  },
+  "futureAdapters": {
+    "rrfs": {
+      "enabled": false,
+      "status": "pending-official-operational-endpoint-validation",
+      "replacementFor": ["nam", "nam_conusnest"],
+      "note": "Do not enable until the official operational product paths and field inventory are verified."
+    }
+  }
+}
