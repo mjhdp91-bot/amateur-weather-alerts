@@ -843,6 +843,17 @@ def summarize_day(
         low_coverage_target = datetime.combine(next_day, time(6, 0), tzinfo=zone)
         night_window_end = datetime.combine(next_day, time(8, 0), tzinfo=zone)
 
+    low_items = night_items
+    if zone is not None:
+        low_items = []
+        for item in night_items:
+            parsed = parse_time(str(item.get("validTime") or ""))
+            if parsed is None:
+                continue
+            local = parsed.astimezone(zone)
+            if night_window_start <= local <= night_window_end:
+                low_items.append(item)
+
     temperatures = finite_values(_representative(item, "temperatureF") for item in base_items)
     explicit_highs, accepted_explicit_high_items, high_extrema_quality = _filter_explicit_extrema(
         base_items,
@@ -853,10 +864,10 @@ def summarize_day(
         forecast_window_end=forecast_window_end,
     )
     night_temperatures = finite_values(
-        _representative(item, "temperatureF") for item in night_items
+        _representative(item, "temperatureF") for item in low_items
     )
     explicit_lows, accepted_explicit_low_items, low_extrema_quality = _filter_explicit_extrema(
-        night_items,
+        low_items,
         "minimumTemperatureF",
         period_start=night_window_start,
         period_end=night_window_end,
@@ -950,7 +961,7 @@ def summarize_day(
             ):
                 high_samples.append(local)
         night_samples: list[datetime] = []
-        for item in night_items:
+        for item in low_items:
             parsed = parse_time(str(item.get("validTime") or ""))
             if parsed is None:
                 continue
@@ -1151,6 +1162,18 @@ def group_days(
     for item, local in parsed_items:
         if local.date() in forecast_dates:
             grouped[local.date()].append(item)
+    final_forecast_date = max(forecast_dates, default=None)
+
+    def following_night_end(day: date) -> datetime:
+        standard_end = datetime.combine(
+            day + timedelta(days=1), time(8, 0), tzinfo=zone
+        )
+        if day == final_forecast_date and forecast_window_end is not None:
+            # The third day owns the remaining records through the exact 72-hour
+            # boundary. summarize_day still limits low/QPF diagnostics to 08:00.
+            return forecast_window_end.astimezone(zone)
+        return standard_end
+
     return [
         summarize_day(
             day,
@@ -1161,7 +1184,7 @@ def group_days(
                 for item, local in parsed_items
                 if datetime.combine(day, time(18, 0), tzinfo=zone)
                 <= local
-                <= datetime.combine(day + timedelta(days=1), time(8, 0), tzinfo=zone)
+                <= following_night_end(day)
             ],
             zone=zone,
             forecast_window_start=forecast_window_start,
