@@ -16,6 +16,7 @@ import re
 import sys
 import tempfile
 import uuid
+from contextlib import redirect_stdout
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -820,7 +821,12 @@ def fetch_ecmwf_file(
                 model=plan.request["model"],
                 resol=plan.request["resolution"],
             )
-            client.retrieve(**request)
+            # The ECMWF client prints its licence notice to stdout on the first
+            # successful download.  Keep stdout reserved for this command's
+            # machine-readable JSON contract while preserving the notice on
+            # stderr alongside the client's progress output.
+            with redirect_stdout(sys.stderr):
+                client.retrieve(**request)
             used_source = str(source)
             break
         except Exception as error:  # official client has backend-specific errors
@@ -1658,7 +1664,10 @@ def run(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
                 "status": status,
                 "required": bool(model.get("required", False)),
                 "cycleTime": iso_z(plan.cycle),
-                "cycleAgeHours": round(cycle_age, 1),
+                # Preserve issuance-second precision so downstream validation can
+                # reproduce issuedAt - cycleTime instead of inheriting a display-
+                # oriented one-decimal rounding error of up to three minutes.
+                "cycleAgeHours": round(cycle_age, 6),
                 "maximumCycleAgeHours": maximum_cycle_age_hours(model),
                 "freshnessStatus": "fresh",
                 "partialHorizon": plan.partial_horizon,

@@ -8,6 +8,7 @@ import sys
 import tempfile
 import unittest
 from datetime import datetime, timedelta, timezone
+from io import StringIO
 from pathlib import Path
 from unittest import mock
 from urllib.parse import parse_qs, urlparse
@@ -440,6 +441,57 @@ class SourcePlanTests(unittest.TestCase):
             any(item.product.endswith("-pressure") for item in plan.files)
         )
 
+    def test_ecmwf_client_output_is_redirected_away_from_json_stdout(self) -> None:
+        class FakeClient:
+            def __init__(self, **_kwargs: object) -> None:
+                pass
+
+            def retrieve(self, **request: object) -> None:
+                print("third-party ECMWF licence notice")
+                Path(str(request["target"])).write_bytes(b"GRIBfixture7777")
+
+        plan = fetch_guidance.FilePlan(
+            model="ecmwf",
+            product="oper-surface",
+            variant="surface",
+            cycle=self.cycle,
+            forecast_hour=6,
+            source_url="https://data.ecmwf.int/example.grib2",
+            filename="ecmwf.grib2",
+            provider="ecmwf-open-data",
+            request={
+                "stream": "oper",
+                "type": "fc",
+                "levtype": "sfc",
+                "parameters": ["2t"],
+                "requiredParameters": ["2t"],
+                "sourceCandidates": ["ecmwf"],
+                "model": "ifs",
+                "resolution": "0p25",
+            },
+        )
+        parent = REPO_ROOT / "grib-data" / "test-download"
+        parent.mkdir(parents=True, exist_ok=True)
+        standard_output = StringIO()
+        standard_error = StringIO()
+        with tempfile.TemporaryDirectory(dir=parent) as temporary:
+            target = Path(temporary) / plan.filename
+            with (
+                mock.patch.object(fetch_guidance, "inject_windows_truststore"),
+                mock.patch.object(
+                    fetch_guidance,
+                    "grib_inventory",
+                    return_value={"shortNames": ["2t"]},
+                ),
+                mock.patch("ecmwf.opendata.Client", FakeClient),
+                mock.patch("sys.stdout", standard_output),
+                mock.patch("sys.stderr", standard_error),
+            ):
+                fetch_guidance.fetch_ecmwf_file(plan, target, verbose=False)
+
+        self.assertEqual(standard_output.getvalue(), "")
+        self.assertIn("third-party ECMWF licence notice", standard_error.getvalue())
+
     def test_ecmwf_attribution_is_structured_for_downstream_outputs(self) -> None:
         attributions = fetch_guidance.source_attributions(self.config, ["gfs", "ecmwf"])
         self.assertEqual(set(attributions), {"ecmwf"})
@@ -819,6 +871,42 @@ class ReuseUpgradeTests(unittest.TestCase):
         self.assertEqual(manifest["models"]["gfs"]["cycleAgeHours"], 0)
         self.assertEqual(manifest["models"]["gfs"]["maximumCycleAgeHours"], 12)
         self.assertEqual(manifest["models"]["gfs"]["freshnessStatus"], "fresh")
+
+    def test_manifest_cycle_age_preserves_issuance_second_precision(self) -> None:
+        plan = self.model_plan([0, 3])
+        args = fetch_guidance.parse_args(
+            [
+                "--models",
+                "gfs",
+                "--hours",
+                "3",
+                "--issued-at",
+                "2026-10-23T06:02:59Z",
+                "--output-root",
+                fetch_guidance.repo_relative(self.output_root),
+                "--cache-only",
+            ]
+        )
+        entries = fetch_guidance.planned_entries(plan, self.output_root, "complete")
+        with (
+            mock.patch.object(
+                fetch_guidance,
+                "make_client",
+                side_effect=AssertionError("network client must not be constructed"),
+            ),
+            mock.patch.object(
+                fetch_guidance,
+                "select_verified_cached_plan",
+                return_value=(plan, entries, []),
+            ),
+        ):
+            manifest, status = fetch_guidance.run(args)
+
+        self.assertEqual(status, 0)
+        self.assertEqual(
+            manifest["models"]["gfs"]["cycleAgeHours"],
+            round(179 / 3600, 6),
+        )
 
     def test_cache_only_rejects_a_corrupt_or_future_cycle(self) -> None:
         plan = self.model_plan([0, 3])

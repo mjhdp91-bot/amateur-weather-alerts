@@ -923,6 +923,37 @@ class GribProcessingTests(unittest.TestCase):
         self.assertEqual(days[0]["qpfCoverage"]["requiredEnd"], days[1]["qpfCoverage"]["requiredStart"])
         self.assertEqual(days[1]["qpfCoverage"]["requiredEnd"], days[2]["qpfCoverage"]["requiredStart"])
 
+    def test_final_day_counts_every_sample_through_exact_72_hour_end(self):
+        zone = build_summary.ZoneInfo("America/New_York")
+        window_start = datetime(2026, 10, 23, 16, 15, 48, tzinfo=timezone.utc)
+        window_end = datetime(2026, 10, 26, 16, 15, 48, tzinfo=timezone.utc)
+        items = [
+            {"validTime": "2026-10-25T20:00:00Z", "temperatureF": 70},
+            {"validTime": "2026-10-25T23:00:00Z", "temperatureF": 60},
+            {"validTime": "2026-10-26T06:00:00Z", "temperatureF": 40},
+            {"validTime": "2026-10-26T12:00:00Z", "temperatureF": 42},
+            {"validTime": "2026-10-26T15:00:00Z", "temperatureF": 10},
+            {"validTime": "2026-10-26T18:00:00Z", "temperatureF": 0},
+        ]
+        for is_neighborhood in (False, True):
+            with self.subTest(is_neighborhood=is_neighborhood):
+                days = build_summary.group_days(
+                    items,
+                    {date(2026, 10, 23), date(2026, 10, 24), date(2026, 10, 25)},
+                    zone,
+                    is_neighborhood=is_neighborhood,
+                    forecast_window_start=window_start,
+                    forecast_window_end=window_end,
+                )
+
+                final_day = days[2]
+                self.assertEqual(final_day["calendarSampleCount"], 2)
+                self.assertEqual(final_day["followingNightSampleCount"], 4)
+                self.assertEqual(final_day["sampleCount"], 5)
+                self.assertEqual(final_day["lastValidTime"], "2026-10-26T15:00:00Z")
+                self.assertEqual(final_day["lowF"], 40)
+                self.assertEqual(final_day["signals"]["periodEnd"], "2026-10-26T12:00:00Z")
+
     def test_rejected_precipitation_is_incomplete_and_not_benchmarked(self):
         day = build_summary.summarize_day(
             date(2026, 10, 23),
