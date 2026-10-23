@@ -685,18 +685,30 @@ export function scoreModelBenchmarks({ forecast, checkpointHours, regionKey, reg
   return benchmarks
     .filter((item) => item.region === regionKey && item.targetDate === day?.date)
     .map((item) => {
+      const station = typeof item.station === "string" && item.station.trim() ? item.station.trim() : null;
+      const stationObservation = station ? regionResult.stationScores?.[station]?.observed ?? null : null;
+      const targetHighF = station
+        ? (Number.isFinite(stationObservation?.highF) ? stationObservation.highF : null)
+        : observedHighF;
+      const targetLowF = station
+        ? (Number.isFinite(stationObservation?.lowF) ? stationObservation.lowF : null)
+        : observedLowF;
       const probability = parseProbability(item.precipitationProbability);
-      const precipitationObserved = regionResult.precipitation.observed;
+      const precipitationObserved = station
+        ? (stationObservation ? Number(stationObservation.rainReports ?? 0) > 0 : null)
+        : regionResult.precipitation.observed;
       return {
         model: item.model,
         run: item.run,
         region: regionKey,
+        station,
+        observationBasis: station ? "station" : "regional-mean",
         targetDate: item.targetDate,
         leadTimeHours: item.leadTimeHours ?? checkpointHours,
         weatherRegime: item.weatherRegime ?? regionResult.weatherRegime,
-        highErrorF: Number.isFinite(item.highF) && Number.isFinite(observedHighF) ? round(observedHighF - item.highF) : null,
-        lowErrorF: Number.isFinite(item.lowF) && Number.isFinite(observedLowF) ? round(observedLowF - item.lowF) : null,
-        precipitationBrierScore: Number.isFinite(probability)
+        highErrorF: Number.isFinite(item.highF) && Number.isFinite(targetHighF) ? round(targetHighF - item.highF) : null,
+        lowErrorF: Number.isFinite(item.lowF) && Number.isFinite(targetLowF) ? round(targetLowF - item.lowF) : null,
+        precipitationBrierScore: Number.isFinite(probability) && typeof precipitationObserved === "boolean"
           ? round((probability - Number(precipitationObserved)) ** 2, 4)
           : null,
       };
@@ -898,6 +910,13 @@ export function validateForecastFeedback(forecast, accuracySummary, { allowLegac
           if (benchmark[field] == null || benchmark[field] === "") errors.push(`modelBenchmarks[${index}] is missing ${field}`);
         }
         if (!["kentucky", "upstate"].includes(benchmark.region)) errors.push(`modelBenchmarks[${index}] has an invalid region`);
+        if (benchmark.station != null) {
+          if (typeof benchmark.station !== "string" || !benchmark.station.trim()) {
+            errors.push(`modelBenchmarks[${index}].station must be a non-empty official station identifier`);
+          } else if (REGION_CONFIG[benchmark.region] && !REGION_CONFIG[benchmark.region].stations.includes(benchmark.station)) {
+            errors.push(`modelBenchmarks[${index}].station must belong to ${benchmark.region}`);
+          }
+        }
         if (![benchmark.highF, benchmark.lowF, benchmark.precipitationProbability].some(Number.isFinite)) {
           errors.push(`modelBenchmarks[${index}] must contain a numeric highF, lowF or precipitationProbability`);
         }

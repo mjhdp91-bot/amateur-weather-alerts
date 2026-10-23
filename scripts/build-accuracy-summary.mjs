@@ -99,25 +99,37 @@ function precipitationSummary(samples) {
   };
 }
 
+function modelAggregate(values) {
+  const high = statistics(values.map((item) => item.highErrorF));
+  const low = statistics(values.map((item) => item.lowErrorF));
+  const brierValues = values.map((item) => item.precipitationBrierScore).filter(Number.isFinite);
+  return {
+    sampleCount: values.length,
+    highTemperatureMeanAbsoluteErrorF: high.meanAbsolute,
+    lowTemperatureMeanAbsoluteErrorF: low.meanAbsolute,
+    precipitationBrierScore: brierValues.length ? round(brierValues.reduce((sum, value) => sum + value, 0) / brierValues.length, 4) : null,
+  };
+}
+
+function groupedModelAggregates(samples, keyFunction) {
+  return Object.fromEntries(
+    [...groupBy(samples, keyFunction)]
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([key, values]) => [key, modelAggregate(values)]),
+  );
+}
+
 function modelSummary(samples) {
   const byModel = {};
   for (const [model, values] of groupBy(samples, (item) => item.model)) {
-    const high = statistics(values.map((item) => item.highErrorF));
-    const low = statistics(values.map((item) => item.lowErrorF));
-    const brierValues = values.map((item) => item.precipitationBrierScore).filter(Number.isFinite);
     byModel[model] = {
-      sampleCount: values.length,
-      highTemperatureMeanAbsoluteErrorF: high.meanAbsolute,
-      lowTemperatureMeanAbsoluteErrorF: low.meanAbsolute,
-      precipitationBrierScore: brierValues.length ? round(brierValues.reduce((sum, value) => sum + value, 0) / brierValues.length, 4) : null,
+      ...modelAggregate(values),
+      byStation: groupedModelAggregates(values, (item) => item.station ?? "regional-mean"),
+      byLeadTimeHours: groupedModelAggregates(values, (item) => String(item.leadTimeHours)),
       byWeatherRegime: Object.fromEntries(
         [...groupBy(values, (item) => item.weatherRegime)].map(([regime, regimeValues]) => [
           regime,
-          {
-            sampleCount: regimeValues.length,
-            highTemperatureMeanAbsoluteErrorF: statistics(regimeValues.map((item) => item.highErrorF)).meanAbsolute,
-            lowTemperatureMeanAbsoluteErrorF: statistics(regimeValues.map((item) => item.lowErrorF)).meanAbsolute,
-          },
+          modelAggregate(regimeValues),
         ]),
       ),
     };
@@ -125,9 +137,11 @@ function modelSummary(samples) {
   return {
     sampleCount: samples.length,
     availability: samples.length
-      ? "Model benchmarks are being scored against regional official-observation means."
+      ? "Station-tagged model benchmarks are scored against that official station; legacy untagged benchmarks retain regional official-observation means."
       : "No issued forecast yet contains modelBenchmarks; model scoring begins with the first forecast that passes the new validator.",
     byModel,
+    byStation: groupedModelAggregates(samples, (item) => item.station ?? "regional-mean"),
+    byLeadTimeHours: groupedModelAggregates(samples, (item) => String(item.leadTimeHours)),
     recommendedWeightsByWeatherRegime: Object.fromEntries(
       [...groupBy(samples, (item) => item.weatherRegime)].sort(([left], [right]) => left.localeCompare(right)).map(([regime, regimeSamples]) => [
         regime,
@@ -299,7 +313,7 @@ const summary = {
     temperatureError: "Observed official-station temperature minus the midpoint of the issued range.",
     precipitation: "Brier score for occurrence at either official station in the region; lower is better.",
     rangeCalibration: "Coverage is the percentage of official-station observations inside the issued range.",
-    models: "Per-model scores require modelBenchmarks captured at issuance; models are never reconstructed after the fact.",
+    models: "Per-model scores require modelBenchmarks captured at issuance; station-tagged benchmarks use that exact official station and untagged legacy benchmarks use the regional official-station mean. Models are never reconstructed after the fact.",
     weatherRegime: "Explicit day-level weatherRegime is required for new issues; legacy issues use documented text inference.",
     compositeAccuracy: "A category-balanced percentage covering temperature, precipitation, wind, fog/visibility, cloud cover, thunder, hazards, event timing, weather-regime narrative, official-alert documentation and confidence calibration. Each available category receives equal weight; missing categories are disclosed rather than counted as failures.",
     componentRules: {

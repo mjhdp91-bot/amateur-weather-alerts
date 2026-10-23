@@ -43,7 +43,9 @@ The summary reports temperature bias, mean absolute error, RMSE, range coverage
 and average range width by region, station, lead time and weather regime. It also
 reports precipitation Brier score and reliability bins. Model guidance is scored
 only from benchmarks captured at issue time; model values are never reconstructed
-after the event.
+after the event. Model results are summarized by model, official station and
+forecast lead time. Station-tagged benchmarks use that station's observation;
+legacy untagged benchmarks retain the regional official-station mean.
 
 `allCategoryAccuracy.overallAccuracyPercent` is the comprehensive headline score.
 Each available category receives equal weight so numerous temperature observations
@@ -96,7 +98,10 @@ they include:
   official-alert targets;
 - `modelBenchmarks` containing the point values actually consulted at issuance,
   or a documented `modelBenchmarkExclusions` entry when a listed model cannot be
-  scored; and
+  scored. A benchmark may include `station: "KDVK"` (or another official station
+  configured for that region) so it is verified against that exact station;
+  untagged legacy benchmarks continue to use the regional official-station mean;
+  and
 - `accuracyFeedback`, identifying the exact `forecast-accuracy.json` generation,
   all verified forecasts consulted, and the adjustment or explicit no-adjustment
   decision for each region; and
@@ -114,6 +119,54 @@ discussions plus the available model guidance.
 When Kentucky Weather Center materially informs a forecast, record the specific
 post URL and publication timestamp in `sources`, include the site in
 `analysisLinks`, and summarize the agreement or disagreement in `sourceNotes`.
+
+### Local Danville GRIB guidance
+
+The optional local GRIB pipeline adds timestamped HRRR, RAP, GFS, GEFS, ECMWF,
+NAM and NAM CONUS Nest guidance for Danville, KDVK, KLEX and the nearby
+neighborhood. NOAA downloads use field and geographic subsets. ECMWF uses its
+official indexes to retrieve selected global messages, then retains only the
+local point/neighborhood values in the summary. The pipeline preserves
+cycle/source metadata and produces `grib-data/summary/danville-guidance.json`
+plus proposed station-tagged model benchmarks. The entire `grib-data/`
+directory is local and ignored by Git.
+
+The download crop and the local neighborhood are configured separately, so
+regional subset bounds do not inflate Danville-area spatial spread. Surface
+and layer CAPE/CIN variants are retained independently; the review diagnostic
+is selected traceably without overwriting those source fields.
+
+Daily QPF uses an exact non-overlapping path through native and safely derived
+accumulation intervals. Conflicts, decreases, unresolved boundary ambiguity and
+temporal gaps suppress the amount instead of guessing or double-counting it.
+HRRR and RAP retain hourly files across their available horizons so later
+one-hour APCP messages do not leave artificial three-hour sampling gaps.
+
+Its complete Windows/Python 3.12 dependency environment is pinned in
+`requirements-grib-lock.txt`; `requirements-grib.txt` lists only the direct
+packages for deliberate upgrade testing.
+
+Run it from PowerShell with:
+
+```powershell
+.\scripts\grib\run-danville-guidance.ps1
+```
+
+An already downloaded issuance can be rebuilt with no network access by using
+its exact timestamp and `-CacheOnly`; the run stops unless every requested model
+has an exact plan and SHA-256-verified cache match. Model cycles more than 12
+hours old at issuance are rejected and accepted cycle ages are recorded in the
+manifest.
+
+The output is review-only: the pipeline never edits `forecast.json`, the site or
+GitHub, and it does not bypass exact forecast-ID publication approval. NOAA/NWS
+files remain credited as official source data used in locally processed
+independent analysis. ECMWF Open Data is used under CC BY 4.0 with ECMWF
+attribution and disclosure of local processing. NAM adapters are optional and
+deprecated because NOAA has scheduled NAM products to end November 3, 2026.
+
+See [docs/grib-guidance.md](docs/grib-guidance.md) for setup, source terms,
+failure behavior, output validation, review requirements and retention controls.
 It is an independent supplemental source: never present its statements as an
 official NWS alert, observation or forecast, and never let it override a current
 official alert or reliable timestamped observational evidence.

@@ -7,6 +7,7 @@ import {
   parseRange,
   recommendedTemperatureRangeWidth,
   recommendModelWeights,
+  scoreModelBenchmarks,
   suggestedBiasAdjustment,
   summarizeNwsObservations,
   validateForecastFeedback,
@@ -94,6 +95,41 @@ test("scores ranges and Brier probability at a checkpoint", () => {
   assert.equal(result.stationScores.KDVK.lowTemperature.withinRange, false);
   assert.equal(result.precipitation.brierScore, 0.04);
   assert.ok(Number.isFinite(result.expanded.scores.visibilityFog.score));
+});
+
+test("scores station-tagged model benchmarks against that station and preserves the regional legacy fallback", () => {
+  const forecast = {
+    forecastId: "station-model-score",
+    regions: {
+      kentucky: {
+        days: [{ date: "2026-10-23", highF: "68–72", lowF: "45–49", precipitation: "40%", weatherRegime: "frontal" }],
+      },
+    },
+    modelBenchmarks: [
+      { model: "HRRR", run: "2026-10-23 06Z", region: "kentucky", station: "KDVK", targetDate: "2026-10-23", leadTimeHours: 24, highF: 68, lowF: 48, precipitationProbability: 0.2 },
+      { model: "GFS", run: "2026-10-23 00Z", region: "kentucky", targetDate: "2026-10-23", leadTimeHours: 24, highF: 68, lowF: 48, precipitationProbability: 0.2 },
+    ],
+  };
+  const regionResult = evaluateRegionCheckpoint({
+    forecast,
+    regionKey: "kentucky",
+    checkpointHours: 24,
+    stationObservations: {
+      KDVK: { highF: 70, lowF: 46, rainReports: 0 },
+      KLEX: { highF: 80, lowF: 52, rainReports: 1 },
+    },
+  });
+  const scores = scoreModelBenchmarks({ forecast, checkpointHours: 24, regionKey: "kentucky", regionResult });
+  const stationScore = scores.find((item) => item.station === "KDVK");
+  const legacyScore = scores.find((item) => item.station == null);
+  assert.equal(stationScore.observationBasis, "station");
+  assert.equal(stationScore.highErrorF, 2);
+  assert.equal(stationScore.lowErrorF, -2);
+  assert.equal(stationScore.precipitationBrierScore, 0.04);
+  assert.equal(legacyScore.observationBasis, "regional-mean");
+  assert.equal(legacyScore.highErrorF, 7);
+  assert.equal(legacyScore.lowErrorF, 1);
+  assert.equal(legacyScore.precipitationBrierScore, 0.64);
 });
 
 test("scores structured wind, visibility, cloud, thunder, hazards, timing, alerts and confidence", () => {
@@ -219,6 +255,25 @@ test("strict validation requires model, regime and feedback evidence", () => {
     },
   };
   assert.deepEqual(validateForecastFeedback(forecast, { generatedAt: "2026-09-29T12:00:00Z" }), []);
+  const canonicalGribModels = ["HRRR", "RAP", "NAM", "NAM 3-km Nest", "GFS", "GEFS", "ECMWF IFS"];
+  const withCanonicalGribBenchmarks = structuredClone(forecast);
+  withCanonicalGribBenchmarks.modelStatus = canonicalGribModels.map((model) => ({ model }));
+  withCanonicalGribBenchmarks.modelBenchmarks = canonicalGribModels.map((model) => ({
+    model,
+    run: "2026-09-29T12:00:00Z",
+    region: "kentucky",
+    station: "KDVK",
+    targetDate: "2026-10-01",
+    leadTimeHours: 24,
+    highF: 80,
+  }));
+  assert.deepEqual(
+    validateForecastFeedback(withCanonicalGribBenchmarks, { generatedAt: "2026-09-29T12:00:00Z" }),
+    [],
+  );
+  const wrongStation = structuredClone(forecast);
+  wrongStation.modelBenchmarks[0].station = "KCEU";
+  assert.ok(validateForecastFeedback(wrongStation, { generatedAt: "2026-09-29T12:00:00Z" }).some((error) => error.includes("station must belong to kentucky")));
   const withoutHazardProbabilities = structuredClone(forecast);
   delete withoutHazardProbabilities.regions.kentucky.days[0].verificationTargets.hazardProbabilities;
   assert.ok(validateForecastFeedback(withoutHazardProbabilities, { generatedAt: "2026-09-29T12:00:00Z" }).some((error) => error.includes("hazardProbabilities")));
