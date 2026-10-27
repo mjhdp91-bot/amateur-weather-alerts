@@ -1959,8 +1959,1019 @@
       },
       "verification": {
         "24h": {
+          "forecastId": "20261026T1057Z",
+          "checkpointHours": 24,
           "due": "2026-10-27T10:57:00.000Z",
-          "status": "pending"
+          "status": "verified",
+          "scoringVersion": 3,
+          "verifiedAt": "2026-10-27T19:25:57.212Z",
+          "window": {
+            "start": "2026-10-26T10:57:00.000Z",
+            "end": "2026-10-27T10:57:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "4/4 station highs and 4/4 station lows fell inside the issued ranges; precipitation occurred in 1/2 regions; expanded categorical accuracy was 86.6%.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-10-26",
+                "highF": "70–76",
+                "lowF": "39–49",
+                "precipitation": "5% or less",
+                "hazard": "No official NWS alert is active for the Danville point. Independent concern is limited to patchy river-valley fog and isolated frost late tonight into Tuesday morning; a widespread freeze is not expected.",
+                "forecast": "Intervals of mid- and high-level cloud give way to a partly to mostly sunny, mild afternoon as the dry surface ridge holds. Danville's most likely high is near 73°F with light west or variable wind. Tonight turns mostly clear and chilly with a most likely Danville low near 44°F; sheltered valleys may reach the upper 30s with patchy fog or frost toward Tuesday dawn."
+              },
+              "weatherRegime": "dry-high-pressure",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 50,
+                    "temperatureObservationCount": 43,
+                    "firstObservedAt": "2026-10-26T11:15:00+00:00",
+                    "lastObservedAt": "2026-10-27T10:55:00+00:00",
+                    "highF": 71.6,
+                    "lowF": 41,
+                    "maximumSustainedWindMph": 4.7,
+                    "maximumGustMph": null,
+                    "maximumHourlyPrecipitationIn": null,
+                    "minimumVisibilityMi": 7,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0,
+                    "skyConditionCounts": {
+                      "clear": 49,
+                      "mostly-clear": 0,
+                      "partly-cloudy": 0,
+                      "mostly-cloudy": 0,
+                      "overcast": 0
+                    },
+                    "predominantSkyCondition": "clear",
+                    "eventPeriods": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    },
+                    "eventTimestamps": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    }
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      70,
+                      76
+                    ],
+                    "forecastMidpointF": 73,
+                    "observedF": 71.6,
+                    "errorF": -1.4,
+                    "absoluteErrorF": 1.4,
+                    "withinRange": true,
+                    "rangeWidthF": 6
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      39,
+                      49
+                    ],
+                    "forecastMidpointF": 44,
+                    "observedF": 41,
+                    "errorF": -3,
+                    "absoluteErrorF": 3,
+                    "withinRange": true,
+                    "rangeWidthF": 10
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 234,
+                    "temperatureObservationCount": 234,
+                    "firstObservedAt": "2026-10-26T11:00:00+00:00",
+                    "lastObservedAt": "2026-10-27T10:55:00+00:00",
+                    "highF": 73.9,
+                    "lowF": 41,
+                    "maximumSustainedWindMph": 6.9,
+                    "maximumGustMph": null,
+                    "maximumHourlyPrecipitationIn": null,
+                    "minimumVisibilityMi": 9,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0,
+                    "skyConditionCounts": {
+                      "clear": 187,
+                      "mostly-clear": 1,
+                      "partly-cloudy": 12,
+                      "mostly-cloudy": 9,
+                      "overcast": 0
+                    },
+                    "predominantSkyCondition": "clear",
+                    "eventPeriods": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    },
+                    "eventTimestamps": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    }
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      70,
+                      76
+                    ],
+                    "forecastMidpointF": 73,
+                    "observedF": 73.9,
+                    "errorF": 0.9,
+                    "absoluteErrorF": 0.9,
+                    "withinRange": true,
+                    "rangeWidthF": 6
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      39,
+                      49
+                    ],
+                    "forecastMidpointF": 44,
+                    "observedF": 41,
+                    "errorF": -3,
+                    "absoluteErrorF": 3,
+                    "withinRange": true,
+                    "rangeWidthF": 10
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              },
+              "expanded": {
+                "targets": {
+                  "wind": {
+                    "sustainedRangeMph": [
+                      0,
+                      6
+                    ],
+                    "gustRangeMph": [
+                      4,
+                      12
+                    ]
+                  },
+                  "visibility": {
+                    "fogProbability": 0.18,
+                    "minimumVisibilityRangeMiles": [
+                      0.5,
+                      4
+                    ]
+                  },
+                  "sky": {
+                    "categories": [
+                      "mostly-clear",
+                      "partly-cloudy",
+                      "mostly-cloudy"
+                    ]
+                  },
+                  "thunderProbability": 0.01,
+                  "hazards": [],
+                  "hazardProbabilities": {
+                    "fog": 0.18,
+                    "wind": 0.01,
+                    "thunder": 0.01,
+                    "heavy-rain": 0.01,
+                    "heat": 0,
+                    "freeze": 0.03
+                  },
+                  "hazardThresholds": {
+                    "fogVisibilityMiles": 1,
+                    "windSustainedMph": 25,
+                    "windGustMph": 35,
+                    "heavyRainHourlyInches": 0.3,
+                    "heatHighF": 95,
+                    "freezeLowF": 32
+                  },
+                  "eventTiming": {
+                    "rain": [],
+                    "thunder": [],
+                    "fog": [
+                      "night",
+                      "morning"
+                    ],
+                    "wind": []
+                  },
+                  "eventWindows": [
+                    {
+                      "event": "fog",
+                      "start": "2026-10-27T03:00:00-04:00",
+                      "end": "2026-10-27T09:00:00-04:00",
+                      "probability": 0.18,
+                      "toleranceHours": 3
+                    }
+                  ],
+                  "confidence": 0.92,
+                  "officialAlerts": {
+                    "status": "none",
+                    "checkedAt": "2026-10-26T10:55:23.683Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=37.6456,-84.7722",
+                    "documented": true
+                  }
+                },
+                "observed": {
+                  "maximumSustainedWindMph": 6.9,
+                  "maximumGustMph": null,
+                  "maximumHourlyPrecipitationIn": null,
+                  "minimumVisibilityMi": 7,
+                  "highF": 73.9,
+                  "lowF": 41,
+                  "rain": false,
+                  "thunder": false,
+                  "fog": false,
+                  "predominantSkyCondition": "clear",
+                  "skyConditionCounts": {
+                    "clear": 236,
+                    "mostly-clear": 1,
+                    "partly-cloudy": 12,
+                    "mostly-cloudy": 9,
+                    "overcast": 0
+                  },
+                  "eventPeriods": {
+                    "rain": [],
+                    "thunder": [],
+                    "fog": [],
+                    "wind": []
+                  },
+                  "eventTimestamps": {
+                    "rain": [],
+                    "thunder": [],
+                    "fog": [],
+                    "wind": []
+                  }
+                },
+                "scores": {
+                  "wind": {
+                    "score": 0.91,
+                    "maximumSustainedWindMph": 6.9,
+                    "maximumGustMph": null
+                  },
+                  "visibilityFog": {
+                    "score": 0.4838,
+                    "forecastProbability": 0.18,
+                    "forecastMinimumVisibilityRangeMiles": [
+                      0.5,
+                      4
+                    ],
+                    "observed": false,
+                    "minimumVisibilityMi": 7
+                  },
+                  "cloudCover": {
+                    "score": 0.75,
+                    "forecastCategories": [
+                      "mostly-clear",
+                      "partly-cloudy",
+                      "mostly-cloudy"
+                    ],
+                    "observedCategory": "clear"
+                  },
+                  "thunder": {
+                    "score": 0.9999,
+                    "forecastProbability": 0.01,
+                    "observed": false
+                  },
+                  "hazards": {
+                    "score": 0.9944,
+                    "forecast": [],
+                    "forecastProbabilities": {
+                      "fog": 0.18,
+                      "wind": 0.01,
+                      "thunder": 0.01,
+                      "heavy-rain": 0.01,
+                      "heat": 0,
+                      "freeze": 0.03
+                    },
+                    "thresholds": {
+                      "fogVisibilityMiles": 1,
+                      "windSustainedMph": 25,
+                      "windGustMph": 35,
+                      "heavyRainHourlyInches": 0.3,
+                      "heatHighF": 95,
+                      "freezeLowF": 32
+                    },
+                    "observed": []
+                  },
+                  "eventTiming": {
+                    "score": 0.9676,
+                    "events": [
+                      {
+                        "event": "fog",
+                        "forecastWindow": {
+                          "start": "2026-10-27T03:00:00-04:00",
+                          "end": "2026-10-27T09:00:00-04:00",
+                          "probability": 0.18,
+                          "toleranceHours": 3
+                        },
+                        "observedTimestamps": [],
+                        "score": 0.9676
+                      }
+                    ],
+                    "method": "timestamped-windows"
+                  },
+                  "weatherRegimeNarrative": {
+                    "score": 1,
+                    "forecastRegime": "dry-high-pressure"
+                  },
+                  "officialAlertHandling": {
+                    "score": 1,
+                    "status": "none",
+                    "checkedAt": "2026-10-26T10:55:23.683Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=37.6456,-84.7722",
+                    "documented": true
+                  },
+                  "confidenceCalibration": {
+                    "score": 1,
+                    "forecastConfidence": 0.92,
+                    "realizedAccuracy": 0.9253
+                  }
+                }
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-10-26",
+                "highF": "70–74",
+                "lowF": "38–48",
+                "precipitation": "5% or less",
+                "hazard": "No official NWS alert is active for Clemson or Central. The NWS GSP morning package's Frost Advisory applies only to parts of western North Carolina north of the corridor. Independent concern is limited to isolated frost in the coldest sheltered Pickens County locations late tonight; a corridor freeze is not expected.",
+                "forecast": "The shallow dry wedge gradually weakens under sunshine, with a most likely Clemson high near 72°F. Northeast wind stays light at 0–5 mph with gusts around 5–12 mph. Tonight is clear and chilly with a most likely Clemson low near 46°F; sheltered Central and Pickens County locations may approach 38°F with isolated frost."
+              },
+              "weatherRegime": "wedge-erosion",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 190,
+                    "temperatureObservationCount": 189,
+                    "firstObservedAt": "2026-10-26T11:00:00+00:00",
+                    "lastObservedAt": "2026-10-27T10:50:00+00:00",
+                    "highF": 71.6,
+                    "lowF": 46.9,
+                    "maximumSustainedWindMph": 8.1,
+                    "maximumGustMph": null,
+                    "maximumHourlyPrecipitationIn": 0,
+                    "minimumVisibilityMi": 0.2,
+                    "rainReports": 9,
+                    "thunderReports": 0,
+                    "fogReports": 29,
+                    "skyConditionCounts": {
+                      "clear": 141,
+                      "mostly-clear": 3,
+                      "partly-cloudy": 3,
+                      "mostly-cloudy": 0,
+                      "overcast": 0
+                    },
+                    "predominantSkyCondition": "clear",
+                    "eventPeriods": {
+                      "rain": [
+                        "morning",
+                        "night"
+                      ],
+                      "thunder": [],
+                      "fog": [
+                        "morning",
+                        "night"
+                      ],
+                      "wind": []
+                    },
+                    "eventTimestamps": {
+                      "rain": [
+                        "2026-10-27T06:55:00+00:00",
+                        "2026-10-27T07:00:00+00:00",
+                        "2026-10-27T07:04:00+00:00",
+                        "2026-10-27T07:05:00+00:00",
+                        "2026-10-27T07:10:00+00:00",
+                        "2026-10-27T07:15:00+00:00",
+                        "2026-10-27T10:10:00+00:00",
+                        "2026-10-27T10:15:00+00:00",
+                        "2026-10-27T10:20:00+00:00"
+                      ],
+                      "thunder": [],
+                      "fog": [
+                        "2026-10-27T06:45:00+00:00",
+                        "2026-10-27T06:55:00+00:00",
+                        "2026-10-27T07:00:00+00:00",
+                        "2026-10-27T07:04:00+00:00",
+                        "2026-10-27T07:05:00+00:00",
+                        "2026-10-27T07:10:00+00:00",
+                        "2026-10-27T07:15:00+00:00",
+                        "2026-10-27T08:05:00+00:00",
+                        "2026-10-27T08:10:00+00:00",
+                        "2026-10-27T08:15:00+00:00",
+                        "2026-10-27T08:20:00+00:00",
+                        "2026-10-27T08:25:00+00:00",
+                        "2026-10-27T08:31:00+00:00",
+                        "2026-10-27T08:40:00+00:00",
+                        "2026-10-27T08:45:00+00:00",
+                        "2026-10-27T08:49:00+00:00",
+                        "2026-10-27T08:54:00+00:00",
+                        "2026-10-27T08:55:00+00:00",
+                        "2026-10-27T09:00:00+00:00",
+                        "2026-10-27T09:05:00+00:00",
+                        "2026-10-27T09:10:00+00:00",
+                        "2026-10-27T09:15:00+00:00",
+                        "2026-10-27T09:20:00+00:00",
+                        "2026-10-27T09:25:00+00:00",
+                        "2026-10-27T09:30:00+00:00",
+                        "2026-10-27T09:47:00+00:00",
+                        "2026-10-27T09:50:00+00:00",
+                        "2026-10-27T10:44:00+00:00",
+                        "2026-10-27T10:50:00+00:00"
+                      ],
+                      "wind": []
+                    }
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      70,
+                      74
+                    ],
+                    "forecastMidpointF": 72,
+                    "observedF": 71.6,
+                    "errorF": -0.4,
+                    "absoluteErrorF": 0.4,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      38,
+                      48
+                    ],
+                    "forecastMidpointF": 43,
+                    "observedF": 46.9,
+                    "errorF": 3.9,
+                    "absoluteErrorF": 3.9,
+                    "withinRange": true,
+                    "rangeWidthF": 10
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 49,
+                    "temperatureObservationCount": 42,
+                    "firstObservedAt": "2026-10-26T11:15:00+00:00",
+                    "lastObservedAt": "2026-10-27T10:35:00+00:00",
+                    "highF": 73.2,
+                    "lowF": 38.7,
+                    "maximumSustainedWindMph": 6.9,
+                    "maximumGustMph": null,
+                    "maximumHourlyPrecipitationIn": null,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0,
+                    "skyConditionCounts": {
+                      "clear": 46,
+                      "mostly-clear": 0,
+                      "partly-cloudy": 0,
+                      "mostly-cloudy": 0,
+                      "overcast": 0
+                    },
+                    "predominantSkyCondition": "clear",
+                    "eventPeriods": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    },
+                    "eventTimestamps": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    }
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      70,
+                      74
+                    ],
+                    "forecastMidpointF": 72,
+                    "observedF": 73.2,
+                    "errorF": 1.2,
+                    "absoluteErrorF": 1.2,
+                    "withinRange": true,
+                    "rangeWidthF": 4
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      38,
+                      48
+                    ],
+                    "forecastMidpointF": 43,
+                    "observedF": 38.7,
+                    "errorF": -4.3,
+                    "absoluteErrorF": 4.3,
+                    "withinRange": true,
+                    "rangeWidthF": 10
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": true,
+                "brierScore": 0.9025
+              },
+              "expanded": {
+                "targets": {
+                  "wind": {
+                    "sustainedRangeMph": [
+                      0,
+                      5
+                    ],
+                    "gustRangeMph": [
+                      5,
+                      12
+                    ]
+                  },
+                  "visibility": {
+                    "fogProbability": 0.05,
+                    "minimumVisibilityRangeMiles": null
+                  },
+                  "sky": {
+                    "categories": [
+                      "clear",
+                      "mostly-clear"
+                    ]
+                  },
+                  "thunderProbability": 0.01,
+                  "hazards": [],
+                  "hazardProbabilities": {
+                    "fog": 0.05,
+                    "wind": 0.01,
+                    "thunder": 0.01,
+                    "heavy-rain": 0.01,
+                    "heat": 0,
+                    "freeze": 0.02
+                  },
+                  "hazardThresholds": {
+                    "fogVisibilityMiles": 1,
+                    "windSustainedMph": 25,
+                    "windGustMph": 35,
+                    "heavyRainHourlyInches": 0.3,
+                    "heatHighF": 95,
+                    "freezeLowF": 32
+                  },
+                  "eventTiming": {
+                    "rain": [],
+                    "thunder": [],
+                    "fog": [],
+                    "wind": []
+                  },
+                  "eventWindows": [],
+                  "confidence": 0.91,
+                  "officialAlerts": {
+                    "status": "none",
+                    "checkedAt": "2026-10-26T10:55:23.683Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=34.6834,-82.8374",
+                    "documented": true
+                  }
+                },
+                "observed": {
+                  "maximumSustainedWindMph": 8.1,
+                  "maximumGustMph": null,
+                  "maximumHourlyPrecipitationIn": 0,
+                  "minimumVisibilityMi": 0.2,
+                  "highF": 73.2,
+                  "lowF": 38.7,
+                  "rain": true,
+                  "thunder": false,
+                  "fog": true,
+                  "predominantSkyCondition": "clear",
+                  "skyConditionCounts": {
+                    "clear": 187,
+                    "mostly-clear": 3,
+                    "partly-cloudy": 3,
+                    "mostly-cloudy": 0,
+                    "overcast": 0
+                  },
+                  "eventPeriods": {
+                    "rain": [
+                      "morning",
+                      "night"
+                    ],
+                    "thunder": [],
+                    "fog": [
+                      "morning",
+                      "night"
+                    ],
+                    "wind": []
+                  },
+                  "eventTimestamps": {
+                    "rain": [
+                      "2026-10-27T06:55:00+00:00",
+                      "2026-10-27T07:00:00+00:00",
+                      "2026-10-27T07:04:00+00:00",
+                      "2026-10-27T07:05:00+00:00",
+                      "2026-10-27T07:10:00+00:00",
+                      "2026-10-27T07:15:00+00:00",
+                      "2026-10-27T10:10:00+00:00",
+                      "2026-10-27T10:15:00+00:00",
+                      "2026-10-27T10:20:00+00:00"
+                    ],
+                    "thunder": [],
+                    "fog": [
+                      "2026-10-27T06:45:00+00:00",
+                      "2026-10-27T06:55:00+00:00",
+                      "2026-10-27T07:00:00+00:00",
+                      "2026-10-27T07:04:00+00:00",
+                      "2026-10-27T07:05:00+00:00",
+                      "2026-10-27T07:10:00+00:00",
+                      "2026-10-27T07:15:00+00:00",
+                      "2026-10-27T08:05:00+00:00",
+                      "2026-10-27T08:10:00+00:00",
+                      "2026-10-27T08:15:00+00:00",
+                      "2026-10-27T08:20:00+00:00",
+                      "2026-10-27T08:25:00+00:00",
+                      "2026-10-27T08:31:00+00:00",
+                      "2026-10-27T08:40:00+00:00",
+                      "2026-10-27T08:45:00+00:00",
+                      "2026-10-27T08:49:00+00:00",
+                      "2026-10-27T08:54:00+00:00",
+                      "2026-10-27T08:55:00+00:00",
+                      "2026-10-27T09:00:00+00:00",
+                      "2026-10-27T09:05:00+00:00",
+                      "2026-10-27T09:10:00+00:00",
+                      "2026-10-27T09:15:00+00:00",
+                      "2026-10-27T09:20:00+00:00",
+                      "2026-10-27T09:25:00+00:00",
+                      "2026-10-27T09:30:00+00:00",
+                      "2026-10-27T09:47:00+00:00",
+                      "2026-10-27T09:50:00+00:00",
+                      "2026-10-27T10:44:00+00:00",
+                      "2026-10-27T10:50:00+00:00"
+                    ],
+                    "wind": []
+                  }
+                },
+                "scores": {
+                  "wind": {
+                    "score": 0.69,
+                    "maximumSustainedWindMph": 8.1,
+                    "maximumGustMph": null
+                  },
+                  "visibilityFog": {
+                    "score": 0.0975,
+                    "forecastProbability": 0.05,
+                    "forecastMinimumVisibilityRangeMiles": null,
+                    "observed": true,
+                    "minimumVisibilityMi": 0.2
+                  },
+                  "cloudCover": {
+                    "score": 1,
+                    "forecastCategories": [
+                      "clear",
+                      "mostly-clear"
+                    ],
+                    "observedCategory": "clear"
+                  },
+                  "thunder": {
+                    "score": 0.9999,
+                    "forecastProbability": 0.01,
+                    "observed": false
+                  },
+                  "hazards": {
+                    "score": 0.8495,
+                    "forecast": [],
+                    "forecastProbabilities": {
+                      "fog": 0.05,
+                      "wind": 0.01,
+                      "thunder": 0.01,
+                      "heavy-rain": 0.01,
+                      "heat": 0,
+                      "freeze": 0.02
+                    },
+                    "thresholds": {
+                      "fogVisibilityMiles": 1,
+                      "windSustainedMph": 25,
+                      "windGustMph": 35,
+                      "heavyRainHourlyInches": 0.3,
+                      "heatHighF": 95,
+                      "freezeLowF": 32
+                    },
+                    "observed": [
+                      "fog"
+                    ]
+                  },
+                  "eventTiming": {
+                    "score": null,
+                    "events": [],
+                    "method": "day-parts"
+                  },
+                  "weatherRegimeNarrative": {
+                    "score": 1,
+                    "forecastRegime": "wedge-erosion"
+                  },
+                  "officialAlertHandling": {
+                    "score": 1,
+                    "status": "none",
+                    "checkedAt": "2026-10-26T10:55:23.683Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=34.6834,-82.8374",
+                    "documented": true
+                  },
+                  "confidenceCalibration": {
+                    "score": 0.9866,
+                    "forecastConfidence": 0.91,
+                    "realizedAccuracy": 0.794
+                  }
+                }
+              }
+            }
+          },
+          "modelScores": [
+            {
+              "model": "ECMWF IFS",
+              "run": "2026-10-26T00:00Z",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 16,
+              "weatherRegime": "mixed-or-unspecified",
+              "highErrorF": -2.7,
+              "lowErrorF": -8,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "ECMWF IFS",
+              "run": "2026-10-26T00:00Z",
+              "region": "kentucky",
+              "station": "KLEX",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 16,
+              "weatherRegime": "mixed-or-unspecified",
+              "highErrorF": 0.5,
+              "lowErrorF": -10.2,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "GEFS",
+              "run": "2026-10-26T06:00Z",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 10,
+              "weatherRegime": "mixed-or-unspecified",
+              "highErrorF": 0.2,
+              "lowErrorF": -8.2,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "GEFS",
+              "run": "2026-10-26T06:00Z",
+              "region": "kentucky",
+              "station": "KLEX",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 10,
+              "weatherRegime": "mixed-or-unspecified",
+              "highErrorF": 1.7,
+              "lowErrorF": -10,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "GFS",
+              "run": "2026-10-26T06:00Z",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 10,
+              "weatherRegime": "mixed-or-unspecified",
+              "highErrorF": 0.1,
+              "lowErrorF": -7.9,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "GFS",
+              "run": "2026-10-26T06:00Z",
+              "region": "kentucky",
+              "station": "KLEX",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 10,
+              "weatherRegime": "cloudy-low-pressure",
+              "highErrorF": 2,
+              "lowErrorF": -8.5,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "HRRR",
+              "run": "2026-10-26T06:00Z",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 10,
+              "weatherRegime": "mixed-or-unspecified",
+              "highErrorF": 0.6,
+              "lowErrorF": -7.7,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "HRRR",
+              "run": "2026-10-26T06:00Z",
+              "region": "kentucky",
+              "station": "KLEX",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 10,
+              "weatherRegime": "mixed-or-unspecified",
+              "highErrorF": 1.9,
+              "lowErrorF": -8.3,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "NAM",
+              "run": "2026-10-26T06:00Z",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 10,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": -0.2,
+              "lowErrorF": -9.7,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "NAM",
+              "run": "2026-10-26T06:00Z",
+              "region": "kentucky",
+              "station": "KLEX",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 10,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 2.9,
+              "lowErrorF": -8.9,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "NAM 3-km Nest",
+              "run": "2026-10-26T06:00Z",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 10,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 0.3,
+              "lowErrorF": -9.3,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "NAM 3-km Nest",
+              "run": "2026-10-26T06:00Z",
+              "region": "kentucky",
+              "station": "KLEX",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 10,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 3.3,
+              "lowErrorF": -10.9,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "RAP",
+              "run": "2026-10-26T09:00Z",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 7,
+              "weatherRegime": "cloudy-low-pressure",
+              "highErrorF": 0.1,
+              "lowErrorF": -7.4,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "RAP",
+              "run": "2026-10-26T09:00Z",
+              "region": "kentucky",
+              "station": "KLEX",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 7,
+              "weatherRegime": "cloudy-low-pressure",
+              "highErrorF": 1.8,
+              "lowErrorF": -7.8,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "GFS",
+              "run": "Current Clemson point retrieval 2026-10-26T10:34Z; provider cycle opaque",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 16,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": -1.2,
+              "lowErrorF": -2,
+              "precipitationBrierScore": 1
+            },
+            {
+              "model": "ECMWF IFS",
+              "run": "Current Clemson point retrieval 2026-10-26T10:34Z; provider cycle opaque",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 16,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": 2.4,
+              "lowErrorF": -6.9,
+              "precipitationBrierScore": 1
+            },
+            {
+              "model": "GEFS",
+              "run": "Current 31-member Clemson extraction retrieved 2026-10-26T10:35Z; provider cycle opaque",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 16,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": 1.3,
+              "lowErrorF": -5.5,
+              "precipitationBrierScore": 1
+            },
+            {
+              "model": "NAM",
+              "run": "2026-10-26 00Z KGSP BUFKIT proxy",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 16,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": 4.9,
+              "lowErrorF": -6.9,
+              "precipitationBrierScore": 1
+            },
+            {
+              "model": "NAM 3-km Nest",
+              "run": "2026-10-26 06Z KGSP BUFKIT proxy",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 10,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": 4.1,
+              "lowErrorF": -6.7,
+              "precipitationBrierScore": 1
+            },
+            {
+              "model": "HRRR",
+              "run": "2026-10-26 06Z KGSP BUFKIT proxy",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 10,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": 1.6,
+              "lowErrorF": -6.6,
+              "precipitationBrierScore": 1
+            },
+            {
+              "model": "RAP",
+              "run": "2026-10-26 09Z KGSP BUFKIT proxy",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 7,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": 0.5,
+              "lowErrorF": -4.2,
+              "precipitationBrierScore": 1
+            }
+          ],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-10-26T10%3A57%3A00.000Z&end=2026-10-27T10%3A57%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-10-26T10%3A57%3A00.000Z&end=2026-10-27T10%3A57%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-10-26T10%3A57%3A00.000Z&end=2026-10-27T10%3A57%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-10-26T10%3A57%3A00.000Z&end=2026-10-27T10%3A57%3A00.000Z&limit=500"
+          ]
         },
         "48h": {
           "due": "2026-10-28T10:57:00.000Z",
@@ -4801,8 +5812,1023 @@
           ]
         },
         "48h": {
+          "forecastId": "20261025T1121Z",
+          "checkpointHours": 48,
           "due": "2026-10-27T11:21:00Z",
-          "status": "pending"
+          "status": "verified",
+          "scoringVersion": 3,
+          "verifiedAt": "2026-10-27T19:25:57.212Z",
+          "window": {
+            "start": "2026-10-26T11:21:00.000Z",
+            "end": "2026-10-27T11:21:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "3/4 station highs and 3/4 station lows fell inside the issued ranges; precipitation occurred in 1/2 regions; expanded categorical accuracy was 89.2%.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-10-26",
+                "highF": "69–74",
+                "lowF": "39–48",
+                "precipitation": "5% or less",
+                "hazard": "No official NWS alert is active for Monday at issuance. Independent concern remains limited to localized river-valley fog or frost late Monday night into Tuesday morning.",
+                "forecast": "Any localized valley fog dissipates during the morning, followed by mostly sunny and mild weather. Danville's most likely high is near 72°F with a light west wind. Monday night remains mostly clear to partly cloudy with a most likely low near 44°F; colder valleys may again see patchy fog or frost toward Tuesday dawn."
+              },
+              "weatherRegime": "dry-high-pressure",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 49,
+                    "temperatureObservationCount": 42,
+                    "firstObservedAt": "2026-10-26T11:35:00+00:00",
+                    "lastObservedAt": "2026-10-27T10:55:00+00:00",
+                    "highF": 71.6,
+                    "lowF": 41,
+                    "maximumSustainedWindMph": 4.7,
+                    "maximumGustMph": null,
+                    "maximumHourlyPrecipitationIn": null,
+                    "minimumVisibilityMi": 7,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0,
+                    "skyConditionCounts": {
+                      "clear": 48,
+                      "mostly-clear": 0,
+                      "partly-cloudy": 0,
+                      "mostly-cloudy": 0,
+                      "overcast": 0
+                    },
+                    "predominantSkyCondition": "clear",
+                    "eventPeriods": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    },
+                    "eventTimestamps": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    }
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      69,
+                      74
+                    ],
+                    "forecastMidpointF": 71.5,
+                    "observedF": 71.6,
+                    "errorF": 0.1,
+                    "absoluteErrorF": 0.1,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      39,
+                      48
+                    ],
+                    "forecastMidpointF": 43.5,
+                    "observedF": 41,
+                    "errorF": -2.5,
+                    "absoluteErrorF": 2.5,
+                    "withinRange": true,
+                    "rangeWidthF": 9
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 235,
+                    "temperatureObservationCount": 235,
+                    "firstObservedAt": "2026-10-26T11:45:00+00:00",
+                    "lastObservedAt": "2026-10-27T11:20:00+00:00",
+                    "highF": 73.9,
+                    "lowF": 41,
+                    "maximumSustainedWindMph": 6.9,
+                    "maximumGustMph": null,
+                    "maximumHourlyPrecipitationIn": null,
+                    "minimumVisibilityMi": 9,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0,
+                    "skyConditionCounts": {
+                      "clear": 191,
+                      "mostly-clear": 1,
+                      "partly-cloudy": 11,
+                      "mostly-cloudy": 7,
+                      "overcast": 0
+                    },
+                    "predominantSkyCondition": "clear",
+                    "eventPeriods": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    },
+                    "eventTimestamps": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    }
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      69,
+                      74
+                    ],
+                    "forecastMidpointF": 71.5,
+                    "observedF": 73.9,
+                    "errorF": 2.4,
+                    "absoluteErrorF": 2.4,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      39,
+                      48
+                    ],
+                    "forecastMidpointF": 43.5,
+                    "observedF": 41,
+                    "errorF": -2.5,
+                    "absoluteErrorF": 2.5,
+                    "withinRange": true,
+                    "rangeWidthF": 9
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              },
+              "expanded": {
+                "targets": {
+                  "wind": {
+                    "sustainedRangeMph": [
+                      1,
+                      7
+                    ],
+                    "gustRangeMph": [
+                      4,
+                      13
+                    ]
+                  },
+                  "visibility": {
+                    "fogProbability": 0.22,
+                    "minimumVisibilityRangeMiles": [
+                      0.25,
+                      4
+                    ]
+                  },
+                  "sky": {
+                    "categories": [
+                      "clear",
+                      "mostly-clear",
+                      "partly-cloudy"
+                    ]
+                  },
+                  "thunderProbability": 0.01,
+                  "hazards": [],
+                  "hazardProbabilities": {
+                    "fog": 0.22,
+                    "wind": 0.01,
+                    "thunder": 0.01,
+                    "heavy-rain": 0.01,
+                    "heat": 0,
+                    "freeze": 0.03
+                  },
+                  "hazardThresholds": {
+                    "fogVisibilityMiles": 1,
+                    "windSustainedMph": 25,
+                    "windGustMph": 35,
+                    "heavyRainHourlyInches": 0.3,
+                    "heatHighF": 95,
+                    "freezeLowF": 32
+                  },
+                  "eventTiming": {
+                    "rain": [],
+                    "thunder": [],
+                    "fog": [
+                      "night",
+                      "morning"
+                    ],
+                    "wind": []
+                  },
+                  "eventWindows": [
+                    {
+                      "event": "fog",
+                      "start": "2026-10-27T03:00:00-04:00",
+                      "end": "2026-10-27T09:00:00-04:00",
+                      "probability": 0.22,
+                      "toleranceHours": 3
+                    }
+                  ],
+                  "confidence": 0.91,
+                  "officialAlerts": {
+                    "status": "none",
+                    "checkedAt": "2026-10-25T11:13:08.218Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=37.6456,-84.7722",
+                    "documented": true
+                  }
+                },
+                "observed": {
+                  "maximumSustainedWindMph": 6.9,
+                  "maximumGustMph": null,
+                  "maximumHourlyPrecipitationIn": null,
+                  "minimumVisibilityMi": 7,
+                  "highF": 73.9,
+                  "lowF": 41,
+                  "rain": false,
+                  "thunder": false,
+                  "fog": false,
+                  "predominantSkyCondition": "clear",
+                  "skyConditionCounts": {
+                    "clear": 239,
+                    "mostly-clear": 1,
+                    "partly-cloudy": 11,
+                    "mostly-cloudy": 7,
+                    "overcast": 0
+                  },
+                  "eventPeriods": {
+                    "rain": [],
+                    "thunder": [],
+                    "fog": [],
+                    "wind": []
+                  },
+                  "eventTimestamps": {
+                    "rain": [],
+                    "thunder": [],
+                    "fog": [],
+                    "wind": []
+                  }
+                },
+                "scores": {
+                  "wind": {
+                    "score": 1,
+                    "maximumSustainedWindMph": 6.9,
+                    "maximumGustMph": null
+                  },
+                  "visibilityFog": {
+                    "score": 0.4758,
+                    "forecastProbability": 0.22,
+                    "forecastMinimumVisibilityRangeMiles": [
+                      0.25,
+                      4
+                    ],
+                    "observed": false,
+                    "minimumVisibilityMi": 7
+                  },
+                  "cloudCover": {
+                    "score": 1,
+                    "forecastCategories": [
+                      "clear",
+                      "mostly-clear",
+                      "partly-cloudy"
+                    ],
+                    "observedCategory": "clear"
+                  },
+                  "thunder": {
+                    "score": 0.9999,
+                    "forecastProbability": 0.01,
+                    "observed": false
+                  },
+                  "hazards": {
+                    "score": 0.9917,
+                    "forecast": [],
+                    "forecastProbabilities": {
+                      "fog": 0.22,
+                      "wind": 0.01,
+                      "thunder": 0.01,
+                      "heavy-rain": 0.01,
+                      "heat": 0,
+                      "freeze": 0.03
+                    },
+                    "thresholds": {
+                      "fogVisibilityMiles": 1,
+                      "windSustainedMph": 25,
+                      "windGustMph": 35,
+                      "heavyRainHourlyInches": 0.3,
+                      "heatHighF": 95,
+                      "freezeLowF": 32
+                    },
+                    "observed": []
+                  },
+                  "eventTiming": {
+                    "score": 0.9516,
+                    "events": [
+                      {
+                        "event": "fog",
+                        "forecastWindow": {
+                          "start": "2026-10-27T03:00:00-04:00",
+                          "end": "2026-10-27T09:00:00-04:00",
+                          "probability": 0.22,
+                          "toleranceHours": 3
+                        },
+                        "observedTimestamps": [],
+                        "score": 0.9516
+                      }
+                    ],
+                    "method": "timestamped-windows"
+                  },
+                  "weatherRegimeNarrative": {
+                    "score": 1,
+                    "forecastRegime": "dry-high-pressure"
+                  },
+                  "officialAlertHandling": {
+                    "score": 1,
+                    "status": "none",
+                    "checkedAt": "2026-10-25T11:13:08.218Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=37.6456,-84.7722",
+                    "documented": true
+                  },
+                  "confidenceCalibration": {
+                    "score": 0.9983,
+                    "forecastConfidence": 0.91,
+                    "realizedAccuracy": 0.9514
+                  }
+                }
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-10-26",
+                "highF": "68–73",
+                "lowF": "39–49",
+                "precipitation": "5% or less",
+                "hazard": "No official NWS alert is active for Monday at issuance, and no significant independent hazard is expected. The weekend wedge weakens, with lighter wind and no corridor freeze expected.",
+                "forecast": "The dry wedge weakens, allowing a sunnier and warmer afternoon with a most likely Clemson high near 71°F. East-northeast wind eases to 2–7 mph with gusts around 6–14 mph. Monday night remains mostly clear with a most likely Clemson low near 44°F; sheltered Central and Pickens County locations may reach the upper 30s."
+              },
+              "weatherRegime": "wedge-erosion",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 192,
+                    "temperatureObservationCount": 191,
+                    "firstObservedAt": "2026-10-26T11:45:00+00:00",
+                    "lastObservedAt": "2026-10-27T11:20:00+00:00",
+                    "highF": 71.6,
+                    "lowF": 46.4,
+                    "maximumSustainedWindMph": 8.1,
+                    "maximumGustMph": null,
+                    "maximumHourlyPrecipitationIn": 0,
+                    "minimumVisibilityMi": 0.2,
+                    "rainReports": 9,
+                    "thunderReports": 0,
+                    "fogReports": 31,
+                    "skyConditionCounts": {
+                      "clear": 138,
+                      "mostly-clear": 6,
+                      "partly-cloudy": 3,
+                      "mostly-cloudy": 0,
+                      "overcast": 0
+                    },
+                    "predominantSkyCondition": "clear",
+                    "eventPeriods": {
+                      "rain": [
+                        "morning",
+                        "night"
+                      ],
+                      "thunder": [],
+                      "fog": [
+                        "morning",
+                        "night"
+                      ],
+                      "wind": []
+                    },
+                    "eventTimestamps": {
+                      "rain": [
+                        "2026-10-27T06:55:00+00:00",
+                        "2026-10-27T07:00:00+00:00",
+                        "2026-10-27T07:04:00+00:00",
+                        "2026-10-27T07:05:00+00:00",
+                        "2026-10-27T07:10:00+00:00",
+                        "2026-10-27T07:15:00+00:00",
+                        "2026-10-27T10:10:00+00:00",
+                        "2026-10-27T10:15:00+00:00",
+                        "2026-10-27T10:20:00+00:00"
+                      ],
+                      "thunder": [],
+                      "fog": [
+                        "2026-10-27T06:45:00+00:00",
+                        "2026-10-27T06:55:00+00:00",
+                        "2026-10-27T07:00:00+00:00",
+                        "2026-10-27T07:04:00+00:00",
+                        "2026-10-27T07:05:00+00:00",
+                        "2026-10-27T07:10:00+00:00",
+                        "2026-10-27T07:15:00+00:00",
+                        "2026-10-27T08:05:00+00:00",
+                        "2026-10-27T08:10:00+00:00",
+                        "2026-10-27T08:15:00+00:00",
+                        "2026-10-27T08:20:00+00:00",
+                        "2026-10-27T08:25:00+00:00",
+                        "2026-10-27T08:31:00+00:00",
+                        "2026-10-27T08:40:00+00:00",
+                        "2026-10-27T08:45:00+00:00",
+                        "2026-10-27T08:49:00+00:00",
+                        "2026-10-27T08:54:00+00:00",
+                        "2026-10-27T08:55:00+00:00",
+                        "2026-10-27T09:00:00+00:00",
+                        "2026-10-27T09:05:00+00:00",
+                        "2026-10-27T09:10:00+00:00",
+                        "2026-10-27T09:15:00+00:00",
+                        "2026-10-27T09:20:00+00:00",
+                        "2026-10-27T09:25:00+00:00",
+                        "2026-10-27T09:30:00+00:00",
+                        "2026-10-27T09:47:00+00:00",
+                        "2026-10-27T09:50:00+00:00",
+                        "2026-10-27T10:44:00+00:00",
+                        "2026-10-27T10:50:00+00:00",
+                        "2026-10-27T11:10:00+00:00",
+                        "2026-10-27T11:20:00+00:00"
+                      ],
+                      "wind": []
+                    }
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      68,
+                      73
+                    ],
+                    "forecastMidpointF": 70.5,
+                    "observedF": 71.6,
+                    "errorF": 1.1,
+                    "absoluteErrorF": 1.1,
+                    "withinRange": true,
+                    "rangeWidthF": 5
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      39,
+                      49
+                    ],
+                    "forecastMidpointF": 44,
+                    "observedF": 46.4,
+                    "errorF": 2.4,
+                    "absoluteErrorF": 2.4,
+                    "withinRange": true,
+                    "rangeWidthF": 10
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 48,
+                    "temperatureObservationCount": 41,
+                    "firstObservedAt": "2026-10-26T11:35:00+00:00",
+                    "lastObservedAt": "2026-10-27T10:35:00+00:00",
+                    "highF": 73.2,
+                    "lowF": 38.7,
+                    "maximumSustainedWindMph": 6.9,
+                    "maximumGustMph": null,
+                    "maximumHourlyPrecipitationIn": null,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0,
+                    "skyConditionCounts": {
+                      "clear": 45,
+                      "mostly-clear": 0,
+                      "partly-cloudy": 0,
+                      "mostly-cloudy": 0,
+                      "overcast": 0
+                    },
+                    "predominantSkyCondition": "clear",
+                    "eventPeriods": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    },
+                    "eventTimestamps": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    }
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      68,
+                      73
+                    ],
+                    "forecastMidpointF": 70.5,
+                    "observedF": 73.2,
+                    "errorF": 2.7,
+                    "absoluteErrorF": 2.7,
+                    "withinRange": false,
+                    "rangeWidthF": 5
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      39,
+                      49
+                    ],
+                    "forecastMidpointF": 44,
+                    "observedF": 38.7,
+                    "errorF": -5.3,
+                    "absoluteErrorF": 5.3,
+                    "withinRange": false,
+                    "rangeWidthF": 10
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": true,
+                "brierScore": 0.9025
+              },
+              "expanded": {
+                "targets": {
+                  "wind": {
+                    "sustainedRangeMph": [
+                      2,
+                      7
+                    ],
+                    "gustRangeMph": [
+                      6,
+                      14
+                    ]
+                  },
+                  "visibility": {
+                    "fogProbability": 0.04,
+                    "minimumVisibilityRangeMiles": null
+                  },
+                  "sky": {
+                    "categories": [
+                      "clear",
+                      "mostly-clear"
+                    ]
+                  },
+                  "thunderProbability": 0.01,
+                  "hazards": [],
+                  "hazardProbabilities": {
+                    "fog": 0.04,
+                    "wind": 0.01,
+                    "thunder": 0.01,
+                    "heavy-rain": 0.01,
+                    "heat": 0,
+                    "freeze": 0.01
+                  },
+                  "hazardThresholds": {
+                    "fogVisibilityMiles": 1,
+                    "windSustainedMph": 25,
+                    "windGustMph": 35,
+                    "heavyRainHourlyInches": 0.3,
+                    "heatHighF": 95,
+                    "freezeLowF": 32
+                  },
+                  "eventTiming": {
+                    "rain": [],
+                    "thunder": [],
+                    "fog": [],
+                    "wind": []
+                  },
+                  "eventWindows": [],
+                  "confidence": 0.9,
+                  "officialAlerts": {
+                    "status": "none",
+                    "checkedAt": "2026-10-25T11:13:08.218Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=34.6834,-82.8374",
+                    "documented": true
+                  }
+                },
+                "observed": {
+                  "maximumSustainedWindMph": 8.1,
+                  "maximumGustMph": null,
+                  "maximumHourlyPrecipitationIn": 0,
+                  "minimumVisibilityMi": 0.2,
+                  "highF": 73.2,
+                  "lowF": 38.7,
+                  "rain": true,
+                  "thunder": false,
+                  "fog": true,
+                  "predominantSkyCondition": "clear",
+                  "skyConditionCounts": {
+                    "clear": 183,
+                    "mostly-clear": 6,
+                    "partly-cloudy": 3,
+                    "mostly-cloudy": 0,
+                    "overcast": 0
+                  },
+                  "eventPeriods": {
+                    "rain": [
+                      "morning",
+                      "night"
+                    ],
+                    "thunder": [],
+                    "fog": [
+                      "morning",
+                      "night"
+                    ],
+                    "wind": []
+                  },
+                  "eventTimestamps": {
+                    "rain": [
+                      "2026-10-27T06:55:00+00:00",
+                      "2026-10-27T07:00:00+00:00",
+                      "2026-10-27T07:04:00+00:00",
+                      "2026-10-27T07:05:00+00:00",
+                      "2026-10-27T07:10:00+00:00",
+                      "2026-10-27T07:15:00+00:00",
+                      "2026-10-27T10:10:00+00:00",
+                      "2026-10-27T10:15:00+00:00",
+                      "2026-10-27T10:20:00+00:00"
+                    ],
+                    "thunder": [],
+                    "fog": [
+                      "2026-10-27T06:45:00+00:00",
+                      "2026-10-27T06:55:00+00:00",
+                      "2026-10-27T07:00:00+00:00",
+                      "2026-10-27T07:04:00+00:00",
+                      "2026-10-27T07:05:00+00:00",
+                      "2026-10-27T07:10:00+00:00",
+                      "2026-10-27T07:15:00+00:00",
+                      "2026-10-27T08:05:00+00:00",
+                      "2026-10-27T08:10:00+00:00",
+                      "2026-10-27T08:15:00+00:00",
+                      "2026-10-27T08:20:00+00:00",
+                      "2026-10-27T08:25:00+00:00",
+                      "2026-10-27T08:31:00+00:00",
+                      "2026-10-27T08:40:00+00:00",
+                      "2026-10-27T08:45:00+00:00",
+                      "2026-10-27T08:49:00+00:00",
+                      "2026-10-27T08:54:00+00:00",
+                      "2026-10-27T08:55:00+00:00",
+                      "2026-10-27T09:00:00+00:00",
+                      "2026-10-27T09:05:00+00:00",
+                      "2026-10-27T09:10:00+00:00",
+                      "2026-10-27T09:15:00+00:00",
+                      "2026-10-27T09:20:00+00:00",
+                      "2026-10-27T09:25:00+00:00",
+                      "2026-10-27T09:30:00+00:00",
+                      "2026-10-27T09:47:00+00:00",
+                      "2026-10-27T09:50:00+00:00",
+                      "2026-10-27T10:44:00+00:00",
+                      "2026-10-27T10:50:00+00:00",
+                      "2026-10-27T11:10:00+00:00",
+                      "2026-10-27T11:20:00+00:00"
+                    ],
+                    "wind": []
+                  }
+                },
+                "scores": {
+                  "wind": {
+                    "score": 0.89,
+                    "maximumSustainedWindMph": 8.1,
+                    "maximumGustMph": null
+                  },
+                  "visibilityFog": {
+                    "score": 0.0784,
+                    "forecastProbability": 0.04,
+                    "forecastMinimumVisibilityRangeMiles": null,
+                    "observed": true,
+                    "minimumVisibilityMi": 0.2
+                  },
+                  "cloudCover": {
+                    "score": 1,
+                    "forecastCategories": [
+                      "clear",
+                      "mostly-clear"
+                    ],
+                    "observedCategory": "clear"
+                  },
+                  "thunder": {
+                    "score": 0.9999,
+                    "forecastProbability": 0.01,
+                    "observed": false
+                  },
+                  "hazards": {
+                    "score": 0.8463,
+                    "forecast": [],
+                    "forecastProbabilities": {
+                      "fog": 0.04,
+                      "wind": 0.01,
+                      "thunder": 0.01,
+                      "heavy-rain": 0.01,
+                      "heat": 0,
+                      "freeze": 0.01
+                    },
+                    "thresholds": {
+                      "fogVisibilityMiles": 1,
+                      "windSustainedMph": 25,
+                      "windGustMph": 35,
+                      "heavyRainHourlyInches": 0.3,
+                      "heatHighF": 95,
+                      "freezeLowF": 32
+                    },
+                    "observed": [
+                      "fog"
+                    ]
+                  },
+                  "eventTiming": {
+                    "score": null,
+                    "events": [],
+                    "method": "day-parts"
+                  },
+                  "weatherRegimeNarrative": {
+                    "score": 1,
+                    "forecastRegime": "wedge-erosion"
+                  },
+                  "officialAlertHandling": {
+                    "score": 1,
+                    "status": "none",
+                    "checkedAt": "2026-10-25T11:13:08.218Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=34.6834,-82.8374",
+                    "documented": true
+                  },
+                  "confidenceCalibration": {
+                    "score": 0.9262,
+                    "forecastConfidence": 0.9,
+                    "realizedAccuracy": 0.6284
+                  }
+                }
+              }
+            }
+          },
+          "modelScores": [
+            {
+              "model": "ECMWF IFS",
+              "run": "2026-10-25T00:00Z",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 40,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": -2.6,
+              "lowErrorF": -8,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "ECMWF IFS",
+              "run": "2026-10-25T00:00Z",
+              "region": "kentucky",
+              "station": "KLEX",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 40,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 0.6,
+              "lowErrorF": -10.9,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "GEFS",
+              "run": "2026-10-25T06:00Z",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 34,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 0.2,
+              "lowErrorF": -8.1,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "GEFS",
+              "run": "2026-10-25T06:00Z",
+              "region": "kentucky",
+              "station": "KLEX",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 34,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 2.2,
+              "lowErrorF": -9.9,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "GFS",
+              "run": "2026-10-25T06:00Z",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 34,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": -1.2,
+              "lowErrorF": -7.8,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "GFS",
+              "run": "2026-10-25T06:00Z",
+              "region": "kentucky",
+              "station": "KLEX",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 34,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 2.7,
+              "lowErrorF": -8.4,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "HRRR",
+              "run": "2026-10-25T06:00Z",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 34,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": -0.4,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "HRRR",
+              "run": "2026-10-25T06:00Z",
+              "region": "kentucky",
+              "station": "KLEX",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 34,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 1.3,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "NAM",
+              "run": "2026-10-25T06:00Z",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 34,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 2.2,
+              "lowErrorF": -7.3,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "NAM",
+              "run": "2026-10-25T06:00Z",
+              "region": "kentucky",
+              "station": "KLEX",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 34,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 5.3,
+              "lowErrorF": -2.4,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "NAM 3-km Nest",
+              "run": "2026-10-25T06:00Z",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 34,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 3.8,
+              "lowErrorF": -5.2,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "NAM 3-km Nest",
+              "run": "2026-10-25T06:00Z",
+              "region": "kentucky",
+              "station": "KLEX",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 34,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 5.5,
+              "lowErrorF": -8.8,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "RAP",
+              "run": "2026-10-25T09:00Z",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 31,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 0.1,
+              "lowErrorF": -7.5,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "RAP",
+              "run": "2026-10-25T09:00Z",
+              "region": "kentucky",
+              "station": "KLEX",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 31,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 1.9,
+              "lowErrorF": -7.5,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "GFS",
+              "run": "2026-10-25 00Z via Open-Meteo",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 40,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": -2.8,
+              "lowErrorF": -7.4,
+              "precipitationBrierScore": 1
+            },
+            {
+              "model": "ECMWF IFS",
+              "run": "2026-10-25 00Z via Open-Meteo",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 40,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": 3.1,
+              "lowErrorF": -5.6,
+              "precipitationBrierScore": 1
+            },
+            {
+              "model": "GEFS",
+              "run": "2026-10-25 00Z 31-member mean via Open-Meteo",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 40,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": 1.3,
+              "lowErrorF": -6.6,
+              "precipitationBrierScore": 1
+            },
+            {
+              "model": "NAM",
+              "run": "2026-10-25 06Z KGSP proxy",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 34,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": 5.6,
+              "lowErrorF": -5.6,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "NAM 3-km Nest",
+              "run": "2026-10-25 06Z Clemson point",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 34,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": 2.8,
+              "lowErrorF": -7.7,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "HRRR",
+              "run": "2026-10-25 06Z Clemson point",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 34,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": -0.2,
+              "lowErrorF": null,
+              "precipitationBrierScore": null
+            },
+            {
+              "model": "RAP",
+              "run": "2026-10-25 09Z KGSP proxy",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 31,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": 2.2,
+              "lowErrorF": -1.7,
+              "precipitationBrierScore": null
+            }
+          ],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-10-26T11%3A21%3A00.000Z&end=2026-10-27T11%3A21%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-10-26T11%3A21%3A00.000Z&end=2026-10-27T11%3A21%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-10-26T11%3A21%3A00.000Z&end=2026-10-27T11%3A21%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-10-26T11%3A21%3A00.000Z&end=2026-10-27T11%3A21%3A00.000Z&limit=500"
+          ]
         },
         "72h": {
           "due": "2026-10-28T11:21:00Z",
@@ -7979,8 +10005,874 @@
           ]
         },
         "72h": {
+          "forecastId": "20261024T1255Z",
+          "checkpointHours": 72,
           "due": "2026-10-27T12:55:00Z",
-          "status": "pending"
+          "status": "verified",
+          "scoringVersion": 3,
+          "verifiedAt": "2026-10-27T19:25:57.212Z",
+          "window": {
+            "start": "2026-10-26T12:55:00.000Z",
+            "end": "2026-10-27T12:55:00.000Z"
+          },
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "overallAssessment": "4/4 station highs and 4/4 station lows fell inside the issued ranges; precipitation occurred in 1/2 regions; expanded categorical accuracy was 89.7%.",
+          "regions": {
+            "kentucky": {
+              "forecastDay": {
+                "date": "2026-10-26",
+                "highF": "66–75",
+                "lowF": "38–48",
+                "precipitation": "5% or less",
+                "hazard": "No official NWS alert is active for Monday at issuance. A single colder NAM profile supports localized valley fog or frost late Monday night, but a widespread dense-fog or freeze event is not expected.",
+                "forecast": "Sunny and mild beneath persistent high pressure, with a most likely Danville high of 71°F and light southwest or variable wind. Monday night is mostly clear to partly cloudy with a most likely low near 43°F. The NAM's colder, foggier solution is not corroborated by full-period GFS, GEFS or ECMWF guidance, so only localized valley fog or frost is retained toward Tuesday dawn."
+              },
+              "weatherRegime": "dry-high-pressure",
+              "stationScores": {
+                "KDVK": {
+                  "observed": {
+                    "observationCount": 47,
+                    "temperatureObservationCount": 41,
+                    "firstObservedAt": "2026-10-26T13:15:00+00:00",
+                    "lastObservedAt": "2026-10-27T12:35:00+00:00",
+                    "highF": 71.6,
+                    "lowF": 41,
+                    "maximumSustainedWindMph": 4.7,
+                    "maximumGustMph": null,
+                    "maximumHourlyPrecipitationIn": null,
+                    "minimumVisibilityMi": 7,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0,
+                    "skyConditionCounts": {
+                      "clear": 46,
+                      "mostly-clear": 0,
+                      "partly-cloudy": 0,
+                      "mostly-cloudy": 0,
+                      "overcast": 0
+                    },
+                    "predominantSkyCondition": "clear",
+                    "eventPeriods": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    },
+                    "eventTimestamps": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    }
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      66,
+                      75
+                    ],
+                    "forecastMidpointF": 70.5,
+                    "observedF": 71.6,
+                    "errorF": 1.1,
+                    "absoluteErrorF": 1.1,
+                    "withinRange": true,
+                    "rangeWidthF": 9
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      38,
+                      48
+                    ],
+                    "forecastMidpointF": 43,
+                    "observedF": 41,
+                    "errorF": -2,
+                    "absoluteErrorF": 2,
+                    "withinRange": true,
+                    "rangeWidthF": 10
+                  }
+                },
+                "KLEX": {
+                  "observed": {
+                    "observationCount": 232,
+                    "temperatureObservationCount": 232,
+                    "firstObservedAt": "2026-10-26T12:55:00+00:00",
+                    "lastObservedAt": "2026-10-27T12:54:00+00:00",
+                    "highF": 73.9,
+                    "lowF": 42.8,
+                    "maximumSustainedWindMph": 6.9,
+                    "maximumGustMph": null,
+                    "maximumHourlyPrecipitationIn": null,
+                    "minimumVisibilityMi": 7,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0,
+                    "skyConditionCounts": {
+                      "clear": 191,
+                      "mostly-clear": 1,
+                      "partly-cloudy": 11,
+                      "mostly-cloudy": 4,
+                      "overcast": 0
+                    },
+                    "predominantSkyCondition": "clear",
+                    "eventPeriods": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    },
+                    "eventTimestamps": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    }
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      66,
+                      75
+                    ],
+                    "forecastMidpointF": 70.5,
+                    "observedF": 73.9,
+                    "errorF": 3.4,
+                    "absoluteErrorF": 3.4,
+                    "withinRange": true,
+                    "rangeWidthF": 9
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      38,
+                      48
+                    ],
+                    "forecastMidpointF": 43,
+                    "observedF": 42.8,
+                    "errorF": -0.2,
+                    "absoluteErrorF": 0.2,
+                    "withinRange": true,
+                    "rangeWidthF": 10
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": false,
+                "brierScore": 0.0025
+              },
+              "expanded": {
+                "targets": {
+                  "wind": {
+                    "sustainedRangeMph": [
+                      1,
+                      8
+                    ],
+                    "gustRangeMph": [
+                      4,
+                      15
+                    ]
+                  },
+                  "visibility": {
+                    "fogProbability": 0.18,
+                    "minimumVisibilityRangeMiles": [
+                      0.25,
+                      4
+                    ]
+                  },
+                  "sky": {
+                    "categories": [
+                      "clear",
+                      "mostly-clear",
+                      "partly-cloudy"
+                    ]
+                  },
+                  "thunderProbability": 0.01,
+                  "hazards": [],
+                  "hazardProbabilities": {
+                    "fog": 0.18,
+                    "wind": 0.01,
+                    "thunder": 0.01,
+                    "heavy-rain": 0.01,
+                    "heat": 0,
+                    "freeze": 0.04
+                  },
+                  "hazardThresholds": {
+                    "fogVisibilityMiles": 1,
+                    "windSustainedMph": 25,
+                    "windGustMph": 35,
+                    "heavyRainHourlyInches": 0.3,
+                    "heatHighF": 95,
+                    "freezeLowF": 32
+                  },
+                  "eventTiming": {
+                    "rain": [],
+                    "thunder": [],
+                    "fog": [
+                      "night",
+                      "morning"
+                    ],
+                    "wind": []
+                  },
+                  "eventWindows": [
+                    {
+                      "event": "fog",
+                      "start": "2026-10-27T03:00:00-04:00",
+                      "end": "2026-10-27T08:55:00-04:00",
+                      "probability": 0.18,
+                      "toleranceHours": 3
+                    }
+                  ],
+                  "confidence": 0.85,
+                  "officialAlerts": {
+                    "status": "none",
+                    "checkedAt": "2026-10-24T12:01:35Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=37.6456,-84.7722",
+                    "documented": true
+                  }
+                },
+                "observed": {
+                  "maximumSustainedWindMph": 6.9,
+                  "maximumGustMph": null,
+                  "maximumHourlyPrecipitationIn": null,
+                  "minimumVisibilityMi": 7,
+                  "highF": 73.9,
+                  "lowF": 41,
+                  "rain": false,
+                  "thunder": false,
+                  "fog": false,
+                  "predominantSkyCondition": "clear",
+                  "skyConditionCounts": {
+                    "clear": 237,
+                    "mostly-clear": 1,
+                    "partly-cloudy": 11,
+                    "mostly-cloudy": 4,
+                    "overcast": 0
+                  },
+                  "eventPeriods": {
+                    "rain": [],
+                    "thunder": [],
+                    "fog": [],
+                    "wind": []
+                  },
+                  "eventTimestamps": {
+                    "rain": [],
+                    "thunder": [],
+                    "fog": [],
+                    "wind": []
+                  }
+                },
+                "scores": {
+                  "wind": {
+                    "score": 1,
+                    "maximumSustainedWindMph": 6.9,
+                    "maximumGustMph": null
+                  },
+                  "visibilityFog": {
+                    "score": 0.4838,
+                    "forecastProbability": 0.18,
+                    "forecastMinimumVisibilityRangeMiles": [
+                      0.25,
+                      4
+                    ],
+                    "observed": false,
+                    "minimumVisibilityMi": 7
+                  },
+                  "cloudCover": {
+                    "score": 1,
+                    "forecastCategories": [
+                      "clear",
+                      "mostly-clear",
+                      "partly-cloudy"
+                    ],
+                    "observedCategory": "clear"
+                  },
+                  "thunder": {
+                    "score": 0.9999,
+                    "forecastProbability": 0.01,
+                    "observed": false
+                  },
+                  "hazards": {
+                    "score": 0.9943,
+                    "forecast": [],
+                    "forecastProbabilities": {
+                      "fog": 0.18,
+                      "wind": 0.01,
+                      "thunder": 0.01,
+                      "heavy-rain": 0.01,
+                      "heat": 0,
+                      "freeze": 0.04
+                    },
+                    "thresholds": {
+                      "fogVisibilityMiles": 1,
+                      "windSustainedMph": 25,
+                      "windGustMph": 35,
+                      "heavyRainHourlyInches": 0.3,
+                      "heatHighF": 95,
+                      "freezeLowF": 32
+                    },
+                    "observed": []
+                  },
+                  "eventTiming": {
+                    "score": 0.9676,
+                    "events": [
+                      {
+                        "event": "fog",
+                        "forecastWindow": {
+                          "start": "2026-10-27T03:00:00-04:00",
+                          "end": "2026-10-27T08:55:00-04:00",
+                          "probability": 0.18,
+                          "toleranceHours": 3
+                        },
+                        "observedTimestamps": [],
+                        "score": 0.9676
+                      }
+                    ],
+                    "method": "timestamped-windows"
+                  },
+                  "weatherRegimeNarrative": {
+                    "score": 1,
+                    "forecastRegime": "dry-high-pressure"
+                  },
+                  "officialAlertHandling": {
+                    "score": 1,
+                    "status": "none",
+                    "checkedAt": "2026-10-24T12:01:35Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=37.6456,-84.7722",
+                    "documented": true
+                  },
+                  "confidenceCalibration": {
+                    "score": 0.9893,
+                    "forecastConfidence": 0.85,
+                    "realizedAccuracy": 0.9536
+                  }
+                }
+              }
+            },
+            "upstate": {
+              "forecastDay": {
+                "date": "2026-10-26",
+                "highF": "68–74",
+                "lowF": "36–46",
+                "precipitation": "5% or less",
+                "hazard": "No official NWS alert is active for Monday at issuance, and no significant independent hazard is expected. The weekend wedge weakens, with lighter wind and no corridor freeze expected.",
+                "forecast": "The dry wedge begins to weaken, allowing a sunnier, warmer afternoon with a most likely Clemson high near 71°F. Northeast wind eases to 2–7 mph with gusts around 8–17 mph. Monday night remains mostly clear with a most likely Clemson low near 45°F; sheltered Central and Pickens County locations may reach 37–39°F."
+              },
+              "weatherRegime": "wedge-erosion",
+              "stationScores": {
+                "KCEU": {
+                  "observed": {
+                    "observationCount": 193,
+                    "temperatureObservationCount": 192,
+                    "firstObservedAt": "2026-10-26T12:55:00+00:00",
+                    "lastObservedAt": "2026-10-27T12:54:00+00:00",
+                    "highF": 71.6,
+                    "lowF": 46,
+                    "maximumSustainedWindMph": 8.1,
+                    "maximumGustMph": null,
+                    "maximumHourlyPrecipitationIn": 0,
+                    "minimumVisibilityMi": 0.2,
+                    "rainReports": 9,
+                    "thunderReports": 0,
+                    "fogReports": 41,
+                    "skyConditionCounts": {
+                      "clear": 129,
+                      "mostly-clear": 6,
+                      "partly-cloudy": 3,
+                      "mostly-cloudy": 0,
+                      "overcast": 0
+                    },
+                    "predominantSkyCondition": "clear",
+                    "eventPeriods": {
+                      "rain": [
+                        "morning",
+                        "night"
+                      ],
+                      "thunder": [],
+                      "fog": [
+                        "morning",
+                        "night"
+                      ],
+                      "wind": []
+                    },
+                    "eventTimestamps": {
+                      "rain": [
+                        "2026-10-27T06:55:00+00:00",
+                        "2026-10-27T07:00:00+00:00",
+                        "2026-10-27T07:04:00+00:00",
+                        "2026-10-27T07:05:00+00:00",
+                        "2026-10-27T07:10:00+00:00",
+                        "2026-10-27T07:15:00+00:00",
+                        "2026-10-27T10:10:00+00:00",
+                        "2026-10-27T10:15:00+00:00",
+                        "2026-10-27T10:20:00+00:00"
+                      ],
+                      "thunder": [],
+                      "fog": [
+                        "2026-10-27T06:45:00+00:00",
+                        "2026-10-27T06:55:00+00:00",
+                        "2026-10-27T07:00:00+00:00",
+                        "2026-10-27T07:04:00+00:00",
+                        "2026-10-27T07:05:00+00:00",
+                        "2026-10-27T07:10:00+00:00",
+                        "2026-10-27T07:15:00+00:00",
+                        "2026-10-27T08:05:00+00:00",
+                        "2026-10-27T08:10:00+00:00",
+                        "2026-10-27T08:15:00+00:00",
+                        "2026-10-27T08:20:00+00:00",
+                        "2026-10-27T08:25:00+00:00",
+                        "2026-10-27T08:31:00+00:00",
+                        "2026-10-27T08:40:00+00:00",
+                        "2026-10-27T08:45:00+00:00",
+                        "2026-10-27T08:49:00+00:00",
+                        "2026-10-27T08:54:00+00:00",
+                        "2026-10-27T08:55:00+00:00",
+                        "2026-10-27T09:00:00+00:00",
+                        "2026-10-27T09:05:00+00:00",
+                        "2026-10-27T09:10:00+00:00",
+                        "2026-10-27T09:15:00+00:00",
+                        "2026-10-27T09:20:00+00:00",
+                        "2026-10-27T09:25:00+00:00",
+                        "2026-10-27T09:30:00+00:00",
+                        "2026-10-27T09:47:00+00:00",
+                        "2026-10-27T09:50:00+00:00",
+                        "2026-10-27T10:44:00+00:00",
+                        "2026-10-27T10:50:00+00:00",
+                        "2026-10-27T11:10:00+00:00",
+                        "2026-10-27T11:20:00+00:00",
+                        "2026-10-27T11:25:00+00:00",
+                        "2026-10-27T11:32:00+00:00",
+                        "2026-10-27T11:45:00+00:00",
+                        "2026-10-27T11:50:00+00:00",
+                        "2026-10-27T12:09:00+00:00",
+                        "2026-10-27T12:17:00+00:00",
+                        "2026-10-27T12:28:00+00:00",
+                        "2026-10-27T12:45:00+00:00",
+                        "2026-10-27T12:48:00+00:00",
+                        "2026-10-27T12:54:00+00:00"
+                      ],
+                      "wind": []
+                    }
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      68,
+                      74
+                    ],
+                    "forecastMidpointF": 71,
+                    "observedF": 71.6,
+                    "errorF": 0.6,
+                    "absoluteErrorF": 0.6,
+                    "withinRange": true,
+                    "rangeWidthF": 6
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      36,
+                      46
+                    ],
+                    "forecastMidpointF": 41,
+                    "observedF": 46,
+                    "errorF": 5,
+                    "absoluteErrorF": 5,
+                    "withinRange": true,
+                    "rangeWidthF": 10
+                  }
+                },
+                "KLQK": {
+                  "observed": {
+                    "observationCount": 47,
+                    "temperatureObservationCount": 42,
+                    "firstObservedAt": "2026-10-26T12:55:00+00:00",
+                    "lastObservedAt": "2026-10-27T12:35:00+00:00",
+                    "highF": 73.2,
+                    "lowF": 38.1,
+                    "maximumSustainedWindMph": 6.9,
+                    "maximumGustMph": null,
+                    "maximumHourlyPrecipitationIn": null,
+                    "minimumVisibilityMi": 10,
+                    "rainReports": 0,
+                    "thunderReports": 0,
+                    "fogReports": 0,
+                    "skyConditionCounts": {
+                      "clear": 44,
+                      "mostly-clear": 0,
+                      "partly-cloudy": 0,
+                      "mostly-cloudy": 0,
+                      "overcast": 0
+                    },
+                    "predominantSkyCondition": "clear",
+                    "eventPeriods": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    },
+                    "eventTimestamps": {
+                      "rain": [],
+                      "thunder": [],
+                      "fog": [],
+                      "wind": []
+                    }
+                  },
+                  "highTemperature": {
+                    "forecastRangeF": [
+                      68,
+                      74
+                    ],
+                    "forecastMidpointF": 71,
+                    "observedF": 73.2,
+                    "errorF": 2.2,
+                    "absoluteErrorF": 2.2,
+                    "withinRange": true,
+                    "rangeWidthF": 6
+                  },
+                  "lowTemperature": {
+                    "forecastRangeF": [
+                      36,
+                      46
+                    ],
+                    "forecastMidpointF": 41,
+                    "observedF": 38.1,
+                    "errorF": -2.9,
+                    "absoluteErrorF": 2.9,
+                    "withinRange": true,
+                    "rangeWidthF": 10
+                  }
+                }
+              },
+              "precipitation": {
+                "forecastProbability": 0.05,
+                "observed": true,
+                "brierScore": 0.9025
+              },
+              "expanded": {
+                "targets": {
+                  "wind": {
+                    "sustainedRangeMph": [
+                      2,
+                      7
+                    ],
+                    "gustRangeMph": [
+                      8,
+                      17
+                    ]
+                  },
+                  "visibility": {
+                    "fogProbability": 0.04,
+                    "minimumVisibilityRangeMiles": null
+                  },
+                  "sky": {
+                    "categories": [
+                      "clear",
+                      "mostly-clear"
+                    ]
+                  },
+                  "thunderProbability": 0.01,
+                  "hazards": [],
+                  "hazardProbabilities": {
+                    "fog": 0.04,
+                    "wind": 0.02,
+                    "thunder": 0.01,
+                    "heavy-rain": 0.01,
+                    "heat": 0,
+                    "freeze": 0.01
+                  },
+                  "hazardThresholds": {
+                    "fogVisibilityMiles": 1,
+                    "windSustainedMph": 25,
+                    "windGustMph": 35,
+                    "heavyRainHourlyInches": 0.3,
+                    "heatHighF": 95,
+                    "freezeLowF": 32
+                  },
+                  "eventTiming": {
+                    "rain": [],
+                    "thunder": [],
+                    "fog": [],
+                    "wind": []
+                  },
+                  "eventWindows": [],
+                  "confidence": 0.86,
+                  "officialAlerts": {
+                    "status": "none",
+                    "checkedAt": "2026-10-24T12:01:35Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=34.6834,-82.8374",
+                    "documented": true
+                  }
+                },
+                "observed": {
+                  "maximumSustainedWindMph": 8.1,
+                  "maximumGustMph": null,
+                  "maximumHourlyPrecipitationIn": 0,
+                  "minimumVisibilityMi": 0.2,
+                  "highF": 73.2,
+                  "lowF": 38.1,
+                  "rain": true,
+                  "thunder": false,
+                  "fog": true,
+                  "predominantSkyCondition": "clear",
+                  "skyConditionCounts": {
+                    "clear": 173,
+                    "mostly-clear": 6,
+                    "partly-cloudy": 3,
+                    "mostly-cloudy": 0,
+                    "overcast": 0
+                  },
+                  "eventPeriods": {
+                    "rain": [
+                      "morning",
+                      "night"
+                    ],
+                    "thunder": [],
+                    "fog": [
+                      "morning",
+                      "night"
+                    ],
+                    "wind": []
+                  },
+                  "eventTimestamps": {
+                    "rain": [
+                      "2026-10-27T06:55:00+00:00",
+                      "2026-10-27T07:00:00+00:00",
+                      "2026-10-27T07:04:00+00:00",
+                      "2026-10-27T07:05:00+00:00",
+                      "2026-10-27T07:10:00+00:00",
+                      "2026-10-27T07:15:00+00:00",
+                      "2026-10-27T10:10:00+00:00",
+                      "2026-10-27T10:15:00+00:00",
+                      "2026-10-27T10:20:00+00:00"
+                    ],
+                    "thunder": [],
+                    "fog": [
+                      "2026-10-27T06:45:00+00:00",
+                      "2026-10-27T06:55:00+00:00",
+                      "2026-10-27T07:00:00+00:00",
+                      "2026-10-27T07:04:00+00:00",
+                      "2026-10-27T07:05:00+00:00",
+                      "2026-10-27T07:10:00+00:00",
+                      "2026-10-27T07:15:00+00:00",
+                      "2026-10-27T08:05:00+00:00",
+                      "2026-10-27T08:10:00+00:00",
+                      "2026-10-27T08:15:00+00:00",
+                      "2026-10-27T08:20:00+00:00",
+                      "2026-10-27T08:25:00+00:00",
+                      "2026-10-27T08:31:00+00:00",
+                      "2026-10-27T08:40:00+00:00",
+                      "2026-10-27T08:45:00+00:00",
+                      "2026-10-27T08:49:00+00:00",
+                      "2026-10-27T08:54:00+00:00",
+                      "2026-10-27T08:55:00+00:00",
+                      "2026-10-27T09:00:00+00:00",
+                      "2026-10-27T09:05:00+00:00",
+                      "2026-10-27T09:10:00+00:00",
+                      "2026-10-27T09:15:00+00:00",
+                      "2026-10-27T09:20:00+00:00",
+                      "2026-10-27T09:25:00+00:00",
+                      "2026-10-27T09:30:00+00:00",
+                      "2026-10-27T09:47:00+00:00",
+                      "2026-10-27T09:50:00+00:00",
+                      "2026-10-27T10:44:00+00:00",
+                      "2026-10-27T10:50:00+00:00",
+                      "2026-10-27T11:10:00+00:00",
+                      "2026-10-27T11:20:00+00:00",
+                      "2026-10-27T11:25:00+00:00",
+                      "2026-10-27T11:32:00+00:00",
+                      "2026-10-27T11:45:00+00:00",
+                      "2026-10-27T11:50:00+00:00",
+                      "2026-10-27T12:09:00+00:00",
+                      "2026-10-27T12:17:00+00:00",
+                      "2026-10-27T12:28:00+00:00",
+                      "2026-10-27T12:45:00+00:00",
+                      "2026-10-27T12:48:00+00:00",
+                      "2026-10-27T12:54:00+00:00"
+                    ],
+                    "wind": []
+                  }
+                },
+                "scores": {
+                  "wind": {
+                    "score": 0.89,
+                    "maximumSustainedWindMph": 8.1,
+                    "maximumGustMph": null
+                  },
+                  "visibilityFog": {
+                    "score": 0.0784,
+                    "forecastProbability": 0.04,
+                    "forecastMinimumVisibilityRangeMiles": null,
+                    "observed": true,
+                    "minimumVisibilityMi": 0.2
+                  },
+                  "cloudCover": {
+                    "score": 1,
+                    "forecastCategories": [
+                      "clear",
+                      "mostly-clear"
+                    ],
+                    "observedCategory": "clear"
+                  },
+                  "thunder": {
+                    "score": 0.9999,
+                    "forecastProbability": 0.01,
+                    "observed": false
+                  },
+                  "hazards": {
+                    "score": 0.8463,
+                    "forecast": [],
+                    "forecastProbabilities": {
+                      "fog": 0.04,
+                      "wind": 0.02,
+                      "thunder": 0.01,
+                      "heavy-rain": 0.01,
+                      "heat": 0,
+                      "freeze": 0.01
+                    },
+                    "thresholds": {
+                      "fogVisibilityMiles": 1,
+                      "windSustainedMph": 25,
+                      "windGustMph": 35,
+                      "heavyRainHourlyInches": 0.3,
+                      "heatHighF": 95,
+                      "freezeLowF": 32
+                    },
+                    "observed": [
+                      "fog"
+                    ]
+                  },
+                  "eventTiming": {
+                    "score": null,
+                    "events": [],
+                    "method": "day-parts"
+                  },
+                  "weatherRegimeNarrative": {
+                    "score": 1,
+                    "forecastRegime": "wedge-erosion"
+                  },
+                  "officialAlertHandling": {
+                    "score": 1,
+                    "status": "none",
+                    "checkedAt": "2026-10-24T12:01:35Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=34.6834,-82.8374",
+                    "documented": true
+                  },
+                  "confidenceCalibration": {
+                    "score": 0.9975,
+                    "forecastConfidence": 0.86,
+                    "realizedAccuracy": 0.8102
+                  }
+                }
+              }
+            }
+          },
+          "modelScores": [
+            {
+              "model": "ECMWF IFS",
+              "run": "2026-10-24 06Z KDVK official GRIB",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 58,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": -0.8,
+              "lowErrorF": -5.7,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "GEFS",
+              "run": "2026-10-24 06Z KDVK official GRIB",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 58,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 0.6,
+              "lowErrorF": null,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "GFS",
+              "run": "2026-10-24 06Z KDVK official GRIB",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 58,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": -0.3,
+              "lowErrorF": null,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "NAM",
+              "run": "2026-10-24 06Z KDVK official GRIB",
+              "region": "kentucky",
+              "station": "KDVK",
+              "observationBasis": "station",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 58,
+              "weatherRegime": "dry-high-pressure",
+              "highErrorF": 3.4,
+              "lowErrorF": null,
+              "precipitationBrierScore": 0
+            },
+            {
+              "model": "GFS",
+              "run": "2026-10-24 06Z via Open-Meteo",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 58,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": -2.2,
+              "lowErrorF": -4.6,
+              "precipitationBrierScore": 1
+            },
+            {
+              "model": "ECMWF IFS",
+              "run": "2026-10-24 06Z Clemson official GRIB",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 58,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": 4.9,
+              "lowErrorF": -4.9,
+              "precipitationBrierScore": 1
+            },
+            {
+              "model": "GEFS",
+              "run": "2026-10-24 06Z 31-member mean",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 58,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": 2.1,
+              "lowErrorF": null,
+              "precipitationBrierScore": 1
+            },
+            {
+              "model": "NAM 3-km Nest",
+              "run": "2026-10-24 06Z Clemson point",
+              "region": "upstate",
+              "station": null,
+              "observationBasis": "regional-mean",
+              "targetDate": "2026-10-26",
+              "leadTimeHours": 58,
+              "weatherRegime": "wedge-erosion",
+              "highErrorF": 4.4,
+              "lowErrorF": null,
+              "precipitationBrierScore": 1
+            }
+          ],
+          "sources": [
+            "https://api.weather.gov/stations/KDVK/observations?start=2026-10-26T12%3A55%3A00.000Z&end=2026-10-27T12%3A55%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLEX/observations?start=2026-10-26T12%3A55%3A00.000Z&end=2026-10-27T12%3A55%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KCEU/observations?start=2026-10-26T12%3A55%3A00.000Z&end=2026-10-27T12%3A55%3A00.000Z&limit=500",
+            "https://api.weather.gov/stations/KLQK/observations?start=2026-10-26T12%3A55%3A00.000Z&end=2026-10-27T12%3A55%3A00.000Z&limit=500"
+          ]
         }
       }
     },
@@ -34418,8 +37310,8 @@
         "24h": {
           "due": "2026-10-19T07:16:00-04:00",
           "status": "deferred",
-          "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-          "reason": "KCEU supplied 0 temperature observations; 3 required"
+          "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+          "reason": "KDVK supplied 0 temperature observations; 3 required"
         },
         "48h": {
           "forecastId": "20261018T1116Z",
@@ -37280,14 +40172,14 @@
         "24h": {
           "due": "2026-10-18T06:25:00-04:00",
           "status": "deferred",
-          "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-          "reason": "KLEX supplied 0 temperature observations; 3 required"
+          "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+          "reason": "KDVK supplied 0 temperature observations; 3 required"
         },
         "48h": {
           "due": "2026-10-19T06:25:00-04:00",
           "status": "deferred",
-          "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-          "reason": "KLQK supplied 0 temperature observations; 3 required"
+          "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+          "reason": "KCEU supplied 0 temperature observations; 3 required"
         },
         "72h": {
           "forecastId": "20261017T1025Z",
@@ -40414,8 +43306,8 @@
         "48h": {
           "due": "2026-10-18T11:27:00-04:00",
           "status": "deferred",
-          "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-          "reason": "KDVK supplied 0 temperature observations; 3 required"
+          "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+          "reason": "KCEU supplied 0 temperature observations; 3 required"
         },
         "72h": {
           "forecastId": "20261016T1527Z",
@@ -44615,8 +47507,8 @@
         "72h": {
           "due": "2026-10-18T07:18:00-04:00",
           "status": "deferred",
-          "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-          "reason": "KDVK supplied 0 temperature observations; 3 required"
+          "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+          "reason": "KLQK supplied 0 temperature observations; 3 required"
         }
       }
     },
@@ -74243,8 +77135,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KLQK supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KDVK supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         },
@@ -76511,8 +79403,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KLQK supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KCEU supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         },
@@ -78807,7 +81699,7 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
             "reason": "KCEU supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
@@ -79073,7 +81965,7 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
             "reason": "KDVK supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
@@ -80551,8 +83443,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KLQK supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KCEU supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         },
@@ -80861,8 +83753,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KDVK supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KLEX supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         },
@@ -81127,8 +84019,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KLQK supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KCEU supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         }
@@ -81903,7 +84795,7 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
             "reason": "KLEX supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
@@ -82147,7 +85039,7 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
             "reason": "KLQK supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
@@ -82413,8 +85305,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KLEX supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KCEU supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         }
@@ -83189,8 +86081,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KLEX supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KCEU supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         },
@@ -83433,7 +86325,7 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
             "reason": "KDVK supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
@@ -83699,7 +86591,7 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
             "reason": "KLEX supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
@@ -84302,8 +87194,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KLQK supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KLEX supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         },
@@ -84523,8 +87415,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KLQK supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KCEU supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         },
@@ -84744,8 +87636,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KDVK supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KLEX supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         }
@@ -85347,8 +88239,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KLEX supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KCEU supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         },
@@ -85568,8 +88460,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KCEU supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KDVK supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         },
@@ -85789,8 +88681,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KLQK supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KDVK supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         }
@@ -86402,8 +89294,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KLEX supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KDVK supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         },
@@ -86623,8 +89515,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KCEU supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KLQK supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         },
@@ -86844,8 +89736,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KLQK supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KCEU supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         }
@@ -87373,7 +90265,7 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
             "reason": "KLEX supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
@@ -87594,7 +90486,7 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
             "reason": "KLEX supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
@@ -87815,8 +90707,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KCEU supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KLEX supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         }
@@ -88418,8 +91310,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KLEX supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KDVK supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         },
@@ -88639,8 +91531,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KLQK supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KDVK supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         },
@@ -88860,8 +91752,8 @@
           ],
           "expandedRescore": {
             "status": "deferred",
-            "lastAttemptAt": "2026-10-26T19:56:24.825Z",
-            "reason": "KCEU supplied 0 temperature observations; 3 required",
+            "lastAttemptAt": "2026-10-27T19:25:57.212Z",
+            "reason": "KDVK supplied 0 temperature observations; 3 required",
             "targetScoringVersion": 3
           }
         }
