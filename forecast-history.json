@@ -27,6 +27,1937 @@
   },
   "issues": [
     {
+      "forecastId": "20261122T1324Z",
+      "issuedAt": "2026-11-22T13:24:00Z",
+      "validThrough": "2026-11-25T13:24:00Z",
+      "headline": "A gusty evening cold front ends Kentucky's mild spell before a likely freeze and chilly Tuesday; Upstate rain ends today, dense fog may form tonight, Monday turns warm, then cooler northeast flow returns Tuesday",
+      "sourceFile": "forecast.json",
+      "lockedOriginal": true,
+      "originalForecast": {
+        "schemaVersion": 1,
+        "forecastId": "20261122T1324Z",
+        "issuedAt": "2026-11-22T13:24:00Z",
+        "validThrough": "2026-11-25T13:24:00Z",
+        "timezone": "America/New_York",
+        "headline": "A gusty evening cold front ends Kentucky's mild spell before a likely freeze and chilly Tuesday; Upstate rain ends today, dense fog may form tonight, Monday turns warm, then cooler northeast flow returns Tuesday",
+        "disclaimer": "Independent amateur analysis. This is not an official forecast or warning. Follow the National Weather Service and local authorities during hazardous weather.",
+        "refresh": {
+          "seconds": 300,
+          "cachePolicy": "no-store",
+          "workflow": "Update and commit forecast.json once. GitHub Actions automatically locks the prior issue in forecast-history.json. Then verify the GitHub Pages URL; every Google Sites embed reads the same file and refreshes automatically."
+        },
+        "regions": {
+          "kentucky": {
+            "name": "Central Kentucky",
+            "subtitle": "Danville primary · Lexington comparison",
+            "theme": "blue",
+            "summary": "Mostly sunny, mild weather continues ahead of a northern-stream cold front today. The front crosses this evening and overnight with a band of rain, a gusty wind shift and modest rainfall. Strong cold advection and building high pressure then deliver a much cooler Monday, a likely freeze Monday night and a sunny but chilly Tuesday. Clouds increase Tuesday night as the next southern-stream system approaches, with rain possibly beginning near the Wednesday-morning 72-hour endpoint.",
+            "currentConditions": "At 8:00 AM EST, KDVK reported 37°F with a 32°F dew point, calm wind, clear sky and visibility above 10 miles. At 7:54 AM, KLEX reported 40°F with a 32°F dew point, southeast wind near 6 mph and clear sky. No official NWS point alert was active for Danville at the final issuance check.",
+            "days": [
+              {
+                "date": "2026-11-22",
+                "label": "Sunday / Sunday night",
+                "highF": "67–72",
+                "lowF": "39–47",
+                "precipitation": "5% or less through afternoon; 85–95% evening and overnight",
+                "weatherRegime": "frontal",
+                "hazard": "OFFICIAL NWS ALERT STATUS: no active point alert covers Danville at issuance. Independent concerns are wet roads, briefly reduced visibility and gusts around 20–30 mph with the evening and overnight cold front. Severe thunderstorms, flooding and advisory-level wind are not expected.",
+                "forecast": "Mostly sunny and mild through the afternoon, with a most-likely Danville high near 69°F and southwest wind around 3–8 mph. Clouds increase late. A band of rain reaches the area mainly from about 8 PM–4 AM EST, plus or minus two hours, with 0.05–0.20 inch most likely and an isolated total near 0.25 inch. Wind shifts west and then northwest behind the front, with gusts around 20–30 mph. The most-likely Monday-morning low is near 43°F.",
+                "verificationTargets": {
+                  "wind": {
+                    "sustainedRangeMph": [
+                      3,
+                      12
+                    ],
+                    "gustRangeMph": [
+                      18,
+                      30
+                    ]
+                  },
+                  "visibility": {
+                    "fogProbability": 0.28,
+                    "minimumVisibilityRangeMiles": [
+                      0.5,
+                      10
+                    ]
+                  },
+                  "sky": {
+                    "categories": [
+                      "mostly-clear",
+                      "partly-cloudy",
+                      "mostly-cloudy",
+                      "overcast"
+                    ]
+                  },
+                  "thunderProbability": 0.03,
+                  "hazards": [
+                    "wind",
+                    "fog"
+                  ],
+                  "hazardProbabilities": {
+                    "fog": 0.28,
+                    "wind": 0.08,
+                    "thunder": 0.03,
+                    "heavy-rain": 0.03,
+                    "heat": 0,
+                    "freeze": 0.03
+                  },
+                  "hazardThresholds": {
+                    "fogVisibilityMiles": 1,
+                    "windSustainedMph": 25,
+                    "windGustMph": 35,
+                    "heavyRainHourlyInches": 0.3,
+                    "heatHighF": 95,
+                    "freezeLowF": 32
+                  },
+                  "eventTiming": {
+                    "rain": [
+                      "evening",
+                      "night"
+                    ],
+                    "thunder": [],
+                    "fog": [],
+                    "wind": [
+                      "evening",
+                      "night"
+                    ]
+                  },
+                  "eventWindows": [
+                    {
+                      "event": "rain",
+                      "start": "2026-11-23T01:00:00Z",
+                      "end": "2026-11-23T09:00:00Z",
+                      "probability": 0.88,
+                      "toleranceHours": 2
+                    },
+                    {
+                      "event": "wind",
+                      "start": "2026-11-23T01:00:00Z",
+                      "end": "2026-11-23T12:00:00Z",
+                      "probability": 0.75,
+                      "toleranceHours": 3
+                    }
+                  ],
+                  "confidence": 0.88,
+                  "officialAlerts": {
+                    "status": "none",
+                    "checkedAt": "2026-11-22T13:23:50Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=37.6456,-84.7722"
+                  }
+                }
+              },
+              {
+                "date": "2026-11-23",
+                "label": "Monday / Monday night",
+                "highF": "50–55",
+                "lowF": "24–32",
+                "precipitation": "10% or less very early; 5% or less afterward",
+                "weatherRegime": "post-frontal-high-pressure",
+                "hazard": "No official NWS point alert covers Monday at issuance. The independent concern is a likely freeze Monday night, including a hard freeze in colder sheltered valleys. Daytime north wind will make the sharp temperature drop feel more pronounced; flooding and thunder are not expected.",
+                "forecast": "Any leftover pre-dawn shower exits quickly. Clouds break as colder and drier air arrives on north wind around 7–12 mph with gusts around 18–25 mph. The most-likely high is near 53°F, followed by a clear, cold night. Applying the maintained Danville cold correction gives a most-likely Tuesday-morning low near 28°F, with middle 20s possible in the coldest valleys.",
+                "verificationTargets": {
+                  "wind": {
+                    "sustainedRangeMph": [
+                      7,
+                      11
+                    ],
+                    "gustRangeMph": [
+                      18,
+                      25
+                    ]
+                  },
+                  "visibility": {
+                    "fogProbability": 0.04,
+                    "minimumVisibilityRangeMiles": [
+                      3,
+                      10
+                    ]
+                  },
+                  "sky": {
+                    "categories": [
+                      "mostly-cloudy",
+                      "partly-cloudy",
+                      "mostly-clear",
+                      "clear"
+                    ]
+                  },
+                  "thunderProbability": 0,
+                  "hazards": [
+                    "freeze"
+                  ],
+                  "hazardProbabilities": {
+                    "fog": 0.04,
+                    "wind": 0.05,
+                    "thunder": 0,
+                    "heavy-rain": 0,
+                    "heat": 0,
+                    "freeze": 0.88
+                  },
+                  "hazardThresholds": {
+                    "fogVisibilityMiles": 1,
+                    "windSustainedMph": 25,
+                    "windGustMph": 35,
+                    "heavyRainHourlyInches": 0.3,
+                    "heatHighF": 95,
+                    "freezeLowF": 32
+                  },
+                  "eventTiming": {
+                    "rain": [
+                      "morning"
+                    ],
+                    "thunder": [],
+                    "fog": [],
+                    "wind": [
+                      "morning",
+                      "afternoon"
+                    ]
+                  },
+                  "eventWindows": [],
+                  "confidence": 0.9,
+                  "officialAlerts": {
+                    "status": "none",
+                    "checkedAt": "2026-11-22T13:23:50Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=37.6456,-84.7722"
+                  }
+                }
+              },
+              {
+                "date": "2026-11-24",
+                "label": "Tuesday / early Wednesday",
+                "highF": "44–50",
+                "lowF": "26–34",
+                "precipitation": "5% or less through evening; 10–20% overnight, rising toward 30–50% after 7 AM Wednesday",
+                "weatherRegime": "dry-high-pressure",
+                "hazard": "No official NWS point alert covers Tuesday at issuance. Independent concerns are another freeze Tuesday night and a chilly northeast breeze. Most of the period is dry; rain associated with the next system may begin near the Wednesday-morning 72-hour endpoint.",
+                "forecast": "Sunny and chilly beneath strong high pressure, with a most-likely high near 47°F. Northeast wind runs 5–10 mph with gusts around 15–25 mph. Clouds thicken Tuesday night as low pressure begins organizing to the south. The most-likely early-Wednesday low is near 30°F. The main rain remains beyond this period, although a few showers may reach Danville after about 7 AM Wednesday near the exact endpoint.",
+                "verificationTargets": {
+                  "wind": {
+                    "sustainedRangeMph": [
+                      6,
+                      10
+                    ],
+                    "gustRangeMph": [
+                      15,
+                      22
+                    ]
+                  },
+                  "visibility": {
+                    "fogProbability": 0.03,
+                    "minimumVisibilityRangeMiles": [
+                      3,
+                      10
+                    ]
+                  },
+                  "sky": {
+                    "categories": [
+                      "clear",
+                      "mostly-clear",
+                      "partly-cloudy",
+                      "mostly-cloudy"
+                    ]
+                  },
+                  "thunderProbability": 0,
+                  "hazards": [
+                    "freeze"
+                  ],
+                  "hazardProbabilities": {
+                    "fog": 0.03,
+                    "wind": 0.03,
+                    "thunder": 0,
+                    "heavy-rain": 0.01,
+                    "heat": 0,
+                    "freeze": 0.68
+                  },
+                  "hazardThresholds": {
+                    "fogVisibilityMiles": 1,
+                    "windSustainedMph": 25,
+                    "windGustMph": 35,
+                    "heavyRainHourlyInches": 0.3,
+                    "heatHighF": 95,
+                    "freezeLowF": 32
+                  },
+                  "eventTiming": {
+                    "rain": [
+                      "morning"
+                    ],
+                    "thunder": [],
+                    "fog": [],
+                    "wind": [
+                      "afternoon",
+                      "evening",
+                      "night"
+                    ]
+                  },
+                  "eventWindows": [
+                    {
+                      "event": "rain",
+                      "start": "2026-11-25T12:00:00Z",
+                      "end": "2026-11-25T13:24:00Z",
+                      "probability": 0.45,
+                      "toleranceHours": 3
+                    }
+                  ],
+                  "confidence": 0.79,
+                  "officialAlerts": {
+                    "status": "none",
+                    "checkedAt": "2026-11-22T13:23:50Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=37.6456,-84.7722"
+                  }
+                }
+              }
+            ],
+            "bottomLine": "Central Kentucky remains near 69°F today before an 8 PM–4 AM frontal rain band and a gusty wind shift. Most-likely Danville high/low pairs are 69/43°F, 53/28°F and 47/30°F. Monday and Tuesday are much colder, with a likely hard freeze in sheltered valleys Monday night. The main midweek rain remains beyond this forecast, although a few showers may arrive near the Wednesday-morning endpoint.",
+            "confidence": "High in today's temperature and tonight's frontal passage; high in Monday's cool-down and freeze; high in Tuesday's dry, chilly weather but moderate in the exact Wednesday-morning rain onset",
+            "verificationStations": [
+              "KDVK",
+              "KLEX"
+            ],
+            "radarLinks": [
+              {
+                "label": "NWS KLVX radar",
+                "url": "https://radar.weather.gov/station/KLVX/standard"
+              },
+              {
+                "label": "NWS KJKL radar",
+                "url": "https://radar.weather.gov/station/KJKL/standard"
+              }
+            ]
+          },
+          "upstate": {
+            "name": "Upstate South Carolina",
+            "subtitle": "Clemson primary · Central/Pickens County comparison",
+            "theme": "orange",
+            "summary": "The weakening cold-air wedge keeps Clemson and Central cloudy with lingering light rain and very low ceilings this morning. Rain tapers by early afternoon, but residual moisture and light wind favor fog—possibly locally dense—late tonight into Monday morning. After fog dissipates, complete wedge erosion and pre-frontal warming support an unusually warm, dry Monday. A dry cold front passes Monday night, then high pressure north of the Carolinas rebuilds cool northeast flow Tuesday. Rain from the next southern-stream system may begin near the Wednesday-morning 72-hour endpoint.",
+            "currentConditions": "From 7:50–7:54 AM EST, KCEU reported 57°F with a 56°F dew point, light rain, northeast wind near 6 mph and a 700-foot overcast; KLQK reported 56°F with rain, northeast wind near 3 mph and a 600-foot overcast; KGSP reported 54°F with northeast wind near 10 mph and a 500-foot overcast. No official NWS point alert was active for Clemson or Central. Tempest data was not used.",
+            "days": [
+              {
+                "date": "2026-11-22",
+                "label": "Sunday / Sunday night",
+                "highF": "62–66",
+                "lowF": "46–56",
+                "precipitation": "40–50% through about 1–2 PM; 10% or less afterward",
+                "weatherRegime": "wedge-erosion",
+                "hazard": "OFFICIAL NWS ALERT STATUS: no active point alert covers Clemson or Central at issuance. Independent concerns are wet roads and low ceilings this morning, followed by patchy to locally dense fog late tonight. Flooding, thunder, ice and hazardous wind are not expected.",
+                "forecast": "Cloudy with light rain or drizzle lingering this morning and IFR to MVFR ceilings. Rain ends around midday or early afternoon, followed by gradual ceiling improvement and a most-likely corridor high near 64°F. Northeast wind runs 1–8 mph with early gusts around 12–21 mph, becoming light tonight. Areas of fog develop after roughly 9–10 PM; locally dense fog is possible toward Monday sunrise. The most-likely regional low is near 51°F, with station differences inside the calibrated range.",
+                "verificationTargets": {
+                  "wind": {
+                    "sustainedRangeMph": [
+                      1,
+                      8
+                    ],
+                    "gustRangeMph": [
+                      12,
+                      21
+                    ]
+                  },
+                  "visibility": {
+                    "fogProbability": 0.65,
+                    "minimumVisibilityRangeMiles": [
+                      0.25,
+                      10
+                    ]
+                  },
+                  "sky": {
+                    "categories": [
+                      "overcast",
+                      "mostly-cloudy",
+                      "partly-cloudy"
+                    ]
+                  },
+                  "thunderProbability": 0,
+                  "hazards": [
+                    "fog"
+                  ],
+                  "hazardProbabilities": {
+                    "fog": 0.65,
+                    "wind": 0.02,
+                    "thunder": 0,
+                    "heavy-rain": 0.01,
+                    "heat": 0,
+                    "freeze": 0
+                  },
+                  "hazardThresholds": {
+                    "fogVisibilityMiles": 1,
+                    "windSustainedMph": 25,
+                    "windGustMph": 35,
+                    "heavyRainHourlyInches": 0.3,
+                    "heatHighF": 95,
+                    "freezeLowF": 32
+                  },
+                  "eventTiming": {
+                    "rain": [
+                      "morning",
+                      "afternoon"
+                    ],
+                    "thunder": [],
+                    "fog": [
+                      "night",
+                      "morning"
+                    ],
+                    "wind": [
+                      "morning"
+                    ]
+                  },
+                  "eventWindows": [
+                    {
+                      "event": "rain",
+                      "start": "2026-11-22T13:23:50Z",
+                      "end": "2026-11-22T18:00:00Z",
+                      "probability": 0.5,
+                      "toleranceHours": 2
+                    },
+                    {
+                      "event": "fog",
+                      "start": "2026-11-23T03:00:00Z",
+                      "end": "2026-11-23T14:00:00Z",
+                      "probability": 0.65,
+                      "toleranceHours": 3
+                    }
+                  ],
+                  "confidence": 0.72,
+                  "officialAlerts": {
+                    "status": "none",
+                    "checkedAt": "2026-11-22T13:23:50Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=34.6834,-82.8374"
+                  }
+                }
+              },
+              {
+                "date": "2026-11-23",
+                "label": "Monday / Monday night",
+                "highF": "69–74",
+                "lowF": "45–55",
+                "precipitation": "10% or less",
+                "weatherRegime": "pre-frontal-warm-sector",
+                "hazard": "No official NWS point alert covers Monday at issuance. The independent concern is morning fog, potentially locally dense. After fog dissipates, no meaningful hazardous-weather signal is present; the Monday-night cold front should pass mainly dry.",
+                "forecast": "Areas of fog, potentially locally dense, persist through about 9 AM. Fog and low cloud then lift, followed by partly sunny, dry and unusually warm conditions as the old wedge fully erodes. The most-likely corridor high is near 72°F, with southwest wind around 1–7 mph and gusts below 15 mph. A mostly dry cold front crosses Monday night, turning the wind northeast and increasing clouds. The most-likely regional low is near 50°F.",
+                "verificationTargets": {
+                  "wind": {
+                    "sustainedRangeMph": [
+                      1,
+                      7
+                    ],
+                    "gustRangeMph": [
+                      7,
+                      15
+                    ]
+                  },
+                  "visibility": {
+                    "fogProbability": 0.65,
+                    "minimumVisibilityRangeMiles": [
+                      0.25,
+                      10
+                    ]
+                  },
+                  "sky": {
+                    "categories": [
+                      "overcast",
+                      "mostly-cloudy",
+                      "partly-cloudy"
+                    ]
+                  },
+                  "thunderProbability": 0,
+                  "hazards": [
+                    "fog"
+                  ],
+                  "hazardProbabilities": {
+                    "fog": 0.65,
+                    "wind": 0.01,
+                    "thunder": 0,
+                    "heavy-rain": 0,
+                    "heat": 0,
+                    "freeze": 0
+                  },
+                  "hazardThresholds": {
+                    "fogVisibilityMiles": 1,
+                    "windSustainedMph": 25,
+                    "windGustMph": 35,
+                    "heavyRainHourlyInches": 0.3,
+                    "heatHighF": 95,
+                    "freezeLowF": 32
+                  },
+                  "eventTiming": {
+                    "rain": [],
+                    "thunder": [],
+                    "fog": [
+                      "morning"
+                    ],
+                    "wind": [
+                      "afternoon",
+                      "night"
+                    ]
+                  },
+                  "eventWindows": [
+                    {
+                      "event": "fog",
+                      "start": "2026-11-23T09:00:00Z",
+                      "end": "2026-11-23T14:00:00Z",
+                      "probability": 0.65,
+                      "toleranceHours": 3
+                    }
+                  ],
+                  "confidence": 0.82,
+                  "officialAlerts": {
+                    "status": "none",
+                    "checkedAt": "2026-11-22T13:23:50Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=34.6834,-82.8374"
+                  }
+                }
+              },
+              {
+                "date": "2026-11-24",
+                "label": "Tuesday / early Wednesday",
+                "highF": "55–61",
+                "lowF": "33–43",
+                "precipitation": "5% or less through most of Tuesday night; increasing toward 40–60% near or after 7 AM Wednesday",
+                "weatherRegime": "cold-air-damming",
+                "hazard": "No official NWS point alert covers Tuesday at issuance. Independent concerns are a sharp temperature drop and breezy northeast wind. A widespread freeze is not expected, and the wind should limit fog. Rain may begin near the Wednesday-morning 72-hour endpoint.",
+                "forecast": "Partly to mostly cloudy and considerably cooler behind the front, with a most-likely high near 58°F. East-northeast wind runs 7–12 mph, becoming 10–17 mph Tuesday night, with gusts around 20–26 mph. A classic pressure pattern rebuilds a shallow cold-air wedge. Most of the day and night remain dry, with a most-likely regional low near 38°F. Rain associated with the next southern-stream system may reach Clemson and Central around the Wednesday-morning endpoint.",
+                "verificationTargets": {
+                  "wind": {
+                    "sustainedRangeMph": [
+                      7,
+                      17
+                    ],
+                    "gustRangeMph": [
+                      20,
+                      26
+                    ]
+                  },
+                  "visibility": {
+                    "fogProbability": 0.05,
+                    "minimumVisibilityRangeMiles": [
+                      3,
+                      10
+                    ]
+                  },
+                  "sky": {
+                    "categories": [
+                      "partly-cloudy",
+                      "mostly-cloudy",
+                      "overcast"
+                    ]
+                  },
+                  "thunderProbability": 0,
+                  "hazards": [
+                    "wind"
+                  ],
+                  "hazardProbabilities": {
+                    "fog": 0.05,
+                    "wind": 0.04,
+                    "thunder": 0,
+                    "heavy-rain": 0.01,
+                    "heat": 0,
+                    "freeze": 0.1
+                  },
+                  "hazardThresholds": {
+                    "fogVisibilityMiles": 1,
+                    "windSustainedMph": 25,
+                    "windGustMph": 35,
+                    "heavyRainHourlyInches": 0.3,
+                    "heatHighF": 95,
+                    "freezeLowF": 32
+                  },
+                  "eventTiming": {
+                    "rain": [
+                      "morning"
+                    ],
+                    "thunder": [],
+                    "fog": [],
+                    "wind": [
+                      "afternoon",
+                      "evening",
+                      "night",
+                      "morning"
+                    ]
+                  },
+                  "eventWindows": [
+                    {
+                      "event": "rain",
+                      "start": "2026-11-25T12:00:00Z",
+                      "end": "2026-11-25T13:24:00Z",
+                      "probability": 0.55,
+                      "toleranceHours": 3
+                    }
+                  ],
+                  "confidence": 0.78,
+                  "officialAlerts": {
+                    "status": "none",
+                    "checkedAt": "2026-11-22T13:23:50Z",
+                    "sourceUrl": "https://api.weather.gov/alerts/active?point=34.6834,-82.8374"
+                  }
+                }
+              }
+            ],
+            "bottomLine": "Light rain and very low ceilings taper by early afternoon, followed by a locally dense fog risk tonight into Monday morning. Most-likely corridor high/low pairs are 64/51°F, 72/50°F and 58/38°F. Monday becomes dry and unusually warm; Tuesday turns sharply cooler and breezy as northeast flow rebuilds. Rain may begin near or just after 7 AM Wednesday. Tempest data remains excluded.",
+            "confidence": "Moderate-high in today's rain ending and temperature; high in Monday's warm, dry afternoon but moderate in exact fog coverage; high in Tuesday's cooler northeast-flow regime and moderate in the exact Wednesday-morning rain onset",
+            "verificationStations": [
+              "KCEU",
+              "KLQK",
+              "KGSP"
+            ],
+            "radarLinks": [
+              {
+                "label": "NWS KGSP radar",
+                "url": "https://radar.weather.gov/station/KGSP/standard"
+              },
+              {
+                "label": "NWS KCAE radar",
+                "url": "https://radar.weather.gov/station/KCAE/standard"
+              }
+            ]
+          }
+        },
+        "modelStatus": [
+          {
+            "model": "HRRR",
+            "run": "2026-11-22 11Z partial at the 12:21Z COD audit; fresh 11Z local BUFKIT",
+            "status": "Used only inside its completed short-range horizon for today's temperatures and frontal rain timing."
+          },
+          {
+            "model": "RAP",
+            "run": "2026-11-22 09Z complete at COD; fresh 11Z local BUFKIT",
+            "status": "Used inside its completed horizon for today's temperatures, frontal timing, wind and QPF."
+          },
+          {
+            "model": "RRFS",
+            "run": "2026-11-22 06Z; fresh local BUFKIT through 84 hours",
+            "status": "High-resolution guidance used for frontal timing, the post-frontal freeze and Tuesday temperatures."
+          },
+          {
+            "model": "GEM-RDPS",
+            "run": "2026-11-22 06Z complete",
+            "status": "Regional Canadian guidance used for temperature, wind and frontal checks."
+          },
+          {
+            "model": "GEM-GDPS",
+            "run": "2026-11-22 00Z complete",
+            "status": "Global Canadian guidance used for temperature, precipitation and synoptic checks."
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-11-22 00Z complete",
+            "status": "Deterministic guidance used for temperature, precipitation, fog and frontal timing."
+          },
+          {
+            "model": "GFS",
+            "run": "2026-11-22 06Z complete; fresh local BUFKIT",
+            "status": "Deterministic guidance and fresh station profiles used throughout the 72-hour period."
+          },
+          {
+            "model": "AIFS",
+            "run": "2026-11-22 06Z complete",
+            "status": "AI guidance used for temperature and synoptic evolution."
+          },
+          {
+            "model": "AIGFS",
+            "run": "2026-11-22 06Z complete",
+            "status": "AI guidance used for temperature, precipitation and pattern checks."
+          },
+          {
+            "model": "CFSv2",
+            "run": "2026-11-22 00Z complete",
+            "status": "Coarse guidance used only for broad-pattern consistency."
+          },
+          {
+            "model": "GEFS",
+            "run": "2026-11-22 06Z ensemble guidance",
+            "status": "Ensemble guidance used for spread and precipitation-confidence checks."
+          },
+          {
+            "model": "REFS",
+            "run": "2026-11-22 06Z complete",
+            "status": "Short-range ensemble used only inside its completed horizon."
+          },
+          {
+            "model": "AIFS-ENS",
+            "run": "2026-11-22 06Z complete",
+            "status": "AI ensemble used for spread and synoptic checks."
+          },
+          {
+            "model": "AIGEFS",
+            "run": "2026-11-22 06Z complete",
+            "status": "AI ensemble used for spread and pattern checks."
+          },
+          {
+            "model": "NBM",
+            "run": "Official point forecasts retrieved 2026-11-22 13:14Z",
+            "status": "Fresh official point guidance used for temperature, precipitation, wind, fog and sky cover."
+          }
+        ],
+        "modelBenchmarks": [
+          {
+            "model": "RRFS",
+            "run": "2026-11-22T06:00Z",
+            "region": "kentucky",
+            "station": "KLEX",
+            "targetDate": "2026-11-22",
+            "leadTimeHours": 24,
+            "weatherRegime": "frontal",
+            "sourceUrl": "https://meteor.geol.iastate.edu/data/bufkit/",
+            "note": "Fresh locally processed RRFS BUFKIT profile; probabilities are issuance-time estimates from the profile QPF signal.",
+            "highF": 69,
+            "lowF": 48,
+            "precipitationProbability": 0.9
+          },
+          {
+            "model": "RRFS",
+            "run": "2026-11-22T06:00Z",
+            "region": "kentucky",
+            "station": "KLEX",
+            "targetDate": "2026-11-23",
+            "leadTimeHours": 48,
+            "weatherRegime": "post-frontal-high-pressure",
+            "sourceUrl": "https://meteor.geol.iastate.edu/data/bufkit/",
+            "note": "Fresh locally processed RRFS BUFKIT profile; probabilities are issuance-time estimates from the profile QPF signal.",
+            "highF": 51,
+            "lowF": 30,
+            "precipitationProbability": 0.05
+          },
+          {
+            "model": "RRFS",
+            "run": "2026-11-22T06:00Z",
+            "region": "kentucky",
+            "station": "KLEX",
+            "targetDate": "2026-11-24",
+            "leadTimeHours": 72,
+            "weatherRegime": "dry-high-pressure",
+            "sourceUrl": "https://meteor.geol.iastate.edu/data/bufkit/",
+            "note": "Fresh locally processed RRFS BUFKIT profile; probabilities are issuance-time estimates from the profile QPF signal.",
+            "highF": 46,
+            "lowF": 33,
+            "precipitationProbability": 0.1
+          },
+          {
+            "model": "GFS",
+            "run": "2026-11-22T06:00Z",
+            "region": "kentucky",
+            "station": "KLEX",
+            "targetDate": "2026-11-22",
+            "leadTimeHours": 24,
+            "weatherRegime": "frontal",
+            "sourceUrl": "https://meteor.geol.iastate.edu/data/bufkit/",
+            "note": "Fresh locally processed GFS BUFKIT profile.",
+            "highF": 67,
+            "lowF": 41,
+            "precipitationProbability": 0.9
+          },
+          {
+            "model": "GFS",
+            "run": "2026-11-22T06:00Z",
+            "region": "kentucky",
+            "station": "KLEX",
+            "targetDate": "2026-11-23",
+            "leadTimeHours": 48,
+            "weatherRegime": "post-frontal-high-pressure",
+            "sourceUrl": "https://meteor.geol.iastate.edu/data/bufkit/",
+            "note": "Fresh locally processed GFS BUFKIT profile.",
+            "highF": 51,
+            "lowF": 29,
+            "precipitationProbability": 0.05
+          },
+          {
+            "model": "GFS",
+            "run": "2026-11-22T06:00Z",
+            "region": "kentucky",
+            "station": "KLEX",
+            "targetDate": "2026-11-24",
+            "leadTimeHours": 72,
+            "weatherRegime": "dry-high-pressure",
+            "sourceUrl": "https://meteor.geol.iastate.edu/data/bufkit/",
+            "note": "Fresh locally processed GFS BUFKIT profile.",
+            "highF": 46,
+            "lowF": 31,
+            "precipitationProbability": 0.1
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-11-22T00:00Z",
+            "region": "kentucky",
+            "station": "KDVK",
+            "targetDate": "2026-11-22",
+            "leadTimeHours": 24,
+            "weatherRegime": "frontal",
+            "sourceUrl": "https://weather.cod.edu/forecast/",
+            "note": "Fresh ECMWF point extraction; Monday probability is concentrated near the beginning of the period.",
+            "highF": 70,
+            "lowF": 48,
+            "precipitationProbability": 0.94
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-11-22T00:00Z",
+            "region": "kentucky",
+            "station": "KDVK",
+            "targetDate": "2026-11-23",
+            "leadTimeHours": 48,
+            "weatherRegime": "post-frontal-high-pressure",
+            "sourceUrl": "https://weather.cod.edu/forecast/",
+            "note": "Fresh ECMWF point extraction; Monday probability is concentrated near the beginning of the period.",
+            "highF": 52,
+            "lowF": 32,
+            "precipitationProbability": 0.48
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-11-22T00:00Z",
+            "region": "kentucky",
+            "station": "KDVK",
+            "targetDate": "2026-11-24",
+            "leadTimeHours": 72,
+            "weatherRegime": "dry-high-pressure",
+            "sourceUrl": "https://weather.cod.edu/forecast/",
+            "note": "Fresh ECMWF point extraction; Monday probability is concentrated near the beginning of the period.",
+            "highF": 47,
+            "lowF": 35,
+            "precipitationProbability": 0.19
+          },
+          {
+            "model": "GEM-GDPS",
+            "run": "2026-11-22T00:00Z",
+            "region": "kentucky",
+            "station": "KDVK",
+            "targetDate": "2026-11-22",
+            "leadTimeHours": 24,
+            "weatherRegime": "frontal",
+            "sourceUrl": "https://weather.cod.edu/forecast/",
+            "note": "Fresh GDPS point extraction; Monday probability is residual precipitation near daybreak.",
+            "highF": 69,
+            "lowF": 48,
+            "precipitationProbability": 1
+          },
+          {
+            "model": "GEM-GDPS",
+            "run": "2026-11-22T00:00Z",
+            "region": "kentucky",
+            "station": "KDVK",
+            "targetDate": "2026-11-23",
+            "leadTimeHours": 48,
+            "weatherRegime": "post-frontal-high-pressure",
+            "sourceUrl": "https://weather.cod.edu/forecast/",
+            "note": "Fresh GDPS point extraction; Monday probability is residual precipitation near daybreak.",
+            "highF": 51,
+            "lowF": 26,
+            "precipitationProbability": 0.93
+          },
+          {
+            "model": "GEM-GDPS",
+            "run": "2026-11-22T00:00Z",
+            "region": "kentucky",
+            "station": "KDVK",
+            "targetDate": "2026-11-24",
+            "leadTimeHours": 72,
+            "weatherRegime": "dry-high-pressure",
+            "sourceUrl": "https://weather.cod.edu/forecast/",
+            "note": "Fresh GDPS point extraction; Monday probability is residual precipitation near daybreak.",
+            "highF": 46,
+            "lowF": 29,
+            "precipitationProbability": 0.08
+          },
+          {
+            "model": "NBM",
+            "run": "2026-11-22T13:14Z",
+            "region": "kentucky",
+            "station": "KDVK",
+            "targetDate": "2026-11-22",
+            "leadTimeHours": 24,
+            "weatherRegime": "frontal",
+            "sourceUrl": "https://api.weather.gov/gridpoints/LMK/86,53/forecast",
+            "note": "Fresh official Danville point forecast; lows refer to the following night.",
+            "highF": 69,
+            "lowF": 43,
+            "precipitationProbability": 0.87
+          },
+          {
+            "model": "NBM",
+            "run": "2026-11-22T13:14Z",
+            "region": "kentucky",
+            "station": "KDVK",
+            "targetDate": "2026-11-23",
+            "leadTimeHours": 48,
+            "weatherRegime": "post-frontal-high-pressure",
+            "sourceUrl": "https://api.weather.gov/gridpoints/LMK/86,53/forecast",
+            "note": "Fresh official Danville point forecast; lows refer to the following night.",
+            "highF": 54,
+            "lowF": 27,
+            "precipitationProbability": 0.1
+          },
+          {
+            "model": "NBM",
+            "run": "2026-11-22T13:14Z",
+            "region": "kentucky",
+            "station": "KDVK",
+            "targetDate": "2026-11-24",
+            "leadTimeHours": 72,
+            "weatherRegime": "dry-high-pressure",
+            "sourceUrl": "https://api.weather.gov/gridpoints/LMK/86,53/forecast",
+            "note": "Fresh official Danville point forecast; lows refer to the following night.",
+            "highF": 48,
+            "lowF": 30,
+            "precipitationProbability": 0.13
+          },
+          {
+            "model": "GFS",
+            "run": "2026-11-22T06:00Z",
+            "region": "upstate",
+            "station": "KCEU",
+            "targetDate": "2026-11-22",
+            "leadTimeHours": 24,
+            "weatherRegime": "wedge-erosion",
+            "sourceUrl": "https://weather.cod.edu/forecast/",
+            "note": "Fresh GFS point extraction checked against BUFKIT profiles.",
+            "highF": 60,
+            "lowF": 51,
+            "precipitationProbability": 0.45
+          },
+          {
+            "model": "GFS",
+            "run": "2026-11-22T06:00Z",
+            "region": "upstate",
+            "station": "KCEU",
+            "targetDate": "2026-11-23",
+            "leadTimeHours": 48,
+            "weatherRegime": "pre-frontal-warm-sector",
+            "sourceUrl": "https://weather.cod.edu/forecast/",
+            "note": "Fresh GFS point extraction checked against BUFKIT profiles.",
+            "highF": 70,
+            "lowF": 54,
+            "precipitationProbability": 0.08
+          },
+          {
+            "model": "GFS",
+            "run": "2026-11-22T06:00Z",
+            "region": "upstate",
+            "station": "KCEU",
+            "targetDate": "2026-11-24",
+            "leadTimeHours": 72,
+            "weatherRegime": "cold-air-damming",
+            "sourceUrl": "https://weather.cod.edu/forecast/",
+            "note": "Fresh GFS point extraction checked against BUFKIT profiles.",
+            "highF": 58,
+            "lowF": 43,
+            "precipitationProbability": 0.08
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-11-22T00:00Z",
+            "region": "upstate",
+            "station": "KCEU",
+            "targetDate": "2026-11-22",
+            "leadTimeHours": 24,
+            "weatherRegime": "wedge-erosion",
+            "sourceUrl": "https://weather.cod.edu/forecast/",
+            "note": "Fresh ECMWF point extraction.",
+            "highF": 66,
+            "lowF": 53,
+            "precipitationProbability": 0.84
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-11-22T00:00Z",
+            "region": "upstate",
+            "station": "KCEU",
+            "targetDate": "2026-11-23",
+            "leadTimeHours": 48,
+            "weatherRegime": "pre-frontal-warm-sector",
+            "sourceUrl": "https://weather.cod.edu/forecast/",
+            "note": "Fresh ECMWF point extraction.",
+            "highF": 71,
+            "lowF": 53,
+            "precipitationProbability": 0.2
+          },
+          {
+            "model": "ECMWF IFS",
+            "run": "2026-11-22T00:00Z",
+            "region": "upstate",
+            "station": "KCEU",
+            "targetDate": "2026-11-24",
+            "leadTimeHours": 72,
+            "weatherRegime": "cold-air-damming",
+            "sourceUrl": "https://weather.cod.edu/forecast/",
+            "note": "Fresh ECMWF point extraction.",
+            "highF": 56,
+            "lowF": 41,
+            "precipitationProbability": 0.14
+          },
+          {
+            "model": "GEM-GDPS",
+            "run": "2026-11-22T00:00Z",
+            "region": "upstate",
+            "station": "KCEU",
+            "targetDate": "2026-11-22",
+            "leadTimeHours": 24,
+            "weatherRegime": "wedge-erosion",
+            "sourceUrl": "https://weather.cod.edu/forecast/",
+            "note": "Fresh GDPS point extraction.",
+            "highF": 62,
+            "lowF": 56,
+            "precipitationProbability": 0.97
+          },
+          {
+            "model": "GEM-GDPS",
+            "run": "2026-11-22T00:00Z",
+            "region": "upstate",
+            "station": "KCEU",
+            "targetDate": "2026-11-23",
+            "leadTimeHours": 48,
+            "weatherRegime": "pre-frontal-warm-sector",
+            "sourceUrl": "https://weather.cod.edu/forecast/",
+            "note": "Fresh GDPS point extraction.",
+            "highF": 69,
+            "lowF": 54,
+            "precipitationProbability": 0.48
+          },
+          {
+            "model": "GEM-GDPS",
+            "run": "2026-11-22T00:00Z",
+            "region": "upstate",
+            "station": "KCEU",
+            "targetDate": "2026-11-24",
+            "leadTimeHours": 72,
+            "weatherRegime": "cold-air-damming",
+            "sourceUrl": "https://weather.cod.edu/forecast/",
+            "note": "Fresh GDPS point extraction.",
+            "highF": 54,
+            "lowF": 44,
+            "precipitationProbability": 0.05
+          },
+          {
+            "model": "NBM",
+            "run": "2026-11-22T13:14Z",
+            "region": "upstate",
+            "station": "KCEU",
+            "targetDate": "2026-11-22",
+            "leadTimeHours": 24,
+            "weatherRegime": "wedge-erosion",
+            "sourceUrl": "https://api.weather.gov/gridpoints/GSP/49,34/forecast",
+            "note": "Fresh official Clemson point forecast; lows refer to the following night.",
+            "highF": 65,
+            "lowF": 50,
+            "precipitationProbability": 0.41
+          },
+          {
+            "model": "NBM",
+            "run": "2026-11-22T13:14Z",
+            "region": "upstate",
+            "station": "KCEU",
+            "targetDate": "2026-11-23",
+            "leadTimeHours": 48,
+            "weatherRegime": "pre-frontal-warm-sector",
+            "sourceUrl": "https://api.weather.gov/gridpoints/GSP/49,34/forecast",
+            "note": "Fresh official Clemson point forecast; lows refer to the following night.",
+            "highF": 73,
+            "lowF": 49,
+            "precipitationProbability": 0.09
+          },
+          {
+            "model": "NBM",
+            "run": "2026-11-22T13:14Z",
+            "region": "upstate",
+            "station": "KCEU",
+            "targetDate": "2026-11-24",
+            "leadTimeHours": 72,
+            "weatherRegime": "cold-air-damming",
+            "sourceUrl": "https://api.weather.gov/gridpoints/GSP/49,34/forecast",
+            "note": "Fresh official Clemson point forecast; lows refer to the following night.",
+            "highF": 59,
+            "lowF": 38,
+            "precipitationProbability": 0.05
+          }
+        ],
+        "modelBenchmarkExclusions": [
+          {
+            "model": "HRRR",
+            "reason": "Fresh 11Z guidance was used for the first-day frontal timing and QPF, but its horizon does not cover a comparable full three-day high/following-low sequence."
+          },
+          {
+            "model": "RAP",
+            "reason": "Fresh 11Z profiles and the completed COD run were used inside their horizon, but they do not cover a comparable full three-day sequence."
+          },
+          {
+            "model": "GEM-RDPS",
+            "reason": "Fresh regional fields were used for temperature, wind and frontal checks, but no same-method scoreable three-day station sequence was extracted."
+          },
+          {
+            "model": "AIFS",
+            "reason": "Fresh AI guidance was used for pattern and temperature checks, but no comparable station high/following-low benchmark with calibrated precipitation probability was extracted."
+          },
+          {
+            "model": "AIGFS",
+            "reason": "Fresh AI guidance was used for pattern and precipitation checks, but no comparable station high/following-low benchmark with calibrated precipitation probability was extracted."
+          },
+          {
+            "model": "CFSv2",
+            "reason": "The available guidance is too coarse for station-scale 72-hour benchmarking."
+          },
+          {
+            "model": "GEFS",
+            "reason": "Fresh ensemble guidance was used for spread and precipitation confidence, but a deterministic station pair is not an appropriate ensemble benchmark."
+          },
+          {
+            "model": "REFS",
+            "reason": "The short-range ensemble was used inside its completed horizon, but a deterministic full-period station pair was not available."
+          },
+          {
+            "model": "AIFS-ENS",
+            "reason": "Fresh AI ensemble fields were used for spread checks, but a deterministic station pair is not an appropriate ensemble benchmark."
+          },
+          {
+            "model": "AIGEFS",
+            "reason": "Fresh AI ensemble fields were used for spread and pattern checks, but a deterministic station pair is not an appropriate ensemble benchmark."
+          },
+          {
+            "model": "NAM",
+            "reason": "Operational production ended after November 3; retained files are stale and were excluded."
+          },
+          {
+            "model": "NAM Nest",
+            "reason": "Operational production ended after November 3; retained files are stale and were excluded."
+          },
+          {
+            "model": "SREF",
+            "reason": "Operational production ended; retained files are stale and were excluded."
+          },
+          {
+            "model": "HiResW",
+            "reason": "Operational production ended; retained files are stale and were excluded."
+          }
+        ],
+        "modelImages": [
+          {
+            "model": "HRRR",
+            "field": "Temperature, pressure, wind, moisture, cloud and precipitation fields as available",
+            "run": "2026-11-22 11Z partial at the 12:21Z COD audit; fresh 11Z local BUFKIT",
+            "valid": "Used only within the completed horizon stated for the 72-hour forecast",
+            "url": "https://weather.cod.edu/forecast/",
+            "note": "Used only inside its completed short-range horizon for today's temperatures and frontal rain timing."
+          },
+          {
+            "model": "RAP",
+            "field": "Temperature, pressure, wind, moisture, cloud and precipitation fields as available",
+            "run": "2026-11-22 09Z complete at COD; fresh 11Z local BUFKIT",
+            "valid": "Used only within the completed horizon stated for the 72-hour forecast",
+            "url": "https://weather.cod.edu/forecast/",
+            "note": "Used inside its completed horizon for today's temperatures, frontal timing, wind and QPF."
+          },
+          {
+            "model": "RRFS",
+            "field": "Temperature, pressure, wind, moisture, cloud and precipitation fields as available",
+            "run": "2026-11-22 06Z; fresh local BUFKIT through 84 hours",
+            "valid": "Used only within the completed horizon stated for the 72-hour forecast",
+            "url": "https://weather.cod.edu/forecast/",
+            "note": "High-resolution guidance used for frontal timing, the post-frontal freeze and Tuesday temperatures."
+          },
+          {
+            "model": "GEM-RDPS",
+            "field": "Temperature, pressure, wind, moisture, cloud and precipitation fields as available",
+            "run": "2026-11-22 06Z complete",
+            "valid": "Used only within the completed horizon stated for the 72-hour forecast",
+            "url": "https://weather.cod.edu/forecast/",
+            "note": "Regional Canadian guidance used for temperature, wind and frontal checks."
+          },
+          {
+            "model": "GEM-GDPS",
+            "field": "Temperature, pressure, wind, moisture, cloud and precipitation fields as available",
+            "run": "2026-11-22 00Z complete",
+            "valid": "Used only within the completed horizon stated for the 72-hour forecast",
+            "url": "https://weather.cod.edu/forecast/",
+            "note": "Global Canadian guidance used for temperature, precipitation and synoptic checks."
+          },
+          {
+            "model": "ECMWF IFS",
+            "field": "Temperature, pressure, wind, moisture, cloud and precipitation fields as available",
+            "run": "2026-11-22 00Z complete",
+            "valid": "Used only within the completed horizon stated for the 72-hour forecast",
+            "url": "https://weather.cod.edu/forecast/",
+            "note": "Deterministic guidance used for temperature, precipitation, fog and frontal timing."
+          },
+          {
+            "model": "GFS",
+            "field": "Temperature, pressure, wind, moisture, cloud and precipitation fields as available",
+            "run": "2026-11-22 06Z complete; fresh local BUFKIT",
+            "valid": "Used only within the completed horizon stated for the 72-hour forecast",
+            "url": "https://weather.cod.edu/forecast/",
+            "note": "Deterministic guidance and fresh station profiles used throughout the 72-hour period."
+          },
+          {
+            "model": "AIFS",
+            "field": "Temperature, pressure, wind, moisture, cloud and precipitation fields as available",
+            "run": "2026-11-22 06Z complete",
+            "valid": "Used only within the completed horizon stated for the 72-hour forecast",
+            "url": "https://weather.cod.edu/forecast/",
+            "note": "AI guidance used for temperature and synoptic evolution."
+          },
+          {
+            "model": "AIGFS",
+            "field": "Temperature, pressure, wind, moisture, cloud and precipitation fields as available",
+            "run": "2026-11-22 06Z complete",
+            "valid": "Used only within the completed horizon stated for the 72-hour forecast",
+            "url": "https://weather.cod.edu/forecast/",
+            "note": "AI guidance used for temperature, precipitation and pattern checks."
+          },
+          {
+            "model": "CFSv2",
+            "field": "Temperature, pressure, wind, moisture, cloud and precipitation fields as available",
+            "run": "2026-11-22 00Z complete",
+            "valid": "Used only within the completed horizon stated for the 72-hour forecast",
+            "url": "https://weather.cod.edu/forecast/",
+            "note": "Coarse guidance used only for broad-pattern consistency."
+          },
+          {
+            "model": "GEFS",
+            "field": "Temperature, pressure, wind, moisture, cloud and precipitation fields as available",
+            "run": "2026-11-22 06Z ensemble guidance",
+            "valid": "Used only within the completed horizon stated for the 72-hour forecast",
+            "url": "https://weather.cod.edu/forecast/",
+            "note": "Ensemble guidance used for spread and precipitation-confidence checks."
+          },
+          {
+            "model": "REFS",
+            "field": "Temperature, pressure, wind, moisture, cloud and precipitation fields as available",
+            "run": "2026-11-22 06Z complete",
+            "valid": "Used only within the completed horizon stated for the 72-hour forecast",
+            "url": "https://weather.cod.edu/forecast/",
+            "note": "Short-range ensemble used only inside its completed horizon."
+          },
+          {
+            "model": "AIFS-ENS",
+            "field": "Temperature, pressure, wind, moisture, cloud and precipitation fields as available",
+            "run": "2026-11-22 06Z complete",
+            "valid": "Used only within the completed horizon stated for the 72-hour forecast",
+            "url": "https://weather.cod.edu/forecast/",
+            "note": "AI ensemble used for spread and synoptic checks."
+          },
+          {
+            "model": "AIGEFS",
+            "field": "Temperature, pressure, wind, moisture, cloud and precipitation fields as available",
+            "run": "2026-11-22 06Z complete",
+            "valid": "Used only within the completed horizon stated for the 72-hour forecast",
+            "url": "https://weather.cod.edu/forecast/",
+            "note": "AI ensemble used for spread and pattern checks."
+          }
+        ],
+        "sources": [
+          {
+            "label": "KDVK and KLEX official observations",
+            "timestamp": "2026-11-22T12:55:00Z",
+            "url": "https://aviationweather.gov/api/data/metar?ids=KDVK,KLEX&format=json&taf=false&hours=3"
+          },
+          {
+            "label": "KCEU, KLQK, KGSP and KAND official observations",
+            "timestamp": "2026-11-22T12:54:00Z",
+            "url": "https://aviationweather.gov/api/data/metar?ids=KCEU,KLQK,KGSP,KAND&format=json&taf=false&hours=3"
+          },
+          {
+            "label": "Danville active NWS alerts",
+            "timestamp": "2026-11-22T13:23:50Z",
+            "url": "https://api.weather.gov/alerts/active?point=37.6456,-84.7722"
+          },
+          {
+            "label": "Clemson active NWS alerts",
+            "timestamp": "2026-11-22T13:23:50Z",
+            "url": "https://api.weather.gov/alerts/active?point=34.6834,-82.8374"
+          },
+          {
+            "label": "Central active NWS alerts",
+            "timestamp": "2026-11-22T13:23:50Z",
+            "url": "https://api.weather.gov/alerts/active?point=34.7248,-82.7813"
+          },
+          {
+            "label": "NWS Louisville forecast discussion",
+            "timestamp": "2026-11-22T07:50:00Z",
+            "url": "https://forecast.weather.gov/product.php?format=TXT&glossary=0&issuedby=LMK&product=AFD&site=FSD&version=1"
+          },
+          {
+            "label": "NWS Greenville-Spartanburg forecast discussion",
+            "timestamp": "2026-11-22T11:35:00Z",
+            "url": "https://forecast.weather.gov/product.php?format=txt&glossary=0&issuedby=GSP&product=AFD&site=NWS&version=1"
+          },
+          {
+            "label": "NWS Danville point forecast",
+            "timestamp": "2026-11-22T11:49:00Z",
+            "url": "https://api.weather.gov/gridpoints/LMK/86,53/forecast"
+          },
+          {
+            "label": "NWS Clemson point forecast",
+            "timestamp": "2026-11-22T12:19:40Z",
+            "url": "https://api.weather.gov/gridpoints/GSP/49,34/forecast"
+          },
+          {
+            "label": "NWS Central point forecast",
+            "timestamp": "2026-11-22T12:19:40Z",
+            "url": "https://api.weather.gov/gridpoints/GSP/51,36/forecast"
+          },
+          {
+            "label": "Kentucky Weather Center — Tracking A Big System for Thanksgiving Week",
+            "timestamp": "2026-11-22T12:20:00Z",
+            "url": "https://kyweathercenter.com/?p=79670"
+          },
+          {
+            "label": "COD Southeast radar",
+            "timestamp": "2026-11-22T13:05:00Z",
+            "url": "https://weather.cod.edu/wxdata/satellite_r/regional/southeast/radar/southeast.radar.20261122.130500.gif"
+          },
+          {
+            "label": "GOES-19 Southeast infrared satellite via College of DuPage",
+            "timestamp": "2026-11-22T13:06:18Z",
+            "url": "https://weather.cod.edu/wxdata/satellite/regional/southeast/13/southeast.13.20261122.130618.jpg"
+          },
+          {
+            "label": "College of DuPage model guidance inventory and station-point extraction",
+            "timestamp": "2026-11-22T12:21:08Z",
+            "url": "https://weather.cod.edu/forecast/"
+          },
+          {
+            "label": "Refreshed local BUFKIT 19 GFS, HRRR, RAP and RRFS profiles",
+            "timestamp": "2026-11-22T13:14:00Z",
+            "url": "https://meteor.geol.iastate.edu/data/bufkit/"
+          },
+          {
+            "label": "Open-Meteo deterministic point reconciliation",
+            "timestamp": "2026-11-22T13:10:00Z",
+            "url": "https://api.open-meteo.com/v1/forecast"
+          },
+          {
+            "label": "WPC Extended Forecast Discussion",
+            "timestamp": "2026-11-22T08:02:00Z",
+            "url": "https://origin-east-www-wpc.woc.noaa.gov/discussions/hpcdiscussions.php?disc=pmdepd&fmt=reg&version=0"
+          },
+          {
+            "label": "Cumulative forecast accuracy and correction summary",
+            "timestamp": "2026-11-21T20:31:15.589Z",
+            "url": "https://raw.githubusercontent.com/mjhdp91-bot/amateur-weather-alerts/main/forecast-accuracy.json"
+          },
+          {
+            "label": "Published forecast schema and refresh configuration",
+            "timestamp": "2026-11-21T13:18:00Z",
+            "url": "https://raw.githubusercontent.com/mjhdp91-bot/amateur-weather-alerts/main/forecast.json"
+          }
+        ],
+        "analysisLinks": [
+          {
+            "label": "NWS Louisville forecast discussion",
+            "url": "https://forecast.weather.gov/product.php?format=TXT&glossary=0&issuedby=LMK&product=AFD&site=FSD&version=1"
+          },
+          {
+            "label": "NWS Greenville-Spartanburg forecast discussion",
+            "url": "https://forecast.weather.gov/product.php?format=txt&glossary=0&issuedby=GSP&product=AFD&site=NWS&version=1"
+          },
+          {
+            "label": "Kentucky Weather Center November 22 post",
+            "url": "https://kyweathercenter.com/?p=79670"
+          },
+          {
+            "label": "College of DuPage model guidance",
+            "url": "https://weather.cod.edu/forecast/"
+          },
+          {
+            "label": "College of DuPage radar and satellite",
+            "url": "https://weather.cod.edu/satrad/"
+          },
+          {
+            "label": "Iowa State BUFKIT data",
+            "url": "https://meteor.geol.iastate.edu/data/bufkit/"
+          },
+          {
+            "label": "Open-Meteo model point interface",
+            "url": "https://api.open-meteo.com/v1/forecast"
+          },
+          {
+            "label": "WPC Extended Forecast Discussion",
+            "url": "https://origin-east-www-wpc.woc.noaa.gov/discussions/hpcdiscussions.php?disc=pmdepd&fmt=reg&version=0"
+          },
+          {
+            "label": "Current cumulative forecast accuracy",
+            "url": "https://raw.githubusercontent.com/mjhdp91-bot/amateur-weather-alerts/main/forecast-accuracy.json"
+          },
+          {
+            "label": "Official station observations",
+            "url": "https://aviationweather.gov/data/metar/"
+          }
+        ],
+        "sourceNotes": [
+          "OFFICIAL ALERTS: no active NWS point alert was present for Danville, Clemson or Central at the final issuance check. Official alerts remain separate from outlooks and this independent analysis.",
+          "The Louisville discussion and fresh point guidance support a mild, dry Sunday, a late-evening and overnight frontal rain band, 0.10–0.25 inch of rain, a sharp Monday cool-down, a Monday-night freeze and a dry, chilly Tuesday.",
+          "Chris Bailey's November 22 Kentucky Weather Center post, ‘Tracking A Big System for Thanksgiving Week,’ was accepted as authoritative published source material. Bailey calls for a windy and mild Sunday with 65–70°F temperatures, a gusty line of showers diminishing eastward tonight, much colder Monday and seasonably cold Tuesday. His larger Wednesday–Thanksgiving storm lies mostly beyond this candidate's valid period. Details absent from his post or unreadable in graphics were left unknown.",
+          "The Greenville-Spartanburg discussion supports lingering rain and low ceilings this morning, dense-fog potential Monday morning, a warm Monday, a dry Monday-night frontal passage and redevelopment of classic cold-air damming Tuesday night.",
+          "The Sunday Upstate high spread of roughly 60–66°F is resolved with a calibrated 62–66°F range and most-likely value near 64°F. Current IFR observations and the slower-clearing GFS support the cool side, while ECMWF and official guidance allow the middle 60s.",
+          "Official point guidance supports Danville near 69/43°F, 54/27°F and 48/30°F, and Clemson near 65/50°F, 73/49°F and 59/38°F. Independent calibrated ranges incorporate station corrections and model spread rather than copying the point values.",
+          "COD radar at 13:05Z and GOES-19 infrared imagery at 13:06Z showed Central Kentucky dry ahead of the western shower band while the Upstate remained beneath the Southeast precipitation and low-cloud shield.",
+          "Every currently available COD family was audited at 12:21Z: HRRR, RAP, RRFS, GEM-RDPS, GEM-GDPS, ECMWF, GFS, AIFS, AIGFS, CFSv2, GEFS, REFS, AIFS-ENS and AIGEFS. NAM, NAM Nest, SREF and continental HiResW ended operational production and were excluded as stale or unavailable.",
+          "Fresh locally installed BUFKIT 19 GFS, HRRR, RAP and RRFS profiles were consulted. Kentucky profiles place the frontal rain mainly between 8 PM and 4 AM with 0.05–0.20 inch most likely, while Upstate profiles support Tuesday's stable northeast flow, negligible CAPE and no winter precipitation. Older raw GRIB files were not allowed to override fresh guidance.",
+          "The WPC extended discussion supports a developing eastern U.S. storm beginning Wednesday. Because this candidate ends at 8:24 AM Wednesday, only the initial rain-onset risk is carried; the principal holiday-storm impacts remain beyond the valid period.",
+          "The maintained KDVK −1.5°F low correction and Kentucky empirical 5/5/6°F high and 8°F low widths were applied. Prose supplies one most-likely Danville value inside each calibrated range.",
+          "The maintained KCEU +1.5°F and KLQK −3.5°F low corrections preserve the Clemson–Central nighttime split inside current 10°F regional low ranges. Upstate high widths remain 4/5/6°F.",
+          "The latest completed accuracy summary contains 157 verified checkpoints across 55 forecasts and all-category accuracy of 81.4% overall, including 84.8% for Central Kentucky and 77.9% for the Upstate.",
+          "Current station corrections, empirical lead-specific widths, model records, calibrated confidence, explicit event windows, fog timing and official-alert separation were applied.",
+          "All local times use Eastern Standard Time. The third card includes Tuesday night and early Wednesday because validThrough is exactly 72 elapsed hours after issuance.",
+          "Contains modified ECMWF Open Data, selected and processed for independent forecast research under Creative Commons Attribution 4.0 International (CC BY 4.0).",
+          "Tempest data was not used for Upstate observations, verification, calibration or adjustment.",
+          "This is a candidate only. No repository, forecast history, website, widget or publishing workflow was modified during preparation."
+        ],
+        "accuracyFeedback": {
+          "source": "forecast-accuracy.json",
+          "summaryGeneratedAt": "2026-11-21T20:31:15.589Z",
+          "consultedForecastIds": [
+            "20260924T1205Z",
+            "20260925T1320Z",
+            "20260926T1101Z",
+            "20260928T1153Z",
+            "20260929T1140Z",
+            "20260930T1140Z",
+            "20261002T1025Z",
+            "20261003T1707Z",
+            "20261004T1409Z",
+            "20261005T1300Z",
+            "20261006T1255Z",
+            "20261007T1325Z",
+            "20261008T1248Z",
+            "20261009T1147Z",
+            "20261010T1200Z",
+            "20261011T1250Z",
+            "20261012T1145Z",
+            "20261013T1250Z",
+            "20261014T1115Z",
+            "20261015T1118Z",
+            "20261016T1527Z",
+            "20261017T1025Z",
+            "20261018T1116Z",
+            "20261019T1033Z",
+            "20261020T1046Z",
+            "20261021T1030Z",
+            "20261022T1230Z",
+            "20261022T1332Z",
+            "20261023T0910Z",
+            "20261023T1750Z",
+            "20261024T1255Z",
+            "20261025T1121Z",
+            "20261026T1057Z",
+            "20261027T1157Z",
+            "20261028T1512Z",
+            "20261029T1040Z",
+            "20261030T1210Z",
+            "20261031T1200Z",
+            "20261101T1247Z",
+            "20261102T1550Z",
+            "20261103T1306Z",
+            "20261104T1509Z",
+            "20261105T1204Z",
+            "20261106T1334Z",
+            "20261107T1337Z",
+            "20261108T2029Z",
+            "20261109T1429Z",
+            "20261110T1253Z",
+            "20261111T1311Z",
+            "20261112T1244Z",
+            "20261113T1246Z",
+            "20261115T1505Z",
+            "20261117T1348Z",
+            "20261119T1132Z",
+            "20261120T1341Z"
+          ],
+          "appliedAdjustments": [
+            {
+              "region": "kentucky",
+              "decision": "Applied",
+              "reason": "Applied 157-checkpoint feedback: KDVK low correction, 5/5/6°F high widths, 8°F low widths, explicit frontal timing and low heavy-rain probability."
+            },
+            {
+              "region": "upstate",
+              "decision": "Applied",
+              "reason": "Applied 157-checkpoint feedback: KCEU/KLQK corrections, 4/5/6°F high widths, 10°F low widths, station split, cold-air-damming weights and explicit fog timing."
+            }
+          ],
+          "stationBiasCorrections": [
+            {
+              "region": "kentucky",
+              "station": "KDVK",
+              "metric": "low",
+              "decision": "applied",
+              "adjustmentF": -1.5,
+              "reason": "Applied the current KDVK nighttime correction to Danville low centers."
+            },
+            {
+              "region": "upstate",
+              "station": "KCEU",
+              "metric": "low",
+              "decision": "applied",
+              "adjustmentF": 1.5,
+              "reason": "Applied the current KCEU nighttime correction to Clemson low centers."
+            },
+            {
+              "region": "upstate",
+              "station": "KLQK",
+              "metric": "low",
+              "decision": "applied",
+              "adjustmentF": -3.5,
+              "reason": "Applied the current KLQK nighttime correction to Central/Pickens low centers."
+            }
+          ],
+          "temperatureRangeDecisions": [
+            {
+              "region": "kentucky",
+              "leadTimeHours": 24,
+              "decision": "applied",
+              "highWidthF": 5,
+              "lowWidthF": 8,
+              "reason": "Matches current Kentucky 24-hour empirical widths."
+            },
+            {
+              "region": "kentucky",
+              "leadTimeHours": 48,
+              "decision": "applied",
+              "highWidthF": 5,
+              "lowWidthF": 8,
+              "reason": "Matches current Kentucky 48-hour empirical widths."
+            },
+            {
+              "region": "kentucky",
+              "leadTimeHours": 72,
+              "decision": "applied",
+              "highWidthF": 6,
+              "lowWidthF": 8,
+              "reason": "Matches current Kentucky 72-hour empirical widths."
+            },
+            {
+              "region": "upstate",
+              "leadTimeHours": 24,
+              "decision": "applied",
+              "highWidthF": 4,
+              "lowWidthF": 10,
+              "reason": "Matches current Upstate 24-hour empirical widths."
+            },
+            {
+              "region": "upstate",
+              "leadTimeHours": 48,
+              "decision": "applied",
+              "highWidthF": 5,
+              "lowWidthF": 10,
+              "reason": "Matches current Upstate 48-hour empirical widths."
+            },
+            {
+              "region": "upstate",
+              "leadTimeHours": 72,
+              "decision": "applied",
+              "highWidthF": 6,
+              "lowWidthF": 10,
+              "reason": "Matches current Upstate 72-hour empirical widths."
+            }
+          ],
+          "modelWeighting": [
+            {
+              "region": "kentucky",
+              "leadTimeHours": 24,
+              "weatherRegime": "frontal",
+              "weights": [
+                {
+                  "model": "HRRR",
+                  "weight": 0.12
+                },
+                {
+                  "model": "RAP",
+                  "weight": 0.08
+                },
+                {
+                  "model": "RRFS",
+                  "weight": 0.1
+                },
+                {
+                  "model": "GEM-RDPS",
+                  "weight": 0.08
+                },
+                {
+                  "model": "GFS",
+                  "weight": 0.12
+                },
+                {
+                  "model": "ECMWF IFS",
+                  "weight": 0.12
+                },
+                {
+                  "model": "GEFS",
+                  "weight": 0.12
+                },
+                {
+                  "model": "NBM",
+                  "weight": 0.2
+                },
+                {
+                  "model": "AIGFS",
+                  "weight": 0.06
+                }
+              ],
+              "reason": "Emphasizes fresh HRRR, RAP, RRFS and official guidance for today's warm-sector high and tonight's frontal timing while retaining global and ensemble context.",
+              "decision": "overridden"
+            },
+            {
+              "region": "kentucky",
+              "leadTimeHours": 48,
+              "weatherRegime": "post-frontal-high-pressure",
+              "weights": [
+                {
+                  "model": "RRFS",
+                  "weight": 0.12
+                },
+                {
+                  "model": "GEM-RDPS",
+                  "weight": 0.08
+                },
+                {
+                  "model": "GFS",
+                  "weight": 0.15
+                },
+                {
+                  "model": "ECMWF IFS",
+                  "weight": 0.15
+                },
+                {
+                  "model": "GEFS",
+                  "weight": 0.17
+                },
+                {
+                  "model": "NBM",
+                  "weight": 0.23
+                },
+                {
+                  "model": "AIGFS",
+                  "weight": 0.1
+                }
+              ],
+              "reason": "Raises official and ensemble weight for Monday's cold advection and the Monday-night freeze while excluding retired families.",
+              "decision": "overridden"
+            },
+            {
+              "region": "kentucky",
+              "leadTimeHours": 72,
+              "weatherRegime": "dry-high-pressure",
+              "weights": [
+                {
+                  "model": "RRFS",
+                  "weight": 0.1
+                },
+                {
+                  "model": "GEM-RDPS",
+                  "weight": 0.06
+                },
+                {
+                  "model": "GFS",
+                  "weight": 0.16
+                },
+                {
+                  "model": "ECMWF IFS",
+                  "weight": 0.16
+                },
+                {
+                  "model": "GEFS",
+                  "weight": 0.2
+                },
+                {
+                  "model": "NBM",
+                  "weight": 0.24
+                },
+                {
+                  "model": "AIGFS",
+                  "weight": 0.08
+                }
+              ],
+              "reason": "Uses global, ensemble and official guidance for Tuesday's chilly high-pressure regime and early-Wednesday cloud increase.",
+              "decision": "overridden"
+            },
+            {
+              "region": "upstate",
+              "leadTimeHours": 24,
+              "weatherRegime": "wedge-erosion",
+              "weights": [
+                {
+                  "model": "HRRR",
+                  "weight": 0.08
+                },
+                {
+                  "model": "RAP",
+                  "weight": 0.07
+                },
+                {
+                  "model": "RRFS",
+                  "weight": 0.12
+                },
+                {
+                  "model": "GEM-RDPS",
+                  "weight": 0.08
+                },
+                {
+                  "model": "GFS",
+                  "weight": 0.12
+                },
+                {
+                  "model": "ECMWF IFS",
+                  "weight": 0.12
+                },
+                {
+                  "model": "GEFS",
+                  "weight": 0.13
+                },
+                {
+                  "model": "NBM",
+                  "weight": 0.2
+                },
+                {
+                  "model": "AIGFS",
+                  "weight": 0.05
+                },
+                {
+                  "model": "AIFS",
+                  "weight": 0.03
+                }
+              ],
+              "reason": "Combines current observations, high-resolution, global, ensemble and official guidance for rain ending, ceiling recovery and tonight's fog.",
+              "decision": "overridden"
+            },
+            {
+              "region": "upstate",
+              "leadTimeHours": 48,
+              "weatherRegime": "pre-frontal-warm-sector",
+              "weights": [
+                {
+                  "model": "HRRR",
+                  "weight": 0.226
+                },
+                {
+                  "model": "GFS",
+                  "weight": 0.192
+                },
+                {
+                  "model": "ECMWF IFS",
+                  "weight": 0.173
+                },
+                {
+                  "model": "GEFS",
+                  "weight": 0.217
+                },
+                {
+                  "model": "RRFS",
+                  "weight": 0.096
+                },
+                {
+                  "model": "NBM",
+                  "weight": 0.096
+                }
+              ],
+              "reason": "Applies the current verified pre-frontal warm-sector blend for Monday's fog clearing and warm rebound.",
+              "decision": "overridden"
+            },
+            {
+              "region": "upstate",
+              "leadTimeHours": 72,
+              "weatherRegime": "cold-air-damming",
+              "weights": [
+                {
+                  "model": "RRFS",
+                  "weight": 0.12
+                },
+                {
+                  "model": "GEM-RDPS",
+                  "weight": 0.08
+                },
+                {
+                  "model": "GEM-GDPS",
+                  "weight": 0.06
+                },
+                {
+                  "model": "GFS",
+                  "weight": 0.13
+                },
+                {
+                  "model": "ECMWF IFS",
+                  "weight": 0.13
+                },
+                {
+                  "model": "GEFS",
+                  "weight": 0.19
+                },
+                {
+                  "model": "NBM",
+                  "weight": 0.2
+                },
+                {
+                  "model": "AIGFS",
+                  "weight": 0.06
+                },
+                {
+                  "model": "AIFS",
+                  "weight": 0.03
+                }
+              ],
+              "reason": "Balances regional, global, ensemble, AI and official guidance for Tuesday's renewed northeast flow and cooler temperatures.",
+              "decision": "overridden"
+            }
+          ],
+          "learningDecisions": [
+            {
+              "region": "kentucky",
+              "category": "temperature",
+              "decision": "apply-kdvk-correction-and-current-widths",
+              "reason": "Uses the KDVK low correction and current lead-specific calibrated widths."
+            },
+            {
+              "region": "kentucky",
+              "category": "precipitation",
+              "decision": "concentrate-rain-in-eight-pm-to-four-am-window",
+              "reason": "Fresh HRRR, RAP, GFS and RRFS profiles agree that the frontal band occurs tonight and remains modest in total rainfall."
+            },
+            {
+              "region": "kentucky",
+              "category": "fog",
+              "decision": "allow-patchy-low-visibility-behind-rain",
+              "reason": "Near-saturated conditions within or immediately behind the band support patchy low visibility but not widespread dense fog."
+            },
+            {
+              "region": "kentucky",
+              "category": "wind",
+              "decision": "time-gusts-and-shift-with-front",
+              "reason": "A mild southwest flow precedes a brief gusty frontal shift to west and northwest, below advisory criteria."
+            },
+            {
+              "region": "kentucky",
+              "category": "hazards",
+              "decision": "separate-gusty-rain-and-freeze-from-alerts",
+              "reason": "Tonight's gusty rain and Monday-night freeze are independent concerns; no official alert is claimed."
+            },
+            {
+              "region": "kentucky",
+              "category": "timing",
+              "decision": "use-explicit-frontal-window-and-late-endpoint-rain-signal",
+              "reason": "Two- to three-hour tolerances represent frontal spread and the uncertain early-Wednesday approach without false precision."
+            },
+            {
+              "region": "upstate",
+              "category": "temperature",
+              "decision": "apply-station-split-and-cool-side-wedge-range",
+              "reason": "Station corrections and current IFR wedge observations preserve the local nighttime split and support a cooler Sunday center."
+            },
+            {
+              "region": "upstate",
+              "category": "precipitation",
+              "decision": "taper-current-rain-by-early-afternoon",
+              "reason": "Current radar, observations and official guidance support only light additional rain before a dry Monday and Tuesday."
+            },
+            {
+              "region": "upstate",
+              "category": "fog",
+              "decision": "retain-explicit-dense-fog-window",
+              "reason": "Saturated low levels, light wind and the NWS discussion support a 65% late-tonight to Monday-morning fog probability."
+            },
+            {
+              "region": "upstate",
+              "category": "wind",
+              "decision": "rebuild-northeast-flow-tuesday",
+              "reason": "The dry Monday-night front and high pressure to the north support a cooler, breezier northeast flow Tuesday."
+            },
+            {
+              "region": "upstate",
+              "category": "hazards",
+              "decision": "separate-wet-road-fog-and-breezy-concerns-from-alerts",
+              "reason": "Low ceilings, wet roads, fog and Tuesday's breeze are independent concerns; no official alert is claimed."
+            },
+            {
+              "region": "upstate",
+              "category": "timing",
+              "decision": "use-rain-ending-fog-and-wednesday-approach-windows",
+              "reason": "Explicit windows capture today's rain ending, tonight's fog and the possible Wednesday-morning rain onset."
+            }
+          ]
+        },
+        "intermediateUpdatePolicy": {
+          "evaluationCadenceHours": 6,
+          "temperatureDeviationF": 4,
+          "precipitationProbabilityChange": 0.25,
+          "timingShiftHours": 3,
+          "hazardProbabilityChange": 0.25,
+          "newOfficialAlert": true
+        },
+        "verification": {
+          "historyUrl": "forecast-history.json",
+          "officialOnly": true,
+          "upstateTempestExcluded": true,
+          "checkpoints": [
+            {
+              "hours": 24,
+              "due": "2026-11-23T13:24:00Z",
+              "status": "pending"
+            },
+            {
+              "hours": 48,
+              "due": "2026-11-24T13:24:00Z",
+              "status": "pending"
+            },
+            {
+              "hours": 72,
+              "due": "2026-11-25T13:24:00Z",
+              "status": "pending"
+            }
+          ]
+        }
+      },
+      "centralKentucky": {
+        "days": [
+          {
+            "date": "2026-11-22",
+            "highF": "67–72",
+            "lowF": "39–47",
+            "precipitation": "5% or less through afternoon; 85–95% evening and overnight"
+          },
+          {
+            "date": "2026-11-23",
+            "highF": "50–55",
+            "lowF": "24–32",
+            "precipitation": "10% or less very early; 5% or less afterward"
+          },
+          {
+            "date": "2026-11-24",
+            "highF": "44–50",
+            "lowF": "26–34",
+            "precipitation": "5% or less through evening; 10–20% overnight, rising toward 30–50% after 7 AM Wednesday"
+          }
+        ]
+      },
+      "upstateSouthCarolina": {
+        "days": [
+          {
+            "date": "2026-11-22",
+            "highF": "62–66",
+            "lowF": "46–56",
+            "precipitation": "40–50% through about 1–2 PM; 10% or less afterward"
+          },
+          {
+            "date": "2026-11-23",
+            "highF": "69–74",
+            "lowF": "45–55",
+            "precipitation": "10% or less"
+          },
+          {
+            "date": "2026-11-24",
+            "highF": "55–61",
+            "lowF": "33–43",
+            "precipitation": "5% or less through most of Tuesday night; increasing toward 40–60% near or after 7 AM Wednesday"
+          }
+        ]
+      },
+      "verification": {
+        "24h": {
+          "due": "2026-11-23T13:24:00Z",
+          "status": "pending"
+        },
+        "48h": {
+          "due": "2026-11-24T13:24:00Z",
+          "status": "pending"
+        },
+        "72h": {
+          "due": "2026-11-25T13:24:00Z",
+          "status": "pending"
+        }
+      }
+    },
+    {
       "forecastId": "20261121T1318Z",
       "issuedAt": "2026-11-21T13:18:00Z",
       "validThrough": "2026-11-24T13:18:00Z",
